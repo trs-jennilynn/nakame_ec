@@ -534,20 +534,6 @@ div#complete_area .shop_information .name {
 	line-height: 1.33;
 	text-align:center;
 }
-i.icon, i.icon-nopad {
-	display: inline;
-	font-family: EntypoIcon, EntypoSocialIcon;
-	font-size: 2.5em;
-	font-style: normal;
-	font-weight: normal !important;
-	line-height: 0.1em;
-	padding: 0 0.05em 0 0;
-	speak: none;
-	text-align: center;
-	text-decoration: none;
-	vertical-align: -0.11em;
-	-webkit-font-smoothing: antialiased;
-}
 .clearfix {
 	overflow: hidden;
 }
@@ -1147,4 +1133,8 @@ body.LC_Page_User {
 }
 span.btn-blue i{
 	font-size:1.3em !important;
+}
+.pepabo-pc-footer .suzuri-navs .suzuri-share-buttons li,
+.copyrights{
+	text-align:left !important;
 }
