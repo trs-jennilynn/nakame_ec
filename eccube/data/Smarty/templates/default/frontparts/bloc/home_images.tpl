@@ -45,13 +45,13 @@
                                </span>
                             </span>
                             <span class="bold visible-phone">
-                                <i class="icon"></i>
+                                <i class="icon">&#59136;</i>
                                     <span class="kerning">無料ユーザー登録</span>
                             </span>
                         </a>
-                        <a class="signup-button btn-twitter btn-l" data-no-turbolink="true" href="/auth/twitter" target="_self">
+                        <a class="signup-button btn-twitter btn-l" data-no-turbolink="true" href="https://api.twitter.com/oauth/authenticate?lang=ja&amp;oauth_token=rJYCqfZml4tpUNR0jy06uWg2Pe1JANMB" target="_self">
                             <span class="bold">
-                                <i class="icon"></i>
+                                <i class="icon"><img class="splash-tagline" src="<!--{$TPL_URLPATH}-->img/common/twitter.png" /></i>
                                     <span class="kerning"></span>
                                         Twitterではじめる
                             </span>

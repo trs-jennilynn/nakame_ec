@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.27, created on 2014-10-03 18:39:10
+<?php /* Smarty version 2.6.27, created on 2014-10-07 19:37:19
          compiled from C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'script_escape', 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl', 42, false),array('modifier', 'strlen', 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl', 48, false),array('modifier', 'h', 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl', 50, false),array('modifier', 'number_format', 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl', 130, false),array('modifier', 'sfPrePoint', 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl', 160, false),array('modifier', 'nl2br_html', 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl', 205, false),array('modifier', 'sfGetErrorColor', 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl', 222, false),array('modifier', 'default', 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl', 251, false),array('function', 'html_options', 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl', 223, false),)), $this); ?>
@@ -292,7 +292,7 @@ products/list.php?category_id=<?php echo ((is_array($_tmp=$this->_tpl_vars['arrR
                         <?php endif; ?>
 
                         <!--★数量★-->
-                        <dl class="quantity">
+                        <!--<dl class="quantity">
                             <dt>数量：</dt>
                             <dd><input type="text" class="box60" name="quantity" value="<?php echo ((is_array($_tmp=((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['arrForm']['quantity']['value'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)))) ? $this->_run_mod_handler('default', true, $_tmp, 1) : smarty_modifier_default($_tmp, 1)))) ? $this->_run_mod_handler('h', true, $_tmp) : smarty_modifier_h($_tmp)); ?>
 " maxlength="<?php echo ((is_array($_tmp=@INT_LEN)) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
@@ -303,16 +303,14 @@ products/list.php?category_id=<?php echo ((is_array($_tmp=$this->_tpl_vars['arrR
 </span>
                                 <?php endif; ?>
                             </dd>
-                        </dl>
+                        </dl>-->
 
                         <div class="cartin">
                             <div class="cartin_btn">
                                 <div id="cartbtn_default">
                                     <!--★カゴに入れる★-->
-                                    <a href="javascript:void(document.form1.submit())">
-                                        <img class="hover_change_image" src="<?php echo ((is_array($_tmp=$this->_tpl_vars['TPL_URLPATH'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
-img/button/btn_cartin.jpg" alt="カゴに入れる" />
-                                    </a>
+                                    <a class="btn-l btn-blue btn-block mar-b-1" href="#" id="cart-in" target="_self"><i class="icon hidden-phone"><img src="<?php echo ((is_array($_tmp=$this->_tpl_vars['TPL_URLPATH'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
+img/common/cart_on.png" alt="カゴの中を見る" /></i><span>カートにいれる</span></a>
                                 </div>
                             </div>
                         </div>

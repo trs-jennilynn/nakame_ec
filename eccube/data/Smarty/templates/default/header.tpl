@@ -102,14 +102,14 @@ loadScript('../platform.twitter.com/oct.js', function() {
                 <a href="index.html"><img alt="SUZURI by GMOペパボ" class="header-logo hidden-phone" src="https://dijsur42hqnz1.cloudfront.net/assets/common/suzuri_by_gmopepabo-ac9967b6b53adef0f189f950e33e56a0.svg" />
                 <img alt="SUZURI by GMOペパボ" class="header-logo visible-phone" src="https://dijsur42hqnz1.cloudfront.net/assets/common/suzuri_by_gmopepabo_sp-196b7335cf5d2bbf4f7c028b7b7d5bea.svg" />
                 </a></div>
-                <ul class='header-navs'><li class='header-nav'><span class='btn-s btn-yellow' id='open-cart'><i class='icon'>&#59197;</i><span id='nav-cart-count'>
+                <ul class='header-navs'><li class='header-nav'><span class='btn-s btn-yellow' id='open-cart'><i class='icon'><img class="hover_change_image" src="<!--{$TPL_URLPATH}-->img/common/cart.png" alt="カゴの中を見る" /></i><span id='nav-cart-count'>
                 0</span>
                 </span></li><li class='header-nav overlay-nav-open'><span class='btn-s btn-blue'><i class='icon'>&#9776;</i><span class='hidden-phone'>メニュー</span></span></li></ul>
             </div>
         </header>
     <nav id='overlay-nav'>
         <div id='overlay-nav-content'>
-            <span class='overlay-nav-close btn-s btn-red btn-close'><i class='icon'>&#10060;</i>CLOSE</span>
+            <span class='overlay-nav-close btn-s btn-red btn-close'><i class='icon'>x</i>CLOSE</span>
             <ul class='account-navs'>
                 <li class='account-nav'>
                 <a href="signup.html"><span class='account-nav-label account-nav-label-m kerning'>
@@ -146,10 +146,10 @@ loadScript('../platform.twitter.com/oct.js', function() {
                 </span>
                 </a></li>
                 <li class='account-nav'>
-                <a href="terms.html"><span class='account-nav-label account-nav-label-s kerning'>
+                <a href="<!--{$smarty.const.TOP_URL}-->entry/kiyaku.php"><span class='account-nav-label account-nav-label-s kerning'>
                 会員規約
                 </span>
-                </a><span>・</span><a href="trading.html"><span class='account-nav-label account-nav-label-s kerning'>
+                </a><span>・</span><a href="<!--{$smarty.const.TOP_URL}-->order"><span class='account-nav-label account-nav-label-s kerning'>
                 特定商取引法に基づく表記
                 </span>
                 </a></li>

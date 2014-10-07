@@ -16,7 +16,7 @@
 }
 .LC_Page_Products_Detail .signup-header, .notification-header {
 	position: relative;
-	top: 3em;
+	top: 2.5em;
 	text-align: center;
 	z-index: 9;
 	margin-bottom: 70px;
@@ -44,6 +44,9 @@
 .LC_Page_Products_Detail .mar-b-1 {
 	margin: 15px 0 1em 0;
 }
+.LC_Page_Products_Detail .mar-b-1:hover{
+	text-decoration:none;
+}
 .LC_Page_Products_Detail #product-favorites {
 	display: inline-block;
 	left: 0;
@@ -58,6 +61,13 @@
 	background-color: #e83929;
 	border: 0;
 	color: white;
+}
+.LC_Page_Products_Detail #detailrightbloc .cart_area{
+	background-color:transparent;
+	border:0px;
+}
+.LC_Page_Products_Detail .btn-s:hover {
+	text-decoration:none;
 }
 .LC_Page_Products_Detail .btn-s {
 	font-size: 100%;
@@ -160,6 +170,16 @@
 .LC_Page_Products_Detail #main_column.colnum1 #detailrightbloc{
 	padding-top:30px;
 }
-.LC_Page_Products_Detail 
-.LC_Page_Products_Detail 
-.LC_Page_Products_Detail 
+.LC_Page_Products_Detail #main_column.colnum1 div#detailphotobloc{
+	width: 56%;
+}
+.LC_Page_Products_Detail #main_column.colnum1 #detailrightbloc{
+	width: 42%;
+}
+.LC_Page_Products_Detail .product-spec li table{
+	width:59%;
+}
+.LC_Page_Products_Detail .product-spec li table th,
+.LC_Page_Products_Detail .product-spec li table td{
+	border-right:0px;
+}
