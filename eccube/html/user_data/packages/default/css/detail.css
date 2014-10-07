@@ -65,6 +65,7 @@
 .LC_Page_Products_Detail #detailrightbloc .cart_area{
 	background-color:transparent;
 	border:0px;
+	padding: 10px 10px 10px 0;
 }
 .LC_Page_Products_Detail .btn-s:hover {
 	text-decoration:none;
@@ -174,12 +175,19 @@
 	width: 56%;
 }
 .LC_Page_Products_Detail #main_column.colnum1 #detailrightbloc{
-	width: 42%;
+	width: 40%;
+	padding-right: 25px;
 }
 .LC_Page_Products_Detail .product-spec li table{
 	width:59%;
 }
+.LC_Page_Products_Detail .product-spec li table th{
+	background-color:transparent;
+}
 .LC_Page_Products_Detail .product-spec li table th,
 .LC_Page_Products_Detail .product-spec li table td{
 	border-right:0px;
+}
+.LC_Page_Products_Detail .btn-blue .hidden-phone{
+	padding:0 0.1em 0 0;
 }
