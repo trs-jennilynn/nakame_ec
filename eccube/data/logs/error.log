@@ -1,0 +1,34 @@
+2014/10/02 13:44:49 [/admin/index.php] Warning(E_WARNING): fopen(http://nakame_ec.localhost:80/admin/install): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\SC_Utils.php(84)] from 127.0.0.1
+2014/10/02 15:54:36 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/02 15:54:36 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/02 15:54:36 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/03 11:14:40 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/03 11:14:40 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/03 11:14:40 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/03 15:27:41 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/03 15:27:41 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/03 15:27:41 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/03 15:27:49 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/03 15:27:49 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/03 15:27:49 [/admin/system/editdb.php] Warning(E_WARNING): array_search() expects parameter 2 to be array, object given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\system\LC_Page_Admin_System_Editdb.php(195)] from 127.0.0.1
+2014/10/03 16:32:43 [/products/detail.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/products/detail.tpl line 117]: syntax error: unrecognized tag: //$smarty.const.SALE_PRICE_TITLE (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\products\detail.php(29): LC_Page_Products_Detail_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\products\LC_Page_Products_Detail_Ex.php(54): LC_Page_Products_Detail->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\products\LC_Page_Products_Detail.php(91): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
