@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.27, created on 2014-10-02 13:53:27
+<?php /* Smarty version 2.6.27, created on 2014-10-07 12:49:04
          compiled from design/header.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'script_escape', 'design/header.tpl', 27, false),array('modifier', 'h', 'design/header.tpl', 40, false),)), $this); ?>

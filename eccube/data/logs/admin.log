@@ -146,3 +146,17 @@
 2014/10/03 19:28:17 [/admin/design/index.php] access : user=admin auth=0 sid=n5f58hfho4k6erjfv3h4igvhd7 from 127.0.0.1
 2014/10/03 19:29:50 [/admin/design/index.php] access : user=admin auth=0 sid=n5f58hfho4k6erjfv3h4igvhd7 from 127.0.0.1
 2014/10/03 19:29:50 [/admin/design/index.php] access : user=admin auth=0 sid=n5f58hfho4k6erjfv3h4igvhd7 from 127.0.0.1
+2014/10/07 12:48:57 [/admin/index.php] access error. from 127.0.0.1
+2014/10/07 12:48:57 [/admin/index.php] login: user=admin(2) auth=0 lastlogin=2014-10-03 11:01:38 sid= from 127.0.0.1
+2014/10/07 12:48:57 [/admin/home.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 12:49:03 [/admin/design/header.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 12:51:31 [/admin/design/header.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 12:51:55 [/admin/design/header.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 12:52:10 [/admin/design/header.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 12:56:19 [/admin/design/header.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 13:00:12 [/admin/design/header.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 13:02:29 [/admin/design/header.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 13:06:34 [/admin/design/header.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 13:07:21 [/admin/design/header.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 13:08:03 [/admin/design/header.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1
+2014/10/07 13:09:26 [/admin/design/index.php] access : user=admin auth=0 sid=0duskng3295tie4k9lagpehf15 from 127.0.0.1

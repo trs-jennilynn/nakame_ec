@@ -1138,3 +1138,13 @@ body.LC_Page_User {
 	background: #fbca4d;
 	height:100%;
 }
+
+.modal-inner{
+	height:auto !important;
+}
+.hint{
+	background-image: url("../img/common/hint-surisuri-918d1dca603af770f710529a1b5d3cef.gif") !important;
+}
+span.btn-blue i{
+	font-size:1.3em !important;
+}
