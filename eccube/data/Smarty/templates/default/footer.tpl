@@ -99,10 +99,10 @@
 <a data-no-turbolink="true" href="signup.html">ユーザー登録
 </a></li>
 <li>
-<a data-no-turbolink="true" href="terms.html">会員規約
+<a data-no-turbolink="true" href="<!--{$smarty.const.TOP_URL}-->entry/kiyaku.php">会員規約
 </a></li>
 <li>
-<a data-no-turbolink="true" href="trading.html">特定商取引法に基づく表記
+<a data-no-turbolink="true" href="<!--{$smarty.const.TOP_URL}-->order">特定商取引法に基づく表記
 </a></li>
 <li>
 <a href="http://pepabo.com/company/privacy/" target="_blank">プライバシーポリシー

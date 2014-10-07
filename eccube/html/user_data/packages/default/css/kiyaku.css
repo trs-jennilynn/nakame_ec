@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+.LC_Page_Entry_Kiyaku #main_column{
+	padding:0px !important;
+}
+.LC_Page_Entry_Kiyaku .signup-header a,
+.LC_Page_Entry_Kiyaku .signup-header a:hover{
+	color:#fff;
+	text-decoration:none;
+}

@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+.LC_Page_Order #main_column{
+	padding:0px !important;
+}
+
+.LC_Page_Order .signup-header a,
+.LC_Page_Order .signup-header a:hover{
+	color:#fff;
+	text-decotation:none;
+}
