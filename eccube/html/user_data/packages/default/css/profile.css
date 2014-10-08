@@ -18,3 +18,29 @@
 	margin-top: 13px;
 	display: block;
 }
+
+
+.LC_Page_Profile_Settings{
+	background: #ede4cd;
+	background-size: cover;
+}
+.LC_Page_Profile_Settings #container{
+	background:transparent;
+}
+.LC_Page_Profile_Settings .container{
+	margin:0px;
+	max-width:100% !important;
+}
+.LC_Page_Profile_Settings .section-pad{
+	padding:4em 0 0 0px;
+}
+.LC_Page_Profile_Settings .columns-2column{
+	padding:0  !important;
+}
+.LC_Page_Profile_Settings .page-navs{
+	margin-left: 3%;
+}
+.LC_Page_Profile_Settings .columns.columns-2column .column{
+	width: 47%;
+	margin-left: 3%;
+}

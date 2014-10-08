@@ -1,6 +1,6 @@
 <?php
-require_once '../../../require.php';
-require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Materials_New_Ex.php';
+require_once '../require.php';
+require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
  * ユーザーカスタマイズ用のページクラス
@@ -9,7 +9,7 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Materials_New_Ex.php';
  *
  * @package Page
  */
-class LC_Page_Materials_New extends LC_Page_Materials_New_Ex
+class LC_Page_Profile_Settings extends LC_Page_Ex
 {
     /**
      * Page を初期化する.
@@ -43,6 +43,6 @@ class LC_Page_Materials_New extends LC_Page_Materials_New_Ex
     }
 }
 
-$objPage = new LC_Page_Materials_New();
+$objPage = new LC_Page_Profile_Settings();
 $objPage->init();
 $objPage->process();

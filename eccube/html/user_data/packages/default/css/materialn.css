@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+.LC_Page_Materials_New .steps{
+	padding: 2.4em 0 0 0;
+}
+
+.LC_Page_Materials{
+	background: #fbca4d;
+}
+.LC_Page_Materials #container{
+	background:transparent;
+}
+.LC_Page_Materials .material .material-info {
+	padding: 0 5px;
+	text-align: center;
+	color: #474a4d;
+	background: white;
+	line-height: 3em;
+	z-index: 99;
+}
+.LC_Page_Materials .material.material-new {
+	background: rgba(255,255,255,0.3);
+}
+.LC_Page_Materials .material.material-new .material-info{
+	color: rgba(0,0,0,0.5);
+	background: transparent;
+}
+.LC_Page_Materials .material {
+	position: relative;
+	line-height: 0;
+	background: white;
+	z-index: 1;
+}

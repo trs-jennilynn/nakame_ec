@@ -21,8 +21,6 @@
  *}-->
 
 <!--{strip}-->
-    <div class="section">
-        <div class="container">
             <div class="page pad-v-6">
                 <ul class="materials">
                     <li class="material material-new">
@@ -64,6 +62,4 @@
                     </li>
                 </ul>
             </div>
-        </div>
-    </div>
 <!--{/strip}-->

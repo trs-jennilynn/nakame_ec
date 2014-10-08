@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+.LC_Page_Favorite{
+	background: rgba(232,57,41,0.1);
+	background-size: cover;
+}
+.LC_Page_Favorite #container{
+	background:transparent;
+}
+.LC_Page_Favorite i.text-red{
+	font-size:2em;
+}

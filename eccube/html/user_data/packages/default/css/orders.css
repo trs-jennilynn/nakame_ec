@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+.LC_Page_Orders .section-pad{
+	padding:0px;
+}
+.LC_Page_Orders {
+	background: #ede4cd;
+	background-size: cover;
+}
+.LC_Page_Orders #container{
+	background:transparent;
+}
+.LC_Page_Orders .container{
+	padding:3.4em 3em  !important;
+}
+.LC_Page_Orders h2 {
+	font-size: 158%;
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+.LC_Page_Orders .totals {
+	overflow: hidden;
+}
+.LC_Page_Orders .totals {
+	background-color: white;
+}
+.LC_Page_Orders .mar-b-2 {
+	margin: 0 0 2em 0;
+}
+.LC_Page_Orders .totals .total {
+	width: 50%;
+	float: left;
+	margin-right: 0%;
+}
+.LC_Page_Orders .totals .total {
+	text-align: center;
+}
+
+.LC_Page_Orders .totals .total .total-content {
+	padding: 1em 1.5em;
+}
+.LC_Page_Orders .totals .total .title {
+	text-align: left;
+}
+.LC_Page_Orders .totals .total .title span{
+	border-bottom: 1px solid #000;
+	padding-bottom: 15px;
+}
+.LC_Page_Orders .totals .total .number {
+	padding: 1em 0;
+	display: block;
+	font-size: 258%;
+	line-height: 1;
+}
+.LC_Page_Orders .small {
+	font-size: 86%;
+	letter-spacing: 0.1;
+	line-height: 1.4;
+}
+.LC_Page_Orders .totals .total:last-child {
+	width: 50%;
+	float: right;
+	margin-right: 0;
+}
+.LC_Page_Orders .totals .total.current-toribun {
+	background-color: white;
+}
+.LC_Page_Orders .btn-disabled {
+	filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFAFAFB0', endColorstr='#FF7C7C7D');
+	background-color: #afafb0;
+	border: 0;
+	color: #595857;
+	cursor: not-allowed;
+}
+.LC_Page_Orders .mar-b-05 {
+	margin: 0 0 0.5em 0;
+}
+.LC_Page_Orders .block-table-responsive {
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.LC_Page_Orders .details, .controller-account-orders .earnings {
+	background-color: white;
+}
+.LC_Page_Orders .block-table .block-tr {
+	display: table-row;
+}
+.LC_Page_Orders .block-table .block-th {
+	padding: 0.75em;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	display: table-cell;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	color: #595857;
+}
+.LC_Page_Orders th.visible-desktop, td.visible-desktop, .block-th.visible-desktop, .block-td.visible-desktop {
+	display: table-cell !important;
+}
+.LC_Page_Orders .details .detail .block-th.detail-price, .LC_Page_Orders .details .detail .block-th.detail-profit, .LC_Page_Orders .earnings .detail .block-th.detail-price, .LC_Page_Orders .earnings .detail .block-th.detail-profit {
+	text-align: right;
+}
