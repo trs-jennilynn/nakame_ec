@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.27, created on 2014-10-07 18:16:51
+<?php /* Smarty version 2.6.27, created on 2014-10-08 14:07:10
          compiled from C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/header.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'script_escape', 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/header.tpl', 31, false),)), $this); ?>

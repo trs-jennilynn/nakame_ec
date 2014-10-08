@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+.LC_Page_Profile .signup-header, .notification-header{
+	top:2em;
+}
+.LC_Page_Profile .signup-header a:hover,
+.LC_Page_Profile .btn-graydark:hover,
+.LC_Page_Profile .needsclick:hover{
+	text-decoration:none;
+}
+.LC_Page_Profile .profile-content .needsclick {
+	left: 38.4em !important;
+	top: 6.4em !important;
+}
+.LC_Page_Profile .profile-wrapper .edit-header-icon i,
+.LC_Page_Profile .profile-content .needsclick i{
+	font-size:1.5em;
+	margin-top: 13px;
+	display: block;
+}
