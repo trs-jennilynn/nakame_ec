@@ -1,6 +1,5 @@
 <?php
-/**
- *
+/*
  * This file is part of EC-CUBE
  *
  * Copyright(c) 2000-2013 LOCKON CO.,LTD. All Rights Reserved.
@@ -20,14 +19,47 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
-
- *
- * モバイルサイト/空メール会員登録
  */
 
-require_once '../require.php';
-require_once CLASS_EX_REALDIR . 'page_extends/entry/LC_Page_Entry_Ex.php';
+require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
-$objPage = new LC_Page_Entry_Ex();
-$objPage->init();
-$objPage->process();
+/**
+ * Index のページクラス.
+ *
+ * @package Page
+ * @author LOCKON CO.,LTD.
+ * @version $Id: LC_Page_Signup.php 23230 2013-09-19 02:49:03Z m_uehara $
+ */
+class LC_Page_Signup extends LC_Page_Ex
+{
+    /**
+     * Page を初期化する.
+     *
+     * @return void
+     */
+    public function init()
+    {
+        parent::init();
+    }
+
+    /**
+     * Page のプロセス.
+     *
+     * @return void
+     */
+    public function process()
+    {
+        parent::process();
+        $this->action();
+        $this->sendResponse();
+    }
+
+    /**
+     * Page のアクション.
+     *
+     * @return void
+     */
+    public function action()
+    {
+    }
+}

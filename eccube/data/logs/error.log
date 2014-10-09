@@ -91,3 +91,213 @@ customer_id =
 2014/10/08 18:49:02 [/user_data/prof_set/index.php] Warning(E_USER_WARNING): Smarty error: unable to read resource: &quot;C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/.tpl&quot; on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
 2014/10/08 19:16:23 [/favorites/index.php] Warning(E_USER_WARNING): メイン部のテンプレートが存在しません。[C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/favorites/index.tpl] on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_PageLayout.php(66)] from 127.0.0.1
 2014/10/08 19:16:23 [/favorites/index.php] Warning(E_USER_WARNING): Smarty error: unable to read resource: &quot;C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/favorites/index.tpl&quot; on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+2014/10/09 15:39:49 [/entry/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/page_extends/LC_Page_Entry_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(3)] from 127.0.0.1
+2014/10/09 15:39:49 [/entry/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/page_extends/LC_Page_Entry_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(3)] from 127.0.0.1
+customer_id = 
+2014/10/09 15:40:54 [/entry/index.php] Fatal error(E_ERROR): Class 'LC_Page_Profile_Entry' not found on [C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(46)] from 127.0.0.1
+customer_id = 
+2014/10/09 15:59:14 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 40]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 25). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(48): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/09 15:59:46 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 41]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 25). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(48): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/09 16:42:24 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 106]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 26). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(48): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/09 16:43:40 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 110]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 26). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(48): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/09 16:43:51 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 169]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 26). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(48): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/09 17:30:18 [/entry/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/pages/LC_Page_Regist.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(3)] from 127.0.0.1
+2014/10/09 17:30:18 [/entry/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/pages/LC_Page_Regist.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(3)] from 127.0.0.1
+customer_id = 
+2014/10/09 17:30:21 [/entry/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/pages/LC_Page_Regist.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(3)] from 127.0.0.1
+2014/10/09 17:30:21 [/entry/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/pages/LC_Page_Regist.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(3)] from 127.0.0.1
+customer_id = 
+2014/10/09 18:10:48 [/entry/index.php] Fatal error(E_ERROR): Class 'SC_Helper_Customer' not found on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\helper_extends\SC_Helper_Customer_Ex.php(36)] from 127.0.0.1
+customer_id = 
+2014/10/09 18:59:57 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 92]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 26). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page_Entry_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\entry\LC_Page_Entry_Ex.php(54): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\entry\LC_Page_Entry.php(68): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/09 19:00:20 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 94]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 26). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page_Entry_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\entry\LC_Page_Entry_Ex.php(54): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\entry\LC_Page_Entry.php(68): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/09 19:00:30 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 93]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 26). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page_Entry_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\entry\LC_Page_Entry_Ex.php(54): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\entry\LC_Page_Entry.php(68): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/09 19:24:10 [/signup/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/page_extends/LC_Page_Signup_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\signup\index.php(25)] from 127.0.0.1
+2014/10/09 19:24:10 [/signup/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/page_extends/LC_Page_Signup_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\signup\index.php(25)] from 127.0.0.1
+customer_id = 
+2014/10/09 19:24:35 [/signup/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/page_extends/LC_Page_Signup_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\signup\index.php(25)] from 127.0.0.1
+2014/10/09 19:24:35 [/signup/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/page_extends/LC_Page_Signup_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\signup\index.php(25)] from 127.0.0.1
+customer_id = 
+2014/10/09 19:24:37 [/signup/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/page_extends/LC_Page_Signup_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\signup\index.php(25)] from 127.0.0.1
+2014/10/09 19:24:37 [/signup/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/page_extends/LC_Page_Signup_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\signup\index.php(25)] from 127.0.0.1
+customer_id = 
+2014/10/09 19:25:06 [/signup/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class/pages/LC_Page_Signup.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\signup\LC_Page_Signup_Ex.php(24)] from 127.0.0.1
+2014/10/09 19:25:06 [/signup/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class/pages/LC_Page_Signup.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\signup\LC_Page_Signup_Ex.php(24)] from 127.0.0.1
+customer_id = 
+2014/10/09 19:25:23 [/signup/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class/pages/LC_Page_Signup.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\signup\LC_Page_Signup_Ex.php(24)] from 127.0.0.1
+2014/10/09 19:25:23 [/signup/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class/pages/LC_Page_Signup.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\signup\LC_Page_Signup_Ex.php(24)] from 127.0.0.1
+customer_id = 
+2014/10/09 19:26:57 [/signup/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class/pages/LC_Page_Signup.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\signup\LC_Page_Signup_Ex.php(24)] from 127.0.0.1
+2014/10/09 19:26:57 [/signup/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class/pages/LC_Page_Signup.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\signup\LC_Page_Signup_Ex.php(24)] from 127.0.0.1
+customer_id = 

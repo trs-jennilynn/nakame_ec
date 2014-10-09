@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+.LC_Page_Signup table,.LC_Page_Signup .btn_area,.LC_Page_Signup .title{
+    display:none;
+}
+.LC_Page_Signup{
+    background: #474a4d;
+    background-size: cover;
+}
+.LC_Page_Signup #container{
+    background:transparent;
+    text-align:center;
+}
+.LC_Page_Signup .small{
+    line-height: 2;
+}
+.LC_Page_Signup .flipInY{
+    top: -59px;
+}
+.LC_Page_Signup .btn-twitter{
+    width:100%;
+} 
+.LC_Page_Signup .signup-forms .input-text{
+	background: white !important;
+}
+.LC_Page_Signup
+.LC_Page_Signup
+.LC_Page_Signup

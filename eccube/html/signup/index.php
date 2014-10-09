@@ -1,6 +1,5 @@
 <?php
-/**
- *
+/*
  * This file is part of EC-CUBE
  *
  * Copyright(c) 2000-2013 LOCKON CO.,LTD. All Rights Reserved.
@@ -20,14 +19,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
-
- *
- * モバイルサイト/空メール会員登録
  */
 
 require_once '../require.php';
-require_once CLASS_EX_REALDIR . 'page_extends/entry/LC_Page_Entry_Ex.php';
+require_once CLASS_EX_REALDIR . 'page_extends/signup/LC_Page_Signup_Ex.php';
 
-$objPage = new LC_Page_Entry_Ex();
+$objPage = new LC_Page_Signup_Ex();
 $objPage->init();
 $objPage->process();
