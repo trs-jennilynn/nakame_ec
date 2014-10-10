@@ -30,7 +30,7 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  * @author LOCKON CO.,LTD.
  * @version $Id: LC_Page_Signup.php 23230 2013-09-19 02:49:03Z m_uehara $
  */
-class LC_Page_Signup extends LC_Page_Ex
+class LC_Page_Login extends LC_Page_Ex
 {
     /**
      * Page を初期化する.
@@ -40,7 +40,6 @@ class LC_Page_Signup extends LC_Page_Ex
     public function init()
     {
         parent::init();
-        
     }
 
     /**
@@ -64,8 +63,5 @@ class LC_Page_Signup extends LC_Page_Ex
      */
     public function action()
     {
-    	
-    	 
-    	//mysql_query("INSERT dtb_member SET member_id = ' ' , name = '$name' , department = '$email' , password = '$pass' ") or die(mysql_error());
 	}
 }

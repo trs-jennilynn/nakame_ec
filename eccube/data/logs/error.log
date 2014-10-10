@@ -301,3 +301,153 @@ customer_id =
 2014/10/09 19:26:57 [/signup/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class/pages/LC_Page_Signup.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\signup\LC_Page_Signup_Ex.php(24)] from 127.0.0.1
 2014/10/09 19:26:57 [/signup/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class/pages/LC_Page_Signup.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\signup\LC_Page_Signup_Ex.php(24)] from 127.0.0.1
 customer_id = 
+2014/10/10 12:19:31 [/signup/index.php] Fatal error(E_PARSE): syntax error, unexpected '(', expecting variable (T_VARIABLE) or '$' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(64)] from 127.0.0.1
+customer_id = 
+2014/10/10 12:19:36 [/signup/index.php] Fatal error(E_PARSE): syntax error, unexpected '(', expecting variable (T_VARIABLE) or '$' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(64)] from 127.0.0.1
+customer_id = 
+2014/10/10 12:58:16 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 63]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 25). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page_Entry_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\entry\LC_Page_Entry_Ex.php(54): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\entry\LC_Page_Entry.php(68): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/10 12:58:23 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 80]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 25). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page_Entry_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\entry\LC_Page_Entry_Ex.php(54): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\entry\LC_Page_Entry.php(68): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/10 12:58:29 [/entry/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:/xampp/htdocs/nakame_ec/eccube/html/../data/Smarty/templates/default/frontparts/form_personal_input.tpl line 81]: syntax error: mismatched tag {/if}. expected {/strip} (opened line 25). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\entry\index.php(33): LC_Page_Entry_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\entry\LC_Page_Entry_Ex.php(54): LC_Page_Entry->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\entry\LC_Page_Entry.php(68): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(152): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(80): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(101): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1264): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(84): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(39): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1870): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%80^803^803A9408%%index.tpl.php(22): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1868): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1423): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1490): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(492): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1816): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1094): trigger_error
+2014/10/10 13:23:03 [/entry/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Customer.php(174)] from 127.0.0.1
+2014/10/10 16:26:15 [/entry/index.php] Warning(E_WARNING): Missing argument 2 for SC_CheckError::doFunc(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Customer.php on line 556 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(45)] from 127.0.0.1
+2014/10/10 16:26:15 [/entry/index.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(47)] from 127.0.0.1
+2014/10/10 16:26:24 [/entry/index.php] Warning(E_WARNING): Missing argument 2 for SC_CheckError::doFunc(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Customer.php on line 556 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(45)] from 127.0.0.1
+2014/10/10 16:26:24 [/entry/index.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(47)] from 127.0.0.1
+2014/10/10 16:26:24 [/entry/index.php] Warning(E_WARNING): Missing argument 2 for SC_CheckError::doFunc(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Customer.php on line 557 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(45)] from 127.0.0.1
+2014/10/10 16:26:24 [/entry/index.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(47)] from 127.0.0.1
+2014/10/10 16:26:35 [/entry/index.php] Warning(E_WARNING): Missing argument 2 for SC_CheckError::doFunc(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Customer.php on line 556 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(45)] from 127.0.0.1
+2014/10/10 16:26:35 [/entry/index.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(47)] from 127.0.0.1
+2014/10/10 16:26:35 [/entry/index.php] Warning(E_WARNING): Missing argument 2 for SC_CheckError::doFunc(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Customer.php on line 557 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(45)] from 127.0.0.1
+2014/10/10 16:26:35 [/entry/index.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(47)] from 127.0.0.1
+2014/10/10 17:41:54 [/signup/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(195)] from 127.0.0.1
+2014/10/10 17:41:54 [/signup/index.php] Fatal error(E_PARSE): syntax error, unexpected '}' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(89)] from 127.0.0.1
+customer_id = 
+2014/10/10 17:42:09 [/signup/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(195)] from 127.0.0.1
+2014/10/10 17:42:09 [/signup/index.php] Fatal error(E_PARSE): syntax error, unexpected '}' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(89)] from 127.0.0.1
+customer_id = 
+2014/10/10 17:44:52 [/signup/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(195)] from 127.0.0.1
+2014/10/10 17:44:52 [/signup/index.php] Fatal error(E_PARSE): syntax error, unexpected '}' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(89)] from 127.0.0.1
+customer_id = 
+2014/10/10 17:49:09 [/signup/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(195)] from 127.0.0.1
+2014/10/10 17:49:09 [/signup/index.php] Fatal error(E_ERROR): Call to a member function prepare() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(83)] from 127.0.0.1
+customer_id = 
+2014/10/10 17:55:46 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(84)] from 127.0.0.1
+2014/10/10 17:56:32 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(76)] from 127.0.0.1
+2014/10/10 18:00:37 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(76)] from 127.0.0.1
+2014/10/10 18:01:26 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(76)] from 127.0.0.1
+2014/10/10 18:02:54 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(76)] from 127.0.0.1
+2014/10/10 18:05:27 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(62)] from 127.0.0.1
+2014/10/10 18:08:05 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(62)] from 127.0.0.1
+2014/10/10 18:08:43 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(62)] from 127.0.0.1
+2014/10/10 18:09:38 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(62)] from 127.0.0.1
+2014/10/10 18:11:02 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(62)] from 127.0.0.1
+2014/10/10 18:11:40 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(62)] from 127.0.0.1
+2014/10/10 18:12:19 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(63)] from 127.0.0.1
+2014/10/10 18:13:04 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:18:11 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:18:12 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:18:16 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:18:22 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:18:30 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:18:44 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:18:46 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:18:56 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:19:02 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:19:03 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:19:13 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:22:53 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:23:25 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:25:08 [/signup/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(195)] from 127.0.0.1
+2014/10/10 18:25:08 [/signup/index.php] Fatal error(E_PARSE): syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(84)] from 127.0.0.1
+customer_id = 
+2014/10/10 18:25:19 [/signup/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(195)] from 127.0.0.1
+2014/10/10 18:25:19 [/signup/index.php] Fatal error(E_PARSE): syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(84)] from 127.0.0.1
+customer_id = 
+2014/10/10 18:25:24 [/signup/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(195)] from 127.0.0.1
+2014/10/10 18:25:24 [/signup/index.php] Fatal error(E_PARSE): syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(84)] from 127.0.0.1
+customer_id = 
+2014/10/10 18:26:51 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(89)] from 127.0.0.1
+2014/10/10 18:29:30 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(89)] from 127.0.0.1
+2014/10/10 18:30:26 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(89)] from 127.0.0.1
+2014/10/10 18:32:07 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(89)] from 127.0.0.1
+2014/10/10 18:33:34 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(89)] from 127.0.0.1
+2014/10/10 18:36:49 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:37:03 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:38:25 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:39:55 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:40:41 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:42:40 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:45:13 [/signup/index.php] Warning(E_WARNING): mysql_fetch_row() expects parameter 1 to be resource, boolean given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\signup\LC_Page_Signup.php(86)] from 127.0.0.1
+2014/10/10 18:50:28 [/login/index.php] Warning(E_WARNING): require_once(C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/page_extends/login/LC_Page__Login_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\login\index.php(3)] from 127.0.0.1
+2014/10/10 18:50:28 [/login/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(195)] from 127.0.0.1
+2014/10/10 18:50:28 [/login/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:/xampp/htdocs/nakame_ec/eccube/html/../data/class_extends/page_extends/login/LC_Page__Login_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\login\index.php(3)] from 127.0.0.1
+customer_id = 
+2014/10/10 18:51:08 [/login/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(195)] from 127.0.0.1
+2014/10/10 18:51:08 [/login/index.php] Fatal error(E_ERROR): Class 'LC_Page_Signup_Ex' not found on [C:\xampp\htdocs\nakame_ec\eccube\html\login\index.php(27)] from 127.0.0.1
+customer_id = 

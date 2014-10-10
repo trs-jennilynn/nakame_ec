@@ -359,3 +359,8 @@
 2014/10/09 20:03:48 [/admin/design/main_edit.php] access : user=admin auth=0 sid=91u9tusvq2a064r89iudg3mje6 from 127.0.0.1
 2014/10/09 20:04:47 [/admin/design/main_edit.php] access : user=admin auth=0 sid=91u9tusvq2a064r89iudg3mje6 from 127.0.0.1
 2014/10/09 20:04:47 [/admin/design/main_edit.php] access : user=admin auth=0 sid=91u9tusvq2a064r89iudg3mje6 from 127.0.0.1
+2014/10/10 19:29:41 [/admin/index.php] access error. from 127.0.0.1
+2014/10/10 19:29:41 [/admin/index.php] login: user=admin(2) auth=0 lastlogin=2014-10-09 15:26:43 sid= from 127.0.0.1
+2014/10/10 19:29:41 [/admin/home.php] access : user=admin auth=0 sid=0vmv220o8sb10le0vo3c3j9rq4 from 127.0.0.1
+2014/10/10 19:29:48 [/admin/design/index.php] access : user=admin auth=0 sid=0vmv220o8sb10le0vo3c3j9rq4 from 127.0.0.1
+2014/10/10 19:30:03 [/admin/design/main_edit.php] access : user=admin auth=0 sid=0vmv220o8sb10le0vo3c3j9rq4 from 127.0.0.1

@@ -23,6 +23,10 @@
 .LC_Page_Signup .signup-forms .input-text{
 	background: white !important;
 }
-.LC_Page_Signup
-.LC_Page_Signup
-.LC_Page_Signup
+.LC_Page_Login{
+	background: #474a4d;
+	background-size: cover;
+}
+.LC_Page_Login #container{
+	background:transparent;
+}

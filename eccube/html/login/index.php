@@ -22,9 +22,8 @@
  */
 
 require_once '../require.php';
-require_once CLASS_EX_REALDIR . 'page_extends/signup/LC_Page_Signup_Ex.php';
+require_once CLASS_EX_REALDIR . 'page_extends/login/LC_Page_Login_Ex.php';
 
-
-$objPage = new LC_Page_Signup_Ex();
+$objPage = new LC_Page_Login_Ex();
 $objPage->init();
 $objPage->process();

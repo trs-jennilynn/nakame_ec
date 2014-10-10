@@ -112,17 +112,17 @@ loadScript('../platform.twitter.com/oct.js', function() {
             <span class='overlay-nav-close btn-s btn-red btn-close'><i class='icon'>x</i>CLOSE</span>
             <ul class='account-navs'>
                 <li class='account-nav'>
-                <a href="signup.html"><span class='account-nav-label account-nav-label-m kerning'>
+                <a href="/signup"><span class='account-nav-label account-nav-label-m kerning'>
                 ユーザー登録
                 </span>
                 </a></li>
                 <li class='account-nav'>
-                <a href="login.html"><span class='account-nav-label account-nav-label-m kerning'>
+                <a href="/login"><span class='account-nav-label account-nav-label-m kerning'>
                 ログイン
                 </span>
                 </a></li>
                 <li class='account-nav'>
-                <a href="selections.html"><span class='account-nav-label account-nav-label-m kerning'>
+                <a href="/products/list.php"><span class='account-nav-label account-nav-label-m kerning'>
                 商品を探してまわる
                 </span>
                 </a></li>

@@ -95,12 +95,10 @@ var submit = function(){
 	});
 };
 
+
 $(document).ready(function(){
 
 	var a = typing();
 	var b = submit();
 });
-	if($(".btn-blue").click()){
-		$r = $("#username").val();
-		alert($r);
-	}
+

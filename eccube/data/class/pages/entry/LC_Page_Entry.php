@@ -40,18 +40,18 @@ class LC_Page_Entry extends LC_Page_Ex
     {
         parent::init();
         $masterData         = new SC_DB_MasterData_Ex();
-      //  $this->arrPref      = $masterData->getMasterData('mtb_pref');
-      //  $this->arrJob       = $masterData->getMasterData('mtb_job');
-      //  $this->arrReminder  = $masterData->getMasterData('mtb_reminder');
-        //$this->arrCountry   = $masterData->getMasterData('mtb_country');
-       // $this->arrSex       = $masterData->getMasterData('mtb_sex');
+        $this->arrPref      = $masterData->getMasterData('mtb_pref');
+        $this->arrJob       = $masterData->getMasterData('mtb_job');
+        $this->arrReminder  = $masterData->getMasterData('mtb_reminder');
+        $this->arrCountry   = $masterData->getMasterData('mtb_country');
+        $this->arrSex       = $masterData->getMasterData('mtb_sex');
         $this->arrMAILMAGATYPE = $masterData->getMasterData('mtb_mail_magazine_type');
 
         // 生年月日選択肢の取得
-        //$objDate            = new SC_Date_Ex(BIRTH_YEAR, date('Y',strtotime('now')));
-        //$this->arrYear      = $objDate->getYear('', START_BIRTH_YEAR, '');
-       // $this->arrMonth     = $objDate->getMonth(true);
-       // $this->arrDay       = $objDate->getDay(true);
+        $objDate            = new SC_Date_Ex(BIRTH_YEAR, date('Y',strtotime('now')));
+        $this->arrYear      = $objDate->getYear('', START_BIRTH_YEAR, '');
+        $this->arrMonth     = $objDate->getMonth(true);
+        $this->arrDay       = $objDate->getDay(true);
 
         $this->httpCacheControl('nocache');
     }
@@ -108,13 +108,13 @@ class LC_Page_Entry extends LC_Page_Ex
 
                         // 郵便番号が発見された場合
                         if (!empty($arrAdsList)) {
-                           // $data['pref'] = $arrAdsList[0]['state'];
-                           // $data['addr01'] = $arrAdsList[0]['city']. $arrAdsList[0]['town'];
-                          //  $objFormParam->setParam($data);
+                            $data['pref'] = $arrAdsList[0]['state'];
+                            $data['addr01'] = $arrAdsList[0]['city']. $arrAdsList[0]['town'];
+                            $objFormParam->setParam($data);
 
                             // 該当無し
                         } else {
-                          //  $this->arrErr['zip01'] = '※該当する住所が見つかりませんでした。<br>';
+                            $this->arrErr['zip01'] = '※該当する住所が見つかりませんでした。<br>';
                         }
                     }
                     break;
@@ -312,7 +312,7 @@ class LC_Page_Entry extends LC_Page_Ex
         $objFormParam->addParam('郵便番号2', 'zip02', ZIP02_LEN, 'n', array('EXIST_CHECK', 'NUM_COUNT_CHECK', 'NUM_CHECK'));
         // // リクエスト値をセット
         $arrData['zip01'] = $arrRequest['zip01'];
-        //$arrData['zip02'] = $arrRequest['zip02'];
+        $arrData['zip02'] = $arrRequest['zip02'];
         $objFormParam->setParam($arrData);
         // エラーチェック
         $arrErr = $objFormParam->checkError();
