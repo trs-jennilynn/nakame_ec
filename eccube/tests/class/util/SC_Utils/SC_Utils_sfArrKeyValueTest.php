@@ -29,17 +29,15 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfArrKeyValueTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfArrKeyValueTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfArrKeyValueTest extends Common_TestCase
-{
+class SC_Utils_sfArrKeyValueTest extends Common_TestCase {
 
   var $arrList;
   var $keyname;
   var $valuename;
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
 
     $this->arrList = array(
@@ -52,14 +50,12 @@ class SC_Utils_sfArrKeyValueTest extends Common_TestCase
     $this->valuename = 'testvalue';
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfArrKeyValue_最大長が配列より短い場合_最大長でカットされる()
-  {
+  public function testSfArrKeyValue_最大長が配列より短い場合_最大長でカットされる() {
     $len_max = 3;
 
     $this->expected = array(
@@ -72,8 +68,7 @@ class SC_Utils_sfArrKeyValueTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testSfArrKeyValue_最大長が指定されていない場合_全要素が出力される()
-  {
+  public function testSfArrKeyValue_最大長が指定されていない場合_全要素が出力される() {
     $this->expected = array(
       '1011' => '2001',
       '2022' => '2002',
@@ -85,8 +80,7 @@ class SC_Utils_sfArrKeyValueTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testSfArrKeyValue_キーサイズが短い場合_キーサイズでカットされる()
-  {
+  public function testSfArrKeyValue_キーサイズが短い場合_キーサイズでカットされる() {
     $len_max = 5;
     $keysize = 1;
 
@@ -102,5 +96,6 @@ class SC_Utils_sfArrKeyValueTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

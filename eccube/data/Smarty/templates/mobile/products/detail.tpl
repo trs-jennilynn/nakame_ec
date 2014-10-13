@@ -30,12 +30,11 @@
         <!--{assign var=key value="main_image"}-->
     <!--{/if}-->
     <center><img src="<!--{$arrFile[$key].filepath}-->"></center>
-    <br>
 
     <!--★商品サブ画像★-->
-    <!--{if $subImageFlag == true}-->
-        <center>
-            画像
+    <center>
+        <!--{if $subImageFlag == true}-->
+            <br>画像
             <!--{if ($smarty.get.image == "" || $smarty.get.image == "main_image")}-->
                 [1]
             <!--{else}-->
@@ -54,23 +53,19 @@
                     <!--{assign var=num value="`$num+1`"}-->
                 <!--{/if}-->
             <!--{/section}-->
-        </center>
+            <br>
+        <!--{/if}-->
         <br>
+    </center>
+
+    <!--{* オペビルダー用 *}-->
+    <!--{if "sfViewDetailOpe"|function_exists === TRUE}-->
+        <!--{include file=`$smarty.const.MODULE_REALDIR`mdl_opebuilder/detail_ope_mb_view.tpl}-->
     <!--{/if}-->
 
     <!--★詳細メインコメント★-->
     [emoji:76]<!--{$arrProduct.main_comment|nl2br_html}--><br>
     <br>
-
-    <!--▼商品ステータス-->
-    <!--{assign var=ps value=$productStatus[$tpl_product_id]}-->
-    <!--{if count($ps) > 0}-->
-        <!--{foreach from=$ps item=status}-->
-            ★<!--{$arrSTATUS[$status]}--><br>
-        <!--{/foreach}-->
-        <br>
-    <!--{/if}-->
-    <!--▲商品ステータス-->
 
     <!--★商品コード★-->
     商品コード：
@@ -119,16 +114,6 @@
     <!--{/if}-->
     <br>
 
-    <!--★メーカー★-->
-    <!--{if $arrProduct.maker_name|strlen >= 1}-->
-        メーカー：<!--{$arrProduct.maker_name|h}--><br>
-    <!--{/if}-->
-
-    <!--★メーカーURL★-->
-    <!--{if $arrProduct.comment1|strlen >= 1}-->
-        メーカーURL：<a href="<!--{$arrProduct.comment1|h}-->"><!--{$arrProduct.comment1|h}--></a><br>
-    <!--{/if}-->
-
     <!--★関連カテゴリ★-->
     関連カテゴリ：<br>
     <!--{section name=r loop=$arrRelativeCat}-->
@@ -140,7 +125,7 @@
     <!--{/section}-->
     <br>
 
-    <form name="form1" id="form1" method="post" action="?">
+    <form name="form1" method="post" action="?">
         <input type="hidden" name="mode" value="select">
         <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->">
 

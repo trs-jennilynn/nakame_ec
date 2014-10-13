@@ -29,29 +29,25 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * TODO : 最後にスラッシュがないとうまくいかないのは良いのか？
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_copyDirectoryTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_copyDirectoryTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_copyDirectoryTest extends Common_TestCase
-{
+class SC_Utils_copyDirectoryTest extends Common_TestCase {
 
   static $TMP_DIR;
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
     self::$TMP_DIR = realpath(dirname(__FILE__)) . "/../../../tmp";
     SC_Helper_FileManager::deleteFile(self::$TMP_DIR);
     mkdir(self::$TMP_DIR, 0700, true);
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testCopyDirectory_存在するパスの場合_指定したパス以下が再帰的にコピーされる()
-  {
+  public function testCopyDirectory_存在するパスの場合_指定したパス以下が再帰的にコピーされる() {
     /**
      * tests/tmp/src
      *             /dir10
@@ -77,8 +73,7 @@ class SC_Utils_copyDirectoryTest extends Common_TestCase
     $this->verify('コピーされたファイル一覧');
   }
 
-  public function testCopyDirectory_存在しないパスの場合_何も起こらない()
-  {
+  public function testCopyDirectory_存在しないパスの場合_何も起こらない() {
     /**
      * tests/tmp/src
      *             /dir10
@@ -96,8 +91,7 @@ class SC_Utils_copyDirectoryTest extends Common_TestCase
     $this->verify('コピーされたファイル一覧');
   }
 
-  public function testCopyDirectory_コピー先のディレクトリが元々存在する場合_上書きされる()
-  {
+  public function testCopyDirectory_コピー先のディレクトリが元々存在する場合_上書きされる() {
     /**
      * tests/tmp/src
      *             /dir10
@@ -122,10 +116,10 @@ class SC_Utils_copyDirectoryTest extends Common_TestCase
     Test_Utils::array_append($this->actual, Test_Utils::mapCols(SC_Helper_FileManager::sfGetFileList(self::$TMP_DIR . "/dst/dir20"), "file_name"));
     
     $this->verify('コピー先のファイル一覧');
+
   }
 
-  public function testCopyDirectory_コピー先のファイルが元々存在する場合_上書きされる()
-  {
+  public function testCopyDirectory_コピー先のファイルが元々存在する場合_上書きされる() {
     /**
      * tests/tmp/src
      *             /dir10
@@ -157,8 +151,10 @@ class SC_Utils_copyDirectoryTest extends Common_TestCase
     $this->actual[] = $read_result;
 
     $this->verify('コピー先のファイル一覧');
+
   }
 
   //////////////////////////////////////////
+
 }
 

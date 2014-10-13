@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/frontparts/bloc/LC_Page_FrontParts_Bloc_Login_Ex.php';
 
 /**
@@ -30,15 +31,17 @@ require_once CLASS_EX_REALDIR . 'page_extends/frontparts/bloc/LC_Page_FrontParts
  * @author LOCKON CO.,LTD.
  * @version $Id$
  */
-class LC_Page_FrontParts_Bloc_NaviHeader extends LC_Page_FrontParts_Bloc_Login_Ex
-{
+class LC_Page_FrontParts_Bloc_NaviHeader extends LC_Page_FrontParts_Bloc_Login_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $masterData = new SC_DB_MasterData_Ex();
         $this->arrProductType = $masterData->getMasterData('mtb_product_type'); //商品種類を取得
@@ -49,8 +52,7 @@ class LC_Page_FrontParts_Bloc_NaviHeader extends LC_Page_FrontParts_Bloc_Login_E
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -60,8 +62,7 @@ class LC_Page_FrontParts_Bloc_NaviHeader extends LC_Page_FrontParts_Bloc_Login_E
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
         parent::action();
 
         //ヘッダーナビのカート情報を取得
@@ -73,15 +74,23 @@ class LC_Page_FrontParts_Bloc_NaviHeader extends LC_Page_FrontParts_Bloc_Login_E
     }
 
     /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
      * カートの情報を取得する
      *
-     * @param  SC_CartSession $objCart  カートセッション管理クラス
-     * @param  Array          $arrInfo  基本情報配列
-     * @param  Array          $cartKeys 商品種類配列
-     * @return array          $arrCartList カートデータ配列
+     * @param SC_CartSession $objCart カートセッション管理クラス
+     * @param Array $arrInfo 基本情報配列
+     * @param Array $cartKeys 商品種類配列
+     * @return array $arrCartList カートデータ配列
      */
-    public function lfGetCartData($objCart, $arrInfo, $cartKeys)
-    {
+    function lfGetCartData($objCart, $arrInfo, $cartKeys) {
         $cartList = array();
         foreach ($cartKeys as $key) {
             // カート集計処理

@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * TODO $out_dirで最後のスラッシュまで必ず指定しなければいけないのが少し気になる
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfEncodeFileTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfEncodeFileTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfEncodeFileTest extends Common_TestCase
-{
+class SC_Utils_sfEncodeFileTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfEncodeFile_ファイルが正常に開けた場合_ファイルがエンコードされ出力先のパスが取得できる()
-  {
+  public function testSfEncodeFile_ファイルが正常に開けた場合_ファイルがエンコードされ出力先のパスが取得できる() {
     $outdir = realpath(dirname(__FILE__)) . "/../../../tmp/enc_output/";
     SC_Helper_FileManager::deleteFile($outdir);
     mkdir($outdir, 0777, TRUE);
@@ -77,5 +73,6 @@ class SC_Utils_sfEncodeFileTest extends Common_TestCase
   //TODO ファイルが開けなかった場合はexitするためテスト不可
 
   //////////////////////////////////////////
+
 }
 

@@ -22,10 +22,7 @@
  */
 
 // rtrim は PHP バージョン依存対策
-$GLOBALS['_realdir'] = rtrim(realpath(rtrim(realpath(dirname(__FILE__)), '/\\') . '/../'), '/\\') . '/';
-$GLOBALS['_realdir'] = str_replace('\\', '/', $GLOBALS['_realdir']);
-$GLOBALS['_realdir'] = str_replace('//', '/', $GLOBALS['_realdir']);
-define('HTML_REALDIR', $GLOBALS['_realdir']);
+define('HTML_REALDIR', rtrim(realpath(rtrim(realpath(dirname(__FILE__)), '/\\') . '/../'), '/\\') . '/');
 define('ADMIN_FUNCTION', true);
 
 require_once HTML_REALDIR . 'define.php';

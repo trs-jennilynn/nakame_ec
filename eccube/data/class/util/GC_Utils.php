@@ -28,18 +28,17 @@
  * よって、このファイルで構文エラーが発生すると、EC-CUBE はエラーを捕捉できない。
  * @package Util
  * @author LOCKON CO.,LTD.
- * @version $Id: GC_Utils.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: GC_Utils.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class GC_Utils
-{
+class GC_Utils {
+
     /**
      * ログファイルに変数の詳細を出力
      *
-     * @param  mixed $obj
+     * @param mixed $obj
      * @return void
      */
-    public function gfDebugLog($obj)
-    {
+    function gfDebugLog($obj) {
         if (USE_VERBOSE_LOG === true) {
             $msg = "DEBUG\n"
                  . print_r($obj, true);
@@ -50,11 +49,10 @@ class GC_Utils
     /**
      * 呼び出し元関数名を返します
      *
-     * @param  int    $forLogInfo ログ出力用に利用するかどうか(1:ログ出力用に利用する)
+     * @param int $forLogInfo ログ出力用に利用するかどうか(1:ログ出力用に利用する)
      * @return string 呼び出し元クラス、関数名、行数の文字列表現
      */
-    public function gfGetCallerInfo($forLogInfo = true)
-    {
+    function gfGetCallerInfo($forLogInfo = true) {
         // バックトレースを取得する
         $traces = debug_backtrace(false);
         $bklv = 1;
@@ -67,7 +65,6 @@ class GC_Utils
             }
         }
         $str = $traces[$bklv]['class'] . '::' . $traces[$bklv]['function'] . '(' . $traces[$bklv - 1]['line'] . ') ';
-
         return $str;
     }
 
@@ -76,8 +73,7 @@ class GC_Utils
      *
      * エラーハンドリングに関わる情報を切り捨てる。
      */
-    public function getDebugBacktrace($arrBacktrace = null)
-    {
+    function getDebugBacktrace($arrBacktrace = null) {
         if (is_null($arrBacktrace)) {
             $arrBacktrace = debug_backtrace(false);
         }
@@ -114,7 +110,6 @@ class GC_Utils
                 break 1;
             }
         }
-
         return array_reverse($arrReturn);
     }
 
@@ -123,8 +118,7 @@ class GC_Utils
      *
      * @deprecated 2.12.0
      */
-    public function gfGetLogStr($mess, $log_level = 'Info')
-    {
+    function gfGetLogStr($mess, $log_level = 'Info') {
         trigger_error('前方互換用メソッドが使用されました。', E_USER_WARNING);
         // メッセージの前に、ログ出力元関数名とログ出力関数呼び出し部分の行数を付与
         $mess = GC_Utils::gfGetCallerInfo(true) . $mess;
@@ -142,8 +136,7 @@ class GC_Utils
      *
      * @deprecated 2.12.0 GC_Utils_Ex::gfPrintLog を使用すること
      */
-    public function gfAdminLog($mess, $log_level = 'Info')
-    {
+    function gfAdminLog($mess, $log_level = 'Info') {
         trigger_error('前方互換用メソッドが使用されました。', E_USER_WARNING);
         // ログレベル=Debugの場合は、DEBUG_MODEがtrueの場合のみログ出力する
         if ($log_level === 'Debug' && DEBUG_MODE === false) {
@@ -159,8 +152,7 @@ class GC_Utils
      *
      * @deprecated 2.12.0 GC_Utils_Ex::gfPrintLog を使用すること
      */
-    public function gfFrontLog($mess, $log_level = 'Info')
-    {
+    function gfFrontLog($mess, $log_level = 'Info') {
         trigger_error('前方互換用メソッドが使用されました。', E_USER_WARNING);
         // ログレベル=Debugの場合は、DEBUG_MODEがtrueの場合のみログ出力する
         if ($log_level === 'Debug' && DEBUG_MODE === false) {
@@ -177,10 +169,9 @@ class GC_Utils
      * エラー・警告は trigger_error() を経由して利用すること。(補足の出力は例外。)
      * @param string $msg
      * @param string $path
-     * @param bool   $verbose 冗長な出力を行うか
+     * @param bool $verbose 冗長な出力を行うか
      */
-    public function gfPrintLog($msg, $path = '', $verbose = USE_VERBOSE_LOG)
-    {
+    function gfPrintLog($msg, $path = '', $verbose = USE_VERBOSE_LOG) {
         // 日付の取得
         $today = date('Y/m/d H:i:s');
         // 出力パスの作成
@@ -211,13 +202,13 @@ class GC_Utils
      *
      * XXX この類のローテーションは通常 0 開始だが、本実装は 1 開始である。
      * この中でログ出力は行なわないこと。(無限ループの懸念あり)
-     * @param  integer $max_log  最大ファイル数
-     * @param  integer $max_size 最大サイズ
-     * @param  string  $path     ファイルパス
+     * @param integer $max_log 最大ファイル数
+     * @param integer $max_size 最大サイズ
+     * @param string  $path ファイルパス
      * @return void
      */
-    public function gfLogRotation($max_log, $max_size, $path)
-    {
+    function gfLogRotation($max_log, $max_size, $path) {
+
         // ファイルが存在しない場合、終了
         if (!file_exists($path)) return;
 
@@ -253,10 +244,10 @@ class GC_Utils
      * [依存] なし
      * [注釈] -
      *----------------------------------------------------------------------*/
-    public function gfMakePassword($pwLength)
-    {
+    function gfMakePassword($pwLength) {
+
         // 乱数表のシードを決定
-        srand((double) microtime() * 54234853);
+        srand((double)microtime() * 54234853);
 
         // パスワード文字列の配列を作成
         $character = 'abcdefghkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ2345679';
@@ -279,8 +270,7 @@ class GC_Utils
      * [注釈] -
      *----------------------------------------------------------------------------------------------------------------------*/
 
-    public function gfMailHeaderAddr($str)
-    {
+    function gfMailHeaderAddr($str) {
         $addrs = explode(',', $str); //アドレスを配列に入れる
         $mailaddrs = array();
         foreach ($addrs as $addr) {
@@ -292,7 +282,6 @@ class GC_Utils
                 $mailaddrs[] =  trim($addr);
             }
         }
-
         return implode(', ', $mailaddrs); //複数アドレスはカンマ区切りにする
     }
 
@@ -300,11 +289,10 @@ class GC_Utils
      * バックトレースをテキスト形式で出力する
      *
      * 現状スタックトレースの形で出力している。
-     * @param  array  $arrBacktrace バックトレース
+     * @param array $arrBacktrace バックトレース
      * @return string テキストで表現したバックトレース
      */
-    public function toStringBacktrace($arrBacktrace)
-    {
+    function toStringBacktrace($arrBacktrace) {
         $string = '';
 
         foreach (array_reverse($arrBacktrace) as $backtrace) {
@@ -324,11 +312,10 @@ class GC_Utils
      * エラー型から該当する定数名を取得する
      *
      * 該当する定数がない場合、$error_type を返す。
-     * @param  integer        $error_type エラー型
+     * @param integer $error_type エラー型
      * @return string|integer エラー定数名
      */
-    public function getErrorTypeName($error_type)
-    {
+    function getErrorTypeName($error_type) {
         $arrDefinedConstants = get_defined_constants(true);
 
         // PHP の歴史対応
@@ -351,7 +338,6 @@ class GC_Utils
                 return $constant_name;
             }
         }
-
         return $error_type;
     }
 
@@ -360,8 +346,7 @@ class GC_Utils
      *
      * @return string 現在のURL
      */
-    public function getUrl()
-    {
+    function getUrl() {
         $url = '';
 
         if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
@@ -383,8 +368,7 @@ class GC_Utils
      *
      * @return bool 管理機能か
      */
-    public function isAdminFunction()
-    {
+    function isAdminFunction() {
         return defined('ADMIN_FUNCTION') && ADMIN_FUNCTION === true;
     }
 
@@ -393,8 +377,7 @@ class GC_Utils
      *
      * @return bool フロント機能か
      */
-    public function isFrontFunction()
-    {
+    function isFrontFunction() {
         return defined('FRONT_FUNCTION') && FRONT_FUNCTION === true;
     }
 
@@ -403,8 +386,7 @@ class GC_Utils
      *
      * @return bool インストール機能か
      */
-    public function isInstallFunction()
-    {
+    function isInstallFunction() {
         return defined('INSTALL_FUNCTION') && INSTALL_FUNCTION === true;
     }
 
@@ -415,8 +397,7 @@ class GC_Utils
      *
      * @return string XML宣言の文字列
      */
-    public function printXMLDeclaration()
-    {
+    function printXMLDeclaration() {
         $ua = $_SERVER['HTTP_USER_AGENT'];
         if (!preg_match('/MSIE/', $ua) || preg_match('/MSIE 7/', $ua)) {
             echo '<?xml version="1.0" encoding="' . CHAR_CODE . '"?>' . "\n";

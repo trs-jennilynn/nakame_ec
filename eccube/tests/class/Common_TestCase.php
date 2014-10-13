@@ -1,10 +1,8 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 $HOME = realpath(dirname(__FILE__)) . "/../..";
 require_once($HOME . "/tests/class/replace/SC_Display_Ex.php");
 require_once($HOME . "/tests/class/replace/SC_Response_Ex.php");
-require_once($HOME . "/tests/class/replace/SC_Utils_Ex.php");
 require_once($HOME . "/tests/class/test/util/Test_Utils.php");
 require_once($HOME . "/tests/class/test/util/User_Utils.php");
 require_once($HOME . "/tests/require.php");
@@ -15,8 +13,7 @@ require_once($HOME . "/data/class/pages/LC_Page_Index.php");
  * SC_Queryのテスト以外は基本的にこのクラスを継承して作成してください。
  *
  */
-class Common_TestCase extends PHPUnit_Framework_TestCase
-{
+class Common_TestCase extends PHPUnit_Framework_TestCase {
 
   /** SC_Query インスタンス */
   protected $objQuery;
@@ -26,14 +23,12 @@ class Common_TestCase extends PHPUnit_Framework_TestCase
   /** 実際の値 */
   protected $actual;
 
-  protected function setUp()
-  {
-    $this->objQuery = SC_Query_Ex::getSingletonInstance('', true);
+  protected function setUp() {
+    $this->objQuery = SC_Query_Ex::getSingletonInstance();
     $this->objQuery->begin();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     $this->objQuery->rollback();
     $this->objQuery = null;
   }
@@ -42,8 +37,7 @@ class Common_TestCase extends PHPUnit_Framework_TestCase
    * 各テストfunctionの末尾で呼び出し、期待値と実際の値の比較を行います。
    * 呼び出す前に、$expectedに期待値を、$actualに実際の値を導入してください。
    */
-  protected function verify($message = null)
-  {
+  protected function verify($message = null) {
     $this->assertEquals($this->expected, $this->actual, $message);
   }
 
@@ -55,8 +49,7 @@ class Common_TestCase extends PHPUnit_Framework_TestCase
    * actionExit()呼び出しを書き換えてexit()させない例です。
    */
   /**
-  public function testExit()
-  {
+  public function testExit() {
     $resp = new SC_Response_Ex();
     $resp->actionExit();
 
@@ -70,8 +63,7 @@ class Common_TestCase extends PHPUnit_Framework_TestCase
    * 端末種別をテストケースから自由に設定する例です。
    */
   /**
-  public function testDeviceType()
-  {
+  public function testDeviceType() {
     $this->expected = array(DEVICE_TYPE_MOBILE, DEVICE_TYPE_SMARTPHONE);
     $this->actual = array();
 
@@ -89,8 +81,7 @@ class Common_TestCase extends PHPUnit_Framework_TestCase
    * ログイン状態をテストケースから自由に切り替える例です。
    */
   /**
-  public function testLoginState()
-  {
+  public function testLoginState() {
     $this->expected = array(FALSE, TRUE);
     $this->actual = array();
 

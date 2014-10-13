@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfSwapArrayTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfSwapArrayTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfSwapArrayTest extends Common_TestCase
-{
+class SC_Utils_sfSwapArrayTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfSwapArray_カラム名ありの指定の場合_キーに名称が入る()
-  {
+  public function testSfSwapArray_カラム名ありの指定の場合_キーに名称が入る() {
     $input_array = array(
       array('id' => '1001', 'name' => 'name1001'),
       array('id' => '1002', 'name' => 'name1002')
@@ -62,8 +58,7 @@ class SC_Utils_sfSwapArrayTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testSfSwapArray_カラム名なしの指定の場合_キーに名称が入らない()
-  {
+  public function testSfSwapArray_カラム名なしの指定の場合_キーに名称が入らない() {
     $input_array = array(
       array('id' => '1001', 'name' => 'name1001'),
       array('id' => '1002', 'name' => 'name1002')
@@ -79,5 +74,6 @@ class SC_Utils_sfSwapArrayTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

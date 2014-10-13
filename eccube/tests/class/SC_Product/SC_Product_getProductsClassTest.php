@@ -5,28 +5,24 @@ require_once($HOME . "/tests/class/SC_Product/SC_Product_TestBase.php");
 /**
  *
  */
-class SC_Product_getProductsClassTest extends SC_Product_TestBase
-{
+class SC_Product_getProductsClassTest extends SC_Product_TestBase {
 
-    protected function setUp()
-    {
+    protected function setUp() {
         parent::setUp();
         $this->objProducts = new SC_Product_Ex();
     }
 
-    protected function tearDown()
-    {
+    protected function tearDown() {
         parent::tearDown();
     }
 
     /////////////////////////////////////////
 
-    public function testGetProductsClass_商品規格IDから規格情報を返す()
-    {
+    public function testGetProductsClass_商品規格IDから規格情報を返す() {
         $this->setUpProductClass();
         $this->setUpProducts();
         $this->setUpClassCategory();
-
+        
         $this->expected = array(
                 'product_id' => '1001'
                 ,'del_flg' => '0'
@@ -51,13 +47,11 @@ class SC_Product_getProductsClassTest extends SC_Product_TestBase
                 ,'rank2' => null
                 ,'class_name2' => '味'
                 ,'class_id2' => '1'
-                ,'price01_inctax' => SC_Helper_TaxRule_Ex::sfCalcIncTax('1500')
-                ,'price02_inctax' => SC_Helper_TaxRule_Ex::sfCalcIncTax('1500')
         );
 
         $this->actual = $this->objProducts->getProductsClass('1001');
 
         $this->verify('商品規格');
     }
-
+    
 }

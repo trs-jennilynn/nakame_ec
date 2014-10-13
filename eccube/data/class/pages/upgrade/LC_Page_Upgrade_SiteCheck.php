@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once 'LC_Page_Upgrade_Base.php';
 
 /**
@@ -28,26 +29,26 @@ require_once 'LC_Page_Upgrade_Base.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Upgrade_SiteCheck.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Upgrade_SiteCheck.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Upgrade_SiteCheck extends LC_Page_Upgrade_Base
-{
+class LC_Page_Upgrade_SiteCheck extends LC_Page_Upgrade_Base {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
-    }
+    function init() {}
 
     /**
      * Page のプロセス.
      *
      * @return void
      */
-    public function process($mode)
-    {
+    function process($mode) {
         $objLog  = new LC_Upgrade_Helper_LOG;
         $objJson = new LC_Upgrade_Helper_Json;
 
@@ -57,7 +58,6 @@ class LC_Page_Upgrade_SiteCheck extends LC_Page_Upgrade_Base
             $objJson->setError(OSTORE_E_C_INVALID_ACCESS);
             $objJson->display();
             $objLog->error(OSTORE_E_C_INVALID_ACCESS);
-
             return;
         }
 
@@ -73,12 +73,9 @@ class LC_Page_Upgrade_SiteCheck extends LC_Page_Upgrade_Base
     }
 
     /**
-     * デストラクタ
+     * デストラクタ.
      *
-     * XXX 旧実装が親クラスのデストラクタを呼んでいなかったので、その仕様を維持している。
      * @return void
      */
-    public function __destruct()
-    {
-    }
+    function destroy() {}
 }

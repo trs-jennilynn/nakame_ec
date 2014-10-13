@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_REALDIR . 'pages/frontparts/bloc/LC_Page_FrontParts_Bloc_NaviFooter.php';
 
 /**
@@ -32,15 +33,17 @@ require_once CLASS_REALDIR . 'pages/frontparts/bloc/LC_Page_FrontParts_Bloc_Navi
  * @author LOCKON CO.,LTD.
  * @version $Id$
  */
-class LC_Page_FrontParts_Bloc_NaviFooter_Ex extends LC_Page_FrontParts_Bloc_NaviFooter
-{
+class LC_Page_FrontParts_Bloc_NaviFooter_Ex extends LC_Page_FrontParts_Bloc_NaviFooter {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    function init()
-    {
+    function init() {
         parent::init();
     }
 
@@ -49,8 +52,16 @@ class LC_Page_FrontParts_Bloc_NaviFooter_Ex extends LC_Page_FrontParts_Bloc_Navi
      *
      * @return void
      */
-    function process()
-    {
+    function process() {
         parent::process();
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 }

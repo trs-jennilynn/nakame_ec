@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.php';
 
 /**
@@ -28,23 +29,24 @@ require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.p
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Mypage_Delivery.php 23408 2014-05-12 04:36:22Z m_uehara $
+ * @version $Id: LC_Page_Mypage_Delivery.php 22818 2013-05-14 03:08:44Z m_uehara $
  */
-class LC_Page_Mypage_Delivery extends LC_Page_AbstractMypage_Ex
-{
+class LC_Page_Mypage_Delivery extends LC_Page_AbstractMypage_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_subtitle = 'お届け先追加･変更';
         $this->tpl_mypageno = 'delivery';
         $masterData         = new SC_DB_MasterData_Ex();
         $this->arrPref      = $masterData->getMasterData('mtb_pref');
-        $this->arrCountry   = $masterData->getMasterData('mtb_country');
         $this->httpCacheControl('nocache');
     }
 
@@ -53,8 +55,7 @@ class LC_Page_Mypage_Delivery extends LC_Page_AbstractMypage_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
     }
 
@@ -63,8 +64,8 @@ class LC_Page_Mypage_Delivery extends LC_Page_AbstractMypage_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objCustomer    = new SC_Customer_Ex();
         $customer_id    = $objCustomer->getValue('customer_id');
         $objAddress     = new SC_Helper_Address_Ex();
@@ -75,6 +76,7 @@ class LC_Page_Mypage_Delivery extends LC_Page_AbstractMypage_Ex
         $objFormParam->convParam();
 
         switch ($this->getMode()) {
+
             // お届け先の削除
             case 'delete':
                 if ($objFormParam->checkError()) {
@@ -82,10 +84,7 @@ class LC_Page_Mypage_Delivery extends LC_Page_AbstractMypage_Ex
                     SC_Response_Ex::actionExit();
                 }
 
-                if (!$objAddress->deleteAddress($objFormParam->getValue('other_deliv_id'), $customer_id)) {
-                    SC_Utils_Ex::sfDispSiteError(FREE_ERROR_MSG, '', false, '別のお届け先を削除できませんでした。');
-                    SC_Response_Ex::actionExit();
-                }
+                $objAddress->deleteAddress($objFormParam->getValue('other_deliv_id'));
                 break;
 
             // スマートフォン版のもっと見るボタン用
@@ -97,6 +96,7 @@ class LC_Page_Mypage_Delivery extends LC_Page_AbstractMypage_Ex
                     $arrOtherDeliv = $this->setPref($arrOtherDeliv, $this->arrPref);
                     $arrOtherDeliv['delivCount'] = count($arrOtherDeliv);
                     $this->arrOtherDeliv = $arrOtherDeliv;
+
 
                     echo SC_Utils_Ex::jsonEncode($this->arrOtherDeliv);
                     SC_Response_Ex::actionExit();
@@ -115,6 +115,17 @@ class LC_Page_Mypage_Delivery extends LC_Page_AbstractMypage_Ex
 
         // 1ページあたりの件数
         $this->dispNumber = SEARCH_PMAX;
+
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -122,8 +133,7 @@ class LC_Page_Mypage_Delivery extends LC_Page_AbstractMypage_Ex
      *
      * @return SC_FormParam
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('お届け先ID', 'other_deliv_id', INT_LEN, '', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('現在ページ', 'pageno', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'), '', false);
     }
@@ -135,14 +145,12 @@ class LC_Page_Mypage_Delivery extends LC_Page_AbstractMypage_Ex
      * @param array $arrPref
      * return array
      */
-    public function setPref($arrOtherDeliv, $arrPref)
-    {
+    function setPref($arrOtherDeliv, $arrPref) {
         if (is_array($arrOtherDeliv)) {
             foreach ($arrOtherDeliv as $key => $arrDeliv) {
                 $arrOtherDeliv[$key]['prefname'] = $arrPref[$arrDeliv['pref']];
             }
         }
-
         return $arrOtherDeliv;
     }
 }

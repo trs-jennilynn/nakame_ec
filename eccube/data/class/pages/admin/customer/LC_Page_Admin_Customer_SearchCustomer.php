@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Customer_SearchCustomer.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_Customer_SearchCustomer.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Customer_SearchCustomer extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Customer_SearchCustomer extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'customer/search_customer.tpl';
         $this->tpl_subtitle = '会員検索';
@@ -50,8 +53,7 @@ class LC_Page_Admin_Customer_SearchCustomer extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -61,8 +63,8 @@ class LC_Page_Admin_Customer_SearchCustomer extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // パラメーター管理クラス
         $objFormParam = new SC_FormParam_Ex();
         // パラメーター設定
@@ -87,38 +89,45 @@ class LC_Page_Admin_Customer_SearchCustomer extends LC_Page_Admin_Ex
                 break;
         }
         $this->setTemplate($this->tpl_mainpage);
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
      * パラメーター情報の初期化
      *
-     * @param  array $objFormParam フォームパラメータークラス
+     * @param array $objFormParam フォームパラメータークラス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         SC_Helper_Customer_Ex::sfSetSearchParam($objFormParam);
     }
 
     /**
      * エラーチェック
      *
-     * @param  array $objFormParam フォームパラメータークラス
+     * @param array $objFormParam フォームパラメータークラス
      * @return array エラー配列
      */
-    public function lfCheckError(&$objFormParam)
-    {
+    function lfCheckError(&$objFormParam) {
         return SC_Helper_Customer_Ex::sfCheckErrorSearchParam($objFormParam);
     }
 
     /**
      * 会員一覧を検索する処理
      *
-     * @param  array  $arrParam 検索パラメーター連想配列
+     * @param array $arrParam 検索パラメーター連想配列
      * @return array( integer 全体件数, mixed 会員データ一覧配列, mixed SC_PageNaviオブジェクト)
      */
-    public function lfDoSearch($arrParam)
-    {
+    function lfDoSearch($arrParam) {
         return SC_Helper_Customer_Ex::sfGetSearchData($arrParam);
     }
 }

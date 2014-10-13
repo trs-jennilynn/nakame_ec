@@ -25,20 +25,20 @@
  * Http コンテンツ出力を制御するクラス.
  *
  * @author Ryuichi Tokugami
- * @version $Id: SC_Display.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: SC_Display.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Display
-{
-    public $response;
+class SC_Display{
+
+    var $response;
 
     /** 端末種別を保持する */
     // XXX プロパティとして保持する必要があるのか疑問。
-    public static $device;
+    static $device;
 
     /** SC_View インスタンス */
-    public $view;
+    var $view;
 
-    public $deviceSeted = false;
+    var $deviceSeted = false;
 
     /*
      * TODO php4を捨てたときに ここのコメントアウトを外してね。
@@ -48,16 +48,14 @@ class SC_Display
      * const('ADMIN',99);
      */
 
-    public function __construct($hasPrevURL = true)
-    {
+    function __construct($hasPrevURL = true) {
         $this->response = new SC_Response_Ex();
         if ($hasPrevURL) {
             $this->setPrevURL();
         }
     }
 
-    public function setPrevURL()
-    {
+    function setPrevURL() {
         // TODO SC_SiteSession で実装した方が良さげ
         $objCartSess = new SC_CartSession_Ex();
         $objCartSess->setPrevURL($_SERVER['REQUEST_URI']);
@@ -69,8 +67,7 @@ class SC_Display
      * @param LC_Page $page LC_Page インスタンス
      * @param $is_admin boolean 管理画面を扱う場合 true
      */
-    public function prepare($page, $is_admin = false)
-    {
+    function prepare($page, $is_admin = false) {
         if (!$this->deviceSeted || !is_null($this->view)) {
             $device = ($is_admin) ? DEVICE_TYPE_ADMIN : $this->detectDevice();
             $this->setDevice($device);
@@ -85,21 +82,18 @@ class SC_Display
      *
      * SC_Response::reload() のラッパーです.
      */
-    public function reload($queryString = array(), $removeQueryString = false)
-    {
+    function reload($queryString = array(), $removeQueryString = false) {
         $this->response->reload($queryString, $removeQueryString);
     }
 
-    public function noAction()
-    {
+    function noAction() {
         return;
     }
 
     /**
      * ヘッダを追加する.
      */
-    public function addHeader($name, $value)
-    {
+    function addHeader($name, $value) {
         $this->response->addHeader($name, $value);
     }
 
@@ -107,8 +101,8 @@ class SC_Display
      * デバイス毎の出力方法を自動で変更する、ファサード
      * Enter description here ...
      */
-    public function setDevice($device = DEVICE_TYPE_PC)
-    {
+    function setDevice($device = DEVICE_TYPE_PC) {
+
         switch ($device) {
             case DEVICE_TYPE_MOBILE:
                 if (USE_MOBILE === false) {
@@ -132,8 +126,7 @@ class SC_Display
     /**
      * SC_View インスタンスを設定する.
      */
-    public function setView($view)
-    {
+    function setView($view) {
         $this->view = $view;
     }
 
@@ -145,11 +138,10 @@ class SC_Display
      * SC_Display::PC = PC = 10
      *
      * @static
-     * @param          $reset boolean
+     * @param   $reset  boolean
      * @return integer 端末種別ID
      */
-    public static function detectDevice($reset = FALSE)
-    {
+    public static function detectDevice($reset = FALSE) {
         if (is_null(SC_Display_Ex::$device) || $reset) {
             $nu = new Net_UserAgent_Mobile();
             $su = new SC_SmartphoneUserAgent_Ex();
@@ -161,22 +153,18 @@ class SC_Display
                 SC_Display_Ex::$device = DEVICE_TYPE_PC;
             }
         }
-
         return SC_Display_Ex::$device;
     }
 
-    public function assign($val1,$val2)
-    {
+    function assign($val1,$val2) {
         $this->view->assign($val1, $val2);
     }
 
-    public function assignobj($obj)
-    {
+    function assignobj($obj) {
         $this->view->assignobj($obj);
     }
 
-    public function assignarray($array)
-    {
+    function assignarray($array) {
         $this->view->assignarray($array);
     }
 }

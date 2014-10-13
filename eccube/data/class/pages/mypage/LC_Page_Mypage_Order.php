@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.php';
 
 /**
@@ -28,18 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.p
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Mypage_Order.php 23256 2013-10-28 00:17:34Z Seasoft $
+ * @version $Id: LC_Page_Mypage_Order.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Mypage_Order extends LC_Page_AbstractMypage_Ex
-{
+class LC_Page_Mypage_Order extends LC_Page_AbstractMypage_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
-        $this->skip_load_page_layout = true;
+    function init() {
         parent::init();
     }
 
@@ -48,8 +50,7 @@ class LC_Page_Mypage_Order extends LC_Page_AbstractMypage_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
     }
 
@@ -58,11 +59,7 @@ class LC_Page_Mypage_Order extends LC_Page_AbstractMypage_Ex
      *
      * @return void
      */
-    public function action()
-    {
-        //決済処理中ステータスのロールバック
-        $objPurchase = new SC_Helper_Purchase_Ex();
-        $objPurchase->cancelPendingOrder(PENDING_ORDER_CANCEL_FLAG);
+    function action() {
 
         //受注詳細データの取得
         $arrOrderDetail = $this->lfGetOrderDetail($_POST['order_id']);
@@ -73,12 +70,22 @@ class LC_Page_Mypage_Order extends LC_Page_AbstractMypage_Ex
         }
 
         $this->lfAddCartProducts($arrOrderDetail);
-        SC_Response_Ex::sendRedirect(CART_URL);
+        SC_Response_Ex::sendRedirect(CART_URLPATH);
+
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     // 受注詳細データの取得
-    public function lfGetOrderDetail($order_id)
-    {
+    function lfGetOrderDetail($order_id) {
         $objQuery       = SC_Query_Ex::getSingletonInstance();
 
         $objCustomer    = new SC_Customer_Ex();
@@ -92,13 +99,12 @@ class LC_Page_Mypage_Order extends LC_Page_AbstractMypage_Ex
         $where  = 'order_id = ?';
         $objQuery->setOrder('order_detail_id');
         $arrOrderDetail = $objQuery->select($col, $table, $where, array($order_id));
-
         return $arrOrderDetail;
     }
 
     // 商品をカートに追加
-    public function lfAddCartProducts($arrOrderDetail)
-    {
+    function lfAddCartProducts($arrOrderDetail) {
+
         $objCartSess = new SC_CartSession_Ex();
         foreach ($arrOrderDetail as $order_row) {
             $objCartSess->addProduct($order_row['product_class_id'], $order_row['quantity']);

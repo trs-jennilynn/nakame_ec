@@ -29,26 +29,21 @@ require_once($HOME . "/tests/class/helper/SC_Helper_Purchase/SC_Helper_Purchase_
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Helper_Purchase_getShipmentItemsTest.php 23356 2014-03-27 09:04:02Z kimoto $
+ * @version $Id: SC_Helper_Purchase_getShipmentItemsTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Helper_Purchase_getShipmentItemsTest extends SC_Helper_Purchase_TestBase
-{
+class SC_Helper_Purchase_getShipmentItemsTest extends SC_Helper_Purchase_TestBase {
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
     $this->setUpShipmentItem();
-    $this->setUpOrderDetail();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testGetShipmentItems_存在しない受注IDを指定した場合_結果が空になる()
-  {
+  public function testGetShipmentItems_存在しない受注IDを指定した場合_結果が空になる() {
     $order_id = '100'; // 存在しないID
     $shipping_id = '1';
 
@@ -58,8 +53,7 @@ class SC_Helper_Purchase_getShipmentItemsTest extends SC_Helper_Purchase_TestBas
     $this->verify('配送情報');
   }
 
-  public function testGetShipmentItems_存在しない配送先IDを指定した場合_結果が空になる()
-  {
+  public function testGetShipmentItems_存在しない配送先IDを指定した場合_結果が空になる() {
     $order_id = '1';
     $shipping_id = '100'; // 存在しないID
 
@@ -69,22 +63,21 @@ class SC_Helper_Purchase_getShipmentItemsTest extends SC_Helper_Purchase_TestBas
     $this->verify('配送情報');
   }
 
-  public function testGetShipmentItems_存在する受注IDと配送先IDを指定した場合_結果が取得できる()
-  {
-    $order_id = '1001';
+  public function testGetShipmentItems_存在する受注IDと配送先IDを指定した場合_結果が取得できる() {
+    $order_id = '1';
     $shipping_id = '1';
-
+    
     $this->expected['count'] = 2;
-    $this->expected['second'] = array(
-      'order_id' => '1001',
+    $this->expected['first'] = array(
+      'order_id' => '1',
       'shipping_id' => '1',
       'product_class_id' => '1001',
       'product_name' => '商品名01',
       'price' => '1500',
       'productsClass' => array('product_class_id' => '1001', 'product_id' => '1001')
     );
-    $this->expected['first'] = array(
-      'order_id' => '1001',
+    $this->expected['second'] = array(
+      'order_id' => '1',
       'shipping_id' => '1',
       'product_class_id' => '1002',
       'product_name' => '商品名02',
@@ -94,7 +87,6 @@ class SC_Helper_Purchase_getShipmentItemsTest extends SC_Helper_Purchase_TestBas
 
     $result = SC_Helper_Purchase::getShipmentItems($order_id, $shipping_id);
     $this->actual['count'] = count($result);
-
     $this->actual['first'] = Test_Utils::mapArray($result[0], array(
       'order_id', 'shipping_id', 'product_class_id', 'product_name', 'price', 'productsClass'));
     $this->actual['first']['productsClass'] = Test_Utils::mapArray($this->actual['first']['productsClass'], array('product_class_id', 'product_id'));
@@ -104,22 +96,21 @@ class SC_Helper_Purchase_getShipmentItemsTest extends SC_Helper_Purchase_TestBas
     $this->verify('配送情報');
   }
 
-  public function testGetShipmentItems_詳細フラグをOFFにした場合_結果に詳細情報が含まれない()
-  {
-    $order_id = '1001';
+  public function testGetShipmentItems_詳細フラグをOFFにした場合_結果に詳細情報が含まれない() {
+    $order_id = '1';
     $shipping_id = '1';
-
+    
     $this->expected['count'] = 2;
-    $this->expected['second'] = array(
-      'order_id' => '1001',
+    $this->expected['first'] = array(
+      'order_id' => '1',
       'shipping_id' => '1',
       'product_class_id' => '1001',
       'product_name' => '商品名01',
       'price' => '1500',
       'productsClass' => null
     );
-    $this->expected['first'] = array(
-      'order_id' => '1001',
+    $this->expected['second'] = array(
+      'order_id' => '1',
       'shipping_id' => '1',
       'product_class_id' => '1002',
       'product_name' => '商品名02',
@@ -134,8 +125,10 @@ class SC_Helper_Purchase_getShipmentItemsTest extends SC_Helper_Purchase_TestBas
     $this->actual['second'] = Test_Utils::mapArray($result[1], array(
       'order_id', 'shipping_id', 'product_class_id', 'product_name', 'price', 'productsClass'));
     $this->verify('配送情報');
+
   }
 
   //////////////////////////////////////////
+
 }
 

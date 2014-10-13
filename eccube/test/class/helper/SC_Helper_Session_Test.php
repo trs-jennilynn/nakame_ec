@@ -30,16 +30,14 @@ require_once(realpath(dirname(__FILE__)) . "/../../../data/class_extends/helper_
  *
  * @package Helper
  * @author LOCKON CO.,LTD.
- * @version $Id: SC_Helper_Session_Test.php 22567 2013-02-18 10:09:54Z shutta $
+ * @version $Id: SC_Helper_Session_Test.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Helper_Session_Test extends PHPUnit_Framework_TestCase 
-{
+class SC_Helper_Session_Test extends PHPUnit_Framework_TestCase {
 
     /**
      * getToken() のテストケース.
      */
-    function testGetToken()
-    {
+    function testGetToken() {
         $objSession = new SC_Helper_Session_Ex();
         $token = $objSession->getToken();
         
@@ -52,8 +50,7 @@ class SC_Helper_Session_Test extends PHPUnit_Framework_TestCase
     /**
      * isValidToken() のテストケース.
      */
-    function testIsValidToken()
-    {
+    function testIsValidToken() {
         $objSession = new SC_Helper_Session_Ex();
         $token = $objSession->getToken();
         
@@ -67,8 +64,7 @@ class SC_Helper_Session_Test extends PHPUnit_Framework_TestCase
     /**
      * isValidToken() のテストケース(POST).
      */
-    function testIsValidTokenWithPost()
-    {
+    function testIsValidTokenWithPost() {
         $objSession = new SC_Helper_Session_Ex();
         $token = $objSession->getToken();
         
@@ -83,8 +79,7 @@ class SC_Helper_Session_Test extends PHPUnit_Framework_TestCase
     /**
      * isValidToken() のテストケース(GET).
      */
-    function testIsValidTokenWithGET()
-    {
+    function testIsValidTokenWithGET() {
         $objSession = new SC_Helper_Session_Ex();
         $token = $objSession->getToken();
         
@@ -101,8 +96,7 @@ class SC_Helper_Session_Test extends PHPUnit_Framework_TestCase
      *
      * 値が渡されてない場合
      */
-    function testIsValidTokenNotParam()
-    {
+    function testIsValidTokenNotParam() {
         $objSession = new SC_Helper_Session_Ex();
         $token = $objSession->getToken();
         

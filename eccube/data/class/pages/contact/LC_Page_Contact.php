@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -28,23 +29,26 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Contact.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Contact.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Contact extends LC_Page_Ex
-{
+class LC_Page_Contact extends LC_Page_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         if (SC_Display_Ex::detectDevice() == DEVICE_TYPE_MOBILE) {
             $this->tpl_title = 'お問い合わせ';
         } else {
             $this->tpl_title = 'お問い合わせ(入力ページ)';
         }
+        $this->tpl_page_category = 'contact';
         $this->httpCacheControl('nocache');
 
         $masterData = new SC_DB_MasterData_Ex();
@@ -61,8 +65,7 @@ class LC_Page_Contact extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
         $this->action();
         $this->sendResponse();
@@ -73,8 +76,9 @@ class LC_Page_Contact extends LC_Page_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
+        $objDb = new SC_Helper_DB_Ex();
         $objFormParam = new SC_FormParam_Ex();
 
         $this->arrData = isset($_SESSION['customer']) ? $_SESSION['customer'] : '';
@@ -114,6 +118,7 @@ class LC_Page_Contact extends LC_Page_Ex
                 if (SC_Utils_Ex::isBlank($this->arrErr)) {
                     $this->lfSendMail($this);
 
+
                     // 完了ページへ移動する
                     SC_Response_Ex::sendRedirect('complete.php');
                     SC_Response_Ex::actionExit();
@@ -130,13 +135,25 @@ class LC_Page_Contact extends LC_Page_Ex
     }
 
     /**
-     * お問い合わせ入力時のパラメーター情報の初期化を行う.
+     * デストラクタ.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function destroy() {
+        parent::destroy();
+    }
+
+    // }}}
+    // {{{ protected functions
+
+    /**
+     * お問い合わせ入力時のパラメーター情報の初期化を行う.
+     *
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @return void
+     */
+    function lfInitParam(&$objFormParam) {
+
         $objFormParam->addParam('お名前(姓)', 'name01', STEXT_LEN, 'KVa', array('EXIST_CHECK','SPTAB_CHECK','MAX_LENGTH_CHECK'));
         $objFormParam->addParam('お名前(名)', 'name02', STEXT_LEN, 'KVa', array('EXIST_CHECK','SPTAB_CHECK','MAX_LENGTH_CHECK'));
         $objFormParam->addParam('お名前(フリガナ・姓)', 'kana01', STEXT_LEN, 'KVCa', array('EXIST_CHECK','SPTAB_CHECK','MAX_LENGTH_CHECK', 'KANA_CHECK'));
@@ -157,17 +174,15 @@ class LC_Page_Contact extends LC_Page_Ex
     /**
      * 入力内容のチェックを行なう.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
-     * @return array        入力チェック結果の配列
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @return array 入力チェック結果の配列
      */
-    public function lfCheckError(&$objFormParam)
-    {
+    function lfCheckError(&$objFormParam) {
         // 入力データを渡す。
         $arrForm =  $objFormParam->getHashArray();
         $objErr = new SC_CheckError_Ex($arrForm);
         $objErr->arrErr = $objFormParam->checkError();
         $objErr->doFunc(array('メールアドレス', 'メールアドレス(確認)', 'email', 'email02') ,array('EQUAL_CHECK'));
-
         return $objErr->arrErr;
     }
 
@@ -176,8 +191,7 @@ class LC_Page_Contact extends LC_Page_Ex
      *
      * @return void
      */
-    public function lfSendMail(&$objPage)
-    {
+    function lfSendMail(&$objPage) {
         $CONF = SC_Helper_DB_Ex::sfGetBasisData();
         $objPage->tpl_shopname = $CONF['shop_name'];
         $objPage->tpl_infoemail = $CONF['email02'];

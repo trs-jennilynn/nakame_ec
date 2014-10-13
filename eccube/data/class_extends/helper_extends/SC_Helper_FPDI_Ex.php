@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_REALDIR . 'helper/SC_Helper_FPDI.php';
 
 /**
@@ -29,6 +30,5 @@ require_once CLASS_REALDIR . 'helper/SC_Helper_FPDI.php';
  * @package Helper
  * @version $Id:$
  */
-class SC_Helper_FPDI_Ex extends SC_Helper_FPDI
-{
+class SC_Helper_FPDI_Ex extends SC_Helper_FPDI {
 }

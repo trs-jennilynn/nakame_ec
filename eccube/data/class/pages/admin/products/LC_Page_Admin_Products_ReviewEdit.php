@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_REALDIR . 'pages/admin/products/LC_Page_Admin_Products_Review.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_REALDIR . 'pages/admin/products/LC_Page_Admin_Products_Review
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Products_ReviewEdit.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_Products_ReviewEdit.php 22818 2013-05-14 03:08:44Z m_uehara $
  */
-class LC_Page_Admin_Products_ReviewEdit extends LC_Page_Admin_Products_Review
-{
+class LC_Page_Admin_Products_ReviewEdit extends LC_Page_Admin_Products_Review {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'products/review_edit.tpl';
         $this->tpl_mainno = 'products';
@@ -58,8 +61,7 @@ class LC_Page_Admin_Products_ReviewEdit extends LC_Page_Admin_Products_Review
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -69,8 +71,8 @@ class LC_Page_Admin_Products_ReviewEdit extends LC_Page_Admin_Products_Review
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // パラメーター情報の初期化
         $objFormParam = new SC_FormParam_Ex();
         $this->lfInitParam($objFormParam);
@@ -102,13 +104,21 @@ class LC_Page_Admin_Products_ReviewEdit extends LC_Page_Admin_Products_Review
     }
 
     /**
-     * パラメーター情報の初期化を行う.
+     * デストラクタ.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
+     * パラメーター情報の初期化を行う.
+     *
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @return void
+     */
+    function lfInitParam(&$objFormParam) {
         // 検索条件のパラメーターを初期化
         parent::lfInitParam($objFormParam);
         $objFormParam->addParam('レビューID', 'review_id', INT_LEN, 'n', array('MAX_LENGTH_CHECK', 'NUM_CHECK'));
@@ -128,11 +138,10 @@ class LC_Page_Admin_Products_ReviewEdit extends LC_Page_Admin_Products_Review
     /**
      * レビュー情報のDB取得
      *
-     * @param  integer $review_id レビューID
-     * @return array   レビュー情報
+     * @param integer $review_id レビューID
+     * @return array レビュー情報
      */
-    public function lfGetReviewData($review_id)
-    {
+    function lfGetReviewData($review_id) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $select='review_id, A.product_id, reviewer_name, sex, recommend_level, ';
         $select.='reviewer_url, title, comment, A.status, A.create_date, A.update_date, name';
@@ -142,19 +151,17 @@ class LC_Page_Admin_Products_ReviewEdit extends LC_Page_Admin_Products_Review
         if (empty($arrReview)) {
             SC_Utils_Ex::sfDispError('');
         }
-
         return $arrReview[0];
     }
 
     /**
      * レビュー情報の更新
      *
-     * @param  integer      $review_id    レビューID
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @param integer $review_id レビューID
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
      * @return void
      */
-    public function lfRegistReviewData($review_id, &$objFormParam)
-    {
+    function lfRegistReviewData($review_id, &$objFormParam) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $arrValues = $objFormParam->getDbArray();
         $arrValues['update_date'] = 'CURRENT_TIMESTAMP';

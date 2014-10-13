@@ -29,26 +29,22 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_getRealURLTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_getRealURLTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_getRealURLTest extends Common_TestCase
-{
+class SC_Utils_getRealURLTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
   // TODO ポート番号のためのコロンが必ず入ってしまうのはOK?
-  public function testGetRealURL_親ディレクトリへの参照を含む場合_正しくパースできる()
-  {
+  public function testGetRealURL_親ディレクトリへの参照を含む場合_正しくパースできる() {
     $input = 'http://www.example.jp/aaa/../index.php';
     $this->expected = 'http://www.example.jp:/index.php';
     $this->actual = SC_Utils::getRealURL($input);
@@ -56,8 +52,7 @@ class SC_Utils_getRealURLTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testGetRealURL_親ディレクトリへの参照を複数回含む場合_正しくパースできる()
-  {
+  public function testGetRealURL_親ディレクトリへの参照を複数回含む場合_正しくパースできる() {
     $input = 'http://www.example.jp/aaa/bbb/../../ccc/ddd/../index.php';
     $this->expected = 'http://www.example.jp:/ccc/index.php';
     $this->actual = SC_Utils::getRealURL($input);
@@ -65,8 +60,7 @@ class SC_Utils_getRealURLTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testGetRealURL_カレントディレクトリへの参照を含む場合_正しくパースできる()
-  {
+  public function testGetRealURL_カレントディレクトリへの参照を含む場合_正しくパースできる() {
     $input = 'http://www.example.jp/aaa/./index.php';
     $this->expected = 'http://www.example.jp:/aaa/index.php';
     $this->actual = SC_Utils::getRealURL($input);
@@ -74,8 +68,7 @@ class SC_Utils_getRealURLTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testGetRealURL_httpsの場合_正しくパースできる()
-  {
+  public function testGetRealURL_httpsの場合_正しくパースできる() {
     $input = 'https://www.example.jp/aaa/./index.php';
     $this->expected = 'https://www.example.jp:/aaa/index.php';
     $this->actual = SC_Utils::getRealURL($input);
@@ -83,5 +76,6 @@ class SC_Utils_getRealURLTest extends Common_TestCase
     $this->verify();
   }
   //////////////////////////////////////////
+
 }
 

@@ -32,26 +32,22 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * TODO まとめて実行する場合は定数の変更ができないためNG
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_isAppInnerUrlTest.php 22845 2013-05-31 10:02:47Z nanasess $
+ * @version $Id: SC_Utils_isAppInnerUrlTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_isAppInnerUrlTest extends Common_TestCase
-{
+class SC_Utils_isAppInnerUrlTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
   /**
-  public function testIsAppInnerUrl_非SSLかつアプリ内URLの場合_trueが返る()
-  {
+  public function testIsAppInnerUrl_非SSLかつアプリ内URLの場合_trueが返る() {
     $input = 'http://sample.eccube.jp/admin/';
     $this->expected = true;
     $this->actual = SC_Utils::isAppInnerUrl($input);
@@ -59,8 +55,7 @@ class SC_Utils_isAppInnerUrlTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testIsAppInnerUrl_非SSLかつアプリ外URLの場合_falseが返る()
-  {
+  public function testIsAppInnerUrl_非SSLかつアプリ外URLの場合_falseが返る() {
     $input = 'http://outside.eccube.jp/admin/';
     $this->expected = false;
     $this->actual = SC_Utils::isAppInnerUrl($input);
@@ -68,8 +63,7 @@ class SC_Utils_isAppInnerUrlTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testIsAppInnerUrl_SSLかつアプリ内URLの場合_trueが返る()
-  {
+  public function testIsAppInnerUrl_SSLかつアプリ内URLの場合_trueが返る() {
     $input = 'https://sample.eccube.jp/admin/';
     $this->expected = true;
     $this->actual = SC_Utils::isAppInnerUrl($input);
@@ -77,8 +71,7 @@ class SC_Utils_isAppInnerUrlTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testIsAppInnerUrl_SSLかつアプリ外URLの場合_falseが返る()
-  {
+  public function testIsAppInnerUrl_SSLかつアプリ外URLの場合_falseが返る() {
     $input = 'https://outside.eccube.jp/admin/';
     $this->expected = false;
     $this->actual = SC_Utils::isAppInnerUrl($input);
@@ -88,9 +81,6 @@ class SC_Utils_isAppInnerUrlTest extends Common_TestCase
   */
 
   //////////////////////////////////////////
-    public function testDummyTest() {
-        // Warning が出るため空のテストを作成
-        $this->assertTrue(true);
-    }
+
 }
 

@@ -31,26 +31,22 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfGetEnabledTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfGetEnabledTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfGetEnabledTest extends Common_TestCase
-{
+class SC_Utils_sfGetEnabledTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
   // TODO 要確認 実際には使われていない?
-  public function testSfGetEnabled_falseを指定した場合_無効化するための文字列が返る()
-  {
+  public function testSfGetEnabled_falseを指定した場合_無効化するための文字列が返る() {
     
     $this->expected = ' disabled="disabled"';
     $this->actual = SC_Utils::sfGetEnabled(false);
@@ -58,8 +54,7 @@ class SC_Utils_sfGetEnabledTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testSfGetEnabled_trueを指定した場合_0バイト文字列が返る()
-  {
+  public function testSfGetEnabled_trueを指定した場合_0バイト文字列が返る() {
     
     $this->expected = '';
     $this->actual = SC_Utils::sfGetEnabled(true);
@@ -68,5 +63,6 @@ class SC_Utils_sfGetEnabledTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

@@ -29,27 +29,23 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfPrintRTest.php 22845 2013-05-31 10:02:47Z nanasess $
+ * @version $Id: SC_Utils_sfPrintRTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfPrintRTest extends Common_TestCase
-{
+class SC_Utils_sfPrintRTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
   // TODO 環境により出力形式が異なるため、テスト不可(デバッグ用なので、テストしなくてもよさそう)
   /**
-  public function testSfPrintR__指定したオブジェクトの情報が出力される()
-  {
+  public function testSfPrintR__指定したオブジェクトの情報が出力される() {
     $output = '<div style="font-size: 12px;color: #00FF00;">' . "\n"
       . '<strong>**デバッグ中**</strong><br />' . "\n"
       . '<pre>' . "\n"
@@ -65,9 +61,6 @@ class SC_Utils_sfPrintRTest extends Common_TestCase
   }
   */
   //////////////////////////////////////////
-    public function testDummyTest() {
-        // Warning が出るため空のテストを作成
-        $this->assertTrue(true);
-    }
+
 }
 

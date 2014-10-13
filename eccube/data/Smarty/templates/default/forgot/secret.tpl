@@ -19,6 +19,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *}-->
+
 <!--{include file="`$smarty.const.TEMPLATE_REALDIR`popup_header.tpl" subtitle="パスワードを忘れた方(確認ページ)"}-->
 
 <div id="window_area">
@@ -31,26 +32,26 @@
         【重要】新しくパスワードを発行いたしますので、お忘れになったパスワードはご利用できなくなります。</p>
     </p>
     <form action="?" method="post" name="form1">
-        <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
-        <input type="hidden" name="mode" value="secret_check" />
+    <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+    <input type="hidden" name="mode" value="secret_check" />
 
-        <!--{foreach key=key item=item from=$arrForm}-->
-            <!--{if $key ne 'reminder_answer'}-->
-                <input type="hidden" name="<!--{$key}-->" value="<!--{$item|h}-->" />
-            <!--{/if}-->
-        <!--{/foreach}-->
+    <!--{foreach key=key item=item from=$arrForm}-->
+        <!--{if $key ne 'reminder_answer'}-->
+            <input type="hidden" name="<!--{$key}-->" value="<!--{$item|h}-->" />
+        <!--{/if}-->
+    <!--{/foreach}-->
 
-        <div id="completebox">
-        <p>
-            <span class="attention"><!--{$arrErr.reminder}--><!--{$arrErr.reminder_answer}--></span>
-            <!--{$arrReminder[$arrForm.reminder]}-->：&nbsp;<!--★答え入力★--><input type="text" name="reminder_answer" value="" class="box300" style="<!--{$arrErr.reminder_answer|sfGetErrorColor}-->" /></p>
-            <span class="attention"><!--{$errmsg}--></span>
-        </div>
-        <div class="btn_area">
-            <ul>
-                <li><input type="image" class="hover_change_image" src="<!--{$TPL_URLPATH}-->img/button/btn_next.jpg" alt="次へ" name="next" id="next" />
-            </ul>
-        </div>
+    <div id="completebox">
+    <p>
+        <span class="attention"><!--{$arrErr.reminder}--><!--{$arrErr.reminder_answer}--></span>
+        <!--{$arrReminder[$arrForm.reminder]}-->：&nbsp;<!--★答え入力★--><input type="text" name="reminder_answer" value="" class="box300" style="<!--{$arrErr.reminder_answer|sfGetErrorColor}-->" /></p>
+        <span class="attention"><!--{$errmsg}--></span>
+    </div>
+    <div class="btn_area">
+        <ul>
+            <li><input type="image" onmouseover="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_next_on.jpg',this)" onmouseout="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_next.jpg',this)" src="<!--{$TPL_URLPATH}-->img/button/btn_next.jpg" alt="次へ" name="next" id="next" />
+        </ul>
+    </div>
     </form>
 </div>
 

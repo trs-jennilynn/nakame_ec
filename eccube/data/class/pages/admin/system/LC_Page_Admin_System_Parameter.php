@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,26 +29,30 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_System_Parameter.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_System_Parameter.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_System_Parameter extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_System_Parameter extends LC_Page_Admin_Ex {
+
+    // {{{ properties
+
     /** 定数キーとなる配列 */
-    public $arrKeys;
+    var $arrKeys;
 
     /** 定数コメントとなる配列 */
-    public $arrComments;
+    var $arrComments;
 
     /** 定数値となる配列 */
-    public $arrValues;
+    var $arrValues;
+
+    // }}}
+    // {{{ functions
 
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'system/parameter.tpl';
         $this->tpl_subno = 'parameter';
@@ -61,8 +66,7 @@ class LC_Page_Admin_System_Parameter extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -72,8 +76,8 @@ class LC_Page_Admin_System_Parameter extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $masterData = new SC_DB_MasterData_Ex();
 
         // キーの配列を生成
@@ -106,6 +110,16 @@ class LC_Page_Admin_System_Parameter extends LC_Page_Admin_Ex
         // コメント, 値の配列を生成
         $this->arrComments = SC_Utils_Ex::getHash2Array($masterData->getDBMasterData('mtb_constants',
                                                         array('id', 'remarks', 'rank')));
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -116,8 +130,7 @@ class LC_Page_Admin_System_Parameter extends LC_Page_Admin_Ex
      * @access private
      * @return void
      */
-    public function update(&$arrKeys, &$arrForm)
-    {
+    function update(&$arrKeys, &$arrForm) {
         $data = array();
         $masterData = new SC_DB_MasterData_Ex();
         foreach ($arrKeys as $key) {
@@ -135,18 +148,16 @@ class LC_Page_Admin_System_Parameter extends LC_Page_Admin_Ex
      * エラーチェックを行う.
      *
      * @access private
-     * @param  array $arrForm $_POST 値
+     * @param array $arrForm $_POST 値
      * @return void
      */
-    public function errorCheck(&$arrKeys, &$arrForm)
-    {
+    function errorCheck(&$arrKeys, &$arrForm) {
         $objErr = new SC_CheckError_Ex($arrForm);
         for ($i = 0; $i < count($arrKeys); $i++) {
             $objErr->doFunc(array($arrKeys[$i],
                                   $arrForm[$arrKeys[$i]]),
                             array('EXIST_CHECK_REVERSE', 'EVAL_CHECK'));
         }
-
         return $objErr->arrErr;
     }
 
@@ -156,15 +167,13 @@ class LC_Page_Admin_System_Parameter extends LC_Page_Admin_Ex
      * @access private
      * @return array パラメーターのキーの配列
      */
-    public function getParamKeys(&$masterData)
-    {
+    function getParamKeys(&$masterData) {
         $keys = array();
         $i = 0;
         foreach ($masterData->getDBMasterData('mtb_constants') as $key => $val) {
             $keys[$i] = $key;
             $i++;
         }
-
         return $keys;
     }
 }

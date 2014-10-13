@@ -31,26 +31,22 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * TODO まとめて実行する場合は定数の変更ができないためNG
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfIsMatchHashPassword_authTypePlainTest.php 22845 2013-05-31 10:02:47Z nanasess $
+ * @version $Id: SC_Utils_sfIsMatchHashPassword_authTypePlainTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfIsMatchHashPassword_authTypePlainTest extends Common_TestCase
-{
+class SC_Utils_sfIsMatchHashPassword_authTypePlainTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
   /**
-  public function testSfIsMatchHashPassword_文字列が一致する場合_trueが返る()
-  {
+  public function testSfIsMatchHashPassword_文字列が一致する場合_trueが返る() {
     $pass = 'ec-cube';
     $hashpass = 'ec-cube';
 
@@ -60,8 +56,7 @@ class SC_Utils_sfIsMatchHashPassword_authTypePlainTest extends Common_TestCase
     $this->verify('パスワード文字列比較結果');
   }
 
-  public function testSfIsMatchHashPassword_文字列が一致しない場合_falseが返る()
-  {
+  public function testSfIsMatchHashPassword_文字列が一致しない場合_falseが返る() {
     $pass = 'ec-cube';
     $hashpass = 'EC-cube';
 
@@ -71,9 +66,5 @@ class SC_Utils_sfIsMatchHashPassword_authTypePlainTest extends Common_TestCase
     $this->verify('パスワード文字列比較結果');
   }
   */
-      public function testDummyTest() {
-        // Warning が出るため空のテストを作成
-        $this->assertTrue(true);
-      }
 }
 

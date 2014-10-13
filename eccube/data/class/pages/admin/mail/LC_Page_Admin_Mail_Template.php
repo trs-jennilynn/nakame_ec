@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Mail_Template.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_Mail_Template.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Mail_Template extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Mail_Template extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'mail/template.tpl';
         $this->tpl_mainno = 'mail';
@@ -55,8 +58,7 @@ class LC_Page_Admin_Mail_Template extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -66,8 +68,8 @@ class LC_Page_Admin_Mail_Template extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objMailHelper = new SC_Helper_Mail_Ex();
 
         switch ($this->getMode()) {
@@ -82,6 +84,16 @@ class LC_Page_Admin_Mail_Template extends LC_Page_Admin_Ex
                 break;
         }
         $this->arrTemplates = $objMailHelper->sfGetMailmagaTemplate();
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -89,12 +101,12 @@ class LC_Page_Admin_Mail_Template extends LC_Page_Admin_Ex
      * @param integer 削除したいテンプレートのID
      * @return void
      */
-    public function lfDeleteMailTemplate($template_id)
-    {
+    function lfDeleteMailTemplate($template_id) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $objQuery->update('dtb_mailmaga_template',
                           array('del_flg' =>1),
                           'template_id = ?',
                           array($template_id));
     }
+
 }

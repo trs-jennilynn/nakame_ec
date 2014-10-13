@@ -29,26 +29,22 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfGetErrorColorTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfGetErrorColorTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfGetErrorColorTest extends Common_TestCase
-{
+class SC_Utils_sfGetErrorColorTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
   // TODO 要確認 実際には使われていない?
-  public function testSfGetErrorColor_引数が空でない場合_背景色変更用の文字列が返る()
-  {
+  public function testSfGetErrorColor_引数が空でない場合_背景色変更用の文字列が返る() {
     
     $this->expected = 'background-color:#ffe8e8';
     $this->actual = SC_Utils::sfGetErrorColor('value');
@@ -56,8 +52,7 @@ class SC_Utils_sfGetErrorColorTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testSfGetErrorColor_引数が空の場合_0バイト文字列が返る()
-  {
+  public function testSfGetErrorColor_引数が空の場合_0バイト文字列が返る() {
     
     $this->expected = '';
     $this->actual = SC_Utils::sfGetErrorColor();
@@ -66,5 +61,6 @@ class SC_Utils_sfGetErrorColorTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Mail.php 23230 2013-09-19 02:49:03Z m_uehara $
+ * @version $Id: LC_Page_Admin_Mail.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Mail extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Mail extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'mail/index.tpl';
         $this->tpl_mainno = 'mail';
@@ -79,8 +82,7 @@ class LC_Page_Admin_Mail extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -90,8 +92,8 @@ class LC_Page_Admin_Mail extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // パラメーター管理クラス
         $objFormParam = new SC_FormParam_Ex();
         $this->lfInitParamSearchCustomer($objFormParam);
@@ -152,7 +154,7 @@ class LC_Page_Admin_Mail extends LC_Page_Admin_Ex
             // query:配信履歴から「確認」
             case 'query':
                 if (SC_Utils_Ex::sfIsInt($_GET['send_id'])) {
-                    $this->arrSearchData = $this->lfGetMailQuery($_GET['send_id']);
+                    $this->arrSearchData = $this->lfGetMailQuery();
                 }
                 $this->setTemplate('mail/query.tpl');
                 break;
@@ -170,16 +172,25 @@ class LC_Page_Admin_Mail extends LC_Page_Admin_Ex
                 break;
         }
         $this->arrForm = $objFormParam->getFormParamList();
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
      * パラメーター情報の初期化（初期会員検索時）
      *
-     * @param  array $objFormParam フォームパラメータークラス
+     * @param array $objFormParam フォームパラメータークラス
      * @return void
      */
-    public function lfInitParamSearchCustomer(&$objFormParam)
-    {
+    function lfInitParamSearchCustomer(&$objFormParam) {
         SC_Helper_Customer_Ex::sfSetSearchParam($objFormParam);
         $objFormParam->addParam('配信形式', 'search_htmlmail', INT_LEN, 'n', array('NUM_CHECK','MAX_LENGTH_CHECK'));
         $objFormParam->addParam('配信メールアドレス種別', 'search_mail_type', INT_LEN, 'n', array('NUM_CHECK','MAX_LENGTH_CHECK'));
@@ -188,11 +199,10 @@ class LC_Page_Admin_Mail extends LC_Page_Admin_Ex
     /**
      * パラメーター情報の追加（テンプレート選択）
      *
-     * @param  array $objFormParam フォームパラメータークラス
+     * @param array $objFormParam フォームパラメータークラス
      * @return void
      */
-    public function lfAddParamSelectTemplate(&$objFormParam)
-    {
+    function lfAddParamSelectTemplate(&$objFormParam) {
         $objFormParam->addParam('メール形式', 'mail_method', INT_LEN, 'n', array('EXIST_CHECK','ALNUM_CHECK'));
         $objFormParam->addParam('Subject', 'subject', STEXT_LEN, 'KVa', array('EXIST_CHECK','SPTAB_CHECK','MAX_LENGTH_CHECK'));
         $objFormParam->addParam('本文', 'body', LLTEXT_LEN, 'KVCa', array('EXIST_CHECK','SPTAB_CHECK','MAX_LENGTH_CHECK'));
@@ -202,29 +212,26 @@ class LC_Page_Admin_Mail extends LC_Page_Admin_Ex
     /**
      * メルマガテンプレート一覧情報の取得
      *
-     * @param  array $arrTemplate SC_Helper_Mail_Ex::sfGetMailmagaTemplate()の戻り値
+     * @param array $arrTemplate SC_Helper_Mail_Ex::sfGetMailmagaTemplate()の戻り値
      * @return array key:template_id value:サブジェクト【配信形式】
      */
-    public function lfGetMailTemplateList($arrTemplate)
-    {
+    function lfGetMailTemplateList($arrTemplate) {
         if (is_array($arrTemplate)) {
             foreach ($arrTemplate as $line) {
                 $return[$line['template_id']] = '【' . $this->arrHtmlmail[$line['mail_method']] . '】' . $line['subject'];
             }
         }
-
         return $return;
     }
 
     /**
      * テンプレートIDから情報の取得して$objFormParamにset_paramする
      *
-     * @param  array $objFormParam フォームパラメータークラス
-     * @param  array $template_id  テンプレートID
+     * @param array $objFormParam フォームパラメータークラス
+     * @param array $template_id テンプレートID
      * @return void
      */
-    public function lfGetTemplateData(&$objFormParam, $template_id)
-    {
+    function lfGetTemplateData(&$objFormParam, $template_id) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $objQuery->setOrder('template_id DESC');
         $where = 'template_id = ?';
@@ -237,8 +244,7 @@ class LC_Page_Admin_Mail extends LC_Page_Admin_Ex
      *
      * @return integer 登録した行の dtb_send_history.send_id の値
      */
-    public function lfRegisterData(&$objFormParam)
-    {
+    function lfRegisterData(&$objFormParam) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         list($linemax, $arrSendCustomer, $objNavi) = SC_Helper_Customer_Ex::sfGetSearchData($objFormParam->getHashArray(), 'All');
@@ -273,24 +279,22 @@ class LC_Page_Admin_Mail extends LC_Page_Admin_Ex
                 $objQuery->insert('dtb_send_customer', $dtb_send_customer);
             }
         }
-
         return $send_id;
     }
 
     /**
      * 配信履歴から条件を取得する
      *
-     * @param  integer $send_id　配信履歴番号
+     * @param integer $send_id　配信履歴番号
      * @return array
      */
-    public function lfGetMailQuery($send_id)
-    {
+    function lfGetMailQuery($send_id) {
+
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         // 送信履歴より、送信条件確認画面
         $sql = 'SELECT search_data FROM dtb_send_history WHERE send_id = ?';
-        $searchData = $objQuery->getOne($sql, array($send_id));
-
+        $searchData = $objQuery->getOne($sql, array($_GET['send_id']));
         return unserialize($searchData);
     }
 }

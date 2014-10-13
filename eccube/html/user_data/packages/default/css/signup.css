@@ -1,32 +1,93 @@
 @charset "utf-8";
 
-.LC_Page_Signup table,.LC_Page_Signup .btn_area,.LC_Page_Signup .title{
+.LC_Page_Entry table,.LC_Page_Entry .btn_area .hover_change_image{
     display:none;
 }
-.LC_Page_Signup{
+.LC_Page_Entry body{
     background: #474a4d;
     background-size: cover;
 }
-.LC_Page_Signup #container{
+.LC_Page_Entry #container{
     background:transparent;
     text-align:center;
+    width:auto;
 }
-.LC_Page_Signup .small{
+.LC_Page_Entry .small{
     line-height: 2;
 }
-.LC_Page_Signup .flipInY{
+.LC_Page_Entry .flipInY{
     top: -59px;
 }
-.LC_Page_Signup .btn-twitter{
+.LC_Page_Entry .btn-twitter{
     width:100%;
-} 
-.LC_Page_Signup .signup-forms .input-text{
+}
+.LC_Page_Entry .signup-forms .input-text{
 	background: white !important;
 }
-.LC_Page_Login{
+.LC_Page_Entry #one_maincolumn{
+	width:auto;
+}
+.LC_Page_Entry .login-sns-buttons,
+.LC_Page_Entry .signup-id{
+	padding:0 20px;
+}
+.LC_Page_Entry .btn-twitter{
+	color:#fff !important;
+}
+.LC_Page_Entry #password{
+	width:100%;
+}
+.LC_Page_Entry .btn_area li{
+	display:block;
+}
+.LC_Page_Entry .btn-blue{
+	background-color: #007bbb;
+	border: 0;
+	color: white;
+}
+.LC_Page_Entry .btn-blue:hover {
+	background-color: #006aa2;
+}
+
+
+.LC_Page_Login body{
 	background: #474a4d;
 	background-size: cover;
 }
 .LC_Page_Login #container{
 	background:transparent;
+	width:auto;
 }
+.LC_Page_Login .main_column{
+	padding:0px;
+}
+.LC_Page_Login #container div#login_area .block_body{
+	padding:0px;
+	background-color:transparent;
+	border:0px;
+}
+.LC_Page_Login .form-container h1{
+	text-align: center;
+}
+.LC_Page_Login #one_maincolumn{
+	width:auto;
+}
+.LC_Page_Login .pad-v-1 {
+	padding-top: 2em;
+	padding-bottom: 1.5em;
+}
+.LC_Page_Login .login-sns-buttons,
+.LC_Page_Login .signup-forms{
+	padding:0 15px;
+}
+.LC_Page_Login .signup-sns a{
+	color:#fff;
+}
+.LC_Page_Login .signup-id,.LC_Page_Login .small{
+	text-align:center;
+}
+.LC_Page_Login #container div#login_area .block_body p{
+	margin-bottom: 15px;
+}
+.LC_Page_Login
+.LC_Page_Login

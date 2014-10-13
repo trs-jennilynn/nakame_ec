@@ -28,7 +28,7 @@
         <input type="hidden" name="mode" value="confirm">
         <input type="hidden" name="uniqid" value="<!--{$tpl_uniqid}-->">
         <!--{assign var=key value="deliv_id"}-->
-        <input type="hidden" name="<!--{$key}-->" value="<!--{$arrForm[$key].value|h}-->">
+        <input type="hidden" name="<!--{$key}-->" value="<!--{$arrForm[$key].value}-->">
         ■お支払方法 <font color="#FF0000">*</font><br>
         <!--{assign var=key value="payment_id"}-->
         <!--{if $arrErr[$key] != ""}-->
@@ -60,8 +60,7 @@
                 <!--{else}-->
                     <select name="<!--{$key}-->">
                         <option value="" selected="">指定なし</option>
-                        <!--{assign var=shipping_date_value value=$arrForm[$key].value|default:$shippingItem.shipping_date}-->
-                        <!--{html_options options=$arrDelivDate selected=$shipping_date_value}-->
+                        <!--{html_options options=$arrDelivDate selected=$arrForm[$key].value}-->
                     </select>
                 <!--{/if}-->
                 <br>
@@ -71,8 +70,7 @@
                 お届け時間：<br>
                 <select name="<!--{$key}-->" id="<!--{$key}-->">
                     <option value="" selected="">指定なし</option>
-                    <!--{assign var=shipping_time_value value=$arrForm[$key].value|default:$shippingItem.time_id}-->
-                    <!--{html_options options=$arrDelivTime selected=$shipping_time_value}-->
+                    <!--{html_options options=$arrDelivTime selected=$arrForm[$key].value}-->
                 </select>
                 <br>
                 <br>

@@ -22,32 +22,28 @@
  */
 
 //---- アップロードファイル加工クラス(thumb.phpとセットで使用する)
-class SC_Image
-{
-    public $tmp_dir;
+class SC_Image {
 
-    public function __construct($tmp_dir)
-    {
+    var $tmp_dir;
+
+    function __construct($tmp_dir) {
         // ヘッダファイル読込
         $this->tmp_dir = rtrim($tmp_dir, '/') . '/';
     }
 
     //--- 一時ファイル生成(サムネイル画像生成用)
-    public function makeTempImage($keyname, $max_width, $max_height)
-    {
+    function makeTempImage($keyname, $max_width, $max_height) {
         // 一意なIDを取得する。
         $mainname = uniqid('').'.';
         // 拡張子以外を置き換える。
         $newFileName = preg_replace("/^.*\./", $mainname, $_FILES[$keyname]['name']);
         $result  = $this->MakeThumb($_FILES[$keyname]['tmp_name'], $this->tmp_dir , $max_width, $max_height, $newFileName);
         GC_Utils_Ex::gfDebugLog($result);
-
         return $newFileName;
     }
 
     //--- ファイルを指定保存DIRへ移動
-    public function moveTempImage($filename, $save_dir)
-    {
+    function moveTempImage($filename, $save_dir) {
         // コピー元ファイル、コピー先ディレクトリが存在する場合にのみ実行する
         $from_path = $this->tmp_dir.$filename;
         $to_path = $save_dir.'/'.$filename;
@@ -61,8 +57,7 @@ class SC_Image
     }
 
     //---- 指定ファイルを削除
-    public function deleteImage($filename, $dir)
-    {
+    function deleteImage($filename, $dir) {
         if (file_exists($dir.'/'.$filename)) {
             unlink($dir.'/'.$filename);
         }
@@ -71,20 +66,22 @@ class SC_Image
     /**
      * 指定サイズで画像を出力する.
      *
-     * @param string  $FromImgPath ファイル名までのパス
-     * @param string  $ToImgPath   出力先パス
-     * @param integer $tmpMW       最大横幅
-     * @param integer $tmpMH       最大縦幅
+     * @param string $FromImgPath ファイル名までのパス
+     * @param string $ToImgPath 出力先パス
+     * @param integer $tmpMW 最大横幅
+     * @param integer $tmpMH 最大縦幅
      * @param integer $newFileName 新ファイル名
      * @param array 新ファイル名を格納した配列
      */
-    public function MakeThumb($FromImgPath , $ToImgPath , $tmpMW , $tmpMH, $newFileName = '')
-    {
+    function MakeThumb($FromImgPath , $ToImgPath , $tmpMW , $tmpMH, $newFileName = '') {
         // 画像の最大横幅（単位：ピクセル）
         $ThmMaxWidth = LARGE_IMAGE_WIDTH;
 
         // 画像の最大縦幅（単位：ピクセル）
         $ThmMaxHeight = LARGE_IMAGE_HEIGHT;
+
+        //サムネイル画像の接頭文字
+        $PreWord = $head;
 
         //拡張子取得
         $array_ext = explode('.', $FromImgPath);
@@ -139,7 +136,7 @@ class SC_Image
         // サムネイル画像ファイル名作成処理
         $tmp = array_pop(explode('/',$FromImgPath)); // /の一番最後を切り出し
         $FromFileName = array_shift(explode('.',$tmp)); // .で区切られた部分を切り出し
-        $ToFile = $FromFileName; // 拡張子以外の部分までを作成
+        $ToFile = $PreWord.$FromFileName; // 拡張子以外の部分までを作成
 
         $ImgNew = imagecreatetruecolor($re_size[0],$re_size[1]);
 
@@ -154,11 +151,9 @@ class SC_Image
                         $ToFile .= '.gif';
                     }
                     if (!@copy($FromImgPath , $ToImgPath.$ToFile)) { // エラー処理
-
                         return array(0,'ファイルのコピーに失敗しました。');
                     }
                     ImageDestroy($ImgNew);
-
                     return array(1,$ToFile);
                 }
 
@@ -182,7 +177,6 @@ class SC_Image
                     return array(0,'画像の出力に失敗しました。');
                 }
                 ImageDestroy($ImgNew);
-
                 return array(1,$ToFile);
 
             case '2': //jpg形式

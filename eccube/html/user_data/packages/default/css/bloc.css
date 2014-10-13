@@ -19,19 +19,29 @@
 -検索
 -カレンダー
 -おすすめ商品
-    * 商品詳細のオススメ商品   [whobought_area]
-*/
+    *メインカラム用 1カラム時 [one_maincolumn]
+    *メインカラム用 2カラム時 [two_maincolumn_left]
+                              [two_maincolumn_right]
+    *メインカラム用 3カラム時 [three_maincolumn]
+    *サイドカラム用           [side_column]
+    *商品詳細のオススメ商品   [whobought_area]
+ */
 
 
 /* ==============================================
 ブロック共通
-    * #container から指定することで、ヘッダー・フッターには適用していない。
 /* ============================================= */
+#container .block_body {
+    background-color: #fff;
+}
 .side_column {
     overflow-x: hidden; /* IE6 表示乱れ防止 */
 }
+.side_column .block_outer {
+    margin: 10px 7%;
+}
 .side_column .block_body,
-#main_column .block_body {
+.main_column .block_body {
     border: solid 1px #ccc;
     border-top: none;
 }
@@ -39,18 +49,10 @@
     border: solid 1px #ccc;
     width: 145px;
 }
+.main_column .block_outer {
+    margin-bottom: 20px;
+}
 
-/* 外枠
------------------------------------------------ */
-#container .block_outer {
-    padding: 0 15px 10px; /* #container の背景色を欠けさせないため敢えて padding */
-}
-#container #main_column .block_outer {
-    padding: 0 0 20px;
-}
-#container .side_column .block_outer {
-    padding: 0 7% 10px;
-}
 
 /* リスト
 ----------------------------------------------- */
@@ -105,6 +107,19 @@
 }
 
 
+/* ==============================================
+▼ヘッダー上、フッター下のブロックエリア
+=============================================== */
+div#topcolumn {
+    margin: 0px;
+    clear: both;
+}
+div#bottomcolumn {
+    margin: 0px;
+    clear: both;
+}
+
+
 /* ***********************************************
 ▼各機能ブロックの指定
 /*********************************************** */
@@ -112,19 +127,20 @@
 /* ===============================================
 ▼新着情報
 =============================================== */
-#news_area .news_contents {
+#news_area .block_body {
     padding: 10px;
+}
+#news_area .news_contents {
+    padding-right: 10px;
     max-height: 260px;
-    height: auto !important; /* hack? */
-    height: 260px; /* hack? */
+    height: auto !important;
+    height: 260px;
     overflow: auto;
     overflow-y: scroll;
 }
+
 #news_area dl.newslist {
     background: url("../img/background/line_dot_01.gif") repeat-x bottom;
-}
-#news_area dl.newslist:last-child { /* IE9 未満では無効 (影響度合いが低いので黙殺) */
-    background: none;
 }
 #news_area dl.newslist dt {
     margin-bottom: 5px;
@@ -132,6 +148,10 @@
 #news_area dl.newslist dd {
     margin-bottom: 10px;
     padding-bottom: 10px;
+}
+#news_area dl.end {
+    padding: 10px 0;
+    background: url("") no-repeat bottom;
 }
 
 
@@ -160,7 +180,7 @@
 /* ===============================================
 ▼カテゴリ
 =============================================== */
-#container #category_area .block_body {
+#category_area .block_body {
     background-color: #fffaf0;
 }
 
@@ -200,6 +220,7 @@ a.onlink:hover {
 ▼ガイドリンク
 =============================================== */
 #guide_area {
+    margin-top: 1em;
     border: none;
 }
 #guide_area li {
@@ -268,10 +289,10 @@ ul.button_like li a {
 /* ===============================================
 ▼検索
 =============================================== */
-#container div#search_area .block_body {
+div#search_area .block_body {
     padding: 10px;
 }
-#container div#search_area .block_body .btn {
+div#search_area .block_body .btn {
     text-align: center;
 }
 
@@ -330,7 +351,9 @@ ul.button_like li a {
 =============================================== */
 /*
    tplファイルのマークアップが同じ項目
-   メインカラム用
+   メインカラム用 2カラム時 [two_maincolumn_left]
+                            [two_maincolumn_right]
+   メインカラム用 3カラム時 [three_maincolumn]
    サイドカラム用           [side_column]
    商品詳細のオススメ商品   [whobought_area]
 =============================================== */
@@ -338,6 +361,7 @@ ul.button_like li a {
 ----------------------------------------------- */
 #recommend_area .block_body,
 #whobought_area .product_item {
+    margin-bottom: 10px;
     padding: 10px 0 10px;
     border: none;
     background: url("../img/background/line_dot_01.gif") repeat-x bottom;
@@ -368,7 +392,7 @@ ul.button_like li a {
 /* 画像
 ----------------------------------------------- */
 /* メインカラム用 */
-#main_column #recommend_area .block_body .productImage,
+.main_column #recommend_area .block_body .productImage,
 #whobought_area .product_item .productImage {
     margin-bottom: 10px;
     float: left;
@@ -384,7 +408,7 @@ ul.button_like li a {
 
 /* 左右の振り分け
 ----------------------------------------------- */
-#main_column #recommend_area .product_item,
+.main_column #recommend_area .product_item,
 #whobought_area .product_item {
     float: left;
     width: 47.5%;
@@ -396,21 +420,23 @@ ul.button_like li a {
 /* 商品説明テキスト
 ----------------------------------------------- */
 /* メインカラム用 1カラム時*/
-#main_column.colnum1 #recommend_area .block_body .productContents {
+#one_maincolumn #recommend_area .block_body .productContents {
     float: right;
     width: 74%;
 }
 
 /* メインカラム用 2カラム時*/
-#main_column.colnum2 #recommend_area .block_body .productContents,
-#main_column.colnum2 #whobought_area .productContents {
+#two_maincolumn_right #recommend_area .block_body .productContents,
+#two_maincolumn_left #recommend_area .block_body .productContents,
+#two_maincolumn_right #whobought_area .productContents,
+#two_maincolumn_left #whobought_area .productContents {
     float: right;
     width: 74%;
 }
 
 /* メインカラム用 3カラム時*/
-#main_column.colnum3 #recommend_area .block_body .productContents,
-#main_column.colnum3 #whobought_area .productContents {
+#three_maincolumn #recommend_area .block_body .productContents,
+#three_maincolumn #whobought_area .productContents {
     float: right;
     width: 67%;
 }

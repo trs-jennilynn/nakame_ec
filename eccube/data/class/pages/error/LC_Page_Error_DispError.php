@@ -1,3 +1,4 @@
+<!-- -*- coding: utf-8 -*- -->
 <?php
 /*
  * This file is part of EC-CUBE
@@ -21,6 +22,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,10 +30,13 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Error_DispError.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Error_DispError.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Error_DispError extends LC_Page_Admin_Ex
-{
+class LC_Page_Error_DispError extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      * LC_Page_Adminクラス内でエラーページを表示しようとした際に無限ループに陥るのを防ぐため,
@@ -39,8 +44,7 @@ class LC_Page_Error_DispError extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         $this->template = LOGIN_FRAME;
         $this->tpl_mainpage = 'login_error.tpl';
         $this->tpl_title = 'ログインエラー';
@@ -50,9 +54,6 @@ class LC_Page_Error_DispError extends LC_Page_Admin_Ex
         // transformでフックしているばあいに, 再度エラーが発生するため, コールバックを無効化.
         $objHelperPlugin = SC_Helper_Plugin_Ex::getSingletonInstance($this->plugin_activate_flg);
         $objHelperPlugin->arrRegistedPluginActions = array();
-
-        // キャッシュから店舗情報取得（DBへの接続は行わない）
-        $this->arrSiteInfo = SC_Helper_DB_Ex::sfGetBasisDataCache(false);
     }
 
     /**
@@ -60,8 +61,7 @@ class LC_Page_Error_DispError extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -71,9 +71,7 @@ class LC_Page_Error_DispError extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
-        SC_Response_Ex::sendHttpStatus(500);
+    function action() {
 
         switch ($this->type) {
             case LOGIN_ERROR:
@@ -97,10 +95,18 @@ class LC_Page_Error_DispError extends LC_Page_Admin_Ex
     }
 
     /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
      * エラーページではトランザクショントークンの自動検証は行わない
      */
-    public function doValidToken()
-    {
+    function doValidToken() {
         // queit.
     }
 }

@@ -30,18 +30,17 @@
  * @author LOCKON CO.,LTD.
  * @version $Id: $
  */
-abstract class SC_Plugin_Base
-{
+abstract class SC_Plugin_Base {
+
     protected $arrSelfInfo;
 
     /**
      * コンストラクタ
      *
-     * @param  array $arrSelfInfo 自身のプラグイン情報
+     * @param array $arrSelfInfo 自身のプラグイン情報
      * @return void
      */
-    public function __construct(array $arrSelfInfo)
-    {
+    function __construct(array $arrSelfInfo) {
         $this->arrSelfInfo = $arrSelfInfo;
     }
     /**
@@ -49,57 +48,48 @@ abstract class SC_Plugin_Base
      * installはプラグインのインストール時に実行されます.
      * 引数にはdtb_pluginのプラグイン情報が渡されます.
      *
-     * @param  array $arrPlugin plugin_infoを元にDBに登録されたプラグイン情報(dtb_plugin)
+     * @param array $arrPlugin plugin_infoを元にDBに登録されたプラグイン情報(dtb_plugin)
      * @return void
      */
-    public function install($arrPlugin, $objPluginInstaller = null)
-    {
-    }
+    abstract function install($arrPlugin);
 
     /**
      * アンインストール
      * uninstallはアンインストール時に実行されます.
      * 引数にはdtb_pluginのプラグイン情報が渡されます.
      *
-     * @param  array $arrPlugin プラグイン情報の連想配列(dtb_plugin)
+     * @param array $arrPlugin プラグイン情報の連想配列(dtb_plugin)
      * @return void
      */
-    public function uninstall($arrPlugin, $objPluginInstaller = null)
-    {
-    }
+    abstract function uninstall($arrPlugin);
 
     /**
      * 稼働
      * enableはプラグインを有効にした際に実行されます.
      * 引数にはdtb_pluginのプラグイン情報が渡されます.
      *
-     * @param  array $arrPlugin プラグイン情報の連想配列(dtb_plugin)
+     * @param array $arrPlugin プラグイン情報の連想配列(dtb_plugin)
      * @return void
      */
-    public function enable($arrPlugin, $objPluginInstaller = null)
-    {
-    }
+    abstract function enable($arrPlugin);
 
     /**
      * 停止
      * disableはプラグインを無効にした際に実行されます.
      * 引数にはdtb_pluginのプラグイン情報が渡されます.
      *
-     * @param  array $arrPlugin プラグイン情報の連想配列(dtb_plugin)
+     * @param array $arrPlugin プラグイン情報の連想配列(dtb_plugin)
      * @return void
      */
-    public function disable($arrPlugin, $objPluginInstaller = null)
-    {
-    }
+    abstract function disable($arrPlugin);
 
     /**
      * プラグインヘルパーへ, コールバックメソッドを登録します.
      *
-     * @param object  $objPluginHelper
+     * @param object $objPluginHelper
      * @param integer $priority
      */
-    public function register(SC_Helper_Plugin $objHelperPlugin, $priority)
-    {
+    function register(SC_Helper_Plugin $objHelperPlugin, $priority) {
         if (isset($this->arrSelfInfo['plugin_hook_point'])) {
             $arrHookPoints = $this->arrSelfInfo['plugin_hook_point'];
             foreach ($arrHookPoints as $hook_point) {
@@ -117,8 +107,8 @@ abstract class SC_Plugin_Base
      *
      * @return array $arrSelfInfo 自身のプラグイン情報
      */
-    public function getPluginInfo()
-    {
+    function getPluginInfo() {
         return $this->arrSelfInfo;
     }
+
 }

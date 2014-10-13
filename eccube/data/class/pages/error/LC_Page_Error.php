@@ -1,4 +1,4 @@
-<?php
+<?php //-*- coding: utf-8 -*-
 /*
  * This file is part of EC-CUBE
  *
@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -30,22 +31,27 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  * @author LOCKON CO.,LTD.
  * @version $Id:LC_Page_Error.php 15532 2007-08-31 14:39:46Z nanasess $
  */
-class LC_Page_Error extends LC_Page_Ex
-{
+class LC_Page_Error extends LC_Page_Ex {
+
+    // {{{ properties
+
     /** エラー種別 */
-    public $type;
+    var $type;
 
     /** SC_SiteSession インスタンス */
-    public $objSiteSess;
+    var $objSiteSess;
 
     /** TOPへ戻るフラグ */
-    public $return_top = false;
+    var $return_top = false;
 
     /** エラーメッセージ */
-    public $err_msg = '';
+    var $err_msg = '';
 
     /** モバイルサイトの場合 true */
-    public $is_mobile = false;
+    var $is_mobile = false;
+
+    // }}}
+    // {{{ functions
 
     /**
      * Page を初期化する.
@@ -54,21 +60,15 @@ class LC_Page_Error extends LC_Page_Ex
      * ここでは, parent::init() を行わない.
      * @return void
      */
-    public function init()
-    {
+    function init() {
         $this->tpl_mainpage = 'error.tpl';
         $this->tpl_title = 'エラー';
         // ディスプレイクラス生成
         $this->objDisplay = new SC_Display_Ex();
 
+        // transformでフックしているばあいに, 再度エラーが発生するため, コールバックを無効化.
         $objHelperPlugin = SC_Helper_Plugin_Ex::getSingletonInstance($this->plugin_activate_flg);
-        if (is_object($objHelperPlugin)) {
-            // transformでフックしている場合に, 再度エラーが発生するため, コールバックを無効化.
-            $objHelperPlugin->arrRegistedPluginActions = array();
-        }
-
-        // キャッシュから店舗情報取得（DBへの接続は行わない）
-        $this->arrSiteInfo = SC_Helper_DB_Ex::sfGetBasisDataCache(false);
+        $objHelperPlugin->arrRegistedPluginActions = array();
     }
 
     /**
@@ -76,8 +76,7 @@ class LC_Page_Error extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
         $this->action();
         $this->sendResponse();
@@ -88,9 +87,7 @@ class LC_Page_Error extends LC_Page_Ex
      *
      * @return void
      */
-    public function action()
-    {
-        SC_Response_Ex::sendHttpStatus(500);
+    function action() {
 
         switch ($this->type) {
             case PRODUCT_NOT_FOUND:
@@ -172,10 +169,18 @@ class LC_Page_Error extends LC_Page_Ex
     }
 
     /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
      * エラーページではトランザクショントークンの自動検証は行わない
      */
-    public function doValidToken()
-    {
+    function doValidToken() {
         // queit.
     }
 }

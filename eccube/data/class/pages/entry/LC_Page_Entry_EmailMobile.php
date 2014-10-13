@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -28,18 +29,21 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Entry_EmailMobile.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Entry_EmailMobile.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Entry_EmailMobile extends LC_Page_Ex
-{
+class LC_Page_Entry_EmailMobile extends LC_Page_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
+
     }
 
     /**
@@ -47,8 +51,7 @@ class LC_Page_Entry_EmailMobile extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
         $this->action();
         $this->sendResponse();
@@ -59,8 +62,8 @@ class LC_Page_Entry_EmailMobile extends LC_Page_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objCustomer    = new SC_Customer_Ex();
         $objFormParam   = new SC_FormParam_Ex();
 
@@ -82,6 +85,17 @@ class LC_Page_Entry_EmailMobile extends LC_Page_Ex
 
         $this->tpl_name = $objCustomer->getValue('name01');
         $this->arrForm  = $objFormParam->getFormParamList();
+
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -90,8 +104,7 @@ class LC_Page_Entry_EmailMobile extends LC_Page_Ex
      * @access public
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('メールアドレス', 'email_mobile', null, 'a',
                                 array('NO_SPTAB', 'EXIST_CHECK', 'CHANGE_LOWER', 'EMAIL_CHAR_CHECK', 'EMAIL_CHECK', 'MOBILE_EMAIL_CHECK'));
     }
@@ -104,8 +117,7 @@ class LC_Page_Entry_EmailMobile extends LC_Page_Ex
      * @access private
      * @return array エラー情報の配列
      */
-    public function lfCheckError(&$objFormParam)
-    {
+    function lfCheckError(&$objFormParam) {
         $objFormParam->convParam();
         $objErr         = new SC_CheckError_Ex();
         $objErr->arrErr = $objFormParam->checkError();
@@ -127,8 +139,7 @@ class LC_Page_Entry_EmailMobile extends LC_Page_Ex
      * @access private
      * @return void
      */
-    public function lfRegistEmailMobile($email_mobile, $customer_id)
-    {
+    function lfRegistEmailMobile($email_mobile, $customer_id) {
         $objQuery = SC_Query_Ex::getSingletonInstance();
         $objQuery->update('dtb_customer',
                           array('email_mobile' => $email_mobile),

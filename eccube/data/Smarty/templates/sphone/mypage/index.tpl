@@ -56,8 +56,8 @@
                                     <em>購入日時：</em><span class="create_date"><!--{$arrOrder[cnt].create_date|sfDispDBDate}--></span><br />
                                     <em>お支払い方法：</em><span class="payment_id"><!--{$arrPayment[$payment_id]|h}--></span><br />
                                     <em>合計金額：</em><span class="payment_total"><!--{$arrOrder[cnt].payment_total|number_format}--></span>円<br />
-                                    <!--{if $smarty.const.MYPAGE_ORDER_STATUS_DISP_FLAG }-->
                                     <em>ご注文状況：</em>
+                                    <!--{if $smarty.const.MYPAGE_ORDER_STATUS_DISP_FLAG }-->
                                         <!--{assign var=order_status_id value="`$arrOrder[cnt].status`"}-->
                                         <!--{if $order_status_id != $smarty.const.ORDER_PENDING }-->
                                         <span class="order_status"><!--{$arrCustomerOrderStatus[$order_status_id]|h}--></span><br />
@@ -74,7 +74,7 @@
                 </div><!-- /.form_area-->
                 <div class="btn_area">
                     <!--{if $objNavi->all_row > $dispNumber}-->
-                        <p><a href="javascript: void(0);" class="btn_more" id="btn_more_history" onClick="getHistory(<!--{$dispNumber}-->); return false;" rel="external">もっとみる(＋<!--{$dispNumber}-->件)</a></p>
+                        <p><a href="javascript: void(0);" class="btn_more" id="btn_more_history" onClick="getHistory(5); return false;" rel="external">もっとみる(＋<!--{$dispNumber}-->件)</a></p>
                     <!--{/if}-->
                 </div>
             <!--{else}-->
@@ -87,14 +87,20 @@
         </form>
 </section>
 
-<!--{include file= 'frontparts/search_area.tpl'}-->
+<!--▼検索バー -->
+<section id="search_area">
+    <form method="get" action="<!--{$smarty.const.ROOT_URLPATH}-->products/list.php">
+        <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+        <input type="hidden" name="mode" value="search" />
+        <input type="search" name="name" id="search" value="" placeholder="キーワードを入力" class="searchbox" >
+    </form>
+</section>
+<!--▲検索バー -->
 
 <script>
     var pageNo = 2;
     var url = "<!--{$smarty.const.ROOT_URLPATH}-->mypage/history.php";
     var statusImagePath = "<!--{$TPL_URLPATH}-->";
-    var arrPayment = <!--{$json_payment}-->
-    var arrCustomerOrderStatus = <!--{$json_customer_order_status}-->
 
     function getHistory(limit) {
         $.mobile.showPageLoadingMsg();
@@ -128,32 +134,21 @@
                         historyEl = $(historyEl).clone(true).insertAfter(historyEl);
                         maxCnt++;
 
-                        var regex = new RegExp('([0-9]{2,4}).([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2}).');
-                        var matches = history.create_date.match(regex);
-                        var formatted_date = history.create_date;
-                        if(matches != null){
-                            formatted_date = matches[1]+'/'+matches[2]+'/'+matches[3]+' '+matches[4]+':'+matches[5];
-                        }
-
-                        var formatted_payment_total = history.payment_total.toString().replace(/([0-9]+?)(?=(?:[0-9]{3})+$)/g , '$1,');
-
                         //注文番号をセット
                         $($(".arrowBox span.order_id").get(maxCnt)).text(history.order_id);
                         //購入日時をセット
-                        $($(".arrowBox span.create_date").get(maxCnt)).text(formatted_date);
+                        $($(".arrowBox span.create_date").get(maxCnt)).text(history.create_date);
                         //支払い方法をセット
-                        $($(".arrowBox span.payment_id").get(maxCnt)).text(arrPayment[history.payment_id]);
+                        $($(".arrowBox span.payment_id").get(maxCnt)).text(history.payment_id);
                         //合計金額をセット
-                        $($(".arrowBox span.payment_total").get(maxCnt)).text(formatted_payment_total);
+                        $($(".arrowBox span.payment_total").get(maxCnt)).text(history.payment_total);
                         //履歴URLをセット
                         $($(".arrowBox a").get(maxCnt)).attr("href", url + "?order_id=" + history.order_id);
-                        //注文状況をセット
-                        $($(".arrowBox span.order_status").get(maxCnt)).text(arrCustomerOrderStatus[history.status]);
                     }
                 }
                 pageNo++;
 
-                //全ての商品を表示したか判定
+                //すべての商品を表示したか判定
                 if (parseInt($("#historycount").text()) <= $(".arrowBox").length) {
                     $("#btn_more_history").hide();
                 }

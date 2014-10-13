@@ -29,28 +29,23 @@ require_once($HOME . "/tests/class/helper/SC_Helper_Purchase/SC_Helper_Purchase_
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Helper_Purchase_getShippingsTest.php 23356 2014-03-27 09:04:02Z kimoto $
+ * @version $Id: SC_Helper_Purchase_getShippingsTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Helper_Purchase_getShippingsTest extends SC_Helper_Purchase_TestBase
-{
+class SC_Helper_Purchase_getShippingsTest extends SC_Helper_Purchase_TestBase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
     $this->setUpShipmentItem();
     $this->setUpShippingOnDb();
-    $this->setUpOrderDetail();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testGetShippings_存在しない受注IDを指定した場合_結果が空になる()
-  {
+  public function testGetShippings_存在しない受注IDを指定した場合_結果が空になる() {
     $order_id = '100'; // 存在しないID
 
     $this->expected = array();
@@ -60,13 +55,12 @@ class SC_Helper_Purchase_getShippingsTest extends SC_Helper_Purchase_TestBase
     $this->verify('配送情報');
   }
 
-  public function testGetShippings_存在する受注IDを指定した場合_結果が取得できる()
-  {
-    $order_id = '1001';
-
+  public function testGetShippings_存在する受注IDを指定した場合_結果が取得できる() {
+    $order_id = '1';
+  
     $this->expected['count'] = 1;
     $this->expected['first'] = array(
-      'order_id' => '1001',
+      'order_id' => '1',
       'shipping_id' => '1',
       'shipping_name01' => '配送情報01',
       'shipping_date' => '2012-01-12 00:00:00'
@@ -79,17 +73,16 @@ class SC_Helper_Purchase_getShippingsTest extends SC_Helper_Purchase_TestBase
     // shipping_idごとの配列になっているのでshipping_idで抽出
     $this->actual['first'] = Test_Utils::mapArray($result['1'], array(
       'order_id', 'shipping_id', 'shipping_name01', 'shipping_date'));
-    $this->actual['shipment_item_count'] = count($result['1']['shipment_item']);
+    $this->actual['shipment_item_count'] = count($result['1']['shipment_item']); 
     $this->verify('配送情報');
   }
 
-  public function testGetShippings_商品取得フラグをOFFにした場合_結果に商品情報が含まれない()
-  {
-    $order_id = '1001';
-
+  public function testGetShippings_商品取得フラグをOFFにした場合_結果に商品情報が含まれない() {
+    $order_id = '1';
+    
     $this->expected['count'] = 1;
     $this->expected['first'] = array(
-      'order_id' => '1001',
+      'order_id' => '1',
       'shipping_id' => '1',
       'shipping_name01' => '配送情報01',
       'shipping_date' => '2012-01-12 00:00:00'
@@ -104,8 +97,10 @@ class SC_Helper_Purchase_getShippingsTest extends SC_Helper_Purchase_TestBase
       'order_id', 'shipping_id', 'shipping_name01', 'shipping_date'));
     $this->actual['shipment_item_count'] = count($result['1']['shipment_item']);
     $this->verify('配送情報');
+
   }
 
   //////////////////////////////////////////
+
 }
 

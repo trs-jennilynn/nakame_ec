@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_REALDIR . 'db/dbfactory/SC_DB_DBFactory_PGSQL.php';
 
 /**
@@ -30,8 +31,7 @@ require_once CLASS_REALDIR . 'db/dbfactory/SC_DB_DBFactory_PGSQL.php';
  *
  * @package DB
  * @author LOCKON CO.,LTD.
- * @version $Id: SC_DB_DBFactory_PGSQL_Ex.php 22856 2013-06-08 07:35:27Z Seasoft $
+ * @version $Id: SC_DB_DBFactory_PGSQL_Ex.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_DB_DBFactory_PGSQL_Ex extends SC_DB_DBFactory_PGSQL
-{
+class SC_DB_DBFactory_PGSQL_Ex extends SC_DB_DBFactory_PGSQL {
 }

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -30,38 +31,41 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $$Id: LC_Page_Admin_Products_UploadCSVCategory.php 23366 2014-04-16 06:01:21Z Seasoft $$
+ * @version $$Id: LC_Page_Admin_Products_UploadCSVCategory.php 22796 2013-05-02 09:11:36Z h_yoshimoto $$
  */
-class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex {
+
+    // {{{ properties
     /** エラー情報 **/
-    public $arrErr;
+    var $arrErr;
 
     /** 表示用項目 **/
-    public $arrTitle;
+    var $arrTitle;
 
     /** 結果行情報 **/
-    public $arrRowResult;
+    var $arrRowResult;
 
     /** エラー行情報 **/
-    public $arrRowErr;
+    var $arrRowErr;
 
     /** TAGエラーチェックフィールド情報 */
-    public $arrTagCheckItem;
+    var $arrTagCheckItem;
 
     /** テーブルカラム情報 (登録処理用) **/
-    public $arrRegistColumn;
+    var $arrRegistColumn;
 
     /** 登録フォームカラム情報 **/
-    public $arrFormKeyList;
+    var $arrFormKeyList;
+
+    // }}}
+    // {{{ functions
 
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'products/upload_csv_category.tpl';
         $this->tpl_mainno   = 'products';
@@ -80,8 +84,7 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -91,8 +94,8 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // CSV管理ヘルパー
         $objCSV = new SC_Helper_CSV_Ex();
         // CSV構造読み込み
@@ -115,8 +118,6 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
         $objFormParam = new SC_FormParam_Ex();
         $this->lfInitParam($objFormParam, $arrCSVFrame);
 
-        $this->max_upload_csv_size = SC_Utils_Ex::getUnitDataSize(CSV_SIZE);
-
         $objFormParam->setHtmlDispNameArray();
         $this->arrTitle = $objFormParam->getHtmlDispNameArray();
 
@@ -133,42 +134,39 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
     /**
      * 登録/編集結果のメッセージをプロパティへ追加する
      *
-     * @param  integer $line_count 行数
-     * @param  stirng  $message    メッセージ
+     * @param integer $line_count 行数
+     * @param stirng $message メッセージ
      * @return void
      */
-    public function addRowResult($line_count, $message)
-    {
+    function addRowResult($line_count, $message) {
         $this->arrRowResult[] = $line_count . '行目：' . $message;
     }
 
     /**
      * 登録/編集結果のエラーメッセージをプロパティへ追加する
      *
-     * @param  integer $line_count 行数
-     * @param  stirng  $message    メッセージ
+     * @param integer $line_count 行数
+     * @param stirng $message メッセージ
      * @return void
      */
-    public function addRowErr($line_count, $message)
-    {
+    function addRowErr($line_count, $message) {
         $this->arrRowErr[] = $line_count . '行目：' . $message;
     }
 
     /**
      * CSVアップロードを実行する
      *
-     * @param  SC_FormParam  $objFormParam
-     * @param  SC_UploadFile $objUpFile
+     * @param SC_FormParam  $objFormParam
+     * @param SC_UploadFile $objUpFile
+     * @param SC_Helper_DB  $objDb
      * @return void
      */
-    public function doUploadCsv(&$objFormParam, &$objUpFile)
-    {
+    function doUploadCsv(&$objFormParam, &$objUpFile) {
         // ファイルアップロードのチェック
         $objUpFile->makeTempFile('csv_file');
         $arrErr = $objUpFile->checkExists();
         if (count($arrErr) > 0) {
             $this->arrErr = $arrErr;
-
             return;
         }
         // 一時ファイル名の取得
@@ -219,6 +217,8 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
             }
             // シーケンス配列を格納する。
             $objFormParam->setParam($arrCSV, true);
+            $arrRet = $objFormParam->getHashArray();
+            $objFormParam->setParam($arrRet);
             // 入力値の変換
             $objFormParam->convParam();
             // <br>なしでエラー取得する。
@@ -244,17 +244,23 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
 
         if ($errFlag) {
             $objQuery->rollback();
-
             return;
         }
 
         $objQuery->commit();
 
         // カテゴリ件数を更新
-        $objDb = new SC_Helper_DB_Ex();
-        $objDb->sfCountCategory($objQuery);
-
+        SC_Helper_DB_EX::sfCountCategory($objQuery);
         return;
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -262,8 +268,7 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function lfInitFile(&$objUpFile)
-    {
+    function lfInitFile(&$objUpFile) {
         $objUpFile->addFile('CSVファイル', 'csv_file', array('csv'), CSV_SIZE, true, 0, 0, false);
     }
 
@@ -273,8 +278,7 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      * @param array CSV構造設定配列
      * @return void
      */
-    public function lfInitParam(&$objFormParam, &$arrCSVFrame)
-    {
+    function lfInitParam(&$objFormParam, &$arrCSVFrame) {
         // 固有の初期値調整
         $arrCSVFrame = $this->lfSetParamDefaultValue($arrCSVFrame);
         // CSV項目毎の処理
@@ -309,7 +313,7 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
                     , $item['mb_convert_kana_option']
                     , $arrErrorCheckTypes
                     , $item['default']
-                    , $item['rw_flg'] != CSV_COLUMN_RW_FLG_READ_ONLY
+                    , ($item['rw_flg'] != CSV_COLUMN_RW_FLG_READ_ONLY) ? true : false
                     );
         }
     }
@@ -319,8 +323,7 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function lfCheckError(&$objFormParam)
-    {
+    function lfCheckError(&$objFormParam) {
         // 入力データを渡す。
         $arrRet =  $objFormParam->getHashArray();
         $objErr = new SC_CheckError_Ex($arrRet);
@@ -333,7 +336,6 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
         if (count($objErr->arrErr) == 0) {
             $objErr->arrErr = $this->lfCheckErrorDetail($arrRet, $objErr->arrErr);
         }
-
         return $objErr->arrErr;
     }
 
@@ -342,8 +344,7 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function lfInitTableInfo()
-    {
+    function lfInitTableInfo() {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $this->arrRegistColumn = $objQuery->listTableFields('dtb_category');
     }
@@ -353,15 +354,14 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      *
      * FIXME: 登録の実処理自体は、LC_Page_Admin_Products_Categoryと共通化して欲しい。
      *
-     * @param  SC_Query       $objQuery SC_Queryインスタンス
-     * @param  string|integer $line     処理中の行数
-     * @return integer        カテゴリID
+     * @param SC_Query $objQuery SC_Queryインスタンス
+     * @param string|integer $line 処理中の行数
+     * @return integer カテゴリID
      */
-    public function lfRegistCategory($objQuery, $line, &$objFormParam)
-    {
+    function lfRegistCategory($objQuery, $line, &$objFormParam) {
         // 登録データ対象取得
-        $arrList = $objFormParam->getDbArray();
-        // 登録時間を生成(DBのCURRENT_TIMESTAMPだとcommitした際、全て同一の時間になってしまう)
+        $arrList = $objFormParam->getHashArray();
+        // 登録時間を生成(DBのCURRENT_TIMESTAMPだとcommitした際、すべて同一の時間になってしまう)
         $arrList['update_date'] = $this->lfGetDbFormatTimeWithLine($line);
 
         // 登録情報を生成する。
@@ -395,18 +395,16 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
                                         $sqlval['category_name'],
                                         $_SESSION['member_id']);
         }
-
         return $category_id;
     }
 
     /**
      * 初期値の設定
      *
-     * @param  array $arrCSVFrame CSV構造配列
+     * @param array $arrCSVFrame CSV構造配列
      * @return array $arrCSVFrame CSV構造配列
      */
-    public function lfSetParamDefaultValue(&$arrCSVFrame)
-    {
+    function lfSetParamDefaultValue(&$arrCSVFrame) {
         foreach ($arrCSVFrame as $key => $val) {
             switch ($val['col']) {
                 case 'parent_category_id':
@@ -419,7 +417,6 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
                     break;
             }
         }
-
         return $arrCSVFrame;
     }
 
@@ -429,8 +426,7 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      * @param array $sqlval 商品登録情報配列
      * @return $sqlval 登録情報配列
      */
-    public function lfSetCategoryDefaultData(&$sqlval)
-    {
+    function lfSetCategoryDefaultData(&$sqlval) {
         if ($sqlval['del_flg'] == '') {
             $sqlval['del_flg'] = '0'; //有効
         }
@@ -438,9 +434,8 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
             $sqlval['creator_id'] = $_SESSION['member_id'];
         }
         if ($sqlval['parent_category_id'] == '') {
-            $sqlval['parent_category_id'] = (string) '0';
+            $sqlval['parent_category_id'] = (string)'0';
         }
-
         return $sqlval;
     }
 
@@ -451,8 +446,7 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      * @param array エラー配列
      * @return array エラー配列
      */
-    public function lfCheckErrorDetail($item, $arrErr)
-    {
+    function lfCheckErrorDetail($item, $arrErr) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         /*
         // カテゴリIDの存在チェック
@@ -482,7 +476,7 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
         ) {
             $parent_category_id = $item['parent_category_id'];
             if ($parent_category_id == '') {
-                $parent_category_id = (string) '0';
+                $parent_category_id = (string)'0';
             }
             $where = 'parent_category_id = ? AND category_id <> ? AND category_name = ?';
             $exists = $objQuery->exists('dtb_category',
@@ -508,7 +502,6 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
                 $arrErr['parent_category_id'] = '※ ' . LEVEL_MAX . '階層以上の登録はできません。';
             }
         }
-
         return $arrErr;
     }
 
@@ -521,8 +514,7 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      * @param integer 指定カテゴリID
      * @return integer カテゴリID
      */
-    public function registerCategory($parent_category_id, $category_name, $creator_id, $category_id = null)
-    {
+    function registerCategory($parent_category_id, $category_name, $creator_id, $category_id = null) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         $rank = null;
@@ -574,38 +566,35 @@ class LC_Page_Admin_Products_UploadCSVCategory extends LC_Page_Admin_Ex
      * 指定された行番号をmicrotimeに付与してDB保存用の時間を生成する。
      * トランザクション内のCURRENT_TIMESTAMPは全てcommit()時の時間に統一されてしまう為。
      *
-     * @param  string $line_no 行番号
+     * @param string $line_no 行番号
      * @return string $time DB保存用の時間文字列
      */
-    public function lfGetDbFormatTimeWithLine($line_no = '')
-    {
+    function lfGetDbFormatTimeWithLine($line_no = '') {
         $time = date('Y-m-d H:i:s');
         // 秒以下を生成
         if ($line_no != '') {
             $microtime = sprintf('%06d', $line_no);
             $time .= ".$microtime";
         }
-
         return $time;
     }
 
     /**
      * 指定されたキーと値の有効性のDB確認
      *
-     * @param  string  $table   テーブル名
-     * @param  string  $keyname キー名
-     * @param  array   $item    入力データ配列
+     * @param string $table テーブル名
+     * @param string $keyname キー名
+     * @param array  $item 入力データ配列
      * @return boolean true:有効なデータがある false:有効ではない
      */
-    public function lfIsDbRecord($table, $keyname, $item)
-    {
+    function lfIsDbRecord($table, $keyname, $item) {
         if (array_search($keyname, $this->arrFormKeyList) !== FALSE  //入力対象である
             && $item[$keyname] != ''   // 空ではない
-            && !SC_Helper_DB_Ex::sfIsRecord($table, $keyname, (array) $item[$keyname]) //DBに存在するか
+            && !SC_Helper_DB_EX::sfIsRecord($table, $keyname, (array)$item[$keyname]) //DBに存在するか
         ) {
             return false;
         }
-
         return true;
     }
+
 }

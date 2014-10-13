@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -30,15 +31,17 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  * @author LOCKON CO.,LTD.
  * @version $Id$
  */
-class LC_Page_AbstractMypage extends LC_Page_Ex
-{
+class LC_Page_AbstractMypage extends LC_Page_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         // mypage 共通
         $this->tpl_title        = 'MYページ';
@@ -51,8 +54,8 @@ class LC_Page_AbstractMypage extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
+
         parent::process();
         // ログインチェック
         $objCustomer = new SC_Customer_Ex();
@@ -80,15 +83,26 @@ class LC_Page_AbstractMypage extends LC_Page_Ex
             }
             $this->tpl_title        = 'MYページ(ログイン)';
             $this->tpl_mainpage     = 'mypage/login.tpl';
+
         } else {
             //マイページ会員情報表示用共通処理
             $this->tpl_login     = true;
-            $this->CustomerName1 = $objCustomer->getValue('name01');
-            $this->CustomerName2 = $objCustomer->getValue('name02');
-            $this->CustomerPoint = $objCustomer->getValue('point');
+            $this->CustomerName1 = $objCustomer->getvalue('name01');
+            $this->CustomerName2 = $objCustomer->getvalue('name02');
+            $this->CustomerPoint = $objCustomer->getvalue('point');
             $this->action();
         }
 
+
         $this->sendResponse();
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 }

@@ -25,37 +25,35 @@
  * HttpResponse を扱うクラス.
  *
  * @author Ryuichi Tokugami
- * @version $Id: SC_Response.php 23388 2014-05-01 07:34:42Z Seasoft $
+ * @version $Id: SC_Response.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Response
-{
+class SC_Response{
+
     /**
      * コンテンツタイプ
      * Enter description here ...
      * @var unknown_type
      */
-    public $contentType;
-    public $body;
-    public $statusCode;
-    public $header = array();
+    var $contentType;
+    var $body;
+    var $statusCode;
+    var $header = array();
 
     /**
      *
      * Enter description here ...
      */
-    public $encoding;
+    var $encoding;
 
     /**
      * レスポンス出力を書き込む.
      */
-    public function write()
-    {
+    function write() {
         $this->sendHeader();
         echo $this->body;
     }
 
-    public function sendHeader()
-    {
+    function sendHeader() {
         // HTTPのヘッダ
         foreach ($this->header as $name => $head) {
             header($name.': '.$head);
@@ -65,49 +63,41 @@ class SC_Response
         }
     }
 
-    public function setContentType($contentType)
-    {
+    function setContentType($contentType) {
         $this->header['Content-Type'] = $contentType;
     }
 
-    public function setResposeBody($body)
-    {
+    function setResposeBody($body) {
         $this->body = $body;
     }
 
-    public function addHeader($name, $value)
-    {
+    function addHeader($name, $value) {
         $this->header[$name] = $value;
     }
 
-    public function containsHeader($name)
-    {
+    function containsHeader($name) {
         return isset($this->header[$name]);
     }
 
     /**
      * アプリケーションのexit処理をする。以降の出力は基本的に停止する。
-     * 各クラス内では、exit を直接呼び出さない。
-     */
-    public function actionExit()
-    {
+     * 各クラス内部で勝手にexitするな！
+    */
+    function actionExit() {
         // ローカルフックポイント処理
         $objPlugin = SC_Helper_Plugin_Ex::getSingletonInstance($this->plugin_activate_flg);
-
-        if (is_object($objPlugin)) {
-            $arrBacktrace = debug_backtrace();
-            if (is_object($arrBacktrace[0]['object'])) {
-                $parent_class_name = get_parent_class($arrBacktrace[0]['object']);
-                $objPlugin->doAction($parent_class_name . '_action_' . $arrBacktrace[0]['object']->getMode(), array($arrBacktrace[0]['object']));
-                $class_name = get_class($arrBacktrace[0]['object']);
-                if ($class_name != $parent_class_name) {
-                    $objPlugin->doAction($class_name . '_action_' . $arrBacktrace[0]['object']->getMode(), array($arrBacktrace[0]['object']));
-                }
+        $arrBacktrace = debug_backtrace();
+        if (is_object($arrBacktrace[0]['object'])) {
+            $parent_class_name = get_parent_class($arrBacktrace[0]['object']);
+            $objPlugin->doAction($parent_class_name . '_action_' . $arrBacktrace[0]['object']->getMode(), array($arrBacktrace[0]['object']));
+            $class_name = get_class($arrBacktrace[0]['object']);
+            if ($class_name != $parent_class_name) {
+                $objPlugin->doAction($class_name . '_action_' . $arrBacktrace[0]['object']->getMode(), array($arrBacktrace[0]['object']));
             }
         }
 
         exit;
-        // デストラクタが実行される。
+        // exitしてますが、実際は、LC_Page::destroy() が呼ばれるはず
     }
 
     /**
@@ -117,42 +107,41 @@ class SC_Response
      * 1. 引数 $inheritQueryString が true の場合、$_SERVER['QUERY_STRING']
      * 2. $location に含まれる searchpart
      * 3. 引数 $arrQueryString
-     * @param  string    $location           「url-path」「現在のURLからのパス」「URL」のいずれか。「../」の解釈は行なわない。
-     * @param  array     $arrQueryString     URL に付加する searchpart
-     * @param  bool      $inheritQueryString 現在のリクエストの searchpart を継承するか
-     * @param  bool|null $useSsl             true:HTTPSを強制, false:HTTPを強制, null:継承
+     * @param string $location 「url-path」「現在のURLからのパス」「URL」のいずれか。「../」の解釈は行なわない。
+     * @param array $arrQueryString URL に付加する searchpart
+     * @param bool $inheritQueryString 現在のリクエストの searchpart を継承するか
+     * @param bool|null $useSsl true:HTTPSを強制, false:HTTPを強制, null:継承
      * @return void
      * @static
      */
-    public function sendRedirect($location, $arrQueryString = array(), $inheritQueryString = false, $useSsl = null)
-    {
+    function sendRedirect($location, $arrQueryString = array(), $inheritQueryString = false, $useSsl = null) {
+
         // ローカルフックポイント処理
         $objPlugin = SC_Helper_Plugin_Ex::getSingletonInstance($this->plugin_activate_flg);
 
-        if (is_object($objPlugin)) {
-            $arrBacktrace = debug_backtrace();
-            if (is_object($arrBacktrace[0]['object']) && method_exists($arrBacktrace[0]['object'], 'getMode')) {
-                $parent_class_name = get_parent_class($arrBacktrace[0]['object']);
-                $objPlugin->doAction($parent_class_name . '_action_' . $arrBacktrace[0]['object']->getMode(), array($arrBacktrace[0]['object']));
-                $class_name = get_class($arrBacktrace[0]['object']);
-                if ($class_name != $parent_class_name) {
-                    $objPlugin->doAction($class_name . '_action_' . $arrBacktrace[0]['object']->getMode(), array($this));
-                }
-            } elseif (is_object($arrBacktrace[0]['object'])) {
-                $pattern = '/^[a-zA-Z0-9_]+$/';
-                $mode = null;
-                if (isset($_GET['mode']) && preg_match($pattern, $_GET['mode'])) {
-                    $mode =  $_GET['mode'];
-                } elseif (isset($_POST['mode']) && preg_match($pattern, $_POST['mode'])) {
-                    $mode = $_POST['mode'];
-                }
-                $parent_class_name = get_parent_class($arrBacktrace[0]['object']);
-                $objPlugin->doAction($parent_class_name . '_action_' . $mode, array($arrBacktrace[0]['object']));
-                $class_name = get_class($arrBacktrace[0]['object']);
-                if ($class_name != $parent_class_name) {
-                    $objPlugin->doAction($class_name . '_action_' . $mode, array($this));
-                }
+        $arrBacktrace = debug_backtrace();
+        if (is_object($arrBacktrace[0]['object']) && method_exists($arrBacktrace[0]['object'], 'getMode')) {
+            $parent_class_name = get_parent_class($arrBacktrace[0]['object']);
+            $objPlugin->doAction($parent_class_name . '_action_' . $arrBacktrace[0]['object']->getMode(), array($arrBacktrace[0]['object']));
+            $class_name = get_class($arrBacktrace[0]['object']);
+            if ($class_name != $parent_class_name) {
+                $objPlugin->doAction($class_name . '_action_' . $arrBacktrace[0]['object']->getMode(), array($this));
             }
+        } elseif (is_object($arrBacktrace[0]['object'])) {
+            $pattern = '/^[a-zA-Z0-9_]+$/';
+            $mode = null;
+            if (isset($_GET['mode']) && preg_match($pattern, $_GET['mode'])) {
+                $mode =  $_GET['mode'];
+            } elseif (isset($_POST['mode']) && preg_match($pattern, $_POST['mode'])) {
+                $mode = $_POST['mode'];
+            }
+            $parent_class_name = get_parent_class($arrBacktrace[0]['object']);
+            $objPlugin->doAction($parent_class_name . '_action_' . $mode, array($arrBacktrace[0]['object']));
+            $class_name = get_class($arrBacktrace[0]['object']);
+            if ($class_name != $parent_class_name) {
+                $objPlugin->doAction($class_name . '_action_' . $mode, array($this));
+            }
+
         }
 
         // url-path → URL 変換
@@ -222,12 +211,11 @@ class SC_Response
      * /html/ からのパスを指定してリダイレクトする
      *
      * FIXME メソッド名を分かりやすくしたい。現状だと、引数が「url-path より後」とも「url-path」とも読み取れる。(前者が意図したいところ)
-     * @param  string $location /html/ からのパス。先頭に / を含むかは任意。「../」の解釈は行なわない。
+     * @param string $location /html/ からのパス。先頭に / を含むかは任意。「../」の解釈は行なわない。
      * @return void
      * @static
      */
-    public function sendRedirectFromUrlPath($location, $arrQueryString = array(), $inheritQueryString = false, $useSsl = null)
-    {
+    function sendRedirectFromUrlPath($location, $arrQueryString = array(), $inheritQueryString = false, $useSsl = null) {
         $location = ROOT_URLPATH . ltrim($location, '/');
         SC_Response_Ex::sendRedirect($location, $arrQueryString, $inheritQueryString, $useSsl);
     }
@@ -235,8 +223,7 @@ class SC_Response
     /**
      * @static
      */
-    public function reload($arrQueryString = array(), $removeQueryString = false)
-    {
+    function reload($arrQueryString = array(), $removeQueryString = false) {
         // 現在の URL を取得
         $netUrl = new Net_URL($_SERVER['REQUEST_URI']);
 
@@ -248,20 +235,18 @@ class SC_Response
         SC_Response_Ex::sendRedirect($netUrl->getURL(), $arrQueryString);
     }
 
-    public function setHeader($headers)
-    {
+    function setHeader($headers) {
         $this->header = $headers;
     }
 
-    public function setStatusCode($statusCode = null)
-    {
+    function setStatusCode($statusCode = null) {
         $this->statusCode = $statusCode;
     }
 
     /**
      * HTTPステータスコードを送出する。
      *
-     * @param  integer $statusCode HTTPステータスコード
+     * @param integer $statusCode HTTPステータスコード
      * @return void
      * @author Seasoft (新規作成)
      * @see Moony_Action::status() (オリジナル)
@@ -273,8 +258,7 @@ class SC_Response
      * @license http://www.gnu.org/licenses/fdl.html GFDL (邦訳)
      * @static
      */
-    public function sendHttpStatus($statusCode)
-    {
+    function sendHttpStatus($statusCode) {
         $protocol = $_SERVER['SERVER_PROTOCOL'];
         $httpVersion = (strpos($protocol, '1.1') !== false) ? '1.1' : '1.0';
         $messages = array(
@@ -334,17 +318,5 @@ class SC_Response
             header("HTTP/{$httpVersion} {$statusCode} {$messages[$statusCode]}");
             header("Status: {$statusCode} {$messages[$statusCode]}", true, $statusCode);
         }
-    }
-
-    /**
-     * ダウンロード用の HTTP ヘッダを出力する
-     *
-     * @return void
-     */
-    public static function headerForDownload($file_name) {
-        header("Content-disposition: attachment; filename={$file_name}");
-        header("Content-type: application/octet-stream; name={$file_name}");
-        header('Cache-Control: ');
-        header('Pragma: ');
     }
 }

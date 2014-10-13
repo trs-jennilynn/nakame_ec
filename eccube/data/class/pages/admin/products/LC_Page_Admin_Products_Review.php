@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Products_Review.php 23129 2013-08-26 14:43:24Z pineray $
+ * @version $Id: LC_Page_Admin_Products_Review.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'products/review.tpl';
         $this->tpl_mainno = 'products';
@@ -72,8 +75,7 @@ class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -83,8 +85,8 @@ class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // パラメーター管理クラス
         $objFormParam = new SC_FormParam_Ex();
         $this->lfInitParam($objFormParam);
@@ -128,13 +130,21 @@ class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
     }
 
     /**
-     * 入力内容のチェックを行う.
+     * デストラクタ.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
      * @return void
      */
-    public function lfCheckError(&$objFormParam)
-    {
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
+     * 入力内容のチェックを行う.
+     *
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @return void
+     */
+    function lfCheckError(&$objFormParam) {
         // 入力データを渡す。
         $arrRet =  $objFormParam->getHashArray();
         $objErr = new SC_CheckError_Ex($arrRet);
@@ -155,18 +165,16 @@ class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
             default:
                 break;
         }
-
         return $objErr->arrErr;
     }
 
     /**
      * 商品レビューの削除
      *
-     * @param  integer $review_id 商品レビューのID
+     * @param integer $review_id 商品レビューのID
      * @return void
      */
-    public function lfDeleteReview($review_id)
-    {
+    function lfDeleteReview($review_id) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $sqlval['del_flg'] = 1;
         $objQuery->update('dtb_review', $sqlval, 'review_id = ?', array($review_id));
@@ -175,11 +183,10 @@ class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
     /**
      * hidden情報の作成
      *
-     * @param  array $arrForm フォームデータ
+     * @param array $arrForm フォームデータ
      * @return array hidden情報
      */
-    public function lfSetHidden($arrForm)
-    {
+    function lfSetHidden($arrForm) {
         $arrHidden = array();
         foreach ($arrForm AS $key=>$val) {
             if (preg_match('/^search_/', $key)) {
@@ -196,18 +203,16 @@ class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
                 }
             }
         }
-
         return $arrHidden;
     }
 
     /**
      * パラメーター情報の初期化を行う.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('投稿者名', 'search_reviewer_name', STEXT_LEN, 'KVas', array('MAX_LENGTH_CHECK'),'',false);
         $objFormParam->addParam('投稿者URL', 'search_reviewer_url', STEXT_LEN, 'KVas', array('MAX_LENGTH_CHECK'),'',false);
         $objFormParam->addParam('商品名', 'search_name', STEXT_LEN, 'KVas', array('MAX_LENGTH_CHECK'),'',false);
@@ -228,24 +233,25 @@ class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
     /**
      * CSV ファイル出力実行
      *
-     * @param  string $where       WHERE文
-     * @param  array  $arrWhereVal WHERE文の判定値
+     * @param string $where WHERE文
+     * @param array $arrWhereVal WHERE文の判定値
      * @return void
      */
-    public function lfDoOutputCsv($where, $arrWhereVal)
-    {
+    function lfDoOutputCsv($where, $arrWhereVal) {
         $objCSV = new SC_Helper_CSV_Ex();
+        if ($where != '') {
+            $where = 'WHERE ' . $where;
+        }
         $objCSV->sfDownloadCsv('4', $where, $arrWhereVal, '', true);
     }
 
     /**
      * WHERE文の作成
      *
-     * @param  array $arrForm フォームデータ
+     * @param array $arrForm フォームデータ
      * @return array WHERE文、判定値
      */
-    public function lfGetWhere($arrForm)
-    {
+    function lfGetWhere($arrForm) {
         //削除されていない商品を検索
         $where = 'A.del_flg = 0 AND B.del_flg = 0';
         $arrWhereVal = array();
@@ -326,20 +332,18 @@ class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
             }
 
         }
-
         return array($where, $arrWhereVal);
     }
 
     /**
      * レビュー検索結果の取得
      *
-     * @param  array  $arrForm     フォームデータ
-     * @param  string $where       WHERE文
-     * @param  array  $arrWhereVal WHERE文の判定値
-     * @return array  レビュー一覧
+     * @param array $arrForm フォームデータ
+     * @param string $where WHERE文
+     * @param array $arrWhereVal WHERE文の判定値
+     * @return array レビュー一覧
      */
-    public function lfGetReview($arrForm, $where, $arrWhereVal)
-    {
+    function lfGetReview($arrForm, $where, $arrWhereVal) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         // ページ送りの処理
@@ -355,7 +359,7 @@ class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
 
         // ページ送りの取得
         $objNavi = new SC_PageNavi_Ex($this->tpl_pageno, $linemax, $page_max,
-                                      'eccube.moveNaviPage', NAVI_PMAX);
+                                      'fnNaviSearchPage', NAVI_PMAX);
         $this->arrPagenavi = $objNavi->arrPagenavi;
         $startno = $objNavi->start_row;
 
@@ -374,4 +378,5 @@ class LC_Page_Admin_Products_Review extends LC_Page_Admin_Ex
 
         return $arrReview;
     }
+
 }

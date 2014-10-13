@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,20 +29,24 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Basis_PaymentInput.php 23310 2014-01-04 04:25:21Z kimoto $
+ * @version $Id: LC_Page_Admin_Basis_PaymentInput.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Basis_PaymentInput extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Basis_PaymentInput extends LC_Page_Admin_Ex {
+
+    // {{{ properties
+
     /** SC_UploadFile インスタンス */
-    public $objUpFile;
+    var $objUpFile;
+
+    // }}}
+    // {{{ functions
 
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'basis/payment_input.tpl';
         $this->tpl_mainno = 'basis';
@@ -55,8 +60,7 @@ class LC_Page_Admin_Basis_PaymentInput extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -66,15 +70,15 @@ class LC_Page_Admin_Basis_PaymentInput extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objPayment = new SC_Helper_Payment_Ex();
         $objFormParam = new SC_FormParam_Ex();
         $mode = $this->getMode();
         $this->lfInitParam($mode, $objFormParam);
 
         // ファイル管理クラス
-        $this->objUpFile = new SC_UploadFile_Ex(IMAGE_TEMP_REALDIR, IMAGE_SAVE_REALDIR);
+        $this->objUpFile = new SC_UploadFile(IMAGE_TEMP_REALDIR, IMAGE_SAVE_REALDIR);
         // ファイル情報の初期化
         $this->objUpFile = $this->lfInitFile();
         // Hiddenからのデータを引き継ぐ
@@ -146,20 +150,28 @@ class LC_Page_Admin_Basis_PaymentInput extends LC_Page_Admin_Ex
         // FORM表示用配列を渡す。
         $this->arrFile = $this->objUpFile->getFormFileList(IMAGE_TEMP_URLPATH, IMAGE_SAVE_URLPATH);
         // HIDDEN用に配列を渡す。
-        $this->arrHidden = array_merge((array) $this->arrHidden, (array) $this->objUpFile->getHiddenFileList());
+        $this->arrHidden = array_merge((array)$this->arrHidden, (array)$this->objUpFile->getHiddenFileList());
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /* ファイル情報の初期化 */
-    public function lfInitFile()
-    {
+    function lfInitFile() {
         $this->objUpFile->addFile('ロゴ画像', 'payment_image', array('gif','jpeg','jpg','png'), IMAGE_SIZE, false, CLASS_IMAGE_WIDTH, CLASS_IMAGE_HEIGHT);
-
         return $this->objUpFile;
     }
 
     /* パラメーター情報の初期化 */
-    public function lfInitParam($mode, &$objFormParam)
-    {
+    function lfInitParam($mode, &$objFormParam) {
+
         switch ($mode) {
             case 'edit':
                 $objFormParam->addParam('支払方法', 'payment_method', STEXT_LEN, 'KVa', array('EXIST_CHECK', 'MAX_LENGTH_CHECK'));
@@ -199,9 +211,10 @@ class LC_Page_Admin_Basis_PaymentInput extends LC_Page_Admin_Ex
     }
 
     /* DBへデータを登録する */
-    public function lfRegistData(&$objFormParam, SC_Helper_Payment_Ex $objPayment, $member_id, $payment_id = '')
-    {
+    function lfRegistData(&$objFormParam, SC_Helper_Payment_Ex $objPayment, $member_id, $payment_id = '') {
+
         $sqlval = array_merge($objFormParam->getHashArray(), $this->objUpFile->getDBFileList());
+        $sqlval['update_date'] = 'CURRENT_TIMESTAMP';
         $sqlval['payment_id'] = $payment_id;
         $sqlval['creator_id'] = $member_id;
 
@@ -215,8 +228,8 @@ class LC_Page_Admin_Basis_PaymentInput extends LC_Page_Admin_Ex
     /*　利用条件の数値チェック */
 
     /* 入力内容のチェック */
-    public function lfCheckError($post, $objFormParam, SC_Helper_Payment_Ex $objPayment)
-    {
+    function lfCheckError($post, $objFormParam, SC_Helper_Payment_Ex $objPayment) {
+
         // DBのデータを取得
         $arrPaymentData = $objPayment->get($post['payment_id']);
 

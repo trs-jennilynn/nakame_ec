@@ -39,17 +39,20 @@
  *
  * @package SC_Session
  * @author LOCKON CO.,LTD.
- * @version $Id: SC_SessionFactory.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: SC_SessionFactory.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_SessionFactory
-{
+class SC_SessionFactory {
+
+    // }}}
+    // {{{ functions
+
     /**
      * パラメーター管理で設定したセッション維持設定に従って適切なオブジェクトを返す.
      *
      * @return SC_SessionFactory
      */
-    public function getInstance()
-    {
+    function getInstance() {
+
         $type = defined('SESSION_KEEP_METHOD')
             ? SESSION_KEEP_METHOD
             : '';
@@ -83,18 +86,15 @@ class SC_SessionFactory
      * セッションの初期化を行う.
      *
      */
-    public function initSession()
-    {
-    }
+    function initSession() {}
 
     /**
      * Cookieを使用するかどうかを返す.
      *
      * @return boolean
      */
-    public function useCookie()
-    {
-    }
+    function useCookie() {}
+
 }
 /*
  * Local variables:

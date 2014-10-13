@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Order_Pdf.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_Order_Pdf.php 22876 2013-06-24 01:43:03Z m_uehara $
  */
-class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'order/pdf_input.tpl';
         $this->tpl_mainno = 'order';
@@ -61,8 +64,7 @@ class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -72,8 +74,8 @@ class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objDb = new SC_Helper_DB_Ex();
         $objDate = new SC_Date_Ex(1901);
         $objDate->setStartYear(RELEASE_YEAR);
@@ -106,14 +108,14 @@ class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex
                 break;
         }
         $this->setTemplate($this->tpl_mainpage);
+
     }
 
     /**
      *
      * PDF作成フォームのデフォルト値の生成
      */
-    public function createFromValues($order_id,$pdf_order_id)
-    {
+    function createFromValues($order_id,$pdf_order_id) {
         // ここが$arrFormの初登場ということを明示するため宣言する。
         $arrForm = array();
         // タイトルをセット
@@ -147,13 +149,10 @@ class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex
      * PDFの作成
      * @param SC_FormParam $objFormParam
      */
-    public function createPdf(&$objFormParam)
-    {
+    function createPdf(&$objFormParam) {
+
         $arrErr = $this->lfCheckError($objFormParam);
         $arrRet = $objFormParam->getHashArray();
-
-    //タイトルが入力されていなければ、デフォルトのタイトルを表示
-    if($arrRet['title'] == '') $arrRet['title'] = 'お買上げ明細書(納品書)';
 
         $this->arrForm = $arrRet;
         // エラー入力なし
@@ -165,7 +164,6 @@ class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex
                 $objFpdf->setData($arrPdfData);
             }
             $objFpdf->createPdf();
-
             return true;
         } else {
             return $arrErr;
@@ -173,11 +171,19 @@ class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex
     }
 
     /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
      *  パラメーター情報の初期化
      *  @param SC_FormParam
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('注文番号', 'order_id', INT_LEN, 'n', array('EXIST_CHECK', 'MAX_LENGTH_CHECK', 'NUM_CHECK'));
         $objFormParam->addParam('注文番号', 'pdf_order_id', INT_LEN, 'n', array('MAX_LENGTH_CHECK', 'NUM_CHECK'));
         $objFormParam->addParam('発行日', 'year', INT_LEN, 'n', array('EXIST_CHECK', 'MAX_LENGTH_CHECK', 'NUM_CHECK'));
@@ -185,7 +191,7 @@ class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex
         $objFormParam->addParam('発行日', 'day', INT_LEN, 'n', array('EXIST_CHECK', 'MAX_LENGTH_CHECK', 'NUM_CHECK'));
         $objFormParam->addParam('帳票の種類', 'type', INT_LEN, 'n', array('EXIST_CHECK', 'MAX_LENGTH_CHECK', 'NUM_CHECK'));
         $objFormParam->addParam('ダウンロード方法', 'download', INT_LEN, 'n', array('EXIST_CHECK', 'MAX_LENGTH_CHECK', 'NUM_CHECK'));
-        $objFormParam->addParam('帳票タイトル', 'title', STEXT_LEN, 'KVa', array ('MAX_LENGTH_CHECK'));
+        $objFormParam->addParam('帳票タイトル', 'title', STEXT_LEN, 'KVa', array('EXIST_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('帳票メッセージ1行目', 'msg1', STEXT_LEN*3/5, 'KVa', array('MAX_LENGTH_CHECK'));
         $objFormParam->addParam('帳票メッセージ2行目', 'msg2', STEXT_LEN*3/5, 'KVa', array('MAX_LENGTH_CHECK'));
         $objFormParam->addParam('帳票メッセージ3行目', 'msg3', STEXT_LEN*3/5, 'KVa', array('MAX_LENGTH_CHECK'));
@@ -200,12 +206,10 @@ class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex
      *  @var SC_FormParam
      */
 
-    public function lfCheckError(&$objFormParam)
-    {
+    function lfCheckError(&$objFormParam) {
         // 入力データを渡す。
-        $arrParams = $objFormParam->getHashArray();
+        $arrRet = $objFormParam->getHashArray();
         $arrErr = $objFormParam->checkError();
-        $objError = new SC_CheckError_Ex($arrParams);
 
         $year = $objFormParam->getValue('year');
         if (!is_numeric($year)) {
@@ -215,20 +219,20 @@ class LC_Page_Admin_Order_Pdf extends LC_Page_Admin_Ex
         $month = $objFormParam->getValue('month');
         if (!is_numeric($month)) {
             $arrErr['month'] = '発行月は数値で入力してください。';
-        } elseif (0 >= $month && 12 < $month) {
+        } else if (0 >= $month && 12 < $month) {
+
             $arrErr['month'] = '発行月は1〜12の間で入力してください。';
         }
 
         $day = $objFormParam->getValue('day');
         if (!is_numeric($day)) {
             $arrErr['day'] = '発行日は数値で入力してください。';
-        } elseif (0 >= $day && 31 < $day) {
+        } else if (0 >= $day && 31 < $day) {
+
             $arrErr['day'] = '発行日は1〜31の間で入力してください。';
         }
 
-        $objError->doFunc(array('発行日', 'year', 'month', 'day'), array('CHECK_DATE'));
-        $arrErr = array_merge($arrErr, $objError->arrErr);
-
         return $arrErr;
     }
+
 }

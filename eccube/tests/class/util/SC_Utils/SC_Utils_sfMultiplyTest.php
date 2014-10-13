@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfMultiplyTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfMultiplyTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfMultiplyTest extends Common_TestCase
-{
+class SC_Utils_sfMultiplyTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfMultiply__掛け算の結果が返る()
-  {
+  public function testSfMultiply__掛け算の結果が返る() {
     $this->expected = 520;
     $this->actual = SC_Utils::sfMultiply(13, 40);
 
@@ -55,5 +51,6 @@ class SC_Utils_sfMultiplyTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /** CSV ファイルの最大行数 */
@@ -42,27 +43,29 @@ define('ZIP_CSV_UTF8_REALFILE', DATA_REALDIR . 'downloads/KEN_ALL_utf-8.CSV');
  * @author LOCKON CO.,LTD.
  * @version $Id:LC_Page_Admin_Basis_ZipInstall.php 16741 2007-11-08 00:43:24Z adachi $
  */
-class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex {
+
     /** CSVの行数 */
-    public $tpl_line = 0;
-    public $tpl_mode;
-    public $exec;
-    public $tpl_count_mtb_zip;
+    var $tpl_line = 0;
+    var $tpl_mode;
+    var $exec;
+    var $tpl_count_mtb_zip;
 
     /** CSV の更新日時 */
-    public $tpl_csv_datetime;
+    var $tpl_csv_datetime;
 
     /** 日本郵便から取得した ZIP アーカイブファイルの保管パス */
-    public $zip_csv_temp_realfile;
+    var $zip_csv_temp_realfile;
+
+    // }}}
+    // {{{ functions
 
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'basis/zip_install.tpl';
         $this->tpl_subno = 'zip_install';
@@ -71,7 +74,7 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
         $this->tpl_mainno = 'basis';
 
         $this->tpl_mode = $this->getMode();
-        $this->exec = (boolean) $_GET['exec'];
+        $this->exec = (boolean)$_GET['exec'];
         $this->zip_csv_temp_realfile = DATA_REALDIR . 'downloads/tmp/ken_all.zip';
     }
 
@@ -80,8 +83,7 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -91,8 +93,8 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // パラメーター管理クラス
         $objFormParam = new SC_FormParam_Ex();
         // パラメーター情報の初期化
@@ -154,10 +156,19 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
         $this->tpl_csv_datetime = $this->lfGetCsvDatetime();
         // XXX PHP4 を切捨てたら、ダウンロードの必要性チェックなども行いたい
         // $arrHeader = get_headers(ZIP_DOWNLOAD_URL, 1);
+
     }
 
-    public function lfAutoCommitZip()
-    {
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+
+    function lfAutoCommitZip() {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         // DB更新
@@ -172,8 +183,7 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function lfDeleteZip()
-    {
+    function lfDeleteZip() {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         // DB
@@ -188,8 +198,7 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function lfInitParam($tpl_mode, &$objFormParam)
-    {
+    function lfInitParam($tpl_mode, &$objFormParam) {
         if ($tpl_mode == 'manual') {
             $objFormParam->addParam('開始行', 'startRowNum', INT_LEN, 'n', array('EXIST_CHECK', 'MAX_LENGTH_CHECK', 'NUM_CHECK'));
         }
@@ -200,8 +209,7 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function insertMtbZip($start = 1)
-    {
+    function insertMtbZip($start = 1) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         $img_path = USER_URL . USER_PACKAGE_DIR . 'admin/img/basis/'; // 画像パスは admin 固定
@@ -265,8 +273,7 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
         <script type='text/javascript' language='javascript'>
             <!--
                 // 完了画面
-                function complete()
-                {
+                function complete() {
                     document.open('text/html','replace');
                     document.clear();
                     document.write('<p>完了しました。<br />');
@@ -283,19 +290,16 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
         <?php
     }
 
-    public function openZipCsv()
-    {
+    function openZipCsv() {
         $this->convertZipCsv();
         $fp = fopen(ZIP_CSV_UTF8_REALFILE, 'r');
         if (!$fp) {
             trigger_error(ZIP_CSV_UTF8_REALFILE . ' の読み込みに失敗しました。', E_USER_ERROR);
         }
-
         return $fp;
     }
 
-    public function convertZipCsv()
-    {
+    function convertZipCsv() {
         if (file_exists(ZIP_CSV_UTF8_REALFILE)) return;
 
         $fpr = fopen(ZIP_CSV_REALFILE, 'r');
@@ -316,15 +320,12 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
         fclose($fpr);
     }
 
-    public function countMtbZip()
-    {
+    function countMtbZip() {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
-
         return $objQuery->count('mtb_zip');
     }
 
-    public function countZipCsv()
-    {
+    function countZipCsv() {
         $line = 0;
         $fp = $this->openZipCsv();
 
@@ -349,8 +350,7 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function lfDownloadZipFileFromJp()
-    {
+    function lfDownloadZipFileFromJp() {
         // Proxy経由を可能とする。
         // TODO Proxyの設定は「data/module/HTTP/Request.php」内の「function HTTP_Request」へ記述する。いずれは、外部設定としたい。
         $req = new HTTP_Request();
@@ -379,8 +379,7 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function lfExtractZipFile()
-    {
+    function lfExtractZipFile() {
         $zip = zip_open($this->zip_csv_temp_realfile);
         if (!is_resource($zip)) {
             trigger_error($this->zip_csv_temp_realfile . ' をオープンできません。', E_USER_ERROR);
@@ -433,8 +432,7 @@ class LC_Page_Admin_Basis_ZipInstall extends LC_Page_Admin_Ex
      *
      * @return string CSV の更新日時 (整形済みテキスト)
      */
-    public function lfGetCsvDatetime()
-    {
+    function lfGetCsvDatetime() {
         return date('Y/m/d H:i:s', filemtime(ZIP_CSV_REALFILE));
     }
 }

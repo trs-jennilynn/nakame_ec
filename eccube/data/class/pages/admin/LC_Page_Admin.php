@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin extends LC_Page_Ex
-{
+class LC_Page_Admin extends LC_Page_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         $this->template = MAIN_FRAME;
 
         //IP制限チェック
@@ -83,8 +86,7 @@ class LC_Page_Admin extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
     }
 
     /**
@@ -92,8 +94,7 @@ class LC_Page_Admin extends LC_Page_Ex
      *
      * @return void
      */
-    public function sendResponse()
-    {
+    function sendResponse() {
         $objPlugin = SC_Helper_Plugin_Ex::getSingletonInstance($this->plugin_activate_flg);
         // ローカルフックポイントを実行
         $parent_class_name = get_parent_class($this);
@@ -114,12 +115,20 @@ class LC_Page_Admin extends LC_Page_Ex
     }
 
     /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
      * 前方互換用
      *
      * @deprecated 2.12.0 GC_Utils_Ex::gfPrintLog を使用すること
      */
-    public function log($mess, $log_level='Info')
-    {
+    function log($mess, $log_level='Info') {
         trigger_error('前方互換用メソッドが使用されました。', E_USER_WARNING);
         // ログレベル=Debugの場合は、DEBUG_MODEがtrueの場合のみログ出力する
         if ($log_level === 'Debug' && DEBUG_MODE === false) {
@@ -129,4 +138,5 @@ class LC_Page_Admin extends LC_Page_Ex
         // ログ出力
         GC_Utils_Ex::gfPrintLog($mess, '');
     }
+
 }

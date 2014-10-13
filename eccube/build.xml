@@ -24,15 +24,12 @@
                        --configuration tests/phpunit.xml
                        tests/" />
   </target>
-  <target name="checkstyle" description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
-      <exec executable="phpcs" output="/dev/null">
-          <arg value="-v" />
-          <arg value="--report=checkstyle" />
-          <arg value="--standard=tests/ruleset.xml" />
-          <arg value="--extensions=php" />
-          <arg value="--ignore=data/Smarty,data/smarty_extends,data/cache,data/module,data/mtb_constants_init.php" />
-          <arg value="--report-file=reports/checkstyle.xml" />
-          <arg path="data/class/" />
-      </exec>
+  <target name="checkstyle">
+    <exec command="phpcs --standard=tests/ruleset.xml
+    --report=checkstyle
+    --extensions=php
+    -pv data/
+    --report-file=reports/checkstyle.xml
+    --ignore=data/module,data/Smarty,data/smarty_extends" />
   </target>
 </project>

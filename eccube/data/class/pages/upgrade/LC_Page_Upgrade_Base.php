@@ -1,4 +1,5 @@
 <?php
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 require_once CLASS_REALDIR . 'pages/upgrade/helper/LC_Upgrade_Helper_Log.php';
 require_once CLASS_REALDIR . 'pages/upgrade/helper/LC_Upgrade_Helper_Json.php';
@@ -8,23 +9,10 @@ require_once CLASS_REALDIR . 'pages/upgrade/helper/LC_Upgrade_Helper_Json.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Upgrade_Base.php 23141 2013-08-28 04:26:44Z m_uehara $
+ * @version $Id: LC_Page_Upgrade_Base.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Upgrade_Base extends LC_Page_Ex
-{
-    /**
-     * Page を初期化する.
-     *
-     * @return void
-     */
-    public function init()
-    {
-        $this->skip_load_page_layout = true;
-        parent::init();
-    }
-
-    public function isValidIP()
-    {
+class LC_Page_Upgrade_Base extends LC_Page_Ex {
+    function isValidIP() {
         $objLog  = new LC_Upgrade_Helper_Log;
         $masterData = new SC_DB_MasterData_Ex();
         $arrOstoreIPs = $masterData->getMasterData('mtb_ownersstore_ips');
@@ -33,28 +21,26 @@ class LC_Page_Upgrade_Base extends LC_Page_Ex
             && in_array($_SERVER['REMOTE_ADDR'], $arrOstoreIPs))
         {
             $objLog->log('* ip ok ' . $_SERVER['REMOTE_ADDR']);
-
             return true;
         }
         $objLog->log('* refused ip ' . $_SERVER['REMOTE_ADDR']);
-
         return false;
     }
 
     /**
      * 自動アップデートが有効かどうかを判定する.
      *
-     * @param  integer $product_id
+     * @param integer $product_id
      * @return boolean
      */
-    public function autoUpdateEnable($product_id)
-    {
+    function autoUpdateEnable($product_id) {
         $where = 'module_id = ?';
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $arrRet = $objQuery->select('auto_update_flg', 'dtb_module', $where, array($product_id));
 
         if (isset($arrRet[0]['auto_update_flg'])
         && $arrRet[0]['auto_update_flg'] === '1') {
+
             return true;
         }
 
@@ -64,12 +50,11 @@ class LC_Page_Upgrade_Base extends LC_Page_Ex
     /**
      * 配信サーバーへリクエストを送信する.
      *
-     * @param  string        $mode
-     * @param  array         $arrParams 追加パラメーター.連想配列で渡す.
+     * @param string $mode
+     * @param array $arrParams 追加パラメーター.連想配列で渡す.
      * @return string|object レスポンスボディ|エラー時にはPEAR::Errorオブジェクトを返す.
      */
-    public function request($mode, $arrParams = array(), $arrCookies = array())
-    {
+    function request($mode, $arrParams = array(), $arrCookies = array()) {
         $objReq = new HTTP_Request();
         $objReq->setUrl(OSTORE_URL . 'upgrade/index.php');
         $objReq->setMethod('POST');
@@ -90,14 +75,12 @@ class LC_Page_Upgrade_Base extends LC_Page_Ex
         }
     }
 
-    public function isLoggedInAdminPage()
-    {
+    function isLoggedInAdminPage() {
         $objSess = new SC_Session_Ex();
 
         if ($objSess->isSuccess() === SUCCESS) {
             return true;
         }
-
         return false;
     }
 
@@ -106,16 +89,13 @@ class LC_Page_Upgrade_Base extends LC_Page_Ex
      *
      * @return string
      */
-    public function createSeed()
-    {
+    function createSeed() {
         return sha1(uniqid(rand(), true) . time());
     }
 
-    public function getPublicKey()
-    {
+    function getPublicKey() {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $arrRet = $objQuery->select('*', 'dtb_ownersstore_settings');
-
         return isset($arrRet[0]['public_key'])
             ? $arrRet[0]['public_key']
             : null;
@@ -124,8 +104,7 @@ class LC_Page_Upgrade_Base extends LC_Page_Ex
     /**
      * オーナーズストアからの POST のため, トークンチェックしない.
      */
-    public function doValidToken()
-    {
+    function doValidToken() {
         // nothing.
     }
 }

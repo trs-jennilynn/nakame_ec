@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Customer_Edit.php 23129 2013-08-26 14:43:24Z pineray $
+ * @version $Id: LC_Page_Admin_Customer_Edit.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'customer/edit.tpl';
         $this->tpl_mainno = 'customer';
@@ -49,7 +52,6 @@ class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
 
         $masterData = new SC_DB_MasterData_Ex();
         $this->arrPref = $masterData->getMasterData('mtb_pref');
-        $this->arrCountry = $masterData->getMasterData('mtb_country');
         $this->arrJob = $masterData->getMasterData('mtb_job');
         $this->arrSex = $masterData->getMasterData('mtb_sex');
         $this->arrReminder = $masterData->getMasterData('mtb_reminder');
@@ -63,7 +65,8 @@ class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
         $this->arrDay = $objDate->getDay();
 
         // 支払い方法種別
-        $this->arrPayment = SC_Helper_Payment_Ex::getIDValueList();
+        $objDb = new SC_Helper_DB_Ex();
+        $this->arrPayment = $objDb->sfGetIDValueList('dtb_payment', 'payment_id', 'payment_method');
     }
 
     /**
@@ -71,8 +74,7 @@ class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -82,8 +84,8 @@ class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // パラメーター管理クラス
         $objFormParam = new SC_FormParam_Ex();
         // 検索引き継ぎ用パラメーター管理クラス
@@ -191,13 +193,21 @@ class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
     }
 
     /**
-     * パラメーター情報の初期化
+     * デストラクタ.
      *
-     * @param  array $objFormParam フォームパラメータークラス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
+     * パラメーター情報の初期化
+     *
+     * @param array $objFormParam フォームパラメータークラス
+     * @return void
+     */
+    function lfInitParam(&$objFormParam) {
         // 会員項目のパラメーター取得
         SC_Helper_Customer_Ex::sfCustomerEntryParam($objFormParam, true);
         // 検索結果一覧画面への戻り用パラメーター
@@ -209,11 +219,10 @@ class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
     /**
      * 検索パラメーター引き継ぎ用情報の初期化
      *
-     * @param  array $objFormParam フォームパラメータークラス
+     * @param array $objFormParam フォームパラメータークラス
      * @return void
      */
-    public function lfInitSearchParam(&$objFormParam)
-    {
+    function lfInitSearchParam(&$objFormParam) {
         SC_Helper_Customer_Ex::sfSetSearchParam($objFormParam);
         // 初回受け入れ時用
         $objFormParam->addParam('編集対象会員ID', 'edit_customer_id', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
@@ -222,22 +231,20 @@ class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
     /**
      * 検索パラメーターエラーチェック
      *
-     * @param  array $objFormParam フォームパラメータークラス
+     * @param array $objFormParam フォームパラメータークラス
      * @return array エラー配列
      */
-    public function lfCheckErrorSearchParam(&$objFormParam)
-    {
+    function lfCheckErrorSearchParam(&$objFormParam) {
         return SC_Helper_Customer_Ex::sfCheckErrorSearchParam($objFormParam);
     }
 
     /**
      * フォーム入力パラメーターエラーチェック
      *
-     * @param  array $objFormParam フォームパラメータークラス
+     * @param array $objFormParam フォームパラメータークラス
      * @return array エラー配列
      */
-    public function lfCheckError(&$objFormParam)
-    {
+    function lfCheckError(&$objFormParam) {
         $arrErr = SC_Helper_Customer_Ex::sfCustomerMypageErrorCheck($objFormParam, true);
 
         // メアド重複チェック(共通ルーチンは使えない)
@@ -254,31 +261,30 @@ class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
         if (!SC_Utils_Ex::isBlank($arrData['email'])) {
             if ($arrData['email'] == $objFormParam->getValue('email')) {
                 $arrErr['email'] = '※ すでに他の会員(ID:' . $arrData['customer_id'] . ')が使用しているアドレスです。';
-            } elseif ($arrData['email'] == $objFormParam->getValue('email_mobile')) {
+            } else if ($arrData['email'] == $objFormParam->getValue('email_mobile')) {
                 $arrErr['email_mobile'] = '※ すでに他の会員(ID:' . $arrData['customer_id'] . ')が使用しているアドレスです。';
             }
         }
         if (!SC_Utils_Ex::isBlank($arrData['email_mobile'])) {
             if ($arrData['email_mobile'] == $objFormParam->getValue('email_mobile')) {
                 $arrErr['email_mobile'] = '※ すでに他の会員(ID:' . $arrData['customer_id'] . ')が使用している携帯アドレスです。';
-            } elseif ($arrData['email_mobile'] == $objFormParam->getValue('email')) {
+            } else if ($arrData['email_mobile'] == $objFormParam->getValue('email')) {
     if ($arrErr['email'] == '') {
                     $arrErr['email'] = '※ すでに他の会員(ID:' . $arrData['customer_id'] . ')が使用している携帯アドレスです。';
                 }
             }
         }
-
         return $arrErr;
     }
 
     /**
      * 登録処理
      *
-     * @param  array $objFormParam フォームパラメータークラス
+     * @param array $objFormParam フォームパラメータークラス
      * @return array エラー配列
      */
-    public function lfRegistData(&$objFormParam)
-    {
+    function lfRegistData(&$objFormParam) {
+        $objQuery   =& SC_Query_Ex::getSingletonInstance();
         // 登録用データ取得
         $arrData = $objFormParam->getDbArray();
         // 足りないものを作る
@@ -297,18 +303,16 @@ class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
                 $arrData['secret_key'] = SC_Utils_Ex::sfGetUniqRandomId('r');
             }
         }
-
         return SC_Helper_Customer_Ex::sfEditCustomerData($arrData, $arrData['customer_id']);
     }
 
     /**
      * 購入履歴情報の取得
      *
-     * @param  array  $arrParam 検索パラメーター連想配列
+     * @param array $arrParam 検索パラメーター連想配列
      * @return array( integer 全体件数, mixed 会員データ一覧配列, mixed SC_PageNaviオブジェクト)
      */
-    public function lfPurchaseHistory($customer_id, $pageno = 0)
-    {
+    function lfPurchaseHistory($customer_id, $pageno = 0) {
         if (SC_Utils_Ex::isBlank($customer_id)) {
             return array('0', array(), NULL);
         }
@@ -320,7 +324,7 @@ class LC_Page_Admin_Customer_Edit extends LC_Page_Admin_Ex
         // 購入履歴の件数取得
         $linemax = $objQuery->count($table, $where, $arrVal);
         // ページ送りの取得
-        $objNavi = new SC_PageNavi_Ex($pageno, $linemax, $page_max, 'eccube.moveSecondSearchPage', NAVI_PMAX);
+        $objNavi = new SC_PageNavi_Ex($pageno, $linemax, $page_max, 'fnNaviSearchPage2', NAVI_PMAX);
         // 取得範囲の指定(開始行番号、行数のセット)
         $objQuery->setLimitOffset($page_max, $objNavi->start_row);
         // 表示順序

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Basis_Point.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_Basis_Point.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Basis_Point extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Basis_Point extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'basis/point.tpl';
         $this->tpl_subno = 'point';
@@ -52,8 +55,7 @@ class LC_Page_Admin_Basis_Point extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -63,8 +65,8 @@ class LC_Page_Admin_Basis_Point extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objDb = new SC_Helper_DB_Ex();
         // パラメーター管理クラス
         $objFormParam = new SC_FormParam_Ex();
@@ -99,37 +101,46 @@ class LC_Page_Admin_Basis_Point extends LC_Page_Admin_Ex
                 $this->tpl_onload = "window.alert('ポイント設定が完了しました。');";
             }
         } else {
-            $arrRet = $objDb->sfGetBasisData();
+            $arrCol = $objFormParam->getKeyList(); // キー名一覧を取得
+            $col    = SC_Utils_Ex::sfGetCommaList($arrCol);
+            $arrRet = $objDb->sfGetBasisData(true, $col);
             $objFormParam->setParam($arrRet);
         }
         $this->arrForm = $objFormParam->getFormParamList();
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /* パラメーター情報の初期化 */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('ポイント付与率', 'point_rate', PERCENTAGE_LEN, 'n', array('EXIST_CHECK', 'MAX_LENGTH_CHECK', 'NUM_CHECK'));
         $objFormParam->addParam('会員登録時付与ポイント', 'welcome_point', INT_LEN, 'n', array('EXIST_CHECK', 'MAX_LENGTH_CHECK', 'NUM_CHECK'));
     }
 
-    public function lfUpdateData($post)
-    {
+    function lfUpdateData($post) {
         // 入力データを渡す。
         $sqlval = $post;
         $sqlval['update_date'] = 'CURRENT_TIMESTAMP';
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         // UPDATEの実行
-        $objQuery->update('dtb_baseinfo', $sqlval);
+        $ret = $objQuery->update('dtb_baseinfo', $sqlval);
     }
 
-    public function lfInsertData($post)
-    {
+    function lfInsertData($post) {
         // 入力データを渡す。
         $sqlval = $post;
         $sqlval['id'] = 1;
         $sqlval['update_date'] = 'CURRENT_TIMESTAMP';
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         // INSERTの実行
-        $objQuery->insert('dtb_baseinfo', $sqlval);
+        $ret = $objQuery->insert('dtb_baseinfo', $sqlval);
     }
 }

@@ -20,56 +20,28 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *}-->
 
-<!--{strip}-->
-<link href="<!--{$TPL_URLPATH}-->css/application-f3f29d259aa1d1d690c12266391bb719.css" media="all" rel="stylesheet" />
-<script async="async" src="<!--{$TPL_URLPATH}-->js/application-fccb5e5a2e2897e4af5ccda4f7cfa3fd.js"></script>
-<script type="text/javascript" src="<!--{$TPL_URLPATH}-->js/signup.js"></script>
-<script type="text/javascript" src="<!--{$TPL_URLPATH}-->js/jquery.js"></script>
-	<div id="layout">
+<div id="undercolumn">
+    <div id="undercolumn_entry">
+        <!--{if $smarty.const.CUSTOMER_CONFIRM_MAIL}-->
+            <p>ご登録されますと、まずは仮会員となります。<br />
+                入力されたメールアドレスに、ご連絡が届きますので、本会員になった上でお買い物をお楽しみください。</p>
+        <!--{/if}-->
+        <form name="form1" id="form1" method="post" action="?">
+            <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+            <input type="hidden" name="mode" value="confirm" />
 
-    <div class="page">
-        <div class="flipInY form-container wow animated animated" data-wow-duration="1s" data-wow-iteration="1" style="visibility: visible; -webkit-animation: 1s 1;">
-            <div class="form-inner">
-            <h1 class="brand pad-v-1">
-            <a href="/"><img alt="SUZURI" src="https://dijsur42hqnz1.cloudfront.net/assets/common/suzuri-logo-v-2ba32e5199c85b49e420621545041cf6.svg" width="120px">
-            </a></h1>
-                <form action="<!--{$smarty.const.TOP_URLPATH}-->" id="signup" method="post">
-                    <div style="display:none">
-                    <input name="utf8" type="hidden" value="✓" class="tooltipstered">
-                    <input name="authenticity_token" type="hidden" value="TAk0iw8jmCJQeWUmyclWQEZjG0y5e31pouNBteqZ92s=" class="tooltipstered"></div><div class="signup-sns">
-                    <h4 class="small mar-b-1">ソーシャルサービスを<br class="visible-phone">利用してサインアップ</h4>
-                    <div class="login-sns-buttons">
-                    <a class="btn-s btn-twitter btn-nopadding" href="/auth/twitter"><i class="icon"></i><span>Twitter</span></a>
-                    </div>
-                    </div>
-                    <div class="signup-id">
-                    <h4 class="small mar-b-1">
-                    SUZURI ID を作成する
-                    </h4>
-                    <div class="signup-forms">
-                    <div class="form_row mar-b-05">
-                    <label for="user_name">アカウント</label>
-                    <input class="input-text tooltipstered" id="username" name="username" placeholder="アカウント" type="text" value="">
-                    </div>
-                    <div class="form_row mar-b-05">
-                    <label for="user_email">メールアドレス</label>
-                    <input class="input-text tooltipstered invalid" id="email" name="email" placeholder="メールアドレス" type="text" >
-                    </div>
-                    <div class="form_row mar-b-05">
-                    <label for="user_password">パスワード</label>
-                    <input class="input-text tooltipstered valid" id="password" name="password" placeholder="パスワード" type="password">
-                    </div>
-                    <div class="form_row mar-b-05">
-                    <div class="form-checkbox">
-                    <label class="small" for="terms_of_service"><input class="input-checkbox tooltipstered" id="terms_of_service" name="terms_of_service" type="checkbox" value="1">利用規約に同意する<br class="visible-phone">(<a class="link-gray" href="/terms" target="_blank">利用規約を読む</a>)
-                    </label></div>
-                    </div>
-                    </div>
-                    <input class="btn-m btn-blue tooltipstered" name="commit" type="submit" value="アカウントを作成する">
-                    </div>
-                    <span class="small">
-                    <a class="link-gray" href="/login"><i class="icon"></i><span>ログインする</span></a></span>
-                </form>
-        </div>
+            <table summary="会員登録フォーム">
+            <!--{include file="`$smarty.const.TEMPLATE_REALDIR`frontparts/form_personal_input.tpl" flgFields=3 emailMobile=false prefix=""}-->
+            </table>
+
+            <div class="btn_area">
+                <ul>
+                    <li>
+                        <input type="image" class="hover_change_image" src="<!--{$TPL_URLPATH}-->img/button/btn_confirm.jpg" alt="確認ページへ" name="confirm" id="confirm" />
+                    </li>
+                </ul>
+            </div>
+
+        </form>
     </div>
-<!--{/strip}-->
+</div>

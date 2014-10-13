@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * 環境によるfunctionの変更まではカバーできないため、簡単な出力のみテスト.
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_jsonDecodeTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_jsonDecodeTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_jsonDecodeTest extends Common_TestCase
-{
+class SC_Utils_jsonDecodeTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testJsonDecode__JSON形式にエンコードされた文字列からarrayに変換される()
-  {
+  public function testJsonDecode__JSON形式にエンコードされた文字列からarrayに変換される() {
     $input = '{"a":1,"b":2,"c":3,"d":4,"e":5}';
 
     $obj = new stdClass;
@@ -62,5 +58,6 @@ class SC_Utils_jsonDecodeTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

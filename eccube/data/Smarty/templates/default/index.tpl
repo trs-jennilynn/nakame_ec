@@ -20,10 +20,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *}-->
 
-<!--{strip}-->
-    <div id="main_image">
-        <!--<a href="<!--{$smarty.const.P_DETAIL_URLPATH}-->1">
-            <img class="hover_change_image" src="<!--{$TPL_URLPATH}-->img/banner/bnr_top_main.jpg" alt="詳細はこちら" />
-        </a>-->
-    </div>
-<!--{/strip}-->
+<div id="main_image">
+
+</div>

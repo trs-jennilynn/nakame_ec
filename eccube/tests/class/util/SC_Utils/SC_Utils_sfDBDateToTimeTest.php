@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfDBDateToTimeTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfDBDateToTimeTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfDBDatetoTimeTest extends Common_TestCase
-{
+class SC_Utils_sfDBDatetoTimeTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfDbDatetoTime_時刻にマイクロ秒が含まれている場合_マイクロ秒を無視して変換できる()
-  {
+  public function testSfDbDatetoTime_時刻にマイクロ秒が含まれている場合_マイクロ秒を無視して変換できる() {
     
     $this->expected = mktime(10, 20, 30, 10, 31, 2012);
     $this->actual = SC_Utils::sfDbDatetoTime('2012-10-31 10:20:30.000002');
@@ -55,8 +51,7 @@ class SC_Utils_sfDBDatetoTimeTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testSfDbDatetoTime_時刻にマイクロ秒が含まれていない場合_そのまま変換できる()
-  {
+  public function testSfDbDatetoTime_時刻にマイクロ秒が含まれていない場合_そのまま変換できる() {
     
     $this->expected = mktime(10, 20, 30, 10, 31, 2012);
     $this->actual = SC_Utils::sfDbDatetoTime('2012-10-31 10:20:30');
@@ -65,5 +60,6 @@ class SC_Utils_sfDBDatetoTimeTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

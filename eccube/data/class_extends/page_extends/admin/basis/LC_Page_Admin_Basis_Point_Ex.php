@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_REALDIR . 'pages/admin/basis/LC_Page_Admin_Basis_Point.php';
 
 /**
@@ -30,17 +31,19 @@ require_once CLASS_REALDIR . 'pages/admin/basis/LC_Page_Admin_Basis_Point.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Basis_Point_Ex.php 22926 2013-06-29 16:24:23Z Seasoft $
+ * @version $Id: LC_Page_Admin_Basis_Point_Ex.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Basis_Point_Ex extends LC_Page_Admin_Basis_Point
-{
+class LC_Page_Admin_Basis_Point_Ex extends LC_Page_Admin_Basis_Point {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    function init()
-    {
+    function init() {
         parent::init();
     }
 
@@ -49,8 +52,16 @@ class LC_Page_Admin_Basis_Point_Ex extends LC_Page_Admin_Basis_Point
      *
      * @return void
      */
-    function process()
-    {
+    function process() {
         parent::process();
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 }

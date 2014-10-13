@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.p
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Mypage_Change.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Mypage_Change.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex
-{
+class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_subtitle = '会員登録内容変更(入力ページ)';
         $this->tpl_mypageno = 'change';
@@ -46,7 +49,6 @@ class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex
         $masterData         = new SC_DB_MasterData_Ex();
         $this->arrReminder  = $masterData->getMasterData('mtb_reminder');
         $this->arrPref      = $masterData->getMasterData('mtb_pref');
-        $this->arrCountry   = $masterData->getMasterData('mtb_country');
         $this->arrJob       = $masterData->getMasterData('mtb_job');
         $this->arrMAILMAGATYPE = $masterData->getMasterData('mtb_mail_magazine_type');
         $this->arrSex       = $masterData->getMasterData('mtb_sex');
@@ -64,8 +66,7 @@ class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
     }
 
@@ -73,14 +74,14 @@ class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex
      * Page のプロセス
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objCustomer = new SC_Customer_Ex();
         $customer_id = $objCustomer->getValue('customer_id');
 
         // mobile用（戻るボタンでの遷移かどうかを判定）
         if (!empty($_POST['return'])) {
-            $_REQUEST['mode'] = 'return';
+            $_POST['mode'] = 'return';
         }
 
         // パラメーター管理クラス,パラメーター情報の初期化
@@ -107,20 +108,23 @@ class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex
                             $data['pref'] = $arrAdsList[0]['state'];
                             $data['addr01'] = $arrAdsList[0]['city']. $arrAdsList[0]['town'];
                             $objFormParam->setParam($data);
+
                         }
                         // 該当無し
                         else {
                             $this->arrErr['zip01'] = '※該当する住所が見つかりませんでした。<br>';
                         }
                     }
+                    $this->arrForm  = $objFormParam->getHashArray();
                     break;
                 }
                 $this->arrErr = SC_Helper_Customer_Ex::sfCustomerMypageErrorCheck($objFormParam);
+                $this->arrForm = $objFormParam->getHashArray();
 
                 // 入力エラーなし
                 if (empty($this->arrErr)) {
                     //パスワード表示
-                    $this->passlen      = SC_Utils_Ex::sfPassLen(strlen($objFormParam->getValue('password')));
+                    $this->passlen      = SC_Utils_Ex::sfPassLen(strlen($this->arrForm['password']));
 
                     $this->tpl_mainpage = 'mypage/change_confirm.tpl';
                     $this->tpl_title    = '会員登録(確認ページ)';
@@ -130,6 +134,7 @@ class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex
             // 会員登録と完了画面
             case 'complete':
                 $this->arrErr = SC_Helper_Customer_Ex::sfCustomerMypageErrorCheck($objFormParam);
+                $this->arrForm = $objFormParam->getHashArray();
 
                 // 入力エラーなし
                 if (empty($this->arrErr)) {
@@ -139,19 +144,29 @@ class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex
                     //セッション情報を最新の状態に更新する
                     $objCustomer->updateSession();
 
+
                     // 完了ページに移動させる。
                     SC_Response_Ex::sendRedirect('change_complete.php');
                 }
                 break;
             // 確認ページからの戻り
             case 'return':
-                // quiet.
+                $this->arrForm = $objFormParam->getHashArray();
                 break;
             default:
-                $objFormParam->setParam(SC_Helper_Customer_Ex::sfGetCustomerData($customer_id));
+                $this->arrForm = SC_Helper_Customer_Ex::sfGetCustomerData($customer_id);
                 break;
         }
-        $this->arrForm = $objFormParam->getFormParamList();
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -162,8 +177,7 @@ class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex
      * @access private
      * @return void
      */
-    public function lfRegistCustomerData(&$objFormParam, $customer_id)
-    {
+    function lfRegistCustomerData(&$objFormParam, $customer_id) {
         $arrRet             = $objFormParam->getHashArray();
         $sqlval             = $objFormParam->getDbArray();
         $sqlval['birth']    = SC_Utils_Ex::sfGetTimestamp($arrRet['year'], $arrRet['month'], $arrRet['day']);
@@ -174,11 +188,10 @@ class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex
     /**
      * 入力エラーのチェック.
      *
-     * @param  array $arrRequest リクエスト値($_GET)
+     * @param array $arrRequest リクエスト値($_GET)
      * @return array $arrErr エラーメッセージ配列
      */
-    public function lfCheckError($arrRequest)
-    {
+    function lfCheckError($arrRequest) {
         // パラメーター管理クラス
         $objFormParam = new SC_FormParam_Ex();
         // パラメーター情報の初期化
@@ -190,7 +203,29 @@ class LC_Page_Mypage_Change extends LC_Page_AbstractMypage_Ex
         $objFormParam->setParam($arrData);
         // エラーチェック
         $arrErr = $objFormParam->checkError();
+        // 親ウィンドウの戻り値を格納するinputタグのnameのエラーチェック
+        if (!$this->lfInputNameCheck($addData['zip01'])) {
+            $arrErr['zip01'] = '※ 入力形式が不正です。<br />';
+        }
+        if (!$this->lfInputNameCheck($arrdata['zip02'])) {
+            $arrErr['zip02'] = '※ 入力形式が不正です。<br />';
+        }
 
         return $arrErr;
+    }
+
+    /**
+     * エラーチェック.
+     *
+     * @param string $value
+     * @return エラーなし：true エラー：false
+     */
+    function lfInputNameCheck($value) {
+        // 半角英数字と_（アンダーバー）, []以外の文字を使用していたらエラー
+        if (strlen($value) > 0 && !preg_match("/^[a-zA-Z0-9_\[\]]+$/", $value)) {
+            return false;
+        }
+
+        return true;
     }
 }

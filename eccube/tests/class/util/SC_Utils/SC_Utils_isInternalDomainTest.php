@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * HTTP_URL='http://test.local' という前提でテスト.
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_isInternalDomainTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_isInternalDomainTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfIsInternalDomainTest extends Common_TestCase
-{
+class SC_Utils_sfIsInternalDomainTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testsfIsInternalDomain_ドメインが一致する場合_trueが返る()
-  {
+  public function testsfIsInternalDomain_ドメインが一致する場合_trueが返る() {
     $url = 'http://test.local/html/index.php';
     $this->expected = TRUE;
     $this->actual = SC_Utils::sfIsInternalDomain($url);
@@ -55,8 +51,7 @@ class SC_Utils_sfIsInternalDomainTest extends Common_TestCase
     $this->verify($url);
   }
 
-  public function testsfIsInternalDomain_アンカーを含むURLの場合_trueが返る()
-  {
+  public function testsfIsInternalDomain_アンカーを含むURLの場合_trueが返る() {
     $url = 'http://test.local/html/index.php#hoge';
     $this->expected = TRUE;
     $this->actual = SC_Utils::sfIsInternalDomain($url);
@@ -64,8 +59,7 @@ class SC_Utils_sfIsInternalDomainTest extends Common_TestCase
     $this->verify($url);
   }
 
-  public function testsfIsInternalDomain_ドメインが一致しない場合_falseが返る()
-  {
+  public function testsfIsInternalDomain_ドメインが一致しない場合_falseが返る() {
     $url = 'http://test.local.jp/html/index.php';
     $this->expected = TRUE;
     $this->actual = SC_Utils::sfIsInternalDomain($url);
@@ -74,5 +68,6 @@ class SC_Utils_sfIsInternalDomainTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

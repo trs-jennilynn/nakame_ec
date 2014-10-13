@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfPassLenTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfPassLenTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_getSfPassLenTest extends Common_TestCase
-{
+class SC_Utils_getSfPassLenTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfPassLen_入力が0の場合_0バイト文字列が返る()
-  {
+  public function testSfPassLen_入力が0の場合_0バイト文字列が返る() {
     $input = '';
     $this->expected = '';
     $this->actual = SC_Utils::sfPassLen($input);
@@ -55,8 +51,7 @@ class SC_Utils_getSfPassLenTest extends Common_TestCase
     $this->verify();
   }
 
-  public function testSfPassLen_入力が正の数の場合_入力と同じ文字数のアスタリスクが返る()
-  {
+  public function testSfPassLen_入力が正の数の場合_入力と同じ文字数のアスタリスクが返る() {
     $input = 17;
     $this->expected = '*****************';
     $this->actual = SC_Utils::sfPassLen($input);
@@ -65,5 +60,6 @@ class SC_Utils_getSfPassLenTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

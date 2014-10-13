@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/helper/SC_Helper_Purchase/SC_Helper_Purchase_
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Helper_Purchase_copyFromOrderTest.php 22960 2013-07-08 14:56:17Z Seasoft $
+ * @version $Id: SC_Helper_Purchase_copyFromOrderTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Helper_Purchase_copyFromOrderTest extends SC_Helper_Purchase_TestBase
-{
+class SC_Helper_Purchase_copyFromOrderTest extends SC_Helper_Purchase_TestBase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testCopyFromOrder_全てデフォルト設定にした場合_デフォルトの接頭辞・キーでコピーされる()
-  {
+  public function testCopyFromOrder_すべてデフォルト設定にした場合_デフォルトの接頭辞・キーでコピーされる() {
      $dest = array();
      $src = array(
        'order_name01' => '姓',
@@ -93,8 +89,7 @@ class SC_Helper_Purchase_copyFromOrderTest extends SC_Helper_Purchase_TestBase
      $this->verify();
   }
 
-  public function testCopyFromOrder_接頭辞・キーを設定した場合_指定の値でコピーされる()
-  {
+  public function testCopyFromOrder_接頭辞・キーを設定した場合_指定の値でコピーされる() {
      $dest = array();
      $src = array(
        'input_name01' => '姓',
@@ -113,5 +108,6 @@ class SC_Helper_Purchase_copyFromOrderTest extends SC_Helper_Purchase_TestBase
      $this->verify();
   }
   //////////////////////////////////////////
+
 }
 

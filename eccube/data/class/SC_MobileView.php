@@ -21,19 +21,16 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-class SC_MobileView extends SC_SiteView_Ex
-{
-    public function __construct($setPrevURL = true)
-    {
+class SC_MobileView extends SC_SiteView_Ex {
+    function __construct($setPrevURL = true) {
         parent::__construct($setPrevURL);
     }
 
-    public function init()
-    {
+    function init() {
         parent::init();
 
-        $this->_smarty->template_dir = realpath(MOBILE_TEMPLATE_REALDIR);
-        $this->_smarty->compile_dir = realpath(MOBILE_COMPILE_REALDIR);
+        $this->_smarty->template_dir = MOBILE_TEMPLATE_REALDIR;
+        $this->_smarty->compile_dir = MOBILE_COMPILE_REALDIR;
         $this->assignTemplatePath(DEVICE_TYPE_MOBILE);
     }
 }

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_REALDIR . 'helper/SC_Helper_Transform.php';
 
 /**
@@ -32,6 +33,5 @@ require_once CLASS_REALDIR . 'helper/SC_Helper_Transform.php';
  * @author LOCKON CO.,LTD.
  * @version $Id$
  */
-class SC_Helper_Transform_Ex extends SC_Helper_Transform
-{
+class SC_Helper_Transform_Ex extends SC_Helper_Transform {
 }

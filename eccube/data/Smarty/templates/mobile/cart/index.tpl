@@ -53,18 +53,16 @@
                 <!--{/if}-->
                 <!--{foreach from=$cartItems[$key] item=item}-->
                     ◎<!--{* 商品名 *}--><!--{$item.productsClass.name|h}--><br>
-                    <!--{* 規格名1 *}--><!--{if $item.productsClass.classcategory_name1 != ""}--><!--{$item.productsClass.class_name1|h}-->：<!--{$item.productsClass.classcategory_name1|h}--><br><!--{/if}-->
-                    <!--{* 規格名2 *}--><!--{if $item.productsClass.classcategory_name2 != ""}--><!--{$item.productsClass.class_name2|h}-->：<!--{$item.productsClass.classcategory_name2|h}--><br><!--{/if}-->
+                    <!--{* 規格名1 *}--><!--{if $item.productsClass.classcategory_name1 != ""}--><!--{$item.productsClass.class_name1}-->：<!--{$item.productsClass.classcategory_name1}--><br><!--{/if}-->
+                    <!--{* 規格名2 *}--><!--{if $item.productsClass.classcategory_name2 != ""}--><!--{$item.productsClass.class_name2}-->：<!--{$item.productsClass.classcategory_name2}--><br><!--{/if}-->
                     <!--{* 販売価格 *}-->
-                    <!--{$item.price_inctax|number_format}-->円
+                    <!--{$item.price|sfCalcIncTax|number_format}-->円
                     × <!--{$item.quantity}--><br>
                     <br>
                     <!--{* 数量 *}-->
                     数量:<!--{$item.quantity}-->
                     <a href="?mode=up&amp;cart_no=<!--{$item.cart_no}-->&amp;cartKey=<!--{$key}-->">＋</a>
-                    <!--{if $item.quantity > 1}-->
-                        <a href="?mode=down&amp;cart_no=<!--{$item.cart_no}-->&amp;cartKey=<!--{$key}-->">－</a>
-                    <!--{/if}-->
+                    <a href="?mode=down&amp;cart_no=<!--{$item.cart_no}-->&amp;cartKey=<!--{$key}-->">－</a>
                     <a href="?mode=delete&amp;cart_no=<!--{$item.cart_no}-->&amp;cartKey=<!--{$key}-->">削除</a><br>
                     <!--{* 合計 *}-->
                     小計:<!--{$item.total_inctax|number_format}-->円<br>
@@ -102,7 +100,7 @@
 
             <br>
             <!--{if $tpl_prev_url != ""}-->
-                <a href="<!--{$tpl_prev_url|h}-->">[emoji:69]お買い物を続ける</a><br>
+                <a href="<!--{$tpl_prev_url|h}-->">[emoji:69]お買物を続ける</a><br>
                 <br>
             <!--{/if}-->
         <!--{/foreach}-->

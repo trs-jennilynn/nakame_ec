@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Products_CategoryList.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Products_CategoryList.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Products_CategoryList extends LC_Page_Ex
-{
+class LC_Page_Products_CategoryList extends LC_Page_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
     }
 
@@ -47,8 +50,7 @@ class LC_Page_Products_CategoryList extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
         $this->action();
         $this->sendResponse();
@@ -58,30 +60,35 @@ class LC_Page_Products_CategoryList extends LC_Page_Ex
      * Page のAction
      * @return void
      */
-    public function action()
-    {
-        $objFormParam = $this->lfInitParam($_REQUEST);
+    function action() {
 
         // カテゴリIDの正当性チェック
-        $category_id = $this->lfCheckCategoryId($objFormParam->getValue('category_id'));
-        if ($category_id == 0) {
-            SC_Utils_Ex::sfDispSiteError(CATEGORY_NOT_FOUND);
-        }
+        $this->lfCheckCategoryId();
 
         // カテゴリ情報を取得する。
-        $arrCategoryData = $this->lfGetCategories($category_id, true);
+        $objFormParam = $this->lfInitParam($_REQUEST);
+        $arrCategoryData = $this->lfGetCategories($objFormParam->getValue('category_id'), true, $this);
         $this->arrCategory = $arrCategoryData['arrCategory'];
         $this->arrChildren = $arrCategoryData['arrChildren'];
         $this->tpl_subtitle = $this->arrCategory['category_name'];
+
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /* カテゴリIDの正当性チェック */
-    public function lfCheckCategoryId($category_id)
-    {
-        if ($category_id && !SC_Helper_DB_Ex::sfIsRecord('dtb_category', 'category_id', (array) $category_id, 'del_flg = 0')) {
+    function lfCheckCategoryId($category_id) {
+        if ($category_id && !SC_Helper_DB_Ex::sfIsRecord('dtb_category', 'category_id', (array)$category_id, 'del_flg = 0')) {
             return 0;
         }
-
         return $category_id;
     }
 
@@ -89,12 +96,18 @@ class LC_Page_Products_CategoryList extends LC_Page_Ex
      * 選択されたカテゴリとその子カテゴリの情報を取得し、
      * ページオブジェクトに格納する。
      *
-     * @param  string  $category_id カテゴリID
-     * @param  boolean $count_check 有効な商品がないカテゴリを除くかどうか
+     * @param string $category_id カテゴリID
+     * @param boolean $count_check 有効な商品がないカテゴリを除くかどうか
+     * @param object &$objPage ページオブジェクト
      * @return void
      */
-    public function lfGetCategories($category_id, $count_check = false)
-    {
+    function lfGetCategories($category_id, $count_check = false, &$objPage) {
+        // カテゴリの正しいIDを取得する。
+        $category_id = $this->lfCheckCategoryId($category_id);
+        if ($category_id == 0) {
+            SC_Utils_Ex::sfDispSiteError(CATEGORY_NOT_FOUND);
+        }
+
         $arrCategory = null;    // 選択されたカテゴリ
         $arrChildren = array(); // 子カテゴリ
 
@@ -142,15 +155,14 @@ class LC_Page_Products_CategoryList extends LC_Page_Ex
      *
      * @return object
      */
-    public function lfInitParam($arrRequest)
-    {
+    function lfInitParam($arrRequest) {
         $objFormParam = new SC_FormParam_Ex();
         $objFormParam->addParam('カテゴリID', 'category_id', INT_LEN, 'n', array('NUM_CHECK','MAX_LENGTH_CHECK'));
         // 値の取得
         $objFormParam->setParam($arrRequest);
         // 入力値の変換
         $objFormParam->convParam();
-
         return $objFormParam;
     }
+
 }

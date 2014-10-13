@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once 'LC_Page_Upgrade_Base.php';
 
 /**
@@ -28,17 +29,19 @@ require_once 'LC_Page_Upgrade_Base.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Upgrade_ProductsList.php 23141 2013-08-28 04:26:44Z m_uehara $
+ * @version $Id: LC_Page_Upgrade_ProductsList.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Upgrade_ProductsList extends LC_Page_Upgrade_Base
-{
+class LC_Page_Upgrade_ProductsList extends LC_Page_Upgrade_Base {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
     }
 
@@ -47,8 +50,7 @@ class LC_Page_Upgrade_ProductsList extends LC_Page_Upgrade_Base
      *
      * @return void
      */
-    public function process($mode)
-    {
+    function process($mode) {
         $objLog  = new LC_Upgrade_Helper_Log;
         $objJson = new LC_Upgrade_Helper_Json;
 
@@ -60,7 +62,6 @@ class LC_Page_Upgrade_ProductsList extends LC_Page_Upgrade_Base
             $objJson->setError(OSTORE_E_C_ADMIN_AUTH);
             $objJson->display();
             $objLog->error(OSTORE_E_C_ADMIN_AUTH);
-
             return;
         }
 
@@ -73,7 +74,6 @@ class LC_Page_Upgrade_ProductsList extends LC_Page_Upgrade_Base
             $objJson->setError(OSTORE_E_C_NO_KEY);
             $objJson->display();
             $objLog->error(OSTORE_E_C_NO_KEY);
-
             return;
         }
 
@@ -93,7 +93,6 @@ class LC_Page_Upgrade_ProductsList extends LC_Page_Upgrade_Base
             $objJson->setError(OSTORE_E_C_HTTP_REQ);
             $objJson->display();
             $objLog->error(OSTORE_E_C_HTTP_REQ, $objReq);
-
             return;
         }
 
@@ -103,7 +102,6 @@ class LC_Page_Upgrade_ProductsList extends LC_Page_Upgrade_Base
             $objJson->setError(OSTORE_E_C_HTTP_RESP);
             $objJson->display();
             $objLog->error(OSTORE_E_C_HTTP_RESP, $objReq);
-
             return;
         }
 
@@ -116,7 +114,6 @@ class LC_Page_Upgrade_ProductsList extends LC_Page_Upgrade_Base
             $objJson->setError(OSTORE_E_C_FAILED_JSON_PARSE);
             $objJson->display();
             $objLog->error(OSTORE_E_C_FAILED_JSON_PARSE, $objReq);
-
             return;
         }
 
@@ -145,14 +142,21 @@ class LC_Page_Upgrade_ProductsList extends LC_Page_Upgrade_Base
             $objJson->setSuccess(array(), $html);
             $objJson->display();
             $objLog->end();
-
             return;
         } else {
             // 配信サーバー側でエラーを補足
             echo $body;
             $objLog->error($objRet->errcode, $objReq);
-
             return;
         }
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 }

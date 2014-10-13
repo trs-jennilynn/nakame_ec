@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,18 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_System_Rank.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_System_Rank.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_System_Rank extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_System_Rank extends LC_Page_Admin_Ex {
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
     }
 
@@ -47,8 +49,7 @@ class LC_Page_Admin_System_Rank extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -58,8 +59,8 @@ class LC_Page_Admin_System_Rank extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // チェック後のデータを格納
         $arrClean = array();
 
@@ -101,9 +102,17 @@ class LC_Page_Admin_System_Rank extends LC_Page_Admin_Ex
         SC_Response_Ex::sendRedirect(ADMIN_SYSTEM_URLPATH);
     }
 
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+
     // ランキングを上げる。
-    public function lfRunkUp($id)
-    {
+    function lfRunkUp($id) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         // 自身のランクを取得する。
@@ -133,8 +142,7 @@ class LC_Page_Admin_System_Rank extends LC_Page_Admin_Ex
     }
 
     // ランキングを下げる。
-    public function lfRunkDown($id)
-    {
+    function lfRunkDown($id) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         // 自身のランクを取得する。

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -30,16 +31,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  * @author LOCKON CO.,LTD.
  * @version $Id:LC_Page_Abouts.php 15532 2007-08-31 14:39:46Z nanasess $
  */
-class LC_Page_Abouts extends LC_Page_Ex
-{
+class LC_Page_Abouts extends LC_Page_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
+        $this->tpl_page_category = 'abouts';
         $this->tpl_title = '当サイトについて';
         $masterData = new SC_DB_MasterData_Ex();
         $this->arrPref = $masterData->getMasterData('mtb_pref');
@@ -50,8 +54,7 @@ class LC_Page_Abouts extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
         $this->action();
         $this->sendResponse();
@@ -62,7 +65,22 @@ class LC_Page_Abouts extends LC_Page_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
+        $this->objSiteInfo->data = SC_Helper_DB_Ex::sfGetBasisData();
+        $this->objSiteInfo->data['pref'] =
+            isset($this->arrPref[$this->objSiteInfo->data['pref']])
+            ? $this->arrPref[$this->objSiteInfo->data['pref']] : '';
+
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 }

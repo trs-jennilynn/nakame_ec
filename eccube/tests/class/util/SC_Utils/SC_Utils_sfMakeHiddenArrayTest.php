@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * ※ソースコード上で使われている箇所がなく詳細仕様が不明なので、ソースコードに合わせて作成
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfMakeHiddenArrayTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfMakeHiddenArrayTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfMakeHiddenArrayest extends Common_TestCase
-{
+class SC_Utils_sfMakeHiddenArrayest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfMakeHiddenArray__多段配列が1次元配列に変換される()
-  {
+  public function testSfMakeHiddenArray__多段配列が1次元配列に変換される() {
     $input_array = array(
       'vegetable' => '野菜',
       'fruit' => array(
@@ -74,5 +70,6 @@ class SC_Utils_sfMakeHiddenArrayest extends Common_TestCase
     $this->verify();
   }
   //////////////////////////////////////////
+
 }
 

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Design_Header.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_Design_Header.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Design_Header extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Design_Header extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'design/header.tpl';
         $this->header_row = 13;
@@ -56,8 +59,7 @@ class LC_Page_Admin_Design_Header extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -67,8 +69,8 @@ class LC_Page_Admin_Design_Header extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objFormParam = new SC_FormParam_Ex();
         $this->lfInitParam($objFormParam);
         $objFormParam->setParam($_REQUEST);
@@ -110,16 +112,25 @@ class LC_Page_Admin_Design_Header extends LC_Page_Admin_Ex
 
         //サブタイトルの追加
         $this->tpl_subtitle = $this->arrDeviceType[$this->device_type_id] . '＞' . $this->tpl_subtitle;
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
      * パラメーター情報の初期化
      *
-     * @param  object $objFormParam SC_FormParamインスタンス
+     * @param object $objFormParam SC_FormParamインスタンス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('端末種別ID', 'device_type_id', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('division', 'division', STEXT_LEN, 'a', array('MAX_LENGTH_CHECK'));
         $objFormParam->addParam('ヘッダデータ', 'header');
@@ -129,16 +140,14 @@ class LC_Page_Admin_Design_Header extends LC_Page_Admin_Ex
     /**
      * エラーチェックを行う.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
-     * @return array        エラーメッセージの配列
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @return array エラーメッセージの配列
      */
-    public function lfCheckError(&$objFormParam, &$arrErr)
-    {
+    function lfCheckError(&$objFormParam, &$arrErr) {
         $arrParams = $objFormParam->getHashArray();
         $objErr = new SC_CheckError_Ex($arrParams);
         $objErr->arrErr =& $arrErr;
         $objErr->doFunc(array('division', 'division', STEXT_LEN), array('EXIST_CHECK'));
-
         return $objErr->arrErr;
     }
 
@@ -147,33 +156,29 @@ class LC_Page_Admin_Design_Header extends LC_Page_Admin_Ex
      *
      * ファイルの作成に失敗した場合は, エラーメッセージを出力する.
      *
-     * @param  SC_FormParam    $objFormParam SC_FormParam インスタンス
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
      * @return integer|boolean 登録が成功した場合 true; 失敗した場合 false
      */
-    public function doRegister(&$objFormParam)
-    {
+    function doRegister(&$objFormParam) {
         $division = $objFormParam->getValue('division');
         $contents = $objFormParam->getValue($division);
         $tpl_path = $this->getTemplatePath($objFormParam->getValue('device_type_id'), $division);
         if ($tpl_path === false
             || !SC_Helper_FileManager_Ex::sfWriteFile($tpl_path, $contents)) {
             $this->arrErr['err'] = '※ ファイルの書き込みに失敗しました<br />';
-
             return false;
         }
-
         return true;
     }
 
     /**
      * テンプレートパスを取得する.
      *
-     * @param  integer        $device_type_id 端末種別ID
-     * @param  string         $division       'header' or 'footer'
+     * @param integer $device_type_id 端末種別ID
+     * @param string $division 'header' or 'footer'
      * @return string|boolean 成功した場合, テンプレートのパス; 失敗した場合 false
      */
-    public function getTemplatePath($device_type_id, $division)
-    {
+    function getTemplatePath($device_type_id, $division) {
         $tpl_path = SC_Helper_PageLayout_Ex::getTemplatePath($device_type_id) . '/' . $division . '.tpl';
         if (file_exists($tpl_path)) {
             return $tpl_path;

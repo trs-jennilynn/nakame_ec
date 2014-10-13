@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -30,24 +31,28 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  * @author LOCKON CO.,LTD.
  * @version $Id:LC_Page_Products_Review.php 15532 2007-08-31 14:39:46Z nanasess $
  */
-class LC_Page_Products_Review extends LC_Page_Ex
-{
+class LC_Page_Products_Review extends LC_Page_Ex {
+
+    // {{{ properties
+
     /** おすすめレベル */
-    public $arrRECOMMEND;
+    var $arrRECOMMEND;
 
     /** 性別 */
-    public $arrSex;
+    var $arrSex;
 
     /** 入力禁止URL */
-    public $arrReviewDenyURL;
+    var $arrReviewDenyURL;
+
+    // }}}
+    // {{{ functions
 
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
 
         $masterData = new SC_DB_MasterData_Ex();
@@ -61,8 +66,7 @@ class LC_Page_Products_Review extends LC_Page_Ex
     /**
      * Page のプロセス.
      */
-    public function process()
-    {
+    function process() {
         parent::process();
         $this->action();
         $this->sendResponse();
@@ -73,8 +77,8 @@ class LC_Page_Products_Review extends LC_Page_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objFormParam = new SC_FormParam_Ex();
         $this->lfInitParam($objFormParam);
         $objFormParam->setParam($_POST);
@@ -101,6 +105,7 @@ class LC_Page_Products_Review extends LC_Page_Ex
                     //登録実行
                     $this->lfRegistRecommendData($objFormParam);
 
+
                     //レビュー書き込み完了ページへ
                     SC_Response_Ex::sendRedirect('review_complete.php');
                     SC_Response_Ex::actionExit();
@@ -122,16 +127,26 @@ class LC_Page_Products_Review extends LC_Page_Ex
         }
 
         $this->setTemplate($this->tpl_mainpage);
+
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
      * パラメーター情報の初期化を行う.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('レビューID', 'review_id', INT_LEN, 'aKV');
         $objFormParam->addParam('商品ID', 'product_id', INT_LEN, 'n', array('NUM_CHECK','EXIST_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('投稿者名', 'reviewer_name', STEXT_LEN, 'aKV', array('EXIST_CHECK', 'SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
@@ -145,11 +160,10 @@ class LC_Page_Products_Review extends LC_Page_Ex
     /**
      * 入力内容のチェックを行う.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
-     * @return array        エラーメッセージの配列
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @return array エラーメッセージの配列
      */
-    public function lfCheckError(&$objFormParam)
-    {
+    function lfCheckError(&$objFormParam) {
         $arrErr = $objFormParam->checkError();
 
         $arrForm = $objFormParam->getHashArray();
@@ -174,31 +188,23 @@ class LC_Page_Products_Review extends LC_Page_Ex
     /**
      * 商品名を取得
      *
-     * @param  integer $product_id 商品ID
-     * @return string  $product_name 商品名
+     * @param integer $product_id 商品ID
+     * @return string $product_name 商品名
      */
-    public function lfGetProductName($product_id)
-    {
+    function lfGetProductName($product_id) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
-        return $objQuery->get('name', 'dtb_products', 'product_id = ? AND ' . SC_Product_Ex::getProductDispConditions(), array($product_id));
+        return $objQuery->get('name', 'dtb_products', 'product_id = ? AND del_flg = 0 AND status = 1', array($product_id));
     }
 
     //登録実行
-    public function lfRegistRecommendData(&$objFormParam)
-    {
+    function lfRegistRecommendData(&$objFormParam) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
-        $objCustomer = new SC_Customer_Ex();
-
         $arrRegist = $objFormParam->getDbArray();
 
         $arrRegist['create_date'] = 'CURRENT_TIMESTAMP';
         $arrRegist['update_date'] = 'CURRENT_TIMESTAMP';
         $arrRegist['creator_id'] = '0';
-
-        if ($objCustomer->isLoginSuccess(true)) {
-            $arrRegist['customer_id'] = $objCustomer->getValue('customer_id');
-        }
 
         //-- 登録実行
         $objQuery->begin();

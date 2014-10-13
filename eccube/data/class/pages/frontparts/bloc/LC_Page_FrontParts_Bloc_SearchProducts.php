@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/frontparts/bloc/LC_Page_FrontParts_Bloc_Ex.php';
 
 /**
@@ -30,15 +31,17 @@ require_once CLASS_EX_REALDIR . 'page_extends/frontparts/bloc/LC_Page_FrontParts
  * @author LOCKON CO.,LTD.
  * @version $Id:LC_Page_FrontParts_Bloc_SearchProducts.php 15532 2007-08-31 14:39:46Z nanasess $
  */
-class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
-{
+class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
     }
 
@@ -47,8 +50,7 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -58,8 +60,8 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // 商品ID取得
         $product_id = $this -> lfGetProductId();
         // カテゴリID取得
@@ -74,6 +76,17 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
         $this->maker_id = $this->lfGetSelectedMakerId($product_id, $maker_id);
         // メーカー検索用選択リスト
         $this->arrMakerList = $this->lfGetMakerList();
+
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -81,13 +94,11 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return string $product_id 商品ID
      */
-    public function lfGetProductId()
-    {
+    function lfGetProductId() {
         $product_id = '';
         if (isset($_GET['product_id']) && $_GET['product_id'] != '' && is_numeric($_GET['product_id'])) {
             $product_id = $_GET['product_id'];
         }
-
         return $product_id;
     }
 
@@ -96,13 +107,11 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return string $category_id カテゴリID
      */
-    public function lfGetCategoryId()
-    {
+    function lfGetCategoryId() {
         $category_id = '';
         if (isset($_GET['category_id']) && $_GET['category_id'] != '' && is_numeric($_GET['category_id'])) {
             $category_id = $_GET['category_id'];
         }
-
         return $category_id;
     }
 
@@ -111,13 +120,11 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return string $maker_id メーカーID
      */
-    public function lfGetMakerId()
-    {
+    function lfGetMakerId() {
         $maker_id = '';
         if (isset($_GET['maker_id']) && $_GET['maker_id'] != '' && is_numeric($_GET['maker_id'])) {
             $maker_id = $_GET['maker_id'];
         }
-
         return $maker_id;
     }
 
@@ -126,12 +133,10 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return array $arrCategoryId 選択中のカテゴリID
      */
-    public function lfGetSelectedCategoryId($product_id, $category_id)
-    {
+    function lfGetSelectedCategoryId($product_id, $category_id) {
         // 選択中のカテゴリIDを判定する
         $objDb = new SC_Helper_DB_Ex();
         $arrCategoryId = $objDb->sfGetCategoryId($product_id, $category_id);
-
         return $arrCategoryId;
     }
 
@@ -140,12 +145,10 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return array $arrMakerId 選択中のメーカーID
      */
-    public function lfGetSelectedMakerId($product_id, $maker_id)
-    {
+    function lfGetSelectedMakerId($product_id, $maker_id) {
         // 選択中のメーカーIDを判定する
         $objDb = new SC_Helper_DB_Ex();
         $arrMakerId = $objDb->sfGetMakerId($product_id, $maker_id);
-
         return $arrMakerId;
     }
 
@@ -154,8 +157,7 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return array $arrCategoryList カテゴリ検索用選択リスト
      */
-    public function lfGetCategoryList()
-    {
+    function lfGetCategoryList() {
         $objDb = new SC_Helper_DB_Ex();
         // カテゴリ検索用選択リスト
         $arrCategoryList = $objDb->sfGetCategoryList('', true, '　');
@@ -166,7 +168,6 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
                 $arrCategoryList[$key] = preg_replace('/　/u', '&nbsp;&nbsp;', $truncate_str);
             }
         }
-
         return $arrCategoryList;
     }
 
@@ -175,8 +176,7 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return array $arrMakerList メーカー検索用選択リスト
      */
-    public function lfGetMakerList()
-    {
+    function lfGetMakerList() {
         $objDb = new SC_Helper_DB_Ex();
         // メーカー検索用選択リスト
         $arrMakerList = $objDb->sfGetMakerList('', true);
@@ -186,7 +186,7 @@ class LC_Page_FrontParts_Bloc_SearchProducts extends LC_Page_FrontParts_Bloc_Ex
                 $arrMakerList[$key] = SC_Utils_Ex::sfCutString($val, SEARCH_CATEGORY_LEN, false);
             }
         }
-
         return $arrMakerList;
     }
+
 }

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.p
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Mypage_Login.php 23230 2013-09-19 02:49:03Z m_uehara $
+ * @version $Id: LC_Page_Mypage_Login.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Mypage_Login extends LC_Page_AbstractMypage_Ex
-{
+class LC_Page_Mypage_Login extends LC_Page_AbstractMypage_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->httpCacheControl('nocache');
     }
@@ -48,8 +51,7 @@ class LC_Page_Mypage_Login extends LC_Page_AbstractMypage_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
     }
 
@@ -58,12 +60,18 @@ class LC_Page_Mypage_Login extends LC_Page_AbstractMypage_Ex
      *
      * @return void
      */
-    public function action()
-    {
-        //決済処理中ステータスのロールバック
-        $objPurchase = new SC_Helper_Purchase_Ex();
-        $objPurchase->cancelPendingOrder(PENDING_ORDER_CANCEL_FLAG);
+    function action() {
+
 
         SC_Response_Ex::sendRedirect(DIR_INDEX_PATH);
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 }

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Contents_FileView.php 23279 2013-11-18 06:20:47Z m_uehara $
+ * @version $Id: LC_Page_Admin_Contents_FileView.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Contents_FileView extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Contents_FileView extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
     }
 
@@ -47,8 +50,7 @@ class LC_Page_Admin_Contents_FileView extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -58,8 +60,8 @@ class LC_Page_Admin_Contents_FileView extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         switch ($this->getMode()) {
             default:
                 // フォーム操作クラス
@@ -82,31 +84,40 @@ class LC_Page_Admin_Contents_FileView extends LC_Page_Admin_Ex
     }
 
     /**
-     * 初期化を行う.
+     * デストラクタ.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParamインスタンス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
+     * 初期化を行う.
+     *
+     * @param SC_FormParam $objFormParam SC_FormParamインスタンス
+     * @return void
+     */
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('ファイル名', 'file', MTEXT_LEN, 'a', array('EXIST_CHECK'));
     }
 
     /**
      * 表示するファイルにエラーチェックを行う
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
-     * @return boolen       $file_check_flg エラーチェックの結果
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @return boolen $file_check_flg エラーチェックの結果
      */
-    public function checkErrorDispFile($objFormParam)
-    {
+    function checkErrorDispFile($objFormParam) {
         $file_check_flg = false;
+
         // FIXME パスのチェック関数が必要
         $file = $objFormParam->getValue('file');
-        $path_exists = SC_Utils::checkFileExistsWithInBasePath($file,USER_REALDIR);
-        if ($path_exists){
+
+        if (!preg_match('|\./|', $file)) {
             $file_check_flg = true;
         }
+
         return $file_check_flg;
     }
 
@@ -115,8 +126,7 @@ class LC_Page_Admin_Contents_FileView extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function execFileView($objFormParam)
-    {
+    function execFileView($objFormParam) {
         $file = $objFormParam->getValue('file');
 
         // ソースとして表示するファイルを定義(直接実行しないファイル)

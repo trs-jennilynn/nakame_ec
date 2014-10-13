@@ -24,12 +24,11 @@
 /*  [名称] SC_CustomerList
  *  [概要] 会員検索用クラス
  */
-class SC_CustomerList extends SC_SelectSql_Ex
-{
-    public $arrColumnCSV;
+class SC_CustomerList extends SC_SelectSql_Ex {
 
-    public function __construct($array, $mode = '')
-    {
+    var $arrColumnCSV;
+
+    function __construct($array, $mode = '') {
         parent::__construct($array);
 
         $objDb = new SC_Helper_DB_Ex();
@@ -60,7 +59,7 @@ class SC_CustomerList extends SC_SelectSql_Ex
         if (strlen($this->arrSql['search_name']) > 0) {
             $this->setWhere('(' . $dbFactory->concatColumn(array('name01', 'name02')) . ' LIKE ?)');
             $searchName = $this->addSearchStr($this->arrSql['search_name']);
-            $this->arrVal[] = preg_replace('/[ 　]+/u','',$searchName);
+            $this->arrVal[] = mb_ereg_replace('[ 　]+','',$searchName);
         }
 
         // 名前(フリガナ)
@@ -68,7 +67,7 @@ class SC_CustomerList extends SC_SelectSql_Ex
         if (strlen($this->arrSql['search_kana']) > 0) {
             $this->setWhere('(' . $dbFactory->concatColumn(array('kana01', 'kana02')) . ' LIKE ?)');
             $searchKana = $this->addSearchStr($this->arrSql['search_kana']);
-            $this->arrVal[] = preg_replace('/[ 　]+/u','',$searchKana);
+            $this->arrVal[] = mb_ereg_replace('[ 　]+','',$searchKana);
         }
 
         // 都道府県
@@ -236,6 +235,7 @@ class SC_CustomerList extends SC_SelectSql_Ex
         if (!isset($this->arrSql['search_b_end_day'])) $this->arrSql['search_b_end_day'] = '';
         if ((strlen($this->arrSql['search_b_start_year']) > 0 && strlen($this->arrSql['search_b_start_month']) > 0 && strlen($this->arrSql['search_b_start_day']) > 0)
             || strlen($this->arrSql['search_b_end_year']) > 0 && strlen($this->arrSql['search_b_end_month']) > 0 && strlen($this->arrSql['search_b_end_day']) > 0) {
+
             $arrBirth = $this->selectTermRange($this->arrSql['search_b_start_year'], $this->arrSql['search_b_start_month'], $this->arrSql['search_b_start_day'],
                                                $this->arrSql['search_b_end_year'], $this->arrSql['search_b_end_month'], $this->arrSql['search_b_end_day'], 'birth');
             foreach ($arrBirth as $data) {
@@ -259,6 +259,7 @@ class SC_CustomerList extends SC_SelectSql_Ex
         if (!isset($this->arrSql['search_end_day'])) $this->arrSql['search_end_day'] = '';
         if ( (strlen($this->arrSql['search_start_year']) > 0 && strlen($this->arrSql['search_start_month']) > 0 && strlen($this->arrSql['search_start_day']) > 0) ||
                 (strlen($this->arrSql['search_end_year']) > 0 && strlen($this->arrSql['search_end_month']) >0 && strlen($this->arrSql['search_end_day']) > 0)) {
+
             $arrRegistTime = $this->selectTermRange($this->arrSql['search_start_year'], $this->arrSql['search_start_month'], $this->arrSql['search_start_day']
                             , $this->arrSql['search_end_year'], $this->arrSql['search_end_month'], $this->arrSql['search_end_day'], $regdate_col);
             foreach ($arrRegistTime as $data) {
@@ -308,7 +309,7 @@ class SC_CustomerList extends SC_SelectSql_Ex
             // カテゴリで絞込みが可能の場合
             if ($tmp_where != '') {
                 $this->setWhere(' customer_id IN (SELECT distinct customer_id FROM dtb_order WHERE order_id IN (SELECT distinct order_id FROM dtb_order_detail WHERE product_id IN (SELECT product_id FROM dtb_product_categories WHERE '.$tmp_where.') AND del_flg = 0)) ');
-                $this->arrVal = array_merge((array) $this->arrVal, (array) $tmp_arrval);
+                $this->arrVal = array_merge((array)$this->arrVal, (array)$tmp_arrval);
             }
         }
 
@@ -325,36 +326,30 @@ class SC_CustomerList extends SC_SelectSql_Ex
     }
 
     // 検索用SQL
-    public function getList()
-    {
+    function getList() {
         $this->select = 'SELECT customer_id,name01,name02,kana01,kana02,sex,email,email_mobile,tel01,tel02,tel03,pref,status,update_date,mailmaga_flg FROM dtb_customer ';
-
-        return $this->getSql(2);
+        return $this->getSql(0);
     }
 
-    public function getListMailMagazine($is_mobile = false)
-    {
+    function getListMailMagazine($is_mobile = false) {
+
         $colomn = $this->getMailMagazineColumn($is_mobile);
         $this->select = "
             SELECT
                 $colomn
             FROM
                 dtb_customer";
-
         return $this->getSql(0);
     }
 
     // 検索総数カウント用SQL
-    public function getListCount()
-    {
+    function getListCount() {
         $this->select = 'SELECT COUNT(customer_id) FROM dtb_customer ';
-
         return $this->getSql(1);
     }
 
     // CSVダウンロード用SQL
-    public function getListCSV($arrColumnCSV)
-    {
+    function getListCSV($arrColumnCSV) {
         $this->arrColumnCSV = $arrColumnCSV;
         $i = 0;
         foreach ($this->arrColumnCSV as $val) {
@@ -364,12 +359,10 @@ class SC_CustomerList extends SC_SelectSql_Ex
         }
 
         $this->select = 'SELECT ' .$state. ' FROM dtb_customer ';
-
         return $this->getSql(2);
     }
 
-    public function getWhere()
-    {
-        return array(parent::getWhere(), $this->arrVal);
+    function getWhere() {
+        return array($this->where, $this->arrVal);
     }
 }

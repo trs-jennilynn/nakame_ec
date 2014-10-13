@@ -29,28 +29,24 @@ require_once($HOME . "/tests/class/helper/SC_Helper_Purchase/SC_Helper_Purchase_
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Helper_Purchase_getOrderDetailTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Helper_Purchase_getOrderDetailTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Helper_Purchase_getOrderDetailTest extends SC_Helper_Purchase_TestBase
-{
+class SC_Helper_Purchase_getOrderDetailTest extends SC_Helper_Purchase_TestBase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
     $this->setUpOrder();
     $this->setUpOrderDetail();
     $this->setUpProductClass();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testGetOrderDetail_存在しない受注IDを指定した場合_結果が空になる()
-  {
+  public function testGetOrderDetail_存在しない受注IDを指定した場合_結果が空になる() {
     $order_id = '9999';
 
     $this->expected = array();
@@ -59,8 +55,7 @@ class SC_Helper_Purchase_getOrderDetailTest extends SC_Helper_Purchase_TestBase
     $this->verify();
   }
 
-  public function testGetOrderDetail_存在する受注IDを指定した場合_対応する受注詳細情報が取得できる()
-  {
+  public function testGetOrderDetail_存在する受注IDを指定した場合_対応する受注詳細情報が取得できる() {
     $order_id = '1001';
 
     $this->expected = array(
@@ -106,8 +101,7 @@ class SC_Helper_Purchase_getOrderDetailTest extends SC_Helper_Purchase_TestBase
     $this->verify();
   }
 
-  public function testGetOrderDetail_ステータス取得フラグがOFFのの場合_ステータス以外の情報が取得できる()
-  {
+  public function testGetOrderDetail_ステータス取得フラグがOFFのの場合_ステータス以外の情報が取得できる() {
     $order_id = '1001';
 
     $this->expected = array(
@@ -154,5 +148,6 @@ class SC_Helper_Purchase_getOrderDetailTest extends SC_Helper_Purchase_TestBase
   }
 
   //////////////////////////////////////////
+
 }
 

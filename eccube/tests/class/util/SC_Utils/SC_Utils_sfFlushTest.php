@@ -30,43 +30,38 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * 逆にflushされて空になっていることだけ確認する.
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfFlushTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfFlushTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfFlushTest extends Common_TestCase
-{
+class SC_Utils_sfFlushTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfFlush_IEの場合_フラッシュされる()
-  {
+  public function testSfFlush_IEの場合_フラッシュされる() {
     $this->expectOutputString('');
     echo 'Hello, World!!';
     SC_Utils::sfFlush(TRUE);
   }
 
-  public function testSfFlush_文字列を指定した場合_フラッシュされる()
-  {
+  public function testSfFlush_文字列を指定した場合_フラッシュされる() {
     $this->expectOutputString('');
     echo 'Hello, World!!';
     SC_Utils::sfFlush('Hello');
   }
 
-  public function testSfFlush_参考_この関数を呼ばないとバッファに出力が残る()
-  {
+  public function testSfFlush_参考_この関数を呼ばないとバッファに出力が残る() {
     $this->expectOutputString('Hello, World!!');
     echo 'Hello, World!!';
   }
 
   //////////////////////////////////////////
+
 }
 

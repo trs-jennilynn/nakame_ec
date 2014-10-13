@@ -228,19 +228,20 @@ div.listphoto {
 }
 
 /* メインカラム用 1カラム時*/
-#main_column.colnum1 div.listrightbloc {
+#one_maincolumn div.listrightbloc {
     float: right;
     width: 74%;
 }
 
 /* メインカラム用 2カラム時*/
-#main_column.colnum2 div.listrightbloc {
+#two_maincolumn_right div.listrightbloc,
+#two_maincolumn_left div.listrightbloc {
     float: right;
     width: 80%;
 }
 
 /* メインカラム用 3カラム時*/
-#main_column.colnum3 div.listrightbloc {
+#three_maincolumn div.listrightbloc {
     float: right;
     width: 74%;
 }
@@ -335,9 +336,10 @@ div.listrightbloc .cartin_btn {
 /* レイアウト
 
     tplファイルのマークアップが同じ項目
-        * 1カラム時
-        * 2カラム時
-        * 3カラム時
+    *1カラム時 [one_maincolumn]
+    *2カラム時 [two_maincolumn_left]
+               [two_maincolumn_right]
+    *3カラム時 [three_maincolumn]
 
 ----------------------------------------------- */
 #detailarea,
@@ -349,69 +351,74 @@ div.listrightbloc .cartin_btn {
 /* レイアウト
 ----------------------------------------------- */
 /* 1カラム用 */
-#main_column.colnum1 div#detailphotobloc {
+#one_maincolumn div#detailphotobloc {
     width: 37%;
     float: left;
 }
-#main_column.colnum1 #detailrightbloc {
+#one_maincolumn #detailrightbloc {
     width: 63%;
     float: right;
 }
-#main_column.colnum1 div.subtext {
+#one_maincolumn div.subtext {
     margin-bottom: 20px;
     float: left;
     width: 69%;
 }
-#main_column.colnum1 div.subphotoimg {
+#one_maincolumn div.subphotoimg {
     float: right;
     width: 25%;
     text-align: right;
 }
-#main_column.colnum1 p.subtext {
+#one_maincolumn p.subtext {
     margin-bottom: 20px;
 }
 
 /* 2カラム用 */
-#main_column.colnum2 div#detailphotobloc {
+#two_maincolumn_left div#detailphotobloc,
+#two_maincolumn_right div#detailphotobloc {
     float: left;
     width: 37%;
 }
-#main_column.colnum2 #detailrightbloc {
+#two_maincolumn_left #detailrightbloc,
+#two_maincolumn_right #detailrightbloc {
     float: right;
     width: 63%;
 }
-#main_column.colnum2 div.subtext {
+#two_maincolumn_left div.subtext,
+#two_maincolumn_right div.subtext {
     margin-bottom: 20px;
     float: left;
     width: 73%;
 }
-#main_column.colnum2 p.subtext {
+#two_maincolumn_left p.subtext,
+#two_maincolumn_right p.subtext {
     margin-bottom: 20px;
 }
-#main_column.colnum2 div.subphotoimg {
+#two_maincolumn_left div.subphotoimg,
+#two_maincolumn_right div.subphotoimg {
     float: right;
     width: 25%;
     text-align: right;
 }
 
 /* 3カラム用 */
-#main_column.colnum3 div#detailphotobloc {
+#three_maincolumn div#detailphotobloc {
     float: left;
     width: 49%;
 }
-#main_column.colnum3 #detailrightbloc {
+#three_maincolumn #detailrightbloc {
     float: right;
     width: 50%;
 }
-#main_column.colnum3 div.subtext {
+#three_maincolumn div.subtext {
     margin-bottom: 20px;
     float: left;
     width: 63%;
 }
-#main_column.colnum3 p.subtext {
+#three_maincolumn p.subtext {
     margin-bottom: 20px;
 }
-#main_column.colnum3 div.subphotoimg {
+#three_maincolumn div.subphotoimg {
     float: right;
     width: 35%;
     text-align: right;
@@ -556,7 +563,7 @@ div#customervoice_area .review_bloc p {
     float: left;
 }
 
-div#customervoice_area .review_bloc .review_btn {
+div#customervoice_area review_bloc .review_btn {
     float: right;
     width: 160px;
 }

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -28,18 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_InputZip.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_InputZip.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_InputZip extends LC_Page_Ex
-{
+class LC_Page_InputZip extends LC_Page_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
-        $this->skip_load_page_layout = true;
+    function init() {
         parent::init();
         $this->tpl_message = '住所を検索しています。';
     }
@@ -49,14 +51,15 @@ class LC_Page_InputZip extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
+        $objView = new SC_SiteView_Ex(false);
+
         // 入力エラーチェック
         $arrErr = $this->fnErrorCheck($_GET);
         // 入力エラーの場合は終了
         if (count($arrErr) > 0) {
             $tpl_message = '';
-            foreach ($arrErr as $val) {
+            foreach ($arrErr as $key => $val) {
                 $tpl_message .= preg_replace("/<br \/>/", "\n", $val);
             }
             echo $tpl_message;
@@ -82,13 +85,21 @@ class LC_Page_InputZip extends LC_Page_Ex
     }
 
     /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
      * 入力エラーのチェック.
      *
-     * @param  array $arrRequest リクエスト値($_GET)
+     * @param array $arrRequest リクエスト値($_GET)
      * @return array $arrErr エラーメッセージ配列
      */
-    public function fnErrorCheck($arrRequest)
-    {
+    function fnErrorCheck($arrRequest) {
         // パラメーター管理クラス
         $objFormParam = new SC_FormParam_Ex();
         // パラメーター情報の初期化
@@ -112,11 +123,10 @@ class LC_Page_InputZip extends LC_Page_Ex
     /**
      * エラーチェック.
      *
-     * @param  string                 $value
+     * @param string $value
      * @return エラーなし：true エラー：false
      */
-    public function lfInputNameCheck($value)
-    {
+    function lfInputNameCheck($value) {
         // 半角英数字と_（アンダーバー）, []以外の文字を使用していたらエラー
         if (strlen($value) > 0 && !preg_match("/^[a-zA-Z0-9_\[\]]+$/", $value)) {
             return false;

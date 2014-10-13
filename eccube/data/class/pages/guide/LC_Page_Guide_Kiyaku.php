@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Guide_Kiyaku.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Guide_Kiyaku.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Guide_Kiyaku extends LC_Page_Ex
-{
+class LC_Page_Guide_Kiyaku extends LC_Page_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
     }
 
@@ -47,8 +50,7 @@ class LC_Page_Guide_Kiyaku extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
         $this->action();
         $this->sendResponse();
@@ -59,9 +61,20 @@ class LC_Page_Guide_Kiyaku extends LC_Page_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $this->lfGetKiyaku(intval($_GET['page']), $this);
+
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -71,10 +84,10 @@ class LC_Page_Guide_Kiyaku extends LC_Page_Ex
      * @param object &$objPage ページオブジェクト
      * @return void
      */
-    public function lfGetKiyaku($index, &$objPage)
-    {
-        $objKiyaku = new SC_Helper_Kiyaku_Ex();
-        $arrKiyaku = $objKiyaku->getList();
+    function lfGetKiyaku($index, &$objPage) {
+        $objQuery =& SC_Query_Ex::getSingletonInstance();
+        $objQuery->setOrder('rank DESC');
+        $arrKiyaku = $objQuery->select('kiyaku_title, kiyaku_text', 'dtb_kiyaku', 'del_flg <> 1');
 
         $number = count($arrKiyaku);
         if ($number > 0) {

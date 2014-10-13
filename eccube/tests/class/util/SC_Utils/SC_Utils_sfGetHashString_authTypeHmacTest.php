@@ -31,25 +31,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * 暗号化結果の詳細までは見られないため、変換がされていることだけを確かめます。
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfGetHashString_authTypeHmacTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfGetHashString_authTypeHmacTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfGetHashString_authTypeHmacTest extends Common_TestCase
-{
+class SC_Utils_sfGetHashString_authTypeHmacTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfGetHashString_暗号化ありの設定になっている場合_文字列が変換される()
-  {
+  public function testSfGetHashString_暗号化ありの設定になっている場合_文字列が変換される() {
     $input = 'hello, world';
     $salt = 'sample';
 
@@ -58,12 +54,12 @@ class SC_Utils_sfGetHashString_authTypeHmacTest extends Common_TestCase
     $this->assertNotEquals('入力前後の文字列', $input, $output);
   }
 
-  public function testSfGetHashString_暗号化ありの設定になっていてsaltがない場合_文字列が変換される()
-  {
+  public function testSfGetHashString_暗号化ありの設定になっていてsaltがない場合_文字列が変換される() {
     $input = 'hello, world';
     $output = SC_Utils::sfGetHashString($input);
 
     $this->assertNotEquals('入力前後の文字列', $input, $output);
   }
+
 }
 

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_OwnersStore_Log.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_OwnersStore_Log.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_OwnersStore_Log extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_OwnersStore_Log extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
 
         $this->tpl_mainpage = 'ownersstore/log.tpl';
@@ -53,8 +56,7 @@ class LC_Page_Admin_OwnersStore_Log extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -64,8 +66,7 @@ class LC_Page_Admin_OwnersStore_Log extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
         switch ($this->getMode()) {
             case 'detail':
                 $objForm = $this->initParam();
@@ -84,8 +85,16 @@ class LC_Page_Admin_OwnersStore_Log extends LC_Page_Admin_Ex
         $this->arrInstallLogs = $this->getLogs();
     }
 
-    public function getLogs()
-    {
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+
+    function getLogs() {
         $sql =<<<END
 SELECT
     *
@@ -101,21 +110,17 @@ ORDER BY update_date DESC
 END;
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $arrRet = $objQuery->getAll($sql);
-
         return isset($arrRet) ? $arrRet : array();
     }
 
-    public function initParam()
-    {
+    function initParam() {
         $objForm = new SC_FormParam_Ex();
         $objForm->addParam('log_id', 'log_id', INT_LEN, '', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objForm->setParam($_GET);
-
         return $objForm;
     }
 
-    public function getLogDetail($log_id)
-    {
+    function getLogDetail($log_id) {
             $sql =<<<END
 SELECT
     *
@@ -132,7 +137,6 @@ WHERE
 END;
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $arrRet = $objQuery->getAll($sql, array($log_id));
-
         return isset($arrRet[0]) ? $arrRet[0] : array();
     }
 }

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Design_MainEdit.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_Design_MainEdit.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'design/main_edit.tpl';
         $this->text_row     = 13;
@@ -55,8 +58,7 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -66,8 +68,8 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objLayout = new SC_Helper_PageLayout_Ex();
         $objFormParam = new SC_FormParam_Ex();
         $this->lfInitParam($objFormParam);
@@ -100,13 +102,11 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
                     if (SC_Utils_Ex::isBlank($this->arrErr)) {
                         $result = $this->doRegister($objFormParam, $objLayout);
                         if ($result !== false) {
-                            $arrQueryString = array(
-                                'device_type_id' => $this->device_type_id,
-                                'page_id' => $result,
-                                'msg' => 'on',
-                            );
-                            SC_Response_Ex::reload($arrQueryString, true);
-                            SC_Response_Ex::actionExit();
+
+                            SC_Response_Ex::reload(array('device_type_id' => $this->device_type_id,
+                                                         'page_id' => $result,
+                                                         'msg' => 'on'), true);
+                        SC_Response_Ex::actionExit();
                         }
                     }
                 }
@@ -132,6 +132,16 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
         }
         $this->tpl_subtitle = $this->arrDeviceType[$this->device_type_id] . '＞' . $this->tpl_subtitle;
         $this->arrForm = $objFormParam->getFormParamList();
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -139,11 +149,10 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
      *
      * XXX URL のフィールドは, 実際は filename なので注意
      *
-     * @param  object $objFormParam SC_FormParamインスタンス
+     * @param object $objFormParam SC_FormParamインスタンス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('ページID', 'page_id', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('端末種別ID', 'device_type_id', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('名称', 'page_name', STEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
@@ -152,22 +161,17 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
         $objFormParam->addParam('フッタチェック', 'footer_chk', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('修正フラグ', 'edit_flg', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('TPLデータ', 'tpl_data');
-        $objFormParam->addParam('meta タグ:author', 'author', MTEXT_LEN, 'KVa', array('MAX_LENGTH_CHECK'));
-        $objFormParam->addParam('meta タグ:description', 'description', MTEXT_LEN, 'KVa', array('MAX_LENGTH_CHECK'));
-        $objFormParam->addParam('meta タグ:keyword', 'keyword', MTEXT_LEN, 'KVa', array('MAX_LENGTH_CHECK'));
-        $objFormParam->addParam('meta タグ:robots', 'meta_robots', MTEXT_LEN, 'KVa', array('MAX_LENGTH_CHECK'));
     }
 
     /**
      * ページデータを取得する.
      *
-     * @param  integer              $device_type_id 端末種別ID
-     * @param  integer              $page_id        ページID
-     * @param  SC_Helper_PageLayout $objLayout      SC_Helper_PageLayout インスタンス
-     * @return array                ページデータの配列
+     * @param integer $device_type_id 端末種別ID
+     * @param integer $page_id ページID
+     * @param SC_Helper_PageLayout $objLayout SC_Helper_PageLayout インスタンス
+     * @return array ページデータの配列
      */
-    public function getTplMainpage($device_type_id, $page_id, &$objLayout)
-    {
+    function getTplMainpage($device_type_id, $page_id, &$objLayout) {
         $arrPageData = $objLayout->getPageProperties($device_type_id, $page_id);
 
         $templatePath = $objLayout->getTemplatePath($device_type_id);
@@ -177,7 +181,6 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
         }
         // ファイル名を画面表示用に加工しておく
         $arrPageData[0]['filename'] = preg_replace('|^' . preg_quote(USER_DIR) . '|', '', $arrPageData[0]['filename']);
-
         return $arrPageData[0];
     }
 
@@ -187,13 +190,12 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
      * ファイルの作成に失敗した場合は, エラーメッセージを出力し,
      * データベースをロールバックする.
      *
-     * @param  SC_FormParam         $objFormParam SC_FormParam インスタンス
-     * @param  SC_Helper_PageLayout $objLayout    SC_Helper_PageLayout インスタンス
-     * @return integer|boolean      登録が成功した場合, 登録したページID;
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @param SC_Helper_PageLayout $objLayout SC_Helper_PageLayout インスタンス
+     * @return integer|boolean 登録が成功した場合, 登録したページID;
      *                         失敗した場合 false
      */
-    public function doRegister(&$objFormParam, &$objLayout)
-    {
+    function doRegister(&$objFormParam, &$objLayout) {
         $filename = $objFormParam->getValue('filename');
         $arrParams['device_type_id'] = $objFormParam->getValue('device_type_id');
         $arrParams['page_id'] = $objFormParam->getValue('page_id');
@@ -203,10 +205,6 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
         $arrParams['page_name'] = $objFormParam->getValue('page_name');
         $arrParams['url'] = USER_DIR . $filename . '.php';
         $arrParams['filename'] = USER_DIR . $filename;
-        $arrParams['author']        = $objFormParam->getValue('author');
-        $arrParams['description']   = $objFormParam->getValue('description');
-        $arrParams['keyword']       = $objFormParam->getValue('keyword');
-        $arrParams['meta_robots']   = $objFormParam->getValue('meta_robots');
 
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $objQuery->begin();
@@ -223,7 +221,6 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
             if (!$this->createPHPFile($filename)) {
                 $this->arrErr['err'] = '※ PHPファイルの作成に失敗しました<br />';
                 $objQuery->rollback();
-
                 return false;
             }
             // 新規登録時のみ $page_id を代入
@@ -239,24 +236,21 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
         if (!SC_Helper_FileManager_Ex::sfWriteFile($tpl_path, $arrParams['tpl_data'])) {
             $this->arrErr['err'] = '※ TPLファイルの書き込みに失敗しました<br />';
             $objQuery->rollback();
-
             return false;
         }
 
         $objQuery->commit();
-
         return $arrParams['page_id'];
     }
 
     /**
      * 入力内容をデータベースに登録する.
      *
-     * @param  array                $arrParams フォームパラメーターの配列
-     * @param  SC_Helper_PageLayout $objLayout SC_Helper_PageLayout インスタンス
-     * @return integer              ページID
+     * @param array $arrParams フォームパラメーターの配列
+     * @param SC_Helper_PageLayout $objLayout SC_Helper_PageLayout インスタンス
+     * @return integer ページID
      */
-    public function registerPage($arrParams, &$objLayout)
-    {
+    function registerPage($arrParams, &$objLayout) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
 
         // ページIDが空の場合は新規登録
@@ -291,18 +285,16 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
             $objQuery->update($table, $arrValues, 'page_id = ? AND device_type_id = ?',
                               array($arrValues['page_id'], $arrValues['device_type_id']));
         }
-
         return $arrValues['page_id'];
     }
 
     /**
      * エラーチェックを行う.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
-     * @return array        エラーメッセージの配列
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @return array エラーメッセージの配列
      */
-    public function lfCheckError(&$objFormParam, &$arrErr)
-    {
+    function lfCheckError(&$objFormParam, &$arrErr) {
         $arrParams = $objFormParam->getHashArray();
         $objErr = new SC_CheckError_Ex($arrParams);
         $objErr->arrErr =& $arrErr;
@@ -340,7 +332,6 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
         if ($exists) {
             $objErr->arrErr['filename'] = '※ 同じURLのデータが存在しています。別のURLを入力してください。<br />';
         }
-
         return $objErr->arrErr;
     }
 
@@ -349,11 +340,10 @@ class LC_Page_Admin_Design_MainEdit extends LC_Page_Admin_Ex
      *
      * 既に同名の PHP ファイルが存在する場合は何もせず true を返す.(#831)
      *
-     * @param  string  $filename フォームパラメーターの filename
+     * @param string $filename フォームパラメーターの filename
      * @return boolean 作成に成功した場合 true
      */
-    public function createPHPFile($filename)
-    {
+    function createPHPFile($filename) {
         $path = USER_REALDIR . $filename . '.php';
 
         if (file_exists($path)) {

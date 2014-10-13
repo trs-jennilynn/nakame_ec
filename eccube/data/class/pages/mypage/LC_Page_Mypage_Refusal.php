@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.p
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Mypage_Refusal.php 23366 2014-04-16 06:01:21Z Seasoft $
+ * @version $Id: LC_Page_Mypage_Refusal.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Mypage_Refusal extends LC_Page_AbstractMypage_Ex
-{
+class LC_Page_Mypage_Refusal extends LC_Page_AbstractMypage_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_subtitle = '退会手続き(入力ページ)';
         $this->tpl_mypageno = 'refusal';
@@ -49,8 +52,7 @@ class LC_Page_Mypage_Refusal extends LC_Page_AbstractMypage_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         parent::process();
     }
 
@@ -59,71 +61,35 @@ class LC_Page_Mypage_Refusal extends LC_Page_AbstractMypage_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         switch ($this->getMode()) {
             case 'confirm':
-                // トークンを設定
-                $this->refusal_transactionid = $this->getRefusalToken();
-
                 $this->tpl_mainpage     = 'mypage/refusal_confirm.tpl';
                 $this->tpl_subtitle     = '退会手続き(確認ページ)';
                 break;
 
             case 'complete':
-                // トークン入力チェック
-                if(!$this->isValidRefusalToken()) {
-                    // エラー画面へ遷移する
-                    SC_Utils_Ex::sfDispSiteError(PAGE_ERROR, '', true);
-                    SC_Response_Ex::actionExit();
-                }
-
                 $objCustomer = new SC_Customer_Ex();
                 $this->lfDeleteCustomer($objCustomer->getValue('customer_id'));
                 $objCustomer->EndSession();
 
+
                 SC_Response_Ex::sendRedirect('refusal_complete.php');
-                break;
 
             default:
-                if (SC_Display_Ex::detectDevice() == DEVICE_TYPE_MOBILE) {
-                    $this->refusal_transactionid = $this->getRefusalToken();
-                }
                 break;
         }
 
     }
 
     /**
-     * トランザクショントークンを取得する
+     * デストラクタ.
      *
-     * @return string
+     * @return void
      */
-    function getRefusalToken() {
-        if (empty($_SESSION['refusal_transactionid'])) {
-            $_SESSION['refusal_transactionid'] = SC_Helper_Session_Ex::createToken();
-        }
-        return $_SESSION['refusal_transactionid'];
-    }
-
-    /**
-     * トランザクショントークンのチェックを行う
-     */
-    function isValidRefusalToken() {
-        if(empty($_POST['refusal_transactionid'])) {
-            $ret = false;
-        } else {
-            $ret = $_POST['refusal_transactionid'] === $_SESSION['refusal_transactionid'];
-        }
-
-        return $ret;
-    }
-
-    /**
-     * トランザクショントークを破棄する
-     */
-    function destroyRefusalToken() {
-        unset($_SESSION['refusal_transactionid']);
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -132,8 +98,13 @@ class LC_Page_Mypage_Refusal extends LC_Page_AbstractMypage_Ex
      * @access private
      * @return void
      */
-    public function lfDeleteCustomer($customer_id)
-    {
-        return SC_Helper_Customer_Ex::delete($customer_id);
+    function lfDeleteCustomer($customer_id) {
+        $objQuery = SC_Query_Ex::getSingletonInstance();
+
+        $sqlval['del_flg']      = 1;
+        $sqlval['update_date']  = 'CURRENT_TIMESTAMP';
+        $where                  = 'customer_id = ?';
+        $objQuery->update('dtb_customer', $sqlval, $where, array($customer_id));
     }
+
 }

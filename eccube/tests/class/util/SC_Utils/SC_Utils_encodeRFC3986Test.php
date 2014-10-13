@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_encodeRFC3986Test.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_encodeRFC3986Test.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_encodeRFC3986Test extends Common_TestCase
-{
+class SC_Utils_encodeRFC3986Test extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testEncodeRFC3986_チルダが含まれる場合_エンコードされない()
-  {
+  public function testEncodeRFC3986_チルダが含まれる場合_エンコードされない() {
     $input = 'http://www.example.co.jp/~';
     $this->expected = 'http%3A%2F%2Fwww.example.co.jp%2F~';
     $this->actual = SC_Utils::encodeRFC3986($input);
@@ -56,5 +52,6 @@ class SC_Utils_encodeRFC3986Test extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

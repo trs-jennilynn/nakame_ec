@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Products_ProductSelect.php 23129 2013-08-26 14:43:24Z pineray $
+ * @version $Id: LC_Page_Admin_Products_ProductSelect.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_Products_ProductSelect extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_Products_ProductSelect extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'products/product_select.tpl';
         $this->tpl_mainno = 'products';
@@ -55,8 +58,7 @@ class LC_Page_Admin_Products_ProductSelect extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -66,8 +68,8 @@ class LC_Page_Admin_Products_ProductSelect extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objDb = new SC_Helper_DB_Ex();
 
         $objFormParam = new SC_FormParam_Ex();
@@ -87,24 +89,32 @@ class LC_Page_Admin_Products_ProductSelect extends LC_Page_Admin_Ex
         // カテゴリ取得
         $this->arrCatList = $objDb->sfGetCategoryList();
         $this->setTemplate($this->tpl_mainpage);
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
      * パラメーター情報の初期化を行う.
      *
-     * @param  SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('カテゴリ', 'search_category_id', STEXT_LEN, 'n');
         $objFormParam->addParam('商品名', 'search_name', STEXT_LEN, 'KVa');
         $objFormParam->addParam('商品コード', 'search_product_code', STEXT_LEN, 'KVa');
     }
 
     /* 商品検索結果取得 */
-    public function lfGetProducts(&$objDb)
-    {
+    function lfGetProducts(&$objDb) {
         $where = 'del_flg = 0';
         $arrWhereVal = array();
 
@@ -121,11 +131,11 @@ class LC_Page_Admin_Products_ProductSelect extends LC_Page_Admin_Ex
                     list($tmp_where, $arrTmp) = $objDb->sfGetCatWhere($val);
                     if ($tmp_where != '') {
                         $where.= ' AND product_id IN (SELECT product_id FROM dtb_product_categories WHERE ' . $tmp_where . ')';
-                        $arrWhereVal = array_merge((array) $arrWhereVal, (array) $arrTmp);
+                        $arrWhereVal = array_merge((array)$arrWhereVal, (array)$arrTmp);
                     }
                     break;
                 case 'search_product_code':
-                    $where .= ' AND product_id IN (SELECT product_id FROM dtb_products_class WHERE product_code LIKE ?)';
+                    $where .= ' AND product_id IN (SELECT product_id FROM dtb_products_class WHERE product_code LIKE ? GROUP BY product_id)';
                     $arrWhereVal[] = "$val%";
                     break;
                 default:
@@ -144,7 +154,7 @@ class LC_Page_Admin_Products_ProductSelect extends LC_Page_Admin_Ex
         $page_max = SC_Utils_Ex::sfGetSearchPageMax($_POST['search_page_max']);
 
         // ページ送りの取得
-        $objNavi = new SC_PageNavi_Ex($_POST['search_pageno'], $linemax, $page_max, 'eccube.moveSearchPage', NAVI_PMAX);
+        $objNavi = new SC_PageNavi_Ex($_POST['search_pageno'], $linemax, $page_max, 'fnNaviSearchOnlyPage', NAVI_PMAX);
         $this->tpl_strnavi = $objNavi->strnavi;     // 表示文字列
         $startno = $objNavi->start_row;
 
@@ -156,7 +166,6 @@ class LC_Page_Admin_Products_ProductSelect extends LC_Page_Admin_Ex
         // 検索結果の取得
         // FIXME 商品コードの表示
         $arrProducts = $objQuery->select('*', SC_Product_Ex::alldtlSQL(), $where, $arrWhereVal);
-
         return $arrProducts;
     }
 }

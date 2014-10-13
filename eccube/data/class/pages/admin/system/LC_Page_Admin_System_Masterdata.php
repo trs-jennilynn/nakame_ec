@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
 
 /**
@@ -28,17 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/admin/LC_Page_Admin_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_System_Masterdata.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Admin_System_Masterdata.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Admin_System_Masterdata extends LC_Page_Admin_Ex
-{
+class LC_Page_Admin_System_Masterdata extends LC_Page_Admin_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_mainpage = 'system/masterdata.tpl';
         $this->tpl_subno = 'masterdata';
@@ -52,8 +55,7 @@ class LC_Page_Admin_System_Masterdata extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -63,8 +65,8 @@ class LC_Page_Admin_System_Masterdata extends LC_Page_Admin_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $this->arrMasterDataName = $this->getMasterDataNames(array('mtb_pref', 'mtb_zip', 'mtb_constants'));
         $masterData = new SC_DB_MasterData_Ex();
 
@@ -97,18 +99,26 @@ class LC_Page_Admin_System_Masterdata extends LC_Page_Admin_Ex
     }
 
     /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
      * マスターデータ名チェックを行う
      *
      * @access private
-     * @param  array  $_POST値
-     * @param  array  $arrMasterDataName マスターデータテーブル名のリスト
+     * @param array $_POST値
+     * @param array $arrMasterDataName  マスターデータテーブル名のリスト
      * @return string $master_data_name 選択しているマスターデータのテーブル名
      */
-    public function checkMasterDataName(&$arrParams, &$arrMasterDataName)
-    {
+    function checkMasterDataName(&$arrParams, &$arrMasterDataName) {
+
         if (in_array($arrParams['master_data_name'], $arrMasterDataName)) {
             $master_data_name = $arrParams['master_data_name'];
-
             return $master_data_name;
         } else {
             SC_Utils_Ex::sfDispError('');
@@ -120,11 +130,10 @@ class LC_Page_Admin_System_Masterdata extends LC_Page_Admin_Ex
      * マスターデータ名を配列で取得する.
      *
      * @access private
-     * @param  array $ignores 取得しないマスターデータ名の配列
+     * @param array $ignores 取得しないマスターデータ名の配列
      * @return array マスターデータ名の配列
      */
-    public function getMasterDataNames($ignores = array())
-    {
+    function getMasterDataNames($ignores = array()) {
         $dbFactory = SC_DB_DBFactory_Ex::getInstance();
         $arrMasterDataName = $dbFactory->findTableNames('mtb_');
 
@@ -137,7 +146,6 @@ class LC_Page_Admin_System_Masterdata extends LC_Page_Admin_Ex
             }
             $i++;
         }
-
         return $arrMasterDataName;
     }
 
@@ -149,10 +157,11 @@ class LC_Page_Admin_System_Masterdata extends LC_Page_Admin_Ex
      * @access private
      * @return void|string エラーが発生した場合はエラーメッセージを返す.
      */
-    public function checkUniqueID(&$arrParams)
-    {
+    function checkUniqueID(&$arrParams) {
+
         $arrId = $arrParams['id'];
         for ($i = 0; $i < count($arrId); $i++) {
+
             $id = $arrId[$i];
             // 空の値は無視
             if ($arrId[$i] != '') {
@@ -169,15 +178,16 @@ class LC_Page_Admin_System_Masterdata extends LC_Page_Admin_Ex
      * マスターデータの登録.
      *
      * @access private{
-     * @param  array  $arrParams        $_POST値
-     * @param  object $masterData       SC_DB_MasterData_Ex()
-     * @param  string $master_data_name 登録対象のマスターデータのテーブル名
+     * @param array  $arrParams $_POST値
+     * @param object $masterData SC_DB_MasterData_Ex()
+     * @param string $master_data_name 登録対象のマスターデータのテーブル名
      * @return void
      */
-    public function registMasterData($arrParams, &$masterData, $master_data_name)
-    {
+    function registMasterData($arrParams, &$masterData, $master_data_name) {
+
         $arrTmp = array();
         foreach ($arrParams['id'] as $key => $val) {
+
             // ID が空のデータは生成しない
             if ($val != '') {
                 $arrTmp[$val] = $arrParams['name'][$key];
@@ -191,5 +201,6 @@ class LC_Page_Admin_System_Masterdata extends LC_Page_Admin_Ex
         // TODO カラム名はメタデータから取得した方が良い
         $masterData->registMasterData($master_data_name, array('id', 'name', 'rank'), $arrTmp, false);
         $masterData->objQuery->commit();
+
     }
 }

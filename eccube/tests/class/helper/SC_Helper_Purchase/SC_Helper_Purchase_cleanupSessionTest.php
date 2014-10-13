@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/helper/SC_Helper_Purchase/SC_Helper_Purchase_
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Helper_Purchase_cleanupSessionTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Helper_Purchase_cleanupSessionTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Helper_Purchase_cleanupSessionTest extends SC_Helper_Purchase_TestBase
-{
+class SC_Helper_Purchase_cleanupSessionTest extends SC_Helper_Purchase_TestBase {
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
     $this->setUpProductClass();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testCleanupSession__カートとセッションの配送情報が削除される()
-  {
+  public function testCleanupSession__カートとセッションの配送情報が削除される() {
     // 引数の準備
     $helper = new SC_Helper_Purchase();
     $cartSession = new SC_CartSession();
@@ -78,5 +74,6 @@ class SC_Helper_Purchase_cleanupSessionTest extends SC_Helper_Purchase_TestBase
   }
   
   //////////////////////////////////////////
+
 }
 

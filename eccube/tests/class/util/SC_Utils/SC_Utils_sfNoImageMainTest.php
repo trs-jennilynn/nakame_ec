@@ -29,41 +29,35 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfNoImageMainTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfNoImageMainTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfNoImageMainTest extends Common_TestCase
-{
+class SC_Utils_sfNoImageMainTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfNoImageMain_ファイル名が空の場合_デフォルトのファイル名が返る()
-  {
+  public function testSfNoImageMain_ファイル名が空の場合_デフォルトのファイル名が返る() {
     $this->expected = 'noimage_main.png';
     $this->actual = SC_Utils::sfNoImageMain('');
 
     $this->verify();
   }
 
-  public function testSfNoImageMain_ディレクトリが指定されている場合_そのディレクトリ以下でデフォルトのファイル名が返る()
-  {
+  public function testSfNoImageMain_ディレクトリが指定されている場合_そのディレクトリ以下でデフォルトのファイル名が返る() {
     $this->expected = 'aaa/bbb/noimage_main.png';
     $this->actual = SC_Utils::sfNoImageMain('aaa/bbb/');
 
     $this->verify();
   }
 
-  public function testSfNoImageMain_ファイル名が指定されている場合_指定されたファイル名が返る()
-  {
+  public function testSfNoImageMain_ファイル名が指定されている場合_指定されたファイル名が返る() {
     $this->expected = 'aaa/bbb/ccc.png';
     $this->actual = SC_Utils::sfNoImageMain('aaa/bbb/ccc.png');
 
@@ -71,5 +65,6 @@ class SC_Utils_sfNoImageMainTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

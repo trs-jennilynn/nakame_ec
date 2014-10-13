@@ -29,38 +29,34 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfTrimURLTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfTrimURLTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfTrimURLTest extends Common_TestCase
-{
+class SC_Utils_sfTrimURLTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfTrimURL_URLがスラッシュで終わる場合_スラッシュが取り除かれる()
-  {
+  public function testSfTrimURL_URLがスラッシュで終わる場合_スラッシュが取り除かれる() {
     $input = 'http://www.example.co.jp/';
     $this->expected = 'http://www.example.co.jp';
     $this->actual = SC_Utils::sfTrimURL($input);
     $this->verify();
   }
 
-  public function testSfTrimURL_URL末尾にスラッシュがない場合_文字列に変化がない()
-  {
+  public function testSfTrimURL_URL末尾にスラッシュがない場合_文字列に変化がない() {
     $input = 'http://www.example.co.jp';
     $this->expected = $input;
     $this->actual = SC_Utils::sfTrimURL($input);
     $this->verify();
   }
   //////////////////////////////////////////
+
 }
 

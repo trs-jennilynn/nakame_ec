@@ -22,7 +22,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  * @auther Kentaro Habu
- * @version $Id: createEcCubeCustomerData-v25.php 23364 2014-04-07 12:34:34Z Seasoft $
+ * @version $Id: createEcCubeCustomerData-v25.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
 
 // {{{ requires
@@ -87,8 +87,7 @@ exit;
 /**
  * EC-CUBE のテスト用会員データを生成する
  */
-class CreateEcCubeCustomerData 
-{
+class CreateEcCubeCustomerData {
 
     /** SC_Query インスタンス */
     var $objQuery;
@@ -96,8 +95,7 @@ class CreateEcCubeCustomerData
     /**
      * コンストラクタ.
      */
-    function CreateEcCubeCustomerData()
-    {
+    function CreateEcCubeCustomerData() {
         $this->objQuery = new SC_Query();
     }
 
@@ -106,8 +104,7 @@ class CreateEcCubeCustomerData
      *
      * @return void
      */
-    function createCustomers()
-    {
+    function createCustomers() {
         lfPrintLog("createCustomers START.(" . CUSTOMERS_VOLUME . " data)");
         for ($i = 0; $i < CUSTOMERS_VOLUME; $i++) {
             lfPrintLog("----------");
@@ -130,7 +127,7 @@ class CreateEcCubeCustomerData
             $sqlval['password'] = 'test';
             $sqlval['reminder'] = '1';    // 1:「母親の旧姓は？」
             $sqlval['reminder_answer'] = "てすと";
-            $sqlval['mailmaga_flg'] = (string) '1';    // 1:HTMLメール 2:テキストメール 3:希望しない
+            $sqlval['mailmaga_flg'] = (string) '1';    // 1:HTMLメール＋テキストメールを受け取る 2:テキストメールを受け取る 3:受け取らない
 
             // 生年月日の作成
             $sqlval['birth']    = SC_Utils_Ex::sfGetTimestamp(2006, 9, 1);
@@ -157,11 +154,11 @@ class CreateEcCubeCustomerData
         print("\n");
         lfPrintLog("createCustomers DONE.(" . CUSTOMERS_VOLUME . " data created)");
     }
+
 }
 
 /** テスト用スクリプトのログ出力関数 */
-function lfPrintLog($mess)
-{
+function lfPrintLog($mess) {
     $path = DATA_REALDIR . "logs/" .  basename(__FILE__, '.php') . ".log";
     GC_Utils::gfPrintLog($mess, $path);
 }

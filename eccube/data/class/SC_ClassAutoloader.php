@@ -28,16 +28,14 @@
  * @author LOCKON CO.,LTD.
  * @version $Id$
  */
-class SC_ClassAutoloader
-{
+class SC_ClassAutoloader {
     /**
      * クラスのオートローディング本体
      *
      * LC_* には対応していない。
      * @return void
      */
-    public static function autoload($class)
-    {
+    public static function autoload($class) {
         $arrClassNamePart = explode('_', $class);
         $is_ex = end($arrClassNamePart) === 'Ex';
         $count = count($arrClassNamePart);
@@ -69,6 +67,7 @@ class SC_ClassAutoloader
         //       プラグイン情報のキャッシュ化が行われれば、全部にフックさせることを可能に？
         $objPlugin = SC_Helper_Plugin_Ex::getSingletonInstance(true);
         if (is_object($objPlugin)) {
+
             // 元の設定を一時保存
             $plugin_class = $class;
             $plugin_classpath = $classpath;
@@ -114,21 +113,10 @@ class SC_ClassAutoloader
                     $base_class_str = str_replace(array('<?php', '?>'), '', $base_class_str);
                     $base_class_str = preg_replace($exp, $replace, $base_class_str, 1);
                     eval($base_class_str);
-
                     return;
                 }
             }
         }
-        if (file_exists($classpath)) {
-            include $classpath;
-        } else {
-            $arrPath = explode(PATH_SEPARATOR, get_include_path());
-            foreach ($arrPath as $path) {
-                if (file_exists($path . '/' .$classpath)) {
-                    include $classpath;
-                    break;
-                }
-            }
-        }
+        include $classpath;
     }
 }

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/frontparts/bloc/LC_Page_FrontParts_Bloc_Ex.php';
 
 /**
@@ -30,15 +31,17 @@ require_once CLASS_EX_REALDIR . 'page_extends/frontparts/bloc/LC_Page_FrontParts
  * @author LOCKON CO.,LTD.
  * @version $Id:LC_Page_FrontParts_Bloc_Login.php 15532 2007-08-31 14:39:46Z nanasess $
  */
-class LC_Page_FrontParts_Bloc_Login extends LC_Page_FrontParts_Bloc_Ex
-{
+class LC_Page_FrontParts_Bloc_Login extends LC_Page_FrontParts_Bloc_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
         $this->tpl_login = false;
         $this->tpl_disable_logout = false;
@@ -50,8 +53,7 @@ class LC_Page_FrontParts_Bloc_Login extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -61,8 +63,8 @@ class LC_Page_FrontParts_Bloc_Login extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         $objCustomer = new SC_Customer_Ex();
         // クッキー管理クラス
         $objCookie = new SC_Cookie_Ex();
@@ -88,6 +90,17 @@ class LC_Page_FrontParts_Bloc_Login extends LC_Page_FrontParts_Bloc_Ex
         $this->tpl_disable_logout = $this->lfCheckDisableLogout();
         //スマートフォン版ログアウト処理で不正なページ移動エラーを防ぐ為、トークンをセット
         $this->transactionid = SC_Helper_Session_Ex::getToken();
+
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
@@ -95,8 +108,7 @@ class LC_Page_FrontParts_Bloc_Login extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return boolean
      */
-    public function lfCheckDisableLogout()
-    {
+    function lfCheckDisableLogout() {
         $masterData = new SC_DB_MasterData_Ex();
         $arrDisableLogout = $masterData->getMasterData('mtb_disable_logout');
 
@@ -107,7 +119,6 @@ class LC_Page_FrontParts_Bloc_Login extends LC_Page_FrontParts_Bloc_Ex
                 return true;
             }
         }
-
         return false;
     }
 }

@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_REALDIR . 'pages/products/LC_Page_Products_ReviewComplete.php';
 
 /**
@@ -30,17 +31,19 @@ require_once CLASS_REALDIR . 'pages/products/LC_Page_Products_ReviewComplete.php
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Products_ReviewComplete_Ex.php 22926 2013-06-29 16:24:23Z Seasoft $
+ * @version $Id: LC_Page_Products_ReviewComplete_Ex.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Products_ReviewComplete_Ex extends LC_Page_Products_ReviewComplete
-{
+class LC_Page_Products_ReviewComplete_Ex extends LC_Page_Products_ReviewComplete {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    function init()
-    {
+    function init() {
         parent::init();
     }
 
@@ -49,8 +52,16 @@ class LC_Page_Products_ReviewComplete_Ex extends LC_Page_Products_ReviewComplete
      *
      * @return void
      */
-    function process()
-    {
+    function process() {
         parent::process();
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 }

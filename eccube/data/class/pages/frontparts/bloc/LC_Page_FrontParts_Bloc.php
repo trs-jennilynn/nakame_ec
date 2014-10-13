@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -28,17 +29,16 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_FrontParts_Bloc.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_FrontParts_Bloc.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_FrontParts_Bloc extends LC_Page_Ex
-{
+class LC_Page_FrontParts_Bloc extends LC_Page_Ex {
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         // 開始時刻を設定する。
         $this->timeStart = microtime(true);
 
@@ -60,11 +60,10 @@ class LC_Page_FrontParts_Bloc extends LC_Page_Ex
     /**
      * ブロックファイルに応じて tpl_mainpage を設定する
      *
-     * @param  string $bloc_file ブロックファイル名
+     * @param string $bloc_file ブロックファイル名
      * @return void
      */
-    public function setTplMainpage($bloc_file)
-    {
+    function setTplMainpage($bloc_file) {
         if (SC_Utils_Ex::isAbsoluteRealPath($bloc_file)) {
             $this->tpl_mainpage = $bloc_file;
         } else {
@@ -72,15 +71,7 @@ class LC_Page_FrontParts_Bloc extends LC_Page_Ex
         }
 
         $this->setTemplate($this->tpl_mainpage);
-    }
-
-    /**
-     * デストラクタ
-     *
-     * @return void
-     */
-    public function __destruct()
-    {
-        // 親がリクエスト単位を意図した処理なので、断絶する。
+        // $debug_message = 'block：' . $this->tpl_mainpage . "\n";
+        // GC_Utils_Ex::gfDebugLog($debug_message);
     }
 }

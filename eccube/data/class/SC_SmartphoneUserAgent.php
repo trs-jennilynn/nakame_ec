@@ -26,20 +26,18 @@
  *
  * @auther Yu Nobira
  */
-class SC_SmartphoneUserAgent
-{
+class SC_SmartphoneUserAgent {
+
     /**
      * スマートフォンかどうかを判別する。
      * $_SESSION['pc_disp'] = true の場合はPC表示。
      *
      * @return boolean
      */
-    public function isSmartphone()
-    {
-        $detect = new Mobile_Detect;
+    function isSmartphone() {
+        $nu = new Net_UserAgent_Mobile();
         // SPでかつPC表示OFFの場合
-        // TabletはPC扱い
-        return ($detect->isMobile() && !$detect->isTablet()) && !SC_SmartphoneUserAgent_Ex::getSmartphonePcFlag();
+        return $nu->isSmartphone() && !SC_SmartphoneUserAgent_Ex::getSmartphonePcFlag();
     }
 
     /**
@@ -47,8 +45,7 @@ class SC_SmartphoneUserAgent
      *
      * @return boolean
      */
-    public function isNonSmartphone()
-    {
+    function isNonSmartphone() {
         return !SC_SmartphoneUserAgent_Ex::isSmartphone();
     }
 
@@ -57,26 +54,22 @@ class SC_SmartphoneUserAgent
      *
      * @return string
      */
-    public function getSmartphonePcFlag()
-    {
+    function getSmartphonePcFlag() {
         $_SESSION['pc_disp'] = empty($_SESSION['pc_disp']) ? false : $_SESSION['pc_disp'];
-
         return $_SESSION['pc_disp'];
     }
 
     /**
      * PC表示ON
      */
-    public function setPcDisplayOn()
-    {
+    function setPcDisplayOn() {
         $_SESSION['pc_disp'] = true;
     }
 
     /**
      * PC表示OFF
      */
-    public function setPcDisplayOff()
-    {
+    function setPcDisplayOff() {
         $_SESSION['pc_disp'] = false;
     }
 }

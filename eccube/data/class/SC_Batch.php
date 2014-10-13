@@ -26,17 +26,18 @@
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: SC_Batch.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: SC_Batch.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Batch
-{
+class SC_Batch {
+
+    // }}}
+    // {{{ functions
+
     /**
      * バッチ処理を実行する
      *
-     * @param  mixed $argv コマンドライン引数
+     * @param mixed $argv コマンドライン引数
      * @return mixed バッチの実行結果
      */
-    public function execute($argv = '')
-    {
-    }
+    function execute($argv = '') {}
 }

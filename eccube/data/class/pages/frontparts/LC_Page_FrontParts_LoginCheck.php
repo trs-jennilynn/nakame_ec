@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -32,17 +33,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  * @author LOCKON CO.,LTD.
  * @version $Id:LC_Page_FrontParts_LoginCheck.php 15532 2007-08-31 14:39:46Z nanasess $
  */
-class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
-{
+class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex {
+
+    // }}}
+    // {{{ functions
+
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
-        $this->skip_load_page_layout = true;
+    function init() {
         parent::init();
+
     }
 
     /**
@@ -50,8 +53,7 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -61,11 +63,7 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
      *
      * @return void
      */
-    public function action()
-    {
-        //決済処理中ステータスのロールバック
-        $objPurchase = new SC_Helper_Purchase_Ex();
-        $objPurchase->cancelPendingOrder(PENDING_ORDER_CANCEL_FLAG);
+    function action() {
 
         // 会員管理クラス
         $objCustomer = new SC_Customer_Ex();
@@ -107,16 +105,16 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
                 $arrForm = $objFormParam->getHashArray();
 
                 // クッキー保存判定
-                if ($arrForm['login_memory'] == '1' && $arrForm['login_email'] != '') {
-                    $objCookie->setCookie('login_email', $arrForm['login_email']);
+                if ($arrForm['login_memory'] == '1' && $arrForm['login_name'] != '') {
+                    $objCookie->setCookie('login_name', $arrForm['login_name']);
                 } else {
-                    $objCookie->setCookie('login_email', '');
+                    $objCookie->setCookie('login_name', '');
                 }
 
                 // 遷移先の制御
                 if (count($arrErr) == 0) {
                     // ログイン処理
-                    if ($objCustomer->doLogin($arrForm['login_email'], $arrForm['login_pass'])) {
+                    if ($objCustomer->doLogin($arrForm['login_name'], $arrForm['login_pass'])) {
                         if (SC_Display_Ex::detectDevice() === DEVICE_TYPE_MOBILE) {
                             // ログインが成功した場合は携帯端末IDを保存する。
                             $objCustomer->updateMobilePhoneId();
@@ -128,6 +126,7 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
                             $objMobile = new SC_Helper_Mobile_Ex();
                             if (!$objMobile->gfIsMobileMailAddress($objCustomer->getValue('email'))) {
                                 if (!$objCustomer->hasValue('email_mobile')) {
+
                                     SC_Response_Ex::sendRedirectFromUrlPath('entry/email_mobile.php');
                                     SC_Response_Ex::actionExit();
                                 }
@@ -139,7 +138,7 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
                             echo SC_Utils_Ex::jsonEncode(array('success' => $url));
                         } else {
                             SC_Response_Ex::sendRedirect($url);
-                        }
+                        }                        
                         SC_Response_Ex::actionExit();
                     } else {
                         // --- ログインに失敗した場合
@@ -148,10 +147,10 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
                         // ログイン失敗時に遅延させる
                         sleep(LOGIN_RETRY_INTERVAL);
 
-                        $arrForm['login_email'] = strtolower($arrForm['login_email']);
+                        $arrForm['login_name'] = strtolower($arrForm['login_name']);
                         $objQuery = SC_Query_Ex::getSingletonInstance();
-                        $where = '(email = ? OR email_mobile = ?) AND status = 1 AND del_flg = 0';
-                        $exists = $objQuery->exists('dtb_customer', $where, array($arrForm['login_email'], $arrForm['login_email']));
+                        $where = '(name01 = ? ) AND status = 2 AND del_flg = 0';
+                        $exists = $objQuery->exists('dtb_customer', $where, array($arrForm['login_name'], $arrForm['login_name']));
                         // ログインエラー表示 TODO リファクタリング
                         if ($exists) {
                             if (SC_Display_Ex::detectDevice() === DEVICE_TYPE_SMARTPHONE) {
@@ -185,13 +184,15 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
                 // ログイン情報の解放
                 $objCustomer->EndSession();
                 // 画面遷移の制御
-                $mypage_url_search = strpos('.'.$url, 'mypage');
+                $mypage_url_search = strpos('.'.$url, '');
                 if ($mypage_url_search == 2) {
+
                     // マイページログイン中はログイン画面へ移行
                     SC_Response_Ex::sendRedirectFromUrlPath('mypage/login.php');
                 } else {
+
                     // 上記以外の場合、トップへ遷移
-                    SC_Response_Ex::sendRedirect(TOP_URL);
+                    SC_Response_Ex::sendRedirect(HTTP_URL);
                 }
                 SC_Response_Ex::actionExit();
 
@@ -203,15 +204,23 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
     }
 
     /**
-     * パラメーター情報の初期化.
+     * デストラクタ.
      *
-     * @param  SC_FormParam $objFormParam パラメーター管理クラス
      * @return void
      */
-    public function lfInitParam(&$objFormParam)
-    {
+    function destroy() {
+        parent::destroy();
+    }
+
+    /**
+     * パラメーター情報の初期化.
+     *
+     * @param SC_FormParam $objFormParam パラメーター管理クラス
+     * @return void
+     */
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('記憶する', 'login_memory', INT_LEN, 'n', array('MAX_LENGTH_CHECK', 'NUM_CHECK'));
-        $objFormParam->addParam('メールアドレス', 'login_email', MTEXT_LEN, 'a', array('EXIST_CHECK', 'MAX_LENGTH_CHECK'));
+        $objFormParam->addParam('でログイン', 'login_name', MTEXT_LEN, 'a', array('EXIST_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('パスワード', 'login_pass', PASSWORD_MAX_LEN, '', array('EXIST_CHECK', 'MAX_LENGTH_CHECK'));
     }
 
@@ -225,8 +234,7 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
      * @return string JSON 形式のエラーメッセージ
      * @see LC_PageError
      */
-    public function lfGetErrorMessage($error)
-    {
+    function lfGetErrorMessage($error) {
         switch ($error) {
             case TEMP_LOGIN_ERROR:
                 $msg = "メールアドレスもしくはパスワードが正しくありません。\n本登録がお済みでない場合は、仮登録メールに記載されているURLより本登録を行ってください。";
@@ -235,7 +243,6 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
             default:
                 $msg = 'メールアドレスもしくはパスワードが正しくありません。';
         }
-
         return SC_Utils_Ex::jsonEncode(array('login_error' => $msg));
     }
 }

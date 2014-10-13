@@ -28,28 +28,27 @@
  *
  * @package Batch
  * @author LOCKON CO.,LTD.
- * @version $Id: SC_Batch_Update.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: SC_Batch_Update.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Batch_Update extends SC_Batch
-{
+class SC_Batch_Update extends SC_Batch {
+
     /**
      * 変換したいファイルの拡張子をカンマ区切りで羅列.
      */
-    public $includes = 'php,inc,tpl,css,sql,js,png,jpg,gif,swf,txt,doc,pdf';
+    var $includes = 'php,inc,tpl,css,sql,js,png,jpg,gif,swf,txt,doc,pdf';
 
     /**
      * 除外するファイル名をカンマ区切りで羅列.
      */
-    public $excludes = 'distinfo.php';
+    var $excludes = 'distinfo.php';
 
     /**
      * バッチ処理を実行する.
      *
-     * @param  string $target アップデータファイルのディレクトリパス
+     * @param string $target アップデータファイルのディレクトリパス
      * @return void
      */
-    public function execute($target = '.')
-    {
+    function execute($target = '.') {
         $msg = '';
         $oldMask = umask(0);
         $bkupDistInfoArray = array(); //バックアップファイル用のdistinfoファイル内容
@@ -67,7 +66,6 @@ class SC_Batch_Update extends SC_Batch
             $msg = 'バックアップディレクトリの作成に失敗しました';
             $arrLog['err'][] = $msg;
             $this->printLog($msg);
-
             return $arrLog;
         }
 
@@ -77,6 +75,7 @@ class SC_Batch_Update extends SC_Batch
 
         foreach ($fileArrays as $path) {
             if (is_file($path)) {
+
                 // ファイル名を取得
                 $fileName = pathinfo($path, PATHINFO_BASENAME);
 
@@ -107,6 +106,7 @@ class SC_Batch_Update extends SC_Batch
                 // 変換対象を順に処理
                 foreach ($includeArray as $include) {
                     if ($suffix == $include) {
+
                         // ファイル内容を取得
                         $contents = file_get_contents($path);
 
@@ -185,7 +185,6 @@ class SC_Batch_Update extends SC_Batch
             $this->printLog($msg);
         }
         umask($oldMask);
-
         return $arrLog;
     }
 
@@ -196,8 +195,7 @@ class SC_Batch_Update extends SC_Batch
      * @return array $dir より下層に存在するパス名の配列
      * @see http://www.php.net/glob
      */
-    public function listdirs($dir)
-    {
+    function listdirs($dir) {
         static $alldirs = array();
         $dirs = glob($dir . '/*');
         if (is_array($dirs) && count($dirs) > 0) {
@@ -206,7 +204,6 @@ class SC_Batch_Update extends SC_Batch
         if (is_array($dirs)) {
             foreach ($dirs as $dir) $this->listdirs($dir);
         }
-
         return $alldirs;
     }
 
@@ -215,8 +212,7 @@ class SC_Batch_Update extends SC_Batch
      *
      * @param string $path 絶対パス
      */
-    public function lfMkdirRecursive($path)
-    {
+    function lfMkdirRecursive($path) {
         $path = dirname($path);
 
         // HTML_REALDIR/DATA_REALDIRの判別
@@ -239,8 +235,7 @@ class SC_Batch_Update extends SC_Batch
         }
     }
 
-    public function makeDistInfo($bkupDistInfoArray)
-    {
+    function makeDistInfo($bkupDistInfoArray) {
         $src = "<?php\n"
              . '$distifo = array(' . "\n";
 
@@ -252,8 +247,7 @@ class SC_Batch_Update extends SC_Batch
         return $src;
     }
 
-    public function printLog($msg)
-    {
+    function printLog($msg) {
         GC_Utils_Ex::gfPrintLog($msg, DATA_REALDIR . 'logs/ownersstore_batch_update.log');
     }
 }

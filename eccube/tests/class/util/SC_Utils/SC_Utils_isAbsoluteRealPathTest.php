@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * テスト用にOSの環境変数を定義することができないため、テストコード内で分岐します.
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_isAbsoluteRealPathTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_isAbsoluteRealPathTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_Test extends Common_TestCase
-{
+class SC_Utils_Test extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testIsAbsoluteRealPath_絶対パスの場合_trueが返る()
-  {
+  public function testIsAbsoluteRealPath_絶対パスの場合_trueが返る() {
 
     if (strpos(PHP_OS, 'WIN')) {
       $input = 'C:/Program Files/username/hoge/hoge.txt';
@@ -60,8 +56,7 @@ class SC_Utils_Test extends Common_TestCase
     $this->verify();
   }
 
-  public function testIsAbsoluteRealPath_相対パスの場合_trueが返る()
-  {
+  public function testIsAbsoluteRealPath_相対パスの場合_trueが返る() {
 
     if (strpos(PHP_OS, 'WIN')) {
       $input = './system32/hoge/hoge.txt';
@@ -75,5 +70,6 @@ class SC_Utils_Test extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

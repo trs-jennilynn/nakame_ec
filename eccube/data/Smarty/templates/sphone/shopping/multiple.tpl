@@ -34,7 +34,7 @@
     <!--★ボタン★-->
     <!--{if $tpl_addrmax < $smarty.const.DELIV_ADDR_MAX}-->
         <div class="btn_area_top">
-            <a rel="external" href="javascript:void(0);" class="btn_sub addbtn" onclick="eccube.openWindow('<!--{$smarty.const.ROOT_URLPATH}-->mypage/delivery_addr.php?page=<!--{$smarty.server.SCRIPT_NAME|h}-->','new_deiv','600','640'); return false;">新しいお届け先を追加</a>
+            <a rel="external" href="javascript:void(0);" class="btn_sub addbtn" onclick="win02('<!--{$smarty.const.ROOT_URLPATH}-->mypage/delivery_addr.php?page=<!--{$smarty.server.SCRIPT_NAME|h}-->','new_deiv','600','640'); return false;">新しいお届け先を追加</a>
         </div>
     <!--{/if}-->
 
@@ -55,7 +55,7 @@
                 <div class="formBox">
                     <!--▼商品 -->
                     <div class="delivitemBox">
-                        <img src="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrForm.main_list_image.value[$index]|sfNoImageMainList|h}-->" style="max-width: 80px;max-height: 80px;" alt="<!--{$arrForm.name.value[$index]|h}-->" class="photoL" />
+                        <img src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrForm.main_list_image.value[$index]|sfNoImageMainList|h}-->&amp;width=80&amp;height=80" alt="<!--{$arrForm.name.value[$index]|h}-->" class="photoL" />
                         <div class="delivContents">
 
                             <p>
@@ -66,12 +66,12 @@
                                 <!--{if $arrForm.classcategory_name2.value[$index] != ""}-->
                                     <span class="mini"><!--{$arrForm.class_name2.value[$index]|h}-->：<!--{$arrForm.classcategory_name2.value[$index]|h}--></span><br />
                                 <!--{/if}-->
-                                <!--{$arrForm.price_inctax.value[$index]|number_format}-->円
+                                <!--{$arrForm.price.value[$index]|sfCalcIncTax|number_format}-->円
                             </p>
                             <ul>
-                                <li class="result"><span class="mini">数量</span></li>
+                                <li class="result"><span class="mini">数量</li>
                                 <li>
-                                    <input type="number" name="<!--{$key}-->[<!--{$index}-->]" class="cartin_quantity txt" value="<!--{$arrForm[$key].value[$index]|h}-->" max="<!--{9|str_repeat:$arrForm[$key].length}-->" style="" />
+                                    <input type="number" name="<!--{$key}-->[<!--{$index}-->]" class="cartin_quantity txt" value="<!--{$arrForm[$key].value[$index]|h}-->" max="9" style="" />
                                 </li>
                             </ul>
                         </div>
@@ -98,8 +98,6 @@
                         <input type="hidden" name="<!--{$key}-->[<!--{$index}-->]" value="<!--{$arrForm[$key].value[$index]|h}-->" />
                         <!--{assign var=key value="price"}-->
                         <input type="hidden" name="<!--{$key}-->[<!--{$index}-->]" value="<!--{$arrForm[$key].value[$index]|h}-->" />
-                        <!--{assign var=key value="price_inctax"}-->
-                        <input type="hidden" name="<!--{$key}-->[<!--{$index}-->]" value="<!--{$arrForm[$key].value[$index]|h}-->" />
                         <!--{assign var=key value="shipping"}-->
                         <select name="<!--{$key}-->[<!--{$index}-->]" class="boxLong data-role-none"><!--{html_options options=$addrs selected=$arrForm[$key].value[$index]}--></select>
                     </div>
@@ -109,12 +107,19 @@
 
             <ul class="btn_btm">
                 <li><a rel="external" href="javascript:void(document.form1.submit());" class="btn">選択したお届け先に送る</a></li>
-                <li><a rel="external" href="<!--{$smarty.const.CART_URL}-->" class="btn_back">戻る</a></li>
+                <li><a rel="external" href="<!--{$smarty.const.CART_URLPATH}-->" class="btn_back">戻る</a></li>
             </ul>
         </form>
     </div><!-- /.form_area -->
 </section>
 
-<!--{include file= 'frontparts/search_area.tpl'}-->
-
+<!--▼検索バー -->
+<section id="search_area">
+    <form method="get" action="<!--{$smarty.const.ROOT_URLPATH}-->products/list.php">
+        <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+        <input type="hidden" name="mode" value="search" />
+        <input type="search" name="name" id="search" value="" placeholder="キーワードを入力" class="searchbox" >
+    </form>
+</section>
+<!--▲検索バー -->
 <!--▲コンテンツここまで -->

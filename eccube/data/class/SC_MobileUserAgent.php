@@ -25,10 +25,9 @@
  * 携帯端末の情報を扱うクラス
  *
  * 対象とする携帯端末は $_SERVER から決定する。
- * 全てのメソッドはクラスメソッド。
+ * すべてのメソッドはクラスメソッド。
  */
-class SC_MobileUserAgent
-{
+class SC_MobileUserAgent {
     /**
      * 携帯端末のキャリアを表す文字列を取得する。
      *
@@ -37,8 +36,7 @@ class SC_MobileUserAgent
      * @return string|false 携帯端末のキャリアを表す文字列を返す。
      *                      携帯端末ではない場合は false を返す。
      */
-    public function getCarrier()
-    {
+    function getCarrier() {
         $objAgent =& Net_UserAgent_Mobile::singleton();
         if (Net_UserAgent_Mobile::isError($objAgent)) {
             return false;
@@ -68,8 +66,7 @@ class SC_MobileUserAgent
      *
      * @return string|false 取得したIDを返す。取得できなかった場合は false を返す。
      */
-    public function getId()
-    {
+    function getId() {
         $objAgent =& Net_UserAgent_Mobile::singleton();
         if (Net_UserAgent_Mobile::isError($objAgent)) {
             return false;
@@ -78,7 +75,6 @@ class SC_MobileUserAgent
         } elseif ($objAgent->isEZweb()) {
             $id = @$_SERVER['HTTP_X_UP_SUBNO'];
         }
-
         return isset($id) ? $id : false;
     }
 
@@ -88,8 +84,7 @@ class SC_MobileUserAgent
      *
      * @return string 携帯端末のモデルを表す文字列を返す。
      */
-    public function getModel()
-    {
+    function getModel() {
         $objAgent =& Net_UserAgent_Mobile::singleton();
         if (Net_UserAgent_Mobile::isError($objAgent)) {
             return 'Unknown';
@@ -112,21 +107,18 @@ class SC_MobileUserAgent
      *
      * @return boolean サポートしている場合は true、それ以外の場合は false を返す。
      */
-    public function isSupported()
-    {
+    function isSupported() {
         $objAgent =& Net_UserAgent_Mobile::singleton();
 
         // 携帯端末だと認識されたが、User-Agent の形式が未知の場合
         if (Net_UserAgent_Mobile::isError($objAgent)) {
             GC_Utils_Ex::gfPrintLog($objAgent->toString());
-
             return false;
         }
 
         if ($objAgent->isDoCoMo()) {
             $arrUnsupportedSeries = array('501i', '502i', '209i', '210i');
             $arrUnsupportedModels = array('SH821i', 'N821i', 'P821i ', 'P651ps', 'R691i', 'F671i', 'SH251i', 'SH251iS');
-
             return !in_array($objAgent->getSeries(), $arrUnsupportedSeries) && !in_array($objAgent->getModel(), $arrUnsupportedModels);
         } elseif ($objAgent->isEZweb()) {
             return $objAgent->isWAP2();
@@ -139,19 +131,18 @@ class SC_MobileUserAgent
     }
 
     /**
-     * EC-CUBE がサポートする携帯キャリアかどうかを判別する。
-     *
+     * EC-CUBE がサポートする携帯キャリアかどうかを判別する。 
+     * 
      * ※一部モジュールで使用。ただし、本メソッドは将来的に削除しますので新規ご利用は控えてください。
-     *
-     * @return boolean サポートしている場合は true、それ以外の場合は false を返す。
+     * 
+     * @return boolean サポートしている場合は true、それ以外の場合は false を返す。 
      */
-    public function isMobile()
-    {
-        $objAgent =& Net_UserAgent_Mobile::singleton();
-        if (Net_UserAgent_Mobile::isError($objAgent)) {
-            return false;
-        } else {
-            return $objAgent->isDoCoMo() || $objAgent->isEZweb() || $objAgent->isVodafone();
-        }
+    function isMobile() { 
+        $objAgent =& Net_UserAgent_Mobile::singleton(); 
+        if (Net_UserAgent_Mobile::isError($objAgent)) { 
+            return false; 
+        } else { 
+            return $objAgent->isDoCoMo() || $objAgent->isEZweb() || $objAgent->isVodafone(); 
+        } 
     }
 }

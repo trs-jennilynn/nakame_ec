@@ -29,33 +29,28 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfGetCheckedTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfGetCheckedTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfGetCheckedTest extends Common_TestCase
-{
+class SC_Utils_sfGetCheckedTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfGetChecked_引数が一致する場合_チェック済みの文字列が返る()
-  {
+  public function testSfGetChecked_引数が一致する場合_チェック済みの文字列が返る() {
     $this->expected = 'checked="checked"';
     $this->actual = SC_Utils::sfGetChecked('1', '1');
 
     $this->verify();
   }
 
-  public function testSfGetChecked_引数が一致しない場合_0バイト文字列が返る()
-  {
+  public function testSfGetChecked_引数が一致しない場合_0バイト文字列が返る() {
     $this->expected = '';
     $this->actual = SC_Utils::sfGetChecked('2', '1');
 
@@ -63,5 +58,6 @@ class SC_Utils_sfGetCheckedTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

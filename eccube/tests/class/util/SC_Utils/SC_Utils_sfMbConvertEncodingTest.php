@@ -29,33 +29,28 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * functionを1つ呼び出しているだけなので、エラーにならないことだけ確認する.
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfMbConvertEncodingTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfMbConvertEncodingTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfMbConvertEncodingTest extends Common_TestCase
-{
+class SC_Utils_sfMbConvertEncodingTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfMbConvertEncoding_MS932の場合_エラーが起きない()
-  {
+  public function testSfMbConvertEncoding_MS932の場合_エラーが起きない() {
     $input = 'あいうえお、今日は良い天気です。';
     $encode = 'MS932';
 
     $this->assertNotNull(SC_Utils::sfMbConvertEncoding($input, $encode), '変換結果');
   }
 
-  public function testSfMbConvertEncoding_UTF8の場合_エラーが起きない()
-  {
+  public function testSfMbConvertEncoding_UTF8の場合_エラーが起きない() {
     $input = 'あいうえお、今日は良い天気です。';
     $encode = 'UTF8';
 
@@ -63,5 +58,6 @@ class SC_Utils_sfMbConvertEncodingTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 

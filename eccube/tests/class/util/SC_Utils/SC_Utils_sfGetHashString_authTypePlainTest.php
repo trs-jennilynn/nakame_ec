@@ -31,26 +31,22 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  * TODO まとめて実行する場合は定数の変更ができないためNG
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfGetHashString_authTypePlainTest.php 22845 2013-05-31 10:02:47Z nanasess $
+ * @version $Id: SC_Utils_sfGetHashString_authTypePlainTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfGetHashString_authTypePlainTest extends Common_TestCase
-{
+class SC_Utils_sfGetHashString_authTypePlainTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     parent::tearDown();
   }
 
   /////////////////////////////////////////
   /**
-  public function testSfGetHashString_暗号化なしの設定になっている場合_文字列が変換されない()
-  {
+  public function testSfGetHashString_暗号化なしの設定になっている場合_文字列が変換されない() {
     $input = 'hello, world';
 
     $this->expected = $input;
@@ -59,9 +55,5 @@ class SC_Utils_sfGetHashString_authTypePlainTest extends Common_TestCase
     $this->verify();
   }
   */
-      public function testDummyTest() {
-        // Warning が出るため空のテストを作成
-        $this->assertTrue(true);
-    }
 }
 

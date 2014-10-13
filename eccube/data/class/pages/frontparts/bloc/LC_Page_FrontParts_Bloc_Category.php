@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/frontparts/bloc/LC_Page_FrontParts_Bloc_Ex.php';
 
 /**
@@ -28,19 +29,19 @@ require_once CLASS_EX_REALDIR . 'page_extends/frontparts/bloc/LC_Page_FrontParts
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_FrontParts_Bloc_Category.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_FrontParts_Bloc_Category.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex
-{
-    public $arrParentID;
+class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex {
+
+    // }}}
+    // {{{ functions
 
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
+    function init() {
         parent::init();
     }
 
@@ -49,8 +50,7 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         $this->action();
         $this->sendResponse();
     }
@@ -60,8 +60,8 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // モバイル判定
         switch (SC_Display_Ex::detectDevice()) {
             case DEVICE_TYPE_MOBILE:
@@ -76,16 +76,25 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex
                 break;
         }
 
+
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 
     /**
      * 選択中のカテゴリIDを取得する.
      *
-     * @param  array $arrRequest リクエスト配列
+     * @param array $arrRequest リクエスト配列
      * @return array $arrCategoryId 選択中のカテゴリID
      */
-    public function lfGetSelectedCategoryId($arrRequest)
-    {
+    function lfGetSelectedCategoryId($arrRequest) {
             // 商品ID取得
         $product_id = '';
         if (isset($arrRequest['product_id']) && $arrRequest['product_id'] != '' && is_numeric($arrRequest['product_id'])) {
@@ -102,40 +111,66 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex
         if (empty($arrCategoryId)) {
             $arrCategoryId = array(0);
         }
-
         return $arrCategoryId;
     }
 
     /**
      * カテゴリツリーの取得.
      *
-     * @param  array   $arrParentCategoryId 親カテゴリの配列
-     * @param  boolean $count_check         登録商品数をチェックする場合はtrue
-     * @return array   $arrRet カテゴリツリーの配列を返す
+     * @param array $arrParentCategoryId 親カテゴリの配列
+     * @param boolean $count_check 登録商品数をチェックする場合はtrue
+     * @return array $arrRet カテゴリツリーの配列を返す
      */
-    public function lfGetCatTree($arrParentCategoryId, $count_check = false)
-    {
-        $objCategory = new SC_Helper_Category_Ex($count_check);
-        $arrTree = $objCategory->getTree();
-
-        $this->arrParentID = array();
-        foreach ($arrParentCategoryId as $category_id) {
-            $arrParentID = $objCategory->getTreeTrail($category_id);
-            $this->arrParentID = array_merge($this->arrParentID, $arrParentID);
-            $this->root_parent_id[] = $arrParentID[0];
+    function lfGetCatTree($arrParentCategoryId, $count_check = false) {
+        $objQuery =& SC_Query_Ex::getSingletonInstance();
+        $objDb = new SC_Helper_DB_Ex();
+        $col = '*';
+        $from = 'dtb_category left join dtb_category_total_count ON dtb_category.category_id = dtb_category_total_count.category_id';
+        // 登録商品数のチェック
+        if ($count_check) {
+            $where = 'del_flg = 0 AND product_count > 0';
+        } else {
+            $where = 'del_flg = 0';
         }
-
-        return $arrTree;
+        $objQuery->setOption('ORDER BY rank DESC');
+        $arrRet = $objQuery->select($col, $from, $where);
+        foreach ($arrParentCategoryId as $category_id) {
+            $arrParentID = $objDb->sfGetParents(
+                'dtb_category',
+                'parent_category_id',
+                'category_id',
+                $category_id
+            );
+            $arrBrothersID = SC_Utils_Ex::sfGetBrothersArray(
+                $arrRet,
+                'parent_category_id',
+                'category_id',
+                $arrParentID
+            );
+            $arrChildrenID = SC_Utils_Ex::sfGetUnderChildrenArray(
+                $arrRet,
+                'parent_category_id',
+                'category_id',
+                $category_id
+            );
+            $this->root_parent_id[] = $arrParentID[0];
+            $arrDispID = array_merge($arrBrothersID, $arrChildrenID);
+            foreach ($arrRet as &$arrCategory) {
+                if (in_array($arrCategory['category_id'], $arrDispID)) {
+                    $arrCategory['display'] = 1;
+                }
+            }
+        }
+        return $arrRet;
     }
 
     /**
      * メインカテゴリの取得.
      *
-     * @param  boolean $count_check 登録商品数をチェックする場合はtrue
-     * @return array   $arrMainCat メインカテゴリの配列を返す
+     * @param boolean $count_check 登録商品数をチェックする場合はtrue
+     * @return array $arrMainCat メインカテゴリの配列を返す
      */
-    public function lfGetMainCat($count_check = false)
-    {
+    function lfGetMainCat($count_check = false) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $col = '*';
         $from = 'dtb_category left join dtb_category_total_count ON dtb_category.category_id = dtb_category_total_count.category_id';
@@ -163,7 +198,6 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex
             $cat['has_children'] = count($arrChildrenID) > 0;
             $arrMainCat[] = $cat;
         }
-
         return $arrMainCat;
     }
 }

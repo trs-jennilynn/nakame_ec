@@ -30,10 +30,9 @@ require_once(realpath(dirname(__FILE__)) . "/../../../data/class_extends/helper_
  *
  * @package Helper
  * @author LOCKON CO.,LTD.
- * @version $Id: SC_Helper_Purchase_Test.php 22567 2013-02-18 10:09:54Z shutta $
+ * @version $Id: SC_Helper_Purchase_Test.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Helper_Purchase_Test extends PHPUnit_Framework_TestCase 
-{
+class SC_Helper_Purchase_Test extends PHPUnit_Framework_TestCase {
     /**
      * @var SC_Helper_Purchase
      */

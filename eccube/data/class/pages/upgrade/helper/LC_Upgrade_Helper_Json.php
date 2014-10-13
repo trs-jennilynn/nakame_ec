@@ -3,10 +3,9 @@
  * Enter description here...
  *
  */
-class LC_Upgrade_Helper_Json extends Services_JSON
-{
+class LC_Upgrade_Helper_Json extends Services_JSON {
     /** */
-    public $arrData = array(
+    var $arrData = array(
         'status'  => null,
         'errcode' => null,
         'msg'     => null,
@@ -18,8 +17,7 @@ class LC_Upgrade_Helper_Json extends Services_JSON
      *
      * @return SC_Upgrade_Helper_Json
      */
-    public function __construct()
-    {
+    function __construct() {
         parent::Services_JSON();
     }
 
@@ -27,17 +25,14 @@ class LC_Upgrade_Helper_Json extends Services_JSON
      * Enter description here...
      *
      */
-    public function isError()
-    {
+    function isError() {
         return $this->isSuccess() ? false : true;
     }
 
-    public function isSuccess()
-    {
+    function isSuccess() {
         if ($this->arrData['status'] === OSTORE_STATUS_SUCCESS) {
             return true;
         }
-
         return false;
     }
 
@@ -47,8 +42,7 @@ class LC_Upgrade_Helper_Json extends Services_JSON
      * @param unknown_type $errCode
      * @param unknown_type $errMessage
      */
-    public function setError($errCode)
-    {
+    function setError($errCode) {
         $masterData = new SC_DB_MasterData_Ex();
         $arrOStoreErrMsg = $masterData->getMasterData('mtb_ownersstore_err');
 
@@ -64,8 +58,7 @@ class LC_Upgrade_Helper_Json extends Services_JSON
      *
      * @param mixed $data
      */
-    public function setSuccess($data = array(), $msg = '')
-    {
+    function setSuccess($data = array(), $msg = '') {
         $this->arrData['status'] = OSTORE_STATUS_SUCCESS;
         $this->arrData['data']   = $data;
         $this->arrData['msg']    = $msg;
@@ -75,8 +68,7 @@ class LC_Upgrade_Helper_Json extends Services_JSON
      * Enter description here...
      *
      */
-    public function display()
-    {
+    function display() {
         header('Content-Type: text/javascript; charset=UTF-8');
         echo $this->encode($this->arrData);
     }
@@ -88,12 +80,11 @@ class LC_Upgrade_Helper_Json extends Services_JSON
      * Services_JSONが正常に動作しなくなる.
      * そのため5.2.0以上の場合は組み込み関数のjson_decode()を使用する.
      *
-     * @param  string   $str
+     * @param string $str
      * @return StdClass
      * @see SC_Utils_Ex::jsonDecode
      */
-    public function decode($str)
-    {
+    function decode($str) {
         return SC_Utils_Ex::jsonDecode($str);
     }
 }

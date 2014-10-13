@@ -20,6 +20,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+// {{{ requires
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -27,31 +28,34 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  *
  * @package Page
  * @author CUORE CO.,LTD.
- * @version $Id: LC_Page_Mypage_DownLoad.php 23124 2013-08-24 14:33:52Z kimoto $
+ * @version $Id: LC_Page_Mypage_DownLoad.php 22818 2013-05-14 03:08:44Z m_uehara $
  */
-class LC_Page_Mypage_DownLoad extends LC_Page_Ex
-{
+class LC_Page_Mypage_DownLoad extends LC_Page_Ex {
+
+    // {{{ properties
+
     /** フォームパラメーターの配列 */
-    public $objFormParam;
+    var $objFormParam;
 
     /** 基本Content-Type */
-    public $defaultContentType = 'Application/octet-stream';
+    var $defaultContentType = 'Application/octet-stream';
 
     /** 拡張Content-Type配列
      * Application/octet-streamで対応出来ないファイルタイプのみ拡張子をキーに記述する
      * 拡張子が本配列に存在しない場合は $defaultContentTypeを利用する */
-    public $arrContentType = array('apk' => 'application/vnd.android.package-archive',
+    var $arrContentType = array('apk' => 'application/vnd.android.package-archive',
                                 'pdf' => 'application/pdf'
         );
+
+    // }}}
+    // {{{ functions
 
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
-    {
-        $this->skip_load_page_layout = true;
+    function init() {
         parent::init();
         $this->allowClientCache();
     }
@@ -61,8 +65,7 @@ class LC_Page_Mypage_DownLoad extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
-    {
+    function process() {
         ob_end_clean();
         parent::process();
         $this->action();
@@ -74,8 +77,8 @@ class LC_Page_Mypage_DownLoad extends LC_Page_Ex
      *
      * @return void
      */
-    public function action()
-    {
+    function action() {
+
         // ログインチェック
         $objCustomer = new SC_Customer_Ex();
         if (!$objCustomer->isLoginSuccess(true)) {
@@ -101,8 +104,7 @@ class LC_Page_Mypage_DownLoad extends LC_Page_Ex
      * todo たいした処理でないのに異常に処理が重い
      * @return void
      */
-    public function sendResponse()
-    {
+    function sendResponse() {
         // TODO sendResponseをオーバーライドしている為、afterフックポイントが実行されない.直接実行する.(#1790)
         $objPlugin = SC_Helper_Plugin_Ex::getSingletonInstance($this->plugin_activate_flg);
         $objPlugin->doAction('LC_Page_Mypage_DownLoad_action_after', array($this));
@@ -156,14 +158,13 @@ class LC_Page_Mypage_DownLoad extends LC_Page_Ex
     /**
      * 商品情報の読み込みを行う.
      *
-     * @param  integer $customer_id      会員ID
-     * @param  integer $order_id         受注ID
-     * @param  integer $product_id       商品ID
-     * @param  integer $product_class_id 商品規格ID
-     * @return array   商品情報の配列
+     * @param integer $customer_id 会員ID
+     * @param integer $order_id 受注ID
+     * @param integer $product_id 商品ID
+     * @param integer $product_class_id 商品規格ID
+     * @return array 商品情報の配列
      */
-    public function lfGetRealFileName($customer_id, $order_id, $product_id, $product_class_id)
-    {
+    function lfGetRealFileName($customer_id, $order_id, $product_id, $product_class_id) {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $col = <<< __EOS__
             pc.product_id AS product_id,
@@ -184,18 +185,15 @@ __EOS__;
 
         $dbFactory = SC_DB_DBFactory_Ex::getInstance();
         $where = 'o.customer_id = ? AND o.order_id = ? AND pc.product_id = ? AND pc.product_class_id = ?';
-        $where .= ' AND od.product_id = ? AND od.product_class_id = ?';
         $where .= ' AND ' . $dbFactory->getDownloadableDaysWhereSql('o');
         $where .= ' = 1';
         $arrRet = $objQuery->select($col, $table, $where,
-                                    array($customer_id, $order_id, $product_id, $product_class_id, $product_id, $product_class_id));
-
+                                    array($customer_id, $order_id, $product_id, $product_class_id));
         return $arrRet[0];
     }
 
     /* パラメーター情報の初期化 */
-    public function lfInitParam(&$objFormParam)
-    {
+    function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('customer_id', 'customer_id', INT_LEN, 'n', array('EXIST_CHECK','NUM_CHECK'));
         $objFormParam->addParam('order_id', 'order_id', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK'));
         $objFormParam->addParam('product_id', 'product_id', INT_LEN, 'n', array('EXIST_CHECK','NUM_CHECK'));
@@ -203,22 +201,19 @@ __EOS__;
     }
 
     /* 入力内容のチェック */
-    public function lfCheckError(&$objFormParam)
-    {
+    function lfCheckError(&$objFormParam) {
         $objErr = new SC_CheckError_Ex($objFormParam->getHashArray());
         $objErr->arrErr = $objFormParam->checkError();
-
         return $objErr->arrErr;
     }
 
     /**
      * モバイル端末用ヘッダー出力処理
      *
-     * @param string $realpath       ダウンロードファイルパス
+     * @param string $realpath ダウンロードファイルパス
      * @param string $sdown_filename ダウンロード時の指定ファイル名
      */
-    public function lfMobileHeader($realpath,$sdown_filename)
-    {
+    function lfMobileHeader($realpath,$sdown_filename) {
         $objHelperMobile = new SC_Helper_Mobile_Ex();
         //ファイルの拡張子からコンテンツタイプを取得する
         $mime_type = $objHelperMobile->getMIMEType($realpath);
@@ -232,11 +227,10 @@ __EOS__;
     /**
      * モバイル端末（AU）ダウンロード処理
      *
-     * @param string $realpath       ダウンロードファイルパス
+     * @param string $realpath ダウンロードファイルパス
      * @param string $sdown_filename ダウンロード時の指定ファイル名
      */
-    public function lfMobileAuDownload($realpath,$sdown_filename)
-    {
+    function lfMobileAuDownload($realpath,$sdown_filename) {
         //モバイル用ヘッダー出力
         $this->lfMobileHeader($realpath,$sdown_filename);
         //ファイルサイズを取得する
@@ -264,11 +258,10 @@ __EOS__;
     /**
      * モバイル端末（AU以外）ダウンロード処理
      *
-     * @param string $realpath       ダウンロードファイルパス
+     * @param string $realpath ダウンロードファイルパス
      * @param string $sdown_filename ダウンロード時の指定ファイル名
      */
-    public function lfMobileDownload($realpath,$sdown_filename)
-    {
+    function lfMobileDownload($realpath,$sdown_filename) {
         //モバイル用ヘッダー出力
         $this->lfMobileHeader($realpath,$sdown_filename);
         //ファイルサイズを取得する
@@ -323,11 +316,10 @@ __EOS__;
     /**
      * モバイル端末以外ダウンロード処理
      *
-     * @param string $realpath       ダウンロードファイルパス
+     * @param string $realpath ダウンロードファイルパス
      * @param string $sdown_filename ダウンロード時の指定ファイル名
      */
-    public function lfDownload($realpath,$sdown_filename)
-    {
+    function lfDownload($realpath,$sdown_filename) {
         // 拡張子を取得
         $extension = pathinfo($realpath, PATHINFO_EXTENSION);
         $contentType = $this->defaultContentType;
@@ -361,5 +353,14 @@ __EOS__;
             SC_Utils_Ex::extendTimeOut();
         }
         fclose($handle);
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
     }
 }

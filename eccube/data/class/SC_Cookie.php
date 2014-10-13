@@ -25,20 +25,18 @@
  * クッキー用クラス
  *
  */
-class SC_Cookie
-{
-    public $expire;
+class SC_Cookie {
+
+    var $expire;
 
     // コンストラクタ
-    public function __construct($day = COOKIE_EXPIRE)
-    {
+    function __construct($day = COOKIE_EXPIRE) {
         // 有効期限
         $this->expire = time() + ($day * 24 * 3600);
     }
 
     // クッキー書き込み
-    public function setCookie($key, $val)
-    {
+    function setCookie($key, $val) {
         setcookie($key, $val, $this->expire, ROOT_URLPATH, DOMAIN_NAME);
     }
 
@@ -47,8 +45,7 @@ class SC_Cookie
      *
      * EC-CUBE をURLパスルート以外にインストールしている場合、上位ディレクトリの値も(劣後ではあるが)取得する点に留意。
      */
-    public function getCookie($key)
-    {
+    function getCookie($key) {
         return isset($_COOKIE[$key]) ? $_COOKIE[$key] : null;
     }
 }

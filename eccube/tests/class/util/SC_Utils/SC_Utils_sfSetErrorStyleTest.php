@@ -29,25 +29,21 @@ require_once($HOME . "/tests/class/Common_TestCase.php");
  *
  *
  * @author Hiroko Tamagawa
- * @version $Id: SC_Utils_sfSetErrorStyleTest.php 22857 2013-06-08 09:59:30Z Seasoft $
+ * @version $Id: SC_Utils_sfSetErrorStyleTest.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class SC_Utils_sfSetErrorStyleTest extends Common_TestCase
-{
+class SC_Utils_sfSetErrorStyleTest extends Common_TestCase {
 
 
-  protected function setUp()
-  {
+  protected function setUp() {
     // parent::setUp();
   }
 
-  protected function tearDown()
-  {
+  protected function tearDown() {
     // parent::tearDown();
   }
 
   /////////////////////////////////////////
-  public function testSfSetErrorStyle__背景色変更用の文字列が返る()
-  {
+  public function testSfSetErrorStyle__背景色変更用の文字列が返る() {
     
     $this->expected = 'style="background-color:#ffe8e8"';
     $this->actual = SC_Utils::sfSetErrorStyle();
@@ -56,5 +52,6 @@ class SC_Utils_sfSetErrorStyleTest extends Common_TestCase
   }
 
   //////////////////////////////////////////
+
 }
 
