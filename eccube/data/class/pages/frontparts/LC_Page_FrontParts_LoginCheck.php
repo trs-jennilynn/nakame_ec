@@ -105,16 +105,16 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex {
                 $arrForm = $objFormParam->getHashArray();
 
                 // クッキー保存判定
-                if ($arrForm['login_memory'] == '1' && $arrForm['login_name'] != '') {
-                    $objCookie->setCookie('login_name', $arrForm['login_name']);
+                if ($arrForm['login_memory'] == '1' && $arrForm['login_email'] != '') {
+                    $objCookie->setCookie('login_email', $arrForm['login_email']);
                 } else {
-                    $objCookie->setCookie('login_name', '');
+                    $objCookie->setCookie('login_email', '');
                 }
 
                 // 遷移先の制御
                 if (count($arrErr) == 0) {
                     // ログイン処理
-                    if ($objCustomer->doLogin($arrForm['login_name'], $arrForm['login_pass'])) {
+                    if ($objCustomer->doLogin($arrForm['login_email'], $arrForm['login_pass'])) {
                         if (SC_Display_Ex::detectDevice() === DEVICE_TYPE_MOBILE) {
                             // ログインが成功した場合は携帯端末IDを保存する。
                             $objCustomer->updateMobilePhoneId();
@@ -137,7 +137,7 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex {
                         if (SC_Display_Ex::detectDevice() === DEVICE_TYPE_SMARTPHONE) {
                             echo SC_Utils_Ex::jsonEncode(array('success' => $url));
                         } else {
-                            SC_Response_Ex::sendRedirect($url);
+                             SC_Response_Ex::sendRedirect('http://nakame_ec.localhost/mypage/', array('ci' => SC_Helper_Customer_Ex::sfGetCustomerId($uniqid)));
                         }                        
                         SC_Response_Ex::actionExit();
                     } else {
@@ -147,10 +147,10 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex {
                         // ログイン失敗時に遅延させる
                         sleep(LOGIN_RETRY_INTERVAL);
 
-                        $arrForm['login_name'] = strtolower($arrForm['login_name']);
+                        $arrForm['login_email'] = strtolower($arrForm['login_email']);
                         $objQuery = SC_Query_Ex::getSingletonInstance();
                         $where = '(name01 = ? ) AND status = 2 AND del_flg = 0';
-                        $exists = $objQuery->exists('dtb_customer', $where, array($arrForm['login_name'], $arrForm['login_name']));
+                        $exists = $objQuery->exists('dtb_customer', $where, array($arrForm['login_email'], $arrForm['login_email']));
                         // ログインエラー表示 TODO リファクタリング
                         if ($exists) {
                             if (SC_Display_Ex::detectDevice() === DEVICE_TYPE_SMARTPHONE) {
@@ -220,7 +220,7 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex {
      */
     function lfInitParam(&$objFormParam) {
         $objFormParam->addParam('記憶する', 'login_memory', INT_LEN, 'n', array('MAX_LENGTH_CHECK', 'NUM_CHECK'));
-        $objFormParam->addParam('でログイン', 'login_name', MTEXT_LEN, 'a', array('EXIST_CHECK', 'MAX_LENGTH_CHECK'));
+        $objFormParam->addParam('でログイン', 'login_email', MTEXT_LEN, 'a', array('EXIST_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('パスワード', 'login_pass', PASSWORD_MAX_LEN, '', array('EXIST_CHECK', 'MAX_LENGTH_CHECK'));
     }
 

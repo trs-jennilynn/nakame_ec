@@ -53,6 +53,67 @@
                 <span class='hidden-phone'>メニュー</span>
             <!--{/if}-->
         </div>
+       
         </form>
     </div>
 </div>
+
+<!--{if $tpl_login}-->
+                 <nav id='overlay-nav'>
+        <div id="overlay-nav-content" class="" style="height: 617px;">
+        <span class="overlay-nav-close btn-s btn-red btn-close"><i class="icon">x</i>CLOSE
+        </span>
+        <ul class="account-navs">
+        <li class="account-nav hello-nav">
+        <span class="kerning">
+        Hello!<!--{$tpl_name1|h}-->
+        </span>
+        </li>
+        
+         </ul>
+        <ul class="activities"><li class="activity" style="transform: rotate(12deg) perspective(0px) translate(0px, 0px); opacity: 1;">
+          <a href="/hanasora">
+            <img class="profile-avatar-list" src="https://dp3obxrw75ln8.cloudfront.net/users/avatars/22665.jpg?1411914396">
+          </a>
+        
+        
+        <a href="/hanasora/favorites">
+          <span class="timeago">12日前、</span>
+          hanasoraさん が【Rainbow iPhoneケース】にズッキュンしたよ。
+        </a></li></ul>
+        <div class="hint wow fadeInLeft animated animated" style="visibility: visible;">
+        <p class="hint-content kerning">ジェームス・ブラウン・イズ・デッド。</p>
+        </div>
+        </div>
+    </nav>
+            <!--{else}-->
+                
+                 <nav id='overlay-nav'>
+        <div id="overlay-nav-content" class="" style="height: 617px;">
+        <span class="overlay-nav-close btn-s btn-red btn-close"><i class="icon">x</i>CLOSE
+        </span>
+        <ul class="account-navs">
+        </li>
+                <li class='account-nav'>
+                <a href="http://pepabo.com/company/privacy/" target="_blank"><span class='account-nav-label account-nav-label-s kerning'>
+                プライバシーポリシー
+                </span>
+                </a></li>
+        
+         </ul>
+        <ul class="activities"><li class="activity" style="transform: rotate(12deg) perspective(0px) translate(0px, 0px); opacity: 1;">
+          <a href="/hanasora">
+            <img class="profile-avatar-list" src="https://dp3obxrw75ln8.cloudfront.net/users/avatars/22665.jpg?1411914396">
+          </a>
+        
+        
+        <a href="/hanasora/favorites">
+          <span class="timeago">12日前、</span>
+          hanasoraさん が【Rainbow iPhoneケース】にズッキュンしたよ。
+        </a></li></ul>
+        <div class="hint wow fadeInLeft animated animated" style="visibility: visible;">
+        <p class="hint-content kerning">ジェームス・ブラウン・イズ・デッド。</p>
+        </div>
+        </div>
+    </nav>
+            <!--{/if}-->

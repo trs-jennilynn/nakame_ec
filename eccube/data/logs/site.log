@@ -4,3 +4,5 @@
 2014/10/13 05:15:02 [/entry/index.php] PAGE_DISPLAY_TIME_LOG [3.43sec] from 127.0.0.1
 2014/10/13 15:13:12 [/preview/index.php] access : user=admin auth=0 sid=gp205m4428cp348v1p7qc8o325 from 127.0.0.1
 2014/10/13 19:14:51 [/login/index.php] PAGE_DISPLAY_TIME_LOG [2.42sec] from 127.0.0.1
+2014/10/14 13:46:35 [/index.php] PAGE_DISPLAY_TIME_LOG [5.15sec] from 127.0.0.1
+2014/10/14 13:53:04 [/entry/index.php] PAGE_DISPLAY_TIME_LOG [2.25sec] from 127.0.0.1

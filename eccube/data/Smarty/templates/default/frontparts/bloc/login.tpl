@@ -71,7 +71,7 @@
                                 <div class='signup-forms'>
                                     <div class='form_row mar-b-05'>
                                         <label for="session_name">Name</label>
-                                            <input class="input-text" id="session_name" name="login_name" placeholder="SUZURI ID" type="text" />
+                                            <input class="input-text" id="session_name" name="login_email" placeholder="SUZURI ID" type="text" />
                                     </div>
                                     <div class='form_row'>
                                         <label for="session_password">Password</label>

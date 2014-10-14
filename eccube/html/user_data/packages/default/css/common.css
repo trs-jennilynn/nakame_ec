@@ -496,6 +496,13 @@ div#complete_area .shop_information .name {
 
 /*profile upload items
 ------------------*/
+#container{
+	width:auto !important;
+	background:transparent !important;
+}
+#footer{
+	width:auto !important;
+}
 .side-panel {
     background: white;
     overflow: hidden;
@@ -1246,4 +1253,8 @@ span.btn-blue i{
 }
 #open-cart i img{
     max-width:20px;
+}
+.btn-blue,.btn-blue:hover{
+	color:#fff !important;
+	text-decoration:none !important;
 }
