@@ -107,7 +107,7 @@
             <!--★通常価格★-->
             <!--{if $arrProduct.price01_min_inctax > 0}-->
                 <dl class="normal_price">
-                    <dt><!--{$smarty.const.NORMAL_PRICE_TITLE}-->(税込)：</dt>
+                    <!-- <dt>{$smarty.const.NORMAL_PRICE_TITLE}(税込)：</dt> -->
                     <dd class="price">
                         <span id="price01_default"><!--{strip}-->
                             <!--{if $arrProduct.price01_min_inctax == $arrProduct.price01_max_inctax}-->
@@ -116,7 +116,7 @@
                                 <!--{$arrProduct.price01_min_inctax|number_format}-->～<!--{$arrProduct.price01_max_inctax|number_format}-->
                             <!--{/if}-->
                         </span><span id="price01_dynamic"></span><!--{/strip}-->
-                        円
+                        円<span class="tax">(税込)</span>
                     </dd>
                 </dl>
             <!--{/if}-->
@@ -186,10 +186,13 @@
             </dl>
 
             <!--★詳細メインコメント★-->
-            <div class="main_comment"><!--{$arrProduct.main_comment|nl2br_html}--></div>
+            <div class="comments">
+		                ※価格には消費税 8%が含まれています。<br />
+		                ※送料は全国一律 500円です。
+            </div>
 
             <!--▼買い物かご-->
-
+            
             <div class="cart_area clearfix">
             <input type="hidden" name="mode" value="cart" />
             <input type="hidden" name="product_id" value="<!--{$tpl_product_id}-->" />
@@ -239,16 +242,49 @@
                     </dd>
                 </dl>
 
-                <div class="cartin">
+				<div class="product-info-bottom">
+					<a class="btn-l btn-blue btn-block mar-b-1" href="javascript:void(document.form1.submit())" id="cart-in" target="_self"><i class="icon hidden-phone"></i><span>カートにいれる</span></a>
+					<div class="clearfix mar-b-1">
+					<div class="float-l" id="product-favorites"><button class="favorite-button btn-s btn-red kerning"><i class="icon">♥</i><span>ズッキュン</span></button></div>
+					<div id="widget"><span class="kerning btn-s btn-gray" id="widget-code"><i class="icon"></i><span>サ<span style="letter-spacing:-0.075em">イ</span><span style="letter-spacing:-0.075em">ト</span>で紹介</span></span></div>
+					</div>
+				</div>
+
+				<span class="page_view_count mar-b-1">
+					<span class="mar-r-1"><i class="icon"></i><span>
+					0
+					</span><span class="hidden-phone">views</span></span>
+					<span><i class="icon">♥</i><span>
+					0
+					</span><span class="hidden-phone kerning"><span style="letter-spacing:-0.05em">ズ</span><span style="letter-spacing:-0.075em">ッ</span><span style="letter-spacing:-0.05em">キ</span><span style="letter-spacing:-0.05em">ュ</span>ンズ</span></span>
+				</span>
+				<ul class="share-buttons pad-v-1">
+					<li class="share-button share-button-facebook">
+					<div class="fb-like fb_iframe_widget" data-action="like" data-layout="button_count" data-share="true" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=607713215973051&amp;href=https%3A%2F%2Fsuzuri.jp%2Fshigenowi%2F15752%2Ftote-bag%2Fm%2Fnatural&amp;layout=button_count&amp;locale=ja_JP&amp;sdk=joey&amp;share=true&amp;show_faces=false"><span style="vertical-align: bottom; width: 145px; height: 20px;"><iframe name="f29efb70d" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like Facebook Social Plugin" src="https://www.facebook.com/plugins/like.php?action=like&amp;app_id=607713215973051&amp;channel=https%3A%2F%2Fs-static.ak.facebook.com%2Fconnect%2Fxd_arbiter%2Fw9JKbyW340G.js%3Fversion%3D41%23cb%3Df127cc8c74%26domain%3Dsuzuri.jp%26origin%3Dhttps%253A%252F%252Fsuzuri.jp%252Ff320631198%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fsuzuri.jp%2Fshigenowi%2F15752%2Ftote-bag%2Fm%2Fnatural&amp;layout=button_count&amp;locale=ja_JP&amp;sdk=joey&amp;share=true&amp;show_faces=false" style="border: none; visibility: visible; width: 145px; height: 20px;" class=""></iframe></span></div>
+					</li>
+					<li class="share-button share-button-twitter">
+					<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/tweet_button.2df3b13213b70e6d91180bf64c17db20.ja.html#_=1413359012373&amp;count=horizontal&amp;hashtags=suzurijp&amp;id=twitter-widget-0&amp;lang=ja&amp;original_referer=https%3A%2F%2Fsuzuri.jp%2Fshigenowi%2F15752%2Ftote-bag%2Fm%2Fnatural&amp;size=m&amp;text=%E3%81%A1%E3%81%B0%E3%81%97%E3%81%92%20(%20shigenowi%20)%E3%81%AE%E3%81%BB%E3%82%93%E3%82%92%E3%82%88%E3%82%80%E3%81%AD%E3%81%93%E3%81%95%E3%82%93%E3%83%88%E3%83%BC%E3%83%88%E3%83%90%E3%83%83%E3%82%B0%20%E2%88%9E%20SUZURI&amp;url=https%3A%2F%2Fsuzuri.jp%2Fshigenowi%2F15752%2Ftote-bag%2Fm%2Fnatural" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 140px; height: 20px;"></iframe>
+					</li>
+					<li class="share-button share-button-googleplus">
+					<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1413359012338" name="I0_1413359012338" src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;size=medium&amp;origin=https%3A%2F%2Fsuzuri.jp&amp;url=https%3A%2F%2Fsuzuri.jp%2Fshigenowi%2F15752%2Ftote-bag%2Fm%2Fnatural&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en.jSxyuRxI3vE.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Ft%3Dzcms%2Frs%3DAGLTcCNDfF5korxNCEfrkYGxDfRxT4J3ww#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1413359012338&amp;parent=https%3A%2F%2Fsuzuri.jp&amp;pfname=&amp;rpctoken=31904945" data-gapiattached="true" title="+1"></iframe></div>
+					</li>
+					<li class="share-button share-button-line visible-phone">
+					<a href="line://msg/text/%E3%81%A1%E3%81%B0%E3%81%97%E3%81%92%20%28%20shigenowi%20%29%E3%81%AE%E3%81%BB%E3%82%93%E3%82%92%E3%82%88%E3%82%80%E3%81%AD%E3%81%93%E3%81%95%E3%82%93%E3%83%88%E3%83%BC%E3%83%88%E3%83%90%E3%83%83%E3%82%B0%20%E2%88%9E%20SUZURI%20https%3A%2F%2Fsuzuri.jp%2Fshigenowi%2F15752%2Ftote-bag%2Fm%2Fnatural" target="_self">
+					<img alt="LINEで送る" height="20" src="https://dijsur42hqnz1.cloudfront.net/assets/linebutton_88x20-1fca5bd48632074dc2aa3e5da4276cfe.png" width="82">
+					</a>
+					</li>
+				</ul>
+				<div class="main_comment"><!--{$arrProduct.main_comment|nl2br_html}--></div>
+                <!-- <div class="cartin">
                     <div class="cartin_btn">
                         <div id="cartbtn_default">
-                            <!--★カゴに入れる★-->
+                            ★カゴに入れる★
                             <a href="javascript:void(document.form1.submit())" onmouseover="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_cartin_on.jpg','cart');" onmouseout="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_cartin.jpg','cart');">
-                                <img src="<!--{$TPL_URLPATH}-->img/button/btn_cartin.jpg" alt="カゴに入れる" name="cart" id="cart" /></a>
-                        </div>
+                               <!-- <img src="<!--{$TPL_URLPATH}-->img/button/btn_cartin.jpg" alt="カゴに入れる" name="cart" id="cart" /></a>
+                       <!-- </div>
                     </div>
                 </div>
-                <div class="attention" id="cartbtn_dynamic"></div>
+                <div class="attention" id="cartbtn_dynamic"></div> -->
             <!--{else}-->
                 <div class="attention">申し訳ございませんが、只今品切れ中です。</div>
             <!--{/if}-->
@@ -336,8 +372,7 @@
                         <img src="<!--{$TPL_URLPATH}-->img/button/btn_comment.jpg" alt="新規コメントを書き込む" name="review" id="review" /></a>
                 <!--{/if}-->
             </div>
-        </div>
-
+        
         <!--{if count($arrReview) > 0}-->
             <ul>
                 <!--{section name=cnt loop=$arrReview}-->
@@ -349,7 +384,7 @@
                 <!--{/section}-->
             </ul>
         <!--{/if}-->
-    </div>
+        </div>
     <!--お客様の声ここまで-->
 
     <!--▼関連商品-->

@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+.LC_Page_AbstractMypage div#mypagecolumn{
+	display:none;
+}
+.LC_Page_AbstractMypage #one_maincolumn{
+	padding:0px;
+}

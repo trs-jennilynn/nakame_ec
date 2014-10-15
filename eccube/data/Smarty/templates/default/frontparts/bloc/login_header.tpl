@@ -1,41 +1,4 @@
-<script type="text/javascript">//<![CDATA[
-    $(function(){
-        var $login_email = $('#header_login_area input[name=login_email]');
 
-        if (!$login_email.val()) {
-            $login_email
-                .val('メールアドレス')
-                .css('color', '#AAA');
-        }
-
-        $login_email
-            .focus(function() {
-                if ($(this).val() == 'メールアドレス') {
-                    $(this)
-                        .val('')
-                        .css('color', '#000');
-                }
-            })
-            .blur(function() {
-                if (!$(this).val()) {
-                    $(this)
-                        .val('メールアドレス')
-                        .css('color', '#AAA');
-                }
-            });
-
-        $('#header_login_form').submit(function() {
-            if (!$login_email.val()
-                || $login_email.val() == 'メールアドレス') {
-                if ($('#header_login_area input[name=login_pass]').val()) {
-                    alert('メールアドレス/パスワードを入力して下さい。');
-                }
-                return false;
-            }
-            return true;
-        });
-    });
-//]]></script>
 <div class="block_outer">
     <div id="header_login_area" class="clearfix">
         <form name="header_login_form" id="header_login_form" method="post" action="<!--{$smarty.const.HTTPS_URL}-->frontparts/login_check.php" onsubmit="return fnCheckLogin('header_login_form')">
@@ -57,7 +20,6 @@
         </form>
     </div>
 </div>
-
 <!--{if $tpl_login}-->
                  <nav id='overlay-nav'>
         <div id="overlay-nav-content" class="" style="height: 617px;">
@@ -66,7 +28,7 @@
         <ul class="account-navs">
         <li class="account-nav hello-nav">
         <span class="kerning">
-        Hello!<!--{$tpl_name1|h}-->
+        <a href="<!--{$smarty.const.TOP_URLPATH}-->profile/ndex.php?<!--{$tpl_name1|h}-->">Hello!<!--{$tpl_name1|h}-->
         </span>
         </li>
         

@@ -84,11 +84,11 @@
 
     <!--▼検索条件-->
     <!--{if $tpl_subtitle == "検索結果"}-->
-        <ul class="pagecond_area">
+        <!--<ul class="pagecond_area">
             <li><strong>商品カテゴリ：</strong><!--{$arrSearch.category|h}--></li>
         <!--{if $arrSearch.maker|strlen >= 1}--><li><strong>メーカー：</strong><!--{$arrSearch.maker|h}--></li><!--{/if}-->
             <li><strong>商品名：</strong><!--{$arrSearch.name|h}--></li>
-        </ul>
+        </ul>-->
     <!--{/if}-->
     <!--▲検索条件-->
 
@@ -142,13 +142,16 @@
         <!--{assign var=id value=$arrProduct.product_id}-->
         <!--{assign var=arrErr value=$arrProduct.arrErr}-->
         <!--▼商品-->
-        <form name="product_form<!--{$id|h}-->" action="?" onsubmit="return false;">
+        <form name="product_form<!--{$id|h}-->" action="?" onsubmit="return false;" class="flipInY item wow animated">
         <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
         <div class="list_area clearfix">
             <a name="product<!--{$id|h}-->"></a>
             <div class="listphoto">
+               <div class="selected-badge-list">
+                <img alt="ピックアップサレタヨ！" src="https://dijsur42hqnz1.cloudfront.net/assets/shop/pickup-badge-ff932d7bcbd2d11a8885ac0a0c7b7fab.png">
+               </div>
                 <!--★画像★-->
-                <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->">
+                <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->" class="item-image">
                     <img src="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->" alt="<!--{$arrProduct.name|h}-->" class="picture" /></a>
             </div>
 
@@ -165,24 +168,33 @@
                 <!--{/if}-->
                 <!--▲商品ステータス-->
 
-                <!--★商品名★-->
-                <h3>
-                    <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><!--{$arrProduct.name|h}--></a>
-                </h3>
-                <!--★価格★-->
-                <div class="pricebox sale_price">
-                    <!--{$smarty.const.SALE_PRICE_TITLE}-->(税込)：
-                    <span class="price">
-                        <span id="price02_default_<!--{$id}-->"><!--{strip}-->
-                            <!--{if $arrProduct.price02_min_inctax == $arrProduct.price02_max_inctax}-->
-                                <!--{$arrProduct.price02_min_inctax|number_format}-->
-                            <!--{else}-->
-                                <!--{$arrProduct.price02_min_inctax|number_format}-->～<!--{$arrProduct.price02_max_inctax|number_format}-->
-                            <!--{/if}-->
-                        </span><span id="price02_dynamic_<!--{$id}-->"></span><!--{/strip}-->
-                        円</span>
+                <div class="item-info">
+                    <div class="clearfix">
+                        <div class="float-l">
+                            <!--★商品名★-->
+                            <h3 class="material-title small">
+                                <a class="product-permalink" href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><!--{$arrProduct.name|h}--></a>
+                            </h3>
+                            <!--★価格★-->
+                            <div class="pricebox sale_price">
+                                <a href="/hadashiA" target="_self"><img alt="9" class="profile-avatar-list" src="https://dp3obxrw75ln8.cloudfront.net/users/avatars/9.jpg?1398244153" width="20">hadashiA</a>
+                                <span class="price">
+                                    <span id="price02_default_<!--{$id}-->"><!--{strip}-->
+                                        ¥
+                                        <!--{if $arrProduct.price02_min_inctax == $arrProduct.price02_max_inctax}-->
+                                            <!--{$arrProduct.price02_min_inctax|number_format}-->
+                                        <!--{else}-->
+                                            <!--{$arrProduct.price02_min_inctax|number_format}-->～<!--{$arrProduct.price02_max_inctax|number_format}-->
+                                        <!--{/if}-->
+                                    </span><span id="price02_dynamic_<!--{$id}-->"></span><!--{/strip}-->
+                                </span>
+                            </div>
+                        </div>
+                        <div class="float-r pad-t-05">
+                            <button class="btn btn-trans favorite-button"><i class="icon text-red">♥</i><span class="favorites-count">0</span></button>
+                        </div>
+                    </div>
                 </div>
-
                 <!--★コメント★-->
                 <div class="listcomment"><!--{$arrProduct.main_list_comment|h|nl2br}--></div>
 

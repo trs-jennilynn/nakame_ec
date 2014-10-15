@@ -1,7 +1,7 @@
 @charset "utf-8";
 
-.LC_Page_Products_Detail{
-	background: #d9fb3a;
+.LC_Page_Products_Detail body{
+	background: #bf9f5e;
 }
 .LC_Page_Products_Detail #container{
 	background:none;
@@ -191,3 +191,44 @@
 .LC_Page_Products_Detail .btn-blue .hidden-phone{
 	padding:0 0.1em 0 0;
 }
+.LC_Page_Products_Detail #detailrightbloc h2,
+.LC_Page_Products_Detail #detailrightbloc .product_code,
+.LC_Page_Products_Detail .sale_price,
+.LC_Page_Products_Detail .relative_cat,
+.LC_Page_Products_Detail #customervoice_area h2,
+.LC_Page_Products_Detail #customervoice_area .review_bloc,
+.LC_Page_Products_Detail #whobought_area .product_item h3,
+.LC_Page_Products_Detail #whobought_area .product_item p,
+.LC_Page_Products_Detail #detailrightbloc .point{
+	display:none;
+}
+.LC_Page_Products_Detail div#topcolumn{
+	width:auto;
+	background:transparent;
+	color:#fff;
+}
+.LC_Page_Products_Detail div#topcolumn .bread a{
+	color:#fff;
+}
+.LC_Page_Products_Detail #detailrightbloc .main_comment{
+	float: left;
+	width: 100%;
+}
+.LC_Page_Products_Detail #whobought_area .product_item{
+	float:none;
+	background:none;
+}
+.LC_Page_Products_Detail #whobought_area .product_item .productImage{
+	float:none;
+}
+.LC_Page_Products_Detail #one_maincolumn div#detailphotobloc{
+	width: 55%;
+}
+.LC_Page_Products_Detail #one_maincolumn #detailrightbloc{
+	width: 40%;
+	margin-right: 35px;
+	padding-top: 45px;
+}
+.LC_Page_Products_Detail 
+.LC_Page_Products_Detail 
+.LC_Page_Products_Detail 

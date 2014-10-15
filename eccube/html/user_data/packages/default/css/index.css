@@ -22,7 +22,7 @@
 	line-height: 1.5em;
 }
 .header{
-	position: relative;
+	position: relative !important;
 }
 #container{
 	padding:0px;

@@ -52,8 +52,7 @@
     <!--{/if}-->
     <!--{* ▲HEADER *}-->
 
-    <div id="container" class="clearfix">
-
+    <div id="container" class="clearfix">  
         <!--{* ▼TOP COLUMN*}-->
         <!--{if $arrPageLayout.TopNavi|@count > 0}-->
             <div id="topcolumn">

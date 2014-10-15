@@ -11,7 +11,7 @@ body.controller-products.action-by_item .shop {
 	margin: 0 2em 0 0;
 	padding: 1em 0;
 }
-.LC_Page_Products_List{
+.LC_Page_Products_List body{
 	background: #f3c71f;
 }
 .LC_Page_Products_List #container{
@@ -29,7 +29,7 @@ body.controller-products.action-by_item .shop {
 	padding-top: 50px;
 }
 .LC_Page_Products_List a {
-	color: white;
+	/* color: white; */
 	text-decoration: none;
 }
 .LC_Page_Products_List a:hover {
@@ -42,3 +42,69 @@ body.controller-products.action-by_item .shop {
 	vertical-align:0em !important;
 	font-size:1.5em !important;
 }
+.LC_Page_Products_List #undercolumn .title,
+.LC_Page_Products_List #undercolumn div:nth-child(3),
+.LC_Page_Products_List .pagenumber_area,
+.LC_Page_Products_List .list_area .cart_area,
+.LC_Page_Products_List .list_area .status_icon,
+.LC_Page_Products_List .detail_btn,
+.LC_Page_Products_List div.listrightbloc .listcomment,
+.LC_Page_Products_List div#topcolumn h2{
+	display:none;
+}
+
+.LC_Page_Products_List .listrightbloc{
+	display:block !important;
+	width:100% !important;
+}
+.LC_Page_Products_List #undercolumn form{
+	display: inline-block;
+	float: left;
+}
+.LC_Page_Products_List div.list_area,
+.LC_Page_Products_List div#topcolumn{
+	width:auto;
+}
+.LC_Page_Products_List div.listphoto,
+.LC_Page_Products_List .listrightbloc{
+	float:none !important;
+}
+.LC_Page_Products_List div.listrightbloc h3{
+	font-size:66%;
+}
+.LC_Page_Products_List div.listrightbloc h3 a{
+	color:#000;
+}
+.LC_Page_Products_List div#topcolumn #category_area li.level1 p,
+.LC_Page_Products_List div#topcolumn{
+	background:none;
+}
+.LC_Page_Products_List div#topcolumn #category_area .block_body{
+	background-color:transparent;
+}
+.LC_Page_Products_List div#topcolumn #category_area li.level1{
+	border:0px;
+	display: inline-block;
+	font-size: 172%;
+	margin: 0 2em 0 0;
+	padding: 1em 0;
+	font-weight: bold;
+}
+.LC_Page_Products_List div.listphoto{
+	position: relative;
+	display: table;
+	padding-bottom: 12px;
+}
+.LC_Page_Products_List div.list_area{
+	padding:0px;
+	overflow:hidden;
+}
+.LC_Page_Products_List .picture{
+	border:0px;
+}
+.LC_Page_Products_List div.listrightbloc .text-red{
+	font-size:2em;
+}
+.LC_Page_Products_List
+.LC_Page_Products_List
+

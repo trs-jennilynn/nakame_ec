@@ -141,3 +141,41 @@
 2014/10/14 19:26:58 [/admin/design/index.php] access : user=admin auth=0 sid=ont9kejc24ugdrvsl0k5lb9b61 from 127.0.0.1
 2014/10/14 19:27:16 [/admin/design/index.php] access : user=admin auth=0 sid=ont9kejc24ugdrvsl0k5lb9b61 from 127.0.0.1
 2014/10/14 19:27:16 [/admin/design/index.php] access : user=admin auth=0 sid=ont9kejc24ugdrvsl0k5lb9b61 from 127.0.0.1
+2014/10/15 11:23:26 [/admin/index.php] access error. from 127.0.0.1
+2014/10/15 11:23:27 [/admin/index.php] login: user=admin(2) auth=0 lastlogin=2014-10-14 13:53:25 sid= from 127.0.0.1
+2014/10/15 11:23:27 [/admin/home.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 11:23:55 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 11:25:57 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 11:25:57 [/admin/design/main_edit.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 11:26:48 [/admin/design/main_edit.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 11:26:52 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 12:40:40 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 12:40:40 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 12:51:11 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 12:51:11 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 13:00:57 [/admin/products/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 13:00:59 [/admin/products/product.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 13:01:22 [/admin/products/category.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:05:34 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:05:39 [/admin/design/main_edit.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:05:44 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:05:51 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:05:51 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:18:01 [/admin/design/bloc.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:18:19 [/admin/design/bloc.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:18:20 [/admin/design/bloc.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:18:23 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:18:27 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:18:40 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 15:18:40 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 17:53:53 [/admin/design/main_edit.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 17:53:57 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 19:10:34 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 19:10:45 [/admin/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 19:10:45 [/admin/index.php] login: user=admin(2) auth=0 lastlogin=2014-10-15 11:23:27 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 19:10:46 [/admin/home.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 19:10:52 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 19:10:55 [/admin/design/index.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 19:10:55 [/admin/design/main_edit.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 19:11:23 [/admin/design/main_edit.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1
+2014/10/15 19:11:23 [/admin/design/main_edit.php] access : user=admin auth=0 sid=v5m6nnq124ge7ak974g1fj5j57 from 127.0.0.1

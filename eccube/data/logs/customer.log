@@ -50,3 +50,6 @@
 2014/10/14 19:16:10 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
 2014/10/14 19:26:05 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
 2014/10/14 20:00:19 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/15 17:44:00 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/15 18:16:32 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/15 18:19:45 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1

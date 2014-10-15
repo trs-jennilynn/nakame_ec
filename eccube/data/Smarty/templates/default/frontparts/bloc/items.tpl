@@ -466,7 +466,7 @@
 </div>
 <div style="display:none"></div>
 <div id="readmore">
-<a class="btn-l btn-darken btn-block" href="/selections" target="_self"><i class="icon">✈</i>もっと見たい
+<a class="btn-l btn-darken btn-block" href="/products/list.php" target="_self"><i class="icon">✈</i>もっと見たい
 </a></div>
 </div>
 <!--{/strip}-->
