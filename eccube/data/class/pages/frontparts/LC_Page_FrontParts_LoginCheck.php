@@ -200,7 +200,6 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex {
             default:
                 break;
         }
-
     }
 
     /**

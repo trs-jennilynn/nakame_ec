@@ -90,6 +90,77 @@
             <!--{* ▲HeaderInternal COLUMN*}-->
             </div>
                 </span></li></ul>
+                  <nav id='overlay-nav'>
+        <div id="overlay-nav-content" class="" style="height: 617px;">
+        <span class="overlay-nav-close btn-s btn-red btn-close"><i class="icon">x</i>CLOSE
+        </span>
+        <ul class="account-navs">
+        </li>
+                <li class='account-nav'>
+                <a href="/signup"><span class='account-nav-label account-nav-label-m kerning'>
+                ユーザー登録
+                </span>
+                </a></li>
+                <li class='account-nav'>
+                <a href="/login"><span class='account-nav-label account-nav-label-m kerning'>
+                ログイン
+                </span>
+                </a></li>
+                <li class='account-nav'>
+                <a href="/products/list.php"><span class='account-nav-label account-nav-label-m kerning'>
+                商品を探してまわる
+                </span>
+                </a></li>
+                <li class='account-nav'>
+                <a href="https://twitter.com/suzurijp" target="_blank"><span class='account-nav-label account-nav-label-s kerning'><i class='icon'>&#62217;</i>Twitter
+                </span>
+                </a></li>
+                <li class='account-nav'>
+                <a href="https://note.mu/suzurijp" target="_blank"><span class='account-nav-label account-nav-label-s kerning'>
+                お役立ち情報を読む
+                </span>
+                </a></li>
+                <li class='account-nav'>
+                <a data-no-turbolink="true" href="jingu/kunshika.html"><span class='account-nav-label account-nav-label-s kerning'>
+                神宮に詣でる
+                </span>
+                </a></li>
+                <li class='account-nav'>
+                <a href="mailto:support@suzuri.jp?body=%E3%80%8C%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A8%E3%81%86%E3%81%94%E3%81%96%E3%81%84%E3%81%BE%E3%81%99%E3%80%82SUZURI%20%E3%81%A7%E3%81%99%E3%80%82%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%86%85%E5%AE%B9%E3%80%81%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AE%E7%92%B0%E5%A2%83%E3%81%AA%E3%81%A9%E3%82%92%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%A0%E3%81%91%E8%A9%B3%E3%81%97%E3%81%8F%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%80%8DSUZURI%20by%20GMO%20Pepabo%2Cinc.&amp;subject=%5BSUZURI%5D%20%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"><span class='account-nav-label account-nav-label-s kerning'>
+                お問い合わせ
+                </span>
+                </a></li>
+                <li class='account-nav'>
+                <a href="<!--{$smarty.const.HTTP_URL}-->entry/kiyaku.php"><span class='account-nav-label account-nav-label-s kerning'>
+                会員規約
+                </span>
+                </a><span>・</span><a href="<!--{$smarty.const.HTTP_URL}-->order"><span class='account-nav-label account-nav-label-s kerning'>
+                特定商取引法に基づく表記
+                </span>
+                </a></li>
+                <li class='account-nav'>
+                <a href="http://pepabo.com/company/privacy/" target="_blank"><span class='account-nav-label account-nav-label-s kerning'>
+                プライバシーポリシー
+                </span>
+                </a></li>
+        
+         </ul>
+        <ul class="activities"><li class="activity" style="transform: rotate(12deg) perspective(0px) translate(0px, 0px); opacity: 1;">
+          <a href="/hanasora">
+            <img class="profile-avatar-list" src="https://dp3obxrw75ln8.cloudfront.net/users/avatars/22665.jpg?1411914396">
+          </a>
+        
+        
+        <a href="/hanasora/favorites">
+          <span class="timeago">12日前、</span>
+          hanasoraさん が【Rainbow iPhoneケース】にズッキュンしたよ。
+        </a></li></ul>
+        <div class="hint wow fadeInLeft animated animated" style="visibility: visible;">
+        <p class="hint-content kerning">ジェームス・ブラウン・イズ・デッド。</p>
+        </div>
+        </div>
+    </nav>
+                
             </div>
         </header>
 <!--▲HEADER-->

@@ -49,45 +49,56 @@
 	background-color: #006aa2;
 }
 
-
-.LC_Page_Login body{
+/**login**/
+.LC_Page_Login body,
+.LC_Page_Materials .materials_login,
+.LC_Page_Materials_New body,
+.LC_Page_Orders body{
 	background: #474a4d;
 	background-size: cover;
 }
-.LC_Page_Login #container{
+.LC_Page_Login #container,
+.LC_Page_Materials #container,
+.LC_Page_Materials_New #container,
+.LC_Page_Orders #container{
 	background:transparent;
 	width:auto;
 }
-.LC_Page_Login .main_column{
+.LC_Page_Login .main_column,
+.LC_Page_Materials .main_column,
+.LC_Page_Materials_New .main_column,
+.LC_Page_Orders .main_column{
 	padding:0px;
 }
-.LC_Page_Login #container div#login_area .block_body{
+#container div#login_area .block_body{
 	padding:0px;
 	background-color:transparent;
 	border:0px;
 }
-.LC_Page_Login .form-container h1{
+.form-container h1{
 	text-align: center;
 }
-.LC_Page_Login #one_maincolumn{
+#one_maincolumn{
 	width:auto;
 }
-.LC_Page_Login .pad-v-1 {
+.pad-v-1 {
 	padding-top: 2em;
 	padding-bottom: 1.5em;
 }
-.LC_Page_Login .login-sns-buttons,
-.LC_Page_Login .signup-forms{
+.login-sns-buttons,
+.signup-forms{
 	padding:0 15px;
 }
-.LC_Page_Login .signup-sns a{
+.signup-sns a{
 	color:#fff;
 }
-.LC_Page_Login .signup-id,.LC_Page_Login .small{
+.signup-id,.small{
 	text-align:center;
 }
-.LC_Page_Login #container div#login_area .block_body p{
+#container div#login_area .block_body p{
 	margin-bottom: 15px;
 }
-.LC_Page_Login
-.LC_Page_Login
+.logout input{
+	background-color: transparent;
+	color: #fff;
+}

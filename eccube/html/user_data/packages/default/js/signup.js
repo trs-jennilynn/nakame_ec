@@ -1,7 +1,16 @@
+jQuery( function(){
+	
+	$("#edit-profile").click(function(){
+		$("#user-profile-editor").show();
+	});
+	
+	$(".btn-editor-close").click(function(){
+		$("#user-profile-editor").hide();
+	});
+});
+
+
 var typing = function(){
-	
-	
-	
 	$(".signup-forms").find(".form_row:nth-child(1)").find(".input-text").keyup(function(e){
 		if (event.keyCode == 8 || event.keyCode == 46) {
 			if($(".signup-forms").find(".form_row:nth-child(1)").find(".input-text").val().length = 0){
@@ -101,4 +110,5 @@ $(document).ready(function(){
 	var a = typing();
 	var b = submit();
 });
+
 
