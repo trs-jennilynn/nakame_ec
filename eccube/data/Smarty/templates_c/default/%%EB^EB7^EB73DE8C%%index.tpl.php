@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2014-10-16 20:05:37
+<?php /* Smarty version 2.6.26, created on 2014-10-17 19:23:08
          compiled from C:%5Cxampp%5Chtdocs%5Cnakame_ec%5Ceccube%5Chtml/../data/Smarty/templates/default/mypage/index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'script_escape', 'C:\\xampp\\htdocs\\nakame_ec\\eccube\\html/../data/Smarty/templates/default/mypage/index.tpl', 24, false),array('modifier', 'h', 'C:\\xampp\\htdocs\\nakame_ec\\eccube\\html/../data/Smarty/templates/default/mypage/index.tpl', 26, false),array('modifier', 'sfDispDBDate', 'C:\\xampp\\htdocs\\nakame_ec\\eccube\\html/../data/Smarty/templates/default/mypage/index.tpl', 61, false),array('modifier', 'number_format', 'C:\\xampp\\htdocs\\nakame_ec\\eccube\\html/../data/Smarty/templates/default/mypage/index.tpl', 65, false),)), $this); ?>
@@ -130,17 +130,21 @@ img/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" />
                     <p class="user-profile profile-text wow fadeIn align-center animated animated" style="visibility: visible;"></p>
                     <a class="btn-s btn-graydark link-white mar-t-1" href="#" id="edit-profile" target="_self"><i class="icon">✎</i>プロフィールを編集</a>
                 </div>
+                <form name="prof_save" method="post" action="?">
                 <div id="user-profile-editor" style="display:none">
                     <div class="header-form mar-b-1">
-                        <input class="input-large tooltipstered" id="user-displayName" name="user[displayName]" placeholder="名前" type="text" value="">
+                        <input class="input-large tooltipstered" id="user-displayName" name="userdisplayName" placeholder="名前" type="text" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['tpl_name02']/$this->_tpl_vars[''])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
+">
                     </div>
                     <ul class="profile-links mar-b-1">
                         <li class="profile-url header-form">
-                        <input class="input-large tooltipstered" id="user-profile-url" name="user[profile][url]" placeholder="WebサイトのURL" type="text" value="">
+                        <input class="input-large tooltipstered" id="user-profile-url" name="userprofileurl" placeholder="WebサイトのURL" type="text" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['tpl_kana01']/$this->_tpl_vars[''])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
+">
                         </li>
                     </ul>
                     <div class="header-form mar-b-1">
-                        <textarea class="textarea input-normal tooltipstered" id="user-profile-body" name="user[profile][body]" placeholder="プロフィール"></textarea>
+                        <textarea class="textarea input-normal tooltipstered" id="user-profile-body" name="userprofilebody" placeholder="プロフィール" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['tpl_kana02']/$this->_tpl_vars[''])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
+"></textarea>
                     </div>
                     <a class="btn-s btn-graydark btn-editor-close link-white" id="open-profile" href="#" target="_self">
                                                          キャンセル
@@ -150,6 +154,7 @@ img/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" />
                         &nbsp;
                     </a>
                 </div>
+                </form>
             </div>
           </div>
       </div>

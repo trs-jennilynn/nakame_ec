@@ -101,17 +101,18 @@
                     <p class="user-profile profile-text wow fadeIn align-center animated animated" style="visibility: visible;"></p>
                     <a class="btn-s btn-graydark link-white mar-t-1" href="#" id="edit-profile" target="_self"><i class="icon">✎</i>プロフィールを編集</a>
                 </div>
+                <form name="prof_save" method="post" action="?">
                 <div id="user-profile-editor" style="display:none">
                     <div class="header-form mar-b-1">
-                        <input class="input-large tooltipstered" id="user-displayName" name="user[displayName]" placeholder="名前" type="text" value="">
+                        <input class="input-large tooltipstered" id="user-displayName" name="userdisplayName" placeholder="名前" type="text" value="<!--{$tpl_name02/h}-->">
                     </div>
                     <ul class="profile-links mar-b-1">
                         <li class="profile-url header-form">
-                        <input class="input-large tooltipstered" id="user-profile-url" name="user[profile][url]" placeholder="WebサイトのURL" type="text" value="">
+                        <input class="input-large tooltipstered" id="user-profile-url" name="userprofileurl" placeholder="WebサイトのURL" type="text" value="<!--{$tpl_kana01/h}-->">
                         </li>
                     </ul>
                     <div class="header-form mar-b-1">
-                        <textarea class="textarea input-normal tooltipstered" id="user-profile-body" name="user[profile][body]" placeholder="プロフィール"></textarea>
+                        <textarea class="textarea input-normal tooltipstered" id="user-profile-body" name="userprofilebody" placeholder="プロフィール" value="<!--{$tpl_kana02/h}-->"></textarea>
                     </div>
                     <a class="btn-s btn-graydark btn-editor-close link-white" id="open-profile" href="#" target="_self">
                                                          キャンセル
@@ -121,6 +122,7 @@
                         &nbsp;
                     </a>
                 </div>
+                </form>
             </div>
           </div>
       </div>

@@ -70,3 +70,16 @@
 2014/10/16 19:46:11 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
 2014/10/16 19:49:17 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
 2014/10/16 20:04:43 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 11:59:20 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 12:00:17 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 12:01:34 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 12:06:55 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 12:31:35 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 12:31:41 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 12:32:57 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 12:33:01 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 12:34:24 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 12:39:18 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 12:39:52 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 15:27:00 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/17 16:32:04 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1

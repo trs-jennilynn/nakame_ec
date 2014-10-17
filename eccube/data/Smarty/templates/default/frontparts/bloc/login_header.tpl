@@ -1,4 +1,3 @@
-
 <div class="block_outer">
     <div id="header_login_area" class="clearfix">
         <form name="header_login_form" id="header_login_form" method="post" action="<!--{$smarty.const.HTTPS_URL}-->frontparts/login_check.php" onsubmit="return fnCheckLogin('header_login_form')">
@@ -23,7 +22,7 @@
 					        </span>
 					        </li>
 					        <li class="account-nav">
-					        <a data-no-turbolink="true" href="/materials/new" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
+					        <a data-no-turbolink="true" href="/mypage/materials/new" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
 					        <span style="letter-spacing:-0.05em">グ</span><span style="letter-spacing:-0.075em">ッ</span>ズを作る
 					        </span>
 					        </a></li>
@@ -114,6 +113,3 @@
         </form>
     </div>
 </div>
-
-                
-                

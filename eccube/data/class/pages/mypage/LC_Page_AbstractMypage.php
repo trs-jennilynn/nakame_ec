@@ -95,6 +95,8 @@ class LC_Page_AbstractMypage extends LC_Page_Ex {
 
 
         $this->sendResponse();
+        
+        
     }
 
     /**

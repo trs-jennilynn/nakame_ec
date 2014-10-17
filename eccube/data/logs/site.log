@@ -11,3 +11,8 @@
 2014/10/16 11:29:11 [/index.php] PAGE_DISPLAY_TIME_LOG [2.32sec] from 127.0.0.1
 2014/10/16 11:30:45 [/materials/index.php] PAGE_DISPLAY_TIME_LOG [3.99sec] from 127.0.0.1
 2014/10/16 11:30:45 [/materials/index.php] PAGE_DISPLAY_TIME_LOG [2.01sec] from 127.0.0.1
+2014/10/17 11:28:04 [/index.php] PAGE_DISPLAY_TIME_LOG [4.62sec] from 127.0.0.1
+2014/10/17 11:28:04 [/index.php] PAGE_DISPLAY_TIME_LOG [3.02sec] from 127.0.0.1
+2014/10/17 11:28:04 [/index.php] PAGE_DISPLAY_TIME_LOG [2.40sec] from 127.0.0.1
+2014/10/17 16:32:56 [/shopping/confirm.php] order complete. order_id=1 from 127.0.0.1
+2014/10/17 16:32:58 [/shopping/confirm.php] PAGE_DISPLAY_TIME_LOG [3.38sec] from 127.0.0.1

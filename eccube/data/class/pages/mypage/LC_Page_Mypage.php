@@ -34,9 +34,13 @@ require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.p
 class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
 
     // {{{ properties
-
+	
     /** ページナンバー */
     var $tpl_pageno;
+    
+    /* var $name = $_POST['user-[displayname]'];
+    var $profile = $_POST['user[profile][url]'];
+    var $body = $_POST['user[profile][body]']; */
 
     // }}}
     // {{{ functions
@@ -79,6 +83,7 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
         $objCustomer = new SC_Customer_Ex();
         $customer_id = $objCustomer->getvalue('customer_id');
 
+        $this->tpl_login=true;
         //ページ送り用
         $this->objNavi = new SC_PageNavi_Ex($_REQUEST['pageno'],
                                             $this->lfGetOrderHistory($customer_id),
@@ -102,6 +107,22 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
         $this->arrPayment = SC_Helper_DB_Ex::sfGetIDValueList('dtb_payment', 'payment_id', 'payment_method');
         // 1ページあたりの件数
         $this->dispNumber = SEARCH_PMAX;
+        
+        $objFormParam = new SC_FormParam_Ex();
+     	
+        
+        /* if($arrForm['prof_save']){
+        	$name=$arrForm['userdisplayName'];
+        	$profile=$arrForm['userprofileurl'];
+        	$profbody=$arrForm['userprofilebody'];
+        	
+        	$objQuery =& SC_Query_Ex::getSingletonInstance();
+        	$result = $objQuery->query('INSERT INTO dtb_customer (name02, kana01, kana02) VALUES (?, ?)', array($name, $profile, $profbody));
+        	//$query = "update dtb_customer set name02='$name',kana01='$profile',kana02='$profbody' where customer_id='$customer_id'";
+        	//$result=$objQuery->select($query);
+        	
+        	return $result;
+        } */
     }
 
     /**
@@ -141,4 +162,6 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
         //購入履歴の取得
         return $objQuery->select($col, $from, $where, $arrWhereVal);
     }
+    
+    
 }

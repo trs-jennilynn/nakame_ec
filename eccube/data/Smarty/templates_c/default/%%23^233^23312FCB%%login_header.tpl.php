@@ -1,8 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2014-10-16 19:27:18
+<?php /* Smarty version 2.6.26, created on 2014-10-17 13:19:39
          compiled from C:%5Cxampp%5Chtdocs%5Cnakame_ec%5Ceccube%5Chtml/../data/Smarty/templates/default/frontparts/bloc/login_header.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'script_escape', 'C:\\xampp\\htdocs\\nakame_ec\\eccube\\html/../data/Smarty/templates/default/frontparts/bloc/login_header.tpl', 4, false),array('modifier', 'h', 'C:\\xampp\\htdocs\\nakame_ec\\eccube\\html/../data/Smarty/templates/default/frontparts/bloc/login_header.tpl', 7, false),)), $this); ?>
-
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'script_escape', 'C:\\xampp\\htdocs\\nakame_ec\\eccube\\html/../data/Smarty/templates/default/frontparts/bloc/login_header.tpl', 3, false),array('modifier', 'h', 'C:\\xampp\\htdocs\\nakame_ec\\eccube\\html/../data/Smarty/templates/default/frontparts/bloc/login_header.tpl', 6, false),)), $this); ?>
 <div class="block_outer">
     <div id="header_login_area" class="clearfix">
         <form name="header_login_form" id="header_login_form" method="post" action="<?php echo ((is_array($_tmp=@HTTPS_URL)) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
@@ -33,7 +32,7 @@ frontparts/login_check.php" onsubmit="return fnCheckLogin('header_login_form')">
 					        </span>
 					        </li>
 					        <li class="account-nav">
-					        <a data-no-turbolink="true" href="/materials/new" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
+					        <a data-no-turbolink="true" href="/mypage/materials/new" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
 					        <span style="letter-spacing:-0.05em">グ</span><span style="letter-spacing:-0.075em">ッ</span>ズを作る
 					        </span>
 					        </a></li>
@@ -128,6 +127,3 @@ order" target="_self"><span class="account-nav-label account-nav-label-s kerning
         </form>
     </div>
 </div>
-
-                
-                
