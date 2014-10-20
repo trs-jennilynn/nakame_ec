@@ -19,7 +19,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *}-->
-
+<!--{if !$isLogin}-->
+<div class="signup-header">
+<a class="btn-block btn-s btn-black pad-v-05" href="/signup" target="_self"><span class="kerning bold">
+無料ユーザー登録で<br class="visible-phone"><span style="letter-spacing:-0.075em">作</span><span style="letter-spacing:-0.075em">っ</span>た<span style="letter-spacing:-0.05em">グ</span><span style="letter-spacing:-0.075em">ッ</span>ズが作れる<span style="letter-spacing:-0.25em">。</span>売れる<span style="letter-spacing:-0.25em">。</span>
+</span>
+</a></div>
+<!--{/if}-->
 <script type="text/javascript">//<![CDATA[
     $(function(){
         $('#category_area li.level1:last').css('border-bottom', 'none');

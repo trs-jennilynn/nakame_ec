@@ -69,27 +69,35 @@
                 <a href="<!--{$smarty.const.TOP_URLPATH}-->"><img alt="SUZURI by GMOペパボ" class="header-logo hidden-phone" src="https://dijsur42hqnz1.cloudfront.net/assets/common/suzuri_by_gmopepabo-ac9967b6b53adef0f189f950e33e56a0.svg" />
                 <img alt="SUZURI by GMOペパボ" class="header-logo visible-phone" src="https://dijsur42hqnz1.cloudfront.net/assets/common/suzuri_by_gmopepabo_sp-196b7335cf5d2bbf4f7c028b7b7d5bea.svg" />
                 </a></div>
-                <ul class='header-navs'><li class='header-nav'><span class='btn-s btn-yellow' id='open-cart'><i class='icon'><img class="hover_change_image" src="<!--{$TPL_URLPATH}-->img/common/cart.png" alt="カゴの中を見る" /></i><span id='nav-cart-count'>
-                0</span>
-                </span></li><li class='header-nav overlay-nav-open'><span class='btn-s btn-blue'><i class='icon'>&#9776;</i>
-                    <div id="headerInternalColumn">
-            <!--{* ▼HeaderInternal COLUMN*}-->
-            <!--{if $arrPageLayout.HeaderInternalNavi|@count > 0}-->
-                <!--{* ▼上ナビ *}-->
-                <!--{foreach key=HeaderInternalNaviKey item=HeaderInternalNaviItem from=$arrPageLayout.HeaderInternalNavi}-->
-                    <!-- ▼<!--{$HeaderInternalNaviItem.bloc_name}--> -->
-                    <!--{if $HeaderInternalNaviItem.php_path != ""}-->
-                        <!--{include_php file=$HeaderInternalNaviItem.php_path items=$HeaderInternalNaviItem}-->
-                    <!--{else}-->
-                        <!--{include file=$HeaderInternalNaviItem.tpl_path items=$HeaderInternalNaviItem}-->
-                    <!--{/if}-->
-                    <!-- ▲<!--{$HeaderInternalNaviItem.bloc_name}--> -->
-                <!--{/foreach}-->
-                <!--{* ▲上ナビ *}-->
-            <!--{/if}-->
-            <!--{* ▲HeaderInternal COLUMN*}-->
-            </div>
-                </span></li></ul>
+                <ul class='header-navs'>
+                    <li class='header-nav'>
+	                    <span class='btn-s btn-yellow' id='open-cart'>
+	                       <i class='icon'><img class="hover_change_image" src="<!--{$TPL_URLPATH}-->img/common/cart.png" alt="カゴの中を見る" /></i>
+	                        <span id='nav-cart-count'>0</span>
+	                    </span>
+                    </li>
+	                <li class='header-nav overlay-nav-open'>
+	                    <span class='btn-s btn-blue'><i class='icon'>&#9776;</i>
+		                    <div id="headerInternalColumn">
+				            <!--{* ▼HeaderInternal COLUMN*}-->
+				            <!--{if $arrPageLayout.HeaderInternalNavi|@count > 0}-->
+				                <!--{* ▼上ナビ *}-->
+				                <!--{foreach key=HeaderInternalNaviKey item=HeaderInternalNaviItem from=$arrPageLayout.HeaderInternalNavi}-->
+				                    <!-- ▼<!--{$HeaderInternalNaviItem.bloc_name}--> -->
+				                    <!--{if $HeaderInternalNaviItem.php_path != ""}-->
+				                        <!--{include_php file=$HeaderInternalNaviItem.php_path items=$HeaderInternalNaviItem}-->
+				                    <!--{else}-->
+				                        <!--{include file=$HeaderInternalNaviItem.tpl_path items=$HeaderInternalNaviItem}-->
+				                    <!--{/if}-->
+				                    <!-- ▲<!--{$HeaderInternalNaviItem.bloc_name}--> -->
+				                <!--{/foreach}-->
+				                <!--{* ▲上ナビ *}-->
+				            <!--{/if}-->
+				            <!--{* ▲HeaderInternal COLUMN*}-->
+				            </div>
+	                    </span>
+	                </li>
+	            </ul>
                   <nav id='overlay-nav'>
         <div id="overlay-nav-content" class="" style="height: 617px;">
         <span class="overlay-nav-close btn-s btn-red btn-close"><i class="icon">x</i>CLOSE
@@ -97,12 +105,12 @@
         <ul class="account-navs">
         </li>
                 <li class='account-nav'>
-                <a href="/signup"><span class='account-nav-label account-nav-label-m kerning'>
+                <a href="signup" target="_self"><span class='account-nav-label account-nav-label-m kerning'>
                 ユーザー登録
                 </span>
                 </a></li>
                 <li class='account-nav'>
-                <a href="/login"><span class='account-nav-label account-nav-label-m kerning'>
+                <a href="login" target="_self"><span class='account-nav-label account-nav-label-m kerning'>
                 ログイン
                 </span>
                 </a></li>

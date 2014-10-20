@@ -18,6 +18,7 @@ class LC_Page_Login extends LC_Page_Ex {
      */
     function init() {
         parent::init();
+       
     }
 
     /**
@@ -27,8 +28,8 @@ class LC_Page_Login extends LC_Page_Ex {
      */
     function process() {
         parent::process();
-        $this->action();
-        $this->sendResponse();
+    	 
+    	$this->sendResponse();
     }
 
     /**
@@ -37,6 +38,7 @@ class LC_Page_Login extends LC_Page_Ex {
      * @return void
      */
     function action() {
+    	
     }
 
     /**

@@ -3,6 +3,10 @@
 .LC_Page_Profile .signup-header, .notification-header{
 	top:2em;
 }
+.LC_Page_Profile body{
+	background: #ede4cd;
+}
+
 .LC_Page_AbstractMypage .signup-header a:hover,
 .LC_Page_AbstractMypage .btn-graydark:hover,
 .LC_Page_AbstractMypage .needsclick:hover{

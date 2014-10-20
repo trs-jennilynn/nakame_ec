@@ -21,136 +21,155 @@
  *}-->
 
 <!--{strip}-->
-    <div class='signup-header'>
-        <a class="btn-block btn-s btn-black pad-v-05" href="signup.html"><span class='kerning bold'>
-        無料ユーザー登録で<br class='visible-phone'>作ったグッズが作れる。売れる。
-        </span>
-        </a>
-     </div>
-     
-     <div class="profile-wrapper section section-random crossorigin" data-profile="{&quot;url&quot;:null,&quot;body&quot;:null,&quot;userId&quot;:22795,&quot;headerUrl&quot;:null}" data-src="" id="header-dropzone" style="">
-       <a class="edit-header-icon needsclick" href="#" target="_self"><i class="icon needsclick">✎</i><div class="header-progress"></div></a>
-       <input id="user-profile-header" name="user[profile][header]" style="display:none" type="file">
-        <div class='container'>
-            <div class='profile-content'>
-                <img alt="Icon default" class="profile-avatar wow flipInY" src="<!--{$TPL_URLPATH}-->img/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" />
-                <a class="edit-avatar-icon needsclick" href="#" target="_self"><i class="icon needsclick">✎</i></a>
-                <div class="avatar-progress"></div>
-                <div class='text-shadow' id='user-profile-shown'>
-                    <h1 class='wow fadeInUp user-name'>
-                    zuro01
-                    </h1>
-                    <ul class='profile-links mar-b-1 wow fadeIn'>
-                    </ul>
-                    <p class="user-profile profile-text wow fadeIn align-center animated animated" style="visibility: visible;"></p>
-                    <a class="btn-s btn-graydark link-white mar-t-1" href="#" id="edit-profile" target="_self"><i class="icon">✎</i>プロフィールを編集</a>
-                </div>
-                <div id="user-profile-editor" style="display:none">
-                    <div class="header-form mar-b-1">
-                        <input class="input-large tooltipstered" id="user-displayName" name="user[displayName]" placeholder="名前" type="text" value="">
-                    </div>
-                    <ul class="profile-links mar-b-1">
-                        <li class="profile-url header-form">
-                        <input class="input-large tooltipstered" id="user-profile-url" name="user[profile][url]" placeholder="WebサイトのURL" type="text" value="">
-                        </li>
-                    </ul>
-                    <div class="header-form mar-b-1">
-                        <textarea class="textarea input-normal tooltipstered" id="user-profile-body" name="user[profile][body]" placeholder="プロフィール"></textarea>
-                    </div>
-                    <a class="btn-s btn-graydark btn-editor-close link-white" href="#" target="_self">
-                                                         キャンセル
-                    </a>
-                    <input class="btn-s btn-blue" id="save-profile" type="submit" value="変更を保存">
-                    <a class="profile-editor-close" href="#" target="_self">
-                        &nbsp;
-                    </a>
-                </div>
-            </div>
-          </div>
-      </div>
-        
-        <div class='page'>
-            <div class='content shop'>
-                <div class='previews items-container' data-omikuji='null' id='products'>
-                    <div class='flipInY item wow' data-item-variant-id='1' data-product-id='692' data-wow-delay='0.1s'>
-                        <a class="product-permalink" href="zuro01/435/t-shirt/s/white.html"><div class='item-image'>
-                        <img alt="1396412098 2448x3264.jpg" class="lens-image product-list-image" height="323" src="../d1q9av5b648rmv.cloudfront.net/323x323/t-shirt/s/white/435/1396412098-2448x3264.jpg29f7.jpg?h=d6d809f4c10a76f5102d84d02541bd932daaa94c" width="323" />
-                    </div>
-                    <ul class='itemlist-btn'>
-                    </ul>
-                    </a>
-                    <div class='item-info'>
-                        <div class='clearfix'>
-                            <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/t-shirt/s/white.html">ひなた</a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../dijsur42hqnz1.cloudfront.net/assets/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />zuro01</a></span><span class='item-price small'>
-                            &yen;2,354
-                            </span>
-                            </div>
-                        <div class='float-r pad-t-05'>
-                        <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'>0</span></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class='flipInY item wow' data-item-variant-id='83' data-product-id='691' data-wow-delay='0.1s'>
-            <a class="product-permalink" href="zuro01/435/iphone5-case/free/clear.html"><div class='item-image'>
-                <img alt="1396412098 2448x3264.jpg" class="lens-image product-list-image" height="323" src="../d1q9av5b648rmv.cloudfront.net/323x323/iphone5-case/free/clear/435/1396412098-2448x3264.jpg29f7.jpg?h=d6d809f4c10a76f5102d84d02541bd932daaa94c" width="323" />
-                </div>
-                <ul class='itemlist-btn'>
-                </ul>
-            </a>
-            <div class='item-info'>
-                <div class='clearfix'>
-                    <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/iphone5-case/free/clear.html">ひなた</a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../dijsur42hqnz1.cloudfront.net/assets/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />zuro01</a></span><span class='item-price small'>
-                    &yen;2,268
-                    </span>
-                    </div>
-                    <div class='float-r pad-t-05'>
-                        <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'>0</span></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class='flipInY item wow' data-item-variant-id='82' data-product-id='690' data-wow-delay='0.1s'>
-            <a class="product-permalink" href="zuro01/435/mug/m/white.html"><div class='item-image'>
-                <img alt="1396412098 2448x3264.jpg" class="lens-image product-list-image" height="323" src="../d1q9av5b648rmv.cloudfront.net/323x323/mug/m/white/435/1396412098-2448x3264.jpg29f7.jpg?h=d6d809f4c10a76f5102d84d02541bd932daaa94c" width="323" />
-                </div>
-                <ul class='itemlist-btn'>
-                </ul>
-            </a>
-            <div class='item-info'>
-                <div class='clearfix'>
-                    <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/mug/m/white.html">ひなた</a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../dijsur42hqnz1.cloudfront.net/assets/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />zuro01</a></span><span class='item-price small'>
-                    &yen;1,609
-                    </span>
-                    </div>
-                    <div class='float-r pad-t-05'>
-                        <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'>0</span></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class='flipInY item wow' data-item-variant-id='81' data-product-id='689' data-wow-delay='0.1s'>
-            <a class="product-permalink" href="zuro01/435/tote-bag/m/natural.html"><div class='item-image'>
-                <img alt="1396412098 2448x3264.jpg" class="lens-image product-list-image" height="323" src="../d1q9av5b648rmv.cloudfront.net/323x323/tote-bag/m/natural/435/1396412098-2448x3264.jpg29f7.jpg?h=d6d809f4c10a76f5102d84d02541bd932daaa94c" width="323" />
-                </div>
-                <ul class='itemlist-btn'>
-                </ul>
-            </a>
-            <div class='item-info'>
-                <div class='clearfix'>
-                    <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/tote-bag/m/natural.html">ひなた</a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../dijsur42hqnz1.cloudfront.net/assets/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />zuro01</a></span><span class='item-price small'>
-                    &yen;1,976
-                    </span>
-                    </div>
-                    <div class='float-r pad-t-05'>
-                        <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'>0</span></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    </div>
+<div class="section section-pad">
+	<div class="container columns columns-2column">
+		<ul class="page-navs">
+			<li class="page-nav page-nav-profiles">
+			<a class="btn-s btn-darken" href="/account/profile"><span class="kerning">
+			プロフィール設定
+			</span>
+			</a></li>
+			<li class="page-nav page-nav-bank-accounts">
+			<a class="btn-s btn-darken" href="/account/bank_account"><span class="kerning">
+			売上金の振込先情報
+			</span>
+			</a></li>
+		</ul>
+		
+		<div class="column">
+			<div class="column-content">
+				<h2>
+				アカウント名変更
+				</h2>
+				<form accept-charset="UTF-8" action="/account/name" class="" data-user="{&quot;id&quot;:22795,&quot;name&quot;:&quot;jennilynn&quot;,&quot;email&quot;:&quot;trs.jennilynn@gmail.com&quot;,&quot;displayName&quot;:&quot;jcortes&quot;,&quot;avatarUrl&quot;:&quot;https://dp3obxrw75ln8.cloudfront.net/users/avatars/22795.png?1413346051&quot;,&quot;identities&quot;:[]}" id="profile-name" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="put" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div><div class="form-groups">
+					<div class="form-group">
+					<label for="user_name">アカウント名</label>
+					<div class="form-control">
+					<!--{if $tpl_login}-->
+					<input class="input-large tooltipstered" id="user-name" name="user[name]" type="text" value="<!--{$CustomerName1|h}-->">
+					<!--{/if}-->
+					</div>
+					</div>
+					<div class="form-group">
+					<label for="user_current_password">パスワード</label>
+					<div class="form-control">
+					<input class="input-large tooltipstered" id="user_current_password" name="user[current_password]" type="password">
+					</div>
+					</div>
+					<div class="form-submit">
+					<input class="btn-s btn-blue loading-submit tooltipstered" name="commit" type="submit" value="アカウント名を変更する">
+					</div>
+					</div>
+				</form>
+			</div>
+			<div class="column-content">
+				<h2>
+				メールアドレス変更
+				</h2>
+				<form accept-charset="UTF-8" action="/account/email" class="edit_user" id="edit_user_22795" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="put" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div><div class="form-groups">
+					<div class="form-group">
+					<span class="label">
+					現在の登録メールアドレス
+					</span>
+					<div class="form-control">
+					<span class="large">
+					trs.jennilynn@gmail.com
+					</span>
+					</div>
+					</div>
+					<div class="form-group">
+					<label for="user_alter_email">新しいメールアドレス</label>
+					<div class="form-control">
+					<input class="input-large tooltipstered" id="user_alter_email" name="user[alter_email]" type="text">
+					</div>
+					</div>
+					<div class="form-group">
+					<label for="user_current_password">パスワード</label>
+					<div class="form-control">
+					<input class="input-large tooltipstered" id="user_current_password" name="user[current_password]" type="password">
+					</div>
+					</div>
+					<div class="form-submit">
+					<input class="btn-s btn-blue loading-submit tooltipstered" name="commit" type="submit" value="確認メールを送信する">
+					</div>
+					</div>
+				</form>
+			
+			</div>
+			<div class="column-content">
+				<h2>
+				パスワード変更
+				</h2>
+				<form accept-charset="UTF-8" action="/account/password" class="edit_user" id="edit_user_22795" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="put" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div><div class="form-groups">
+					<div class="form-group">
+					<label for="user_current_password">現在のパスワード</label>
+					<div class="form-control">
+					<input class="input-large tooltipstered" id="user_current_password" name="user[current_password]" type="password">
+					</div>
+					</div>
+					<div class="form-group">
+					<label for="user_password">新しいパスワード</label>
+					<div class="form-control">
+					<input class="input-large tooltipstered" id="user_password" name="user[password]" type="password">
+					</div>
+					</div>
+					<div class="form-group">
+					<label for="user_password_confirmation">新しいパスワード再入力</label>
+					<div class="form-control">
+					<input class="input-large tooltipstered" id="user_password_confirmation" name="user[password_confirmation]" type="password">
+					</div>
+					</div>
+					<div class="form-submit">
+					<input class="btn-s btn-blue loading-submit tooltipstered" name="commit" type="submit" value="パスワードを変更する">
+					</div>
+					</div>
+				</form>
+			
+			</div>
+		</div>
+		<div class="column">
+			<div class="column-content">
+				<h2>
+				ズッキュン通知メール
+				</h2>
+				<form accept-charset="UTF-8" action="/account/notification_flags" class="edit_profile" id="edit_profile_22774" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="put" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div>
+					<div class="form-group">
+					<span class="label">
+					商品がズッキュンされたときに通知メールを送る
+					</span>
+					<div class="favorites-mail-button"><input checked="checked" id="profile_favorites_mail_unreceived_false" name="profile[favorites_mail_unreceived]" type="radio" value="false" class="tooltipstered"><label class="switch-on" for="profile_favorites_mail_unreceived_false">ON</label><input id="profile_favorites_mail_unreceived_true" name="profile[favorites_mail_unreceived]" type="radio" value="true" class="tooltipstered"><label class="switch-off" for="profile_favorites_mail_unreceived_true">OFF</label></div>
+					</div>
+					<div class="form-submit">
+					<input class="btn-s btn-blue loading-submit tooltipstered" name="commit" type="submit" value="メール通知を変更する">
+					</div>
+				</form>
+			
+			</div>
+			<div class="column-content">
+				<h2>
+				ソーシャル連携設定
+				</h2>
+				<a class="btn-s btn-twitter" href="/auth/twitter"><i class="icon"></i><span>Twitter と連携</span></a>
+			</div>
+			<div class="column-content" id="cancel_account">
+				<h2>
+				退会
+				</h2>
+			<form accept-charset="UTF-8" action="/account" class="edit_user" id="edit_user_22795" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="delete" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div><div class="form-groups">
+				<div class="form-group">
+				<label for="user_current_password">パスワード</label>
+				<div class="form-control">
+				<input class="input-large tooltipstered" id="user_current_password" name="user[current_password]" type="password">
+				</div>
+				</div>
+				<div class="form-submit">
+				<input class="btn-s btn-gray loading-submit tooltipstered" data-confirm="退会処理をおこないますが、よろしいですか？" name="commit" type="submit" value="SUZURI を退会する">
+				</div>
+				</div>
+			</form>
+			
+			</div>
+		</div>
+	</div>
+</div>
 <!--{/strip}-->

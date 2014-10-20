@@ -114,6 +114,9 @@ class LC_Page_Products_List extends LC_Page_Ex {
 
         //modeの取得
         $this->mode = $this->getMode();
+        
+        $objCustomer = new SC_Customer_Ex();
+        $this->isLogin = $objCustomer->isLoginSuccess(true);
 
         //表示条件の取得
         $this->arrSearchData = array(

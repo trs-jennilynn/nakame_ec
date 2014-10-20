@@ -147,7 +147,7 @@ class LC_Page_Entry extends LC_Page_Ex {
                 	}
                 
                 	// 完了ページに移動させる。
-                	SC_Response_Ex::sendRedirect('http://nakame_ec.localhost/mypage/', array('ci' => SC_Helper_Customer_Ex::sfGetCustomerId($uniqid)));
+                	SC_Response_Ex::sendRedirect(HTTP_URL . 'mypage/', array('ci' => SC_Helper_Customer_Ex::sfGetCustomerId($uniqid)));
                 }
                 break;
             case 'return':

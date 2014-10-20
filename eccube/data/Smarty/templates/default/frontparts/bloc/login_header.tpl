@@ -42,7 +42,7 @@
 					        </span>
 					        </a></li>
 					        <li class="account-nav">
-					        <a data-no-turbolink="true" href="/profile" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
+					        <a data-no-turbolink="true" href="mypage/profile" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
 					        設定
 					        </span>
 					        </a></li>

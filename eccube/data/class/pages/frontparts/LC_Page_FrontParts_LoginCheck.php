@@ -137,7 +137,7 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex {
                         if (SC_Display_Ex::detectDevice() === DEVICE_TYPE_SMARTPHONE) {
                             echo SC_Utils_Ex::jsonEncode(array('success' => $url));
                         } else {
-                             SC_Response_Ex::sendRedirect('http://nakame_ec.localhost/', array('ci' => SC_Helper_Customer_Ex::sfGetCustomerId($uniqid)));
+                             SC_Response_Ex::sendRedirect(HTTP_URL , array('ci' => SC_Helper_Customer_Ex::sfGetCustomerId($uniqid)));
                         }                        
                         SC_Response_Ex::actionExit();
                     } else {

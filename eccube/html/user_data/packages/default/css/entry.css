@@ -20,7 +20,15 @@
 .LC_Page_Entry .btn-twitter{
 	width:100%;
 } */
-.LC_Page_Entry
-.LC_Page_Entry
-.LC_Page_Entry
-.LC_Page_Entry
+.LC_Page_Entry h2.title,.LC_Page_Entry .btn_area{
+	display:none;
+}
+.LC_Page_Entry .flipInY .btn_area{
+	display:block;
+}
+.LC_Page_Products_List #topcolumn{
+	padding:0px;
+}
+.LC_Page_Products_List .signup-header{
+	top:0em;
+}
