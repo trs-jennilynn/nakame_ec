@@ -34,7 +34,7 @@
                            </h3>
                     </div>
                     <div class="clearfix">
-                     <!--{if $tpl_login}-->
+                     <!--{if $isLogin}-->
                         <a class="btn-xl btn-blue bold" data-no-turbolink="true" href="/mypage/materials/new" target="_self"><i class="icon"></i><span style="letter-spacing:-0.075em">オ</span><span style="letter-spacing:-0.075em">リ</span>ジナル<span style="letter-spacing:-0.05em">グ</span><span style="letter-spacing:-0.075em">ッ</span>ズを作る</a>
                      <!--{else}-->
                         <a class="signup-button btn-yellow btn-l" data-no-turbolink="true" href="/signup" target="_self">
