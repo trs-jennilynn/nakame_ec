@@ -42,7 +42,7 @@ class LC_Page_Profile extends LC_Page_Ex {
     		$this->tpl_login = true;
     		$this->CustomerName1 = $objCustomer->getvalue('name01');
     		$this->CustomerName2 = $objCustomer->getvalue('name02');
-    		$this->CustomerPoint = $objCustomer->getvalue('point');
+    		$this->CustomerEmail = $objCustomer->getvalue('email');
     		$this->action();
     	}
     	

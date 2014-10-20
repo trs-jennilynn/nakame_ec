@@ -94,7 +94,7 @@
                 <div class="avatar-progress"></div>
                 <div class='text-shadow' id='user-profile-shown'>
                     <h1 class='wow fadeInUp user-name'>
-                    zuro01
+                    <!--{$tpl_name1|h}-->
                     </h1>
                     <ul class='profile-links mar-b-1 wow fadeIn'>
                     </ul>

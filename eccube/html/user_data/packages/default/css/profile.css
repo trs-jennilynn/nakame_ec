@@ -12,9 +12,10 @@
 .LC_Page_AbstractMypage .needsclick:hover{
 	text-decoration:none;
 }
-.LC_Page_AbstractMypage .profile-content .needsclick {
-	left: 38.4em !important;
-	top: 6.4em !important;
+.LC_Page_AbstractMypage .profile-content .edit-avatar-icon {
+	position: relative !important;
+	top: -147px !important;
+	left: -53px !important;
 }
 .LC_Page_AbstractMypage .profile-wrapper .edit-header-icon i,
 .LC_Page_AbstractMypage .profile-content .needsclick i{

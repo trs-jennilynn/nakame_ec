@@ -45,9 +45,7 @@
 					<div class="form-group">
 					<label for="user_name">アカウント名</label>
 					<div class="form-control">
-					<!--{if $tpl_login}-->
 					<input class="input-large tooltipstered" id="user-name" name="user[name]" type="text" value="<!--{$CustomerName1|h}-->">
-					<!--{/if}-->
 					</div>
 					</div>
 					<div class="form-group">
@@ -73,7 +71,7 @@
 					</span>
 					<div class="form-control">
 					<span class="large">
-					trs.jennilynn@gmail.com
+					<!--{$CustomerEmail|h}-->
 					</span>
 					</div>
 					</div>

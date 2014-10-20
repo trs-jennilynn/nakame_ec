@@ -71,22 +71,7 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
      */
     function process() {
         parent::process();
-        ?>
-        <script type="text/javascript">
-<!--
-
-//-->
-//$('.needsclick').click(function(){
-//alert('js is working');
-//});
-$('#header-dropzone').find('.edit-header-icon').click(function(){
- $('#user-profile-header').trigger('click');
-});
-$('#header-dropzone').find('.container').find('.profile-content').find('.edit-avatar-icon').click(function(){
- $('#user-profile-header').trigger('click');
-});
-</script>
-        <?php 
+       
     }
 
     /**
@@ -100,6 +85,7 @@ $('#header-dropzone').find('.container').find('.profile-content').find('.edit-av
         $customer_id = $objCustomer->getvalue('customer_id');
 
         $this->tpl_login=true;
+        $this->tpl_name1 = $objCustomer->getvalue('name01');
         //ページ送り用
         $this->objNavi = new SC_PageNavi_Ex($_REQUEST['pageno'],
                                             $this->lfGetOrderHistory($customer_id),

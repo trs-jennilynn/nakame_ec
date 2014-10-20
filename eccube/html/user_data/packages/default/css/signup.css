@@ -49,8 +49,7 @@
 /**login**/
 .LC_Page_Login body,
 .LC_Page_Materials .materials_login,
-.LC_Page_Materials_New body,
-.LC_Page_Orders body{
+.LC_Page_Materials_New body{
 	background: #474a4d;
 	background-size: cover;
 }

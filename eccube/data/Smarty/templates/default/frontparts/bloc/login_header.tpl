@@ -27,27 +27,27 @@
 					        </span>
 					        </a></li>
 					        <li class="account-nav">
-					        <a href="/mypage/index.php?<!--{$tpl_name1|h}-->" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
+					        <a href="/mypage/" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
 					        マイ<span style="letter-spacing:-0.05em">シ</span><span style="letter-spacing:-0.1em">ョ</span><span style="letter-spacing:-0.075em">ッ</span>プ
 					        </span>
 					        </a></li>
 					        <li class="account-nav">
-					        <a href="/<!--{$tpl_name1|h}-->/favorites" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
+					        <a href="<!--{$smarty.const.HTTPS_URL}-->mypage/favorite.php" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
 					        <span style="letter-spacing:-0.05em">ズ</span><span style="letter-spacing:-0.075em">ッ</span><span style="letter-spacing:-0.05em">キ</span><span style="letter-spacing:-0.05em">ュ</span>ン履歴
 					        </span>
 					        </a></li>
 					        <li class="account-nav">
-					        <a data-no-turbolink="true" href="/orders" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
+					        <a data-no-turbolink="true" href="<!--{$smarty.const.HTTPS_URL}-->mypage/orders" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
 					        売<span style="letter-spacing:-0.25em">上</span><span style="letter-spacing:-0.325em">・</span><span style="letter-spacing:-0.15em">ト</span><span style="letter-spacing:-0.075em">リ</span>ブン
 					        </span>
 					        </a></li>
 					        <li class="account-nav">
-					        <a data-no-turbolink="true" href="mypage/profile" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
+					        <a data-no-turbolink="true" href="<!--{$smarty.const.HTTPS_URL}-->mypage/profile" target="_self"><span class="account-nav-label account-nav-label-m kerning" style="margin-right: 0px; opacity: 1;">
 					        設定
 					        </span>
 					        </a></li>
 					        <li class="account-nav">
-					        <a href="/selections" target="_self"><span class="account-nav-label account-nav-label-s kerning" style="margin-right: 0px; opacity: 1;"><i class="icon">?</i>商品を<span style="letter-spacing:-0.075em">探</span><span style="letter-spacing:-0.12em">し</span>てまわる
+					        <a href="<!--{$smarty.const.HTTPS_URL}-->products/list.php" target="_self"><span class="account-nav-label account-nav-label-s kerning" style="margin-right: 0px; opacity: 1;"><i class="icon">?</i>商品を<span style="letter-spacing:-0.075em">探</span><span style="letter-spacing:-0.12em">し</span>てまわる
 					        </span>
 					        </a></li>
 					        <li class="account-nav">

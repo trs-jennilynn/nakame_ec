@@ -76,7 +76,22 @@ class LC_Page_AbstractMypage extends LC_Page_Ex {
 
         $this->sendResponse();
         
+        ?>
+                <script type="text/javascript">
+        <!--
         
+        //-->
+        //$('.needsclick').click(function(){
+        //alert('js is working');
+        //});
+        $('#header-dropzone').find('.edit-header-icon').click(function(){
+         $('#user-profile-header').trigger('click');
+        });
+        $('#header-dropzone').find('.container').find('.profile-content').find('.edit-avatar-icon').click(function(){
+         $('#user-profile-header').trigger('click');
+        });
+        </script>
+                <?php 
     }
 
     /**
