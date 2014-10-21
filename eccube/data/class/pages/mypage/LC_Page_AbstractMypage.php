@@ -90,6 +90,14 @@ class LC_Page_AbstractMypage extends LC_Page_Ex {
         $('#header-dropzone').find('.container').find('.profile-content').find('.edit-avatar-icon').click(function(){
          $('#user-profile-header').trigger('click');
         });
+
+        $("#edit-profile").click(function(){
+    		$("#user-profile-editor").show();
+    	});
+    	
+    	$(".btn-editor-close").click(function(){
+    		$("#user-profile-editor").hide();
+    	});
         </script>
                 <?php 
     }

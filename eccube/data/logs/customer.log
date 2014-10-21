@@ -100,3 +100,4 @@
 2014/10/20 18:32:44 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
 2014/10/20 18:33:53 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
 2014/10/20 18:34:09 [/frontparts/login_check.php] access : user=28	ip=127.0.0.1 from 127.0.0.1
+2014/10/20 19:56:34 [/frontparts/login_check.php] logout : user=28	ip=127.0.0.1 from 127.0.0.1
