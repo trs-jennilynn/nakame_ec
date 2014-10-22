@@ -37,10 +37,6 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
 	
     /** ページナンバー */
     var $tpl_pageno;
-    
-    /* var $name = $_POST['user-[displayname]'];
-    var $profile = $_POST['user[profile][url]'];
-    var $body = $_POST['user[profile][body]']; */
 
     // }}}
     // {{{ functions
@@ -62,6 +58,8 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
         $this->arrCustomerOrderStatus = $masterData->getMasterData('mtb_customer_order_status');
 
         $this->httpCacheControl('nocache');
+        
+       
     }
 
     /**
@@ -71,7 +69,7 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
      */
     function process() {
         parent::process();
-       
+        
     }
 
     /**
@@ -82,10 +80,26 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
     function action() {
 
         $objCustomer = new SC_Customer_Ex();
-        $customer_id = $objCustomer->getvalue('customer_id');
-
+       	$customer_id = $objCustomer->getvalue('customer_id');
+       	
+       	$objFormParam = new SC_FormParam_Ex();
+       	
+       	SC_Helper_Customer_Ex::sfCustomerEntryParam($objFormParam);
+       	$objFormParam->setParam($_POST);
+       	
+        $objCookie = new SC_Cookie_Ex();
+       	$objCustomer->updateSession();
+       	
         $this->tpl_login=true;
         $this->tpl_name1 = $objCustomer->getvalue('name01');
+     	$this->tpl_name2 = $objCustomer->getvalue('name02');
+		$this->tpl_kana1 = $objCustomer->getvalue('kana01');
+        $this->tpl_kana2 = $objCustomer->getvalue('kana02');
+        
+        $name = $_POST['userdisplayName'];
+        $web = $_POST['userprofileurl'];
+        $commentbody = $_POST['userprofilebody'];
+        
         //ページ送り用
         $this->objNavi = new SC_PageNavi_Ex($_REQUEST['pageno'],
                                             $this->lfGetOrderHistory($customer_id),
@@ -96,12 +110,26 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
                                             SC_Display_Ex::detectDevice() !== DEVICE_TYPE_MOBILE);
 
         $this->arrOrder = $this->lfGetOrderHistory($customer_id, $this->objNavi->start_row);
-
+        
         switch ($this->getMode()) {
             case 'getList':
                 echo SC_Utils_Ex::jsonEncode($this->arrOrder);
                 SC_Response_Ex::actionExit();
                 break;
+             case 'saveprof':
+             	$objQuery = SC_Query_Ex::getSingletonInstance();
+             	$result = $objQuery->update('dtb_customer',
+             			array('name02' => $name,'kana01' => $web, 'kana02' => $commentbody),
+             			'customer_id = ?', array($customer_id));
+             	$objCustomer->updateSession();
+             	$this->tpl_name1 = $objCustomer->getvalue('name01');
+             	$this->tpl_name2 = $objCustomer->getvalue('name02');
+             	$this->tpl_kana1 = $objCustomer->getvalue('kana01');
+             	$this->tpl_kana2 = $objCustomer->getvalue('kana02');
+             	break;
+             case 'キャンセル':
+             	$objCustomer->updateSession();
+             	break;
             default:
                 break;
         }
@@ -109,22 +137,6 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
         $this->arrPayment = SC_Helper_DB_Ex::sfGetIDValueList('dtb_payment', 'payment_id', 'payment_method');
         // 1ページあたりの件数
         $this->dispNumber = SEARCH_PMAX;
-        
-        $objFormParam = new SC_FormParam_Ex();
-     	
-        
-        /* if($arrForm['prof_save']){
-        	$name=$arrForm['userdisplayName'];
-        	$profile=$arrForm['userprofileurl'];
-        	$profbody=$arrForm['userprofilebody'];
-        	
-        	$objQuery =& SC_Query_Ex::getSingletonInstance();
-        	$result = $objQuery->query('INSERT INTO dtb_customer (name02, kana01, kana02) VALUES (?, ?)', array($name, $profile, $profbody));
-        	//$query = "update dtb_customer set name02='$name',kana01='$profile',kana02='$profbody' where customer_id='$customer_id'";
-        	//$result=$objQuery->select($query);
-        	
-        	return $result;
-        } */
     }
 
     /**

@@ -91,33 +91,43 @@
             <div class='profile-content'>
                 <img alt="Icon default" class="profile-avatar wow flipInY" src="<!--{$TPL_URLPATH}-->img/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" />
                 <a class="edit-avatar-icon needsclick" href="#" target="_self"><i class="icon needsclick">✎</i></a>
+                
                 <div class="avatar-progress"></div>
                 <div class='text-shadow' id='user-profile-shown'>
                     <h1 class='wow fadeInUp user-name'>
-                    <!--{$tpl_name1|h}-->
+                    <!--{if $tpl_name2}-->
+                        <!--{$tpl_name2}-->(<!--{$tpl_name1|h}-->)
+                    <!--{else}-->
+                        <!--{$tpl_name1|h}-->
+                    <!--{/if}-->
                     </h1>
                     <ul class='profile-links mar-b-1 wow fadeIn'>
+                        <!--{if $tpl_kana1}-->
+	                        <li class="profile-url kerning">
+	                            <a class="user-url" href="<!--{$tpl_kana1}-->"><i class="icon">🔗</i><span>website</span></a>
+	                        </li>
+	                    <!--{/if}-->
                     </ul>
-                    <p class="user-profile profile-text wow fadeIn align-center animated animated" style="visibility: visible;"></p>
+                    <p class="user-profile profile-text wow fadeIn align-center animated animated" style="visibility: visible;"><!--{$tpl_kana2|h}--></p>
                     <a class="btn-s btn-graydark link-white mar-t-1" href="#" id="edit-profile" target="_self"><i class="icon">✎</i>プロフィールを編集</a>
                 </div>
-                <form name="prof_save" method="post" action="?">
+                <form name="formsave" id="formsave" method="post" action="?">
+                <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+                <input type="hidden" name="mode" value="saveprof" />
                 <div id="user-profile-editor" style="display:none">
                     <div class="header-form mar-b-1">
-                        <input class="input-large tooltipstered" id="user-displayName" name="userdisplayName" placeholder="名前" type="text" value="<!--{$tpl_name02/h}-->">
+                        <input class="input-large tooltipstered" id="user-displayName" name="userdisplayName" placeholder="名前" type="text" value="<!--{$tpl_name2|h}-->">
                     </div>
                     <ul class="profile-links mar-b-1">
                         <li class="profile-url header-form">
-                        <input class="input-large tooltipstered" id="user-profile-url" name="userprofileurl" placeholder="WebサイトのURL" type="text" value="<!--{$tpl_kana01/h}-->">
+                        <input class="input-large tooltipstered" id="user-profile-url" name="userprofileurl" placeholder="WebサイトのURL" type="text" value="<!--{$tpl_kana1|h}-->">
                         </li>
                     </ul>
                     <div class="header-form mar-b-1">
-                        <textarea class="textarea input-normal tooltipstered" id="user-profile-body" name="userprofilebody" placeholder="プロフィール" value="<!--{$tpl_kana02/h}-->"></textarea>
+                        <textarea class="textarea input-normal tooltipstered" id="user-profile-body" name="userprofilebody" placeholder="プロフィール" ><!--{$tpl_kana2|h}--></textarea>
                     </div>
-                    <a class="btn-s btn-graydark btn-editor-close link-white" id="open-profile" href="#" target="_self">
-                                                         キャンセル
-                    </a>
-                    <input class="btn-s btn-blue" id="save-profile" type="submit" value="変更を保存">
+                    <input class="btn-s btn-graydark btn-editor-close link-white" name="mode" type="submit" value="キャンセル">
+                    <input class="btn-s btn-blue loading-submit" name="commit" type="submit" value="変更を保存">
                     <a class="profile-editor-close" href="#" target="_self">
                         &nbsp;
                     </a>

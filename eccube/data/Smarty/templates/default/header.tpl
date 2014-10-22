@@ -71,10 +71,12 @@
                 </a></div>
                 <ul class='header-navs'>
                     <li class='header-nav'>
-	                    <span class='btn-s btn-yellow' id='open-cart'>
-	                       <i class='icon'><img class="hover_change_image" src="<!--{$TPL_URLPATH}-->img/common/cart.png" alt="カゴの中を見る" /></i>
-	                        <span id='nav-cart-count'>0</span>
-	                    </span>
+                        <a href="<!--{$smarty.const.CART_URL}-->">
+		                    <span class='btn-s btn-yellow'>
+		                       <i class='icon'><img class="hover_change_image" src="<!--{$TPL_URLPATH}-->img/common/cart.png" alt="カゴの中を見る" /></i>
+		                        <span id='nav-cart-count'>0</span>
+		                    </span>
+	                    </a>
                     </li>
 	                <li class='header-nav overlay-nav-open'>
 	                    <span class='btn-s btn-blue'><i class='icon'>&#9776;</i>
@@ -105,17 +107,17 @@
         <ul class="account-navs">
         </li>
                 <li class='account-nav'>
-                <a href="signup" target="_self"><span class='account-nav-label account-nav-label-m kerning'>
+                <a href="<!--{$smarty.const.HTTPS_URL}-->signup" target="_self"><span class='account-nav-label account-nav-label-m kerning'>
                 ユーザー登録
                 </span>
                 </a></li>
                 <li class='account-nav'>
-                <a href="login" target="_self"><span class='account-nav-label account-nav-label-m kerning'>
+                <a href="<!--{$smarty.const.HTTPS_URL}-->login" target="_self"><span class='account-nav-label account-nav-label-m kerning'>
                 ログイン
                 </span>
                 </a></li>
                 <li class='account-nav'>
-                <a href="/products/list.php"><span class='account-nav-label account-nav-label-m kerning'>
+                <a href="<!--{$smarty.const.HTTPS_URL}-->products/list.php"><span class='account-nav-label account-nav-label-m kerning'>
                 商品を探してまわる
                 </span>
                 </a></li>

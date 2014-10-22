@@ -68,7 +68,6 @@ class LC_Page_AbstractMypage extends LC_Page_Ex {
             //マイページ会員情報表示用共通処理
             $this->tpl_login     = true;
             $this->CustomerName1 = $objCustomer->getvalue('name01');
-            $this->CustomerName2 = $objCustomer->getvalue('name02');
             $this->CustomerPoint = $objCustomer->getvalue('point');
             $this->action();
         }
@@ -84,12 +83,12 @@ class LC_Page_AbstractMypage extends LC_Page_Ex {
         //$('.needsclick').click(function(){
         //alert('js is working');
         //});
-        $('#header-dropzone').find('.edit-header-icon').click(function(){
+        /*$('#header-dropzone').find('.edit-header-icon').click(function(){
          $('#user-profile-header').trigger('click');
         });
         $('#header-dropzone').find('.container').find('.profile-content').find('.edit-avatar-icon').click(function(){
          $('#user-profile-header').trigger('click');
-        });
+        });*/
 
         $("#edit-profile").click(function(){
     		$("#user-profile-editor").show();
@@ -99,9 +98,36 @@ class LC_Page_AbstractMypage extends LC_Page_Ex {
     		$("#user-profile-editor").hide();
     	});
         </script>
+        
                 <?php 
     }
-
+    /**
+     * Page のAction.
+     *
+     * @return void
+     */
+    function action() {
+    
+    	$objCustomer = new SC_Customer_Ex();
+    	$customer_id = $objCustomer->getvalue('customer_id');
+    
+    	$objFormParam = new SC_FormParam_Ex();
+    
+    	SC_Helper_Customer_Ex::sfCustomerEntryParam($objFormParam);
+    	$objFormParam->setParam($_POST);
+    	$arrForm  = $objFormParam->getHashArray();
+    	$objCookie = new SC_Cookie_Ex();
+    
+    	
+    	switch ($this->getMode()) {
+    		case 'save-profile':
+    			echo '<script>alert("aaa");</script>';
+    			break;
+    		default:
+    			//echo '<script>alert("aaa");</script>';
+    			break;
+    	}
+    }
     /**
      * デストラクタ.
      *

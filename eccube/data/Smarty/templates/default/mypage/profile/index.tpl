@@ -21,6 +21,7 @@
  *}-->
 
 <!--{strip}-->
+
 <div class="section section-pad">
 	<div class="container columns columns-2column">
 		<ul class="page-navs">
@@ -41,21 +42,30 @@
 				<h2>
 				アカウント名変更
 				</h2>
-				<form accept-charset="UTF-8" action="/account/name" class="" data-user="{&quot;id&quot;:22795,&quot;name&quot;:&quot;jennilynn&quot;,&quot;email&quot;:&quot;trs.jennilynn@gmail.com&quot;,&quot;displayName&quot;:&quot;jcortes&quot;,&quot;avatarUrl&quot;:&quot;https://dp3obxrw75ln8.cloudfront.net/users/avatars/22795.png?1413346051&quot;,&quot;identities&quot;:[]}" id="profile-name" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="put" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div><div class="form-groups">
+				<form accept-charset="UTF-8" action="?" class="" id="profile-name" method="post">
+				<input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+            	<input type="hidden" name="mode" value="username" />
+				<div style="display:none">
+				<input name="utf8" type="hidden" value="✓" class="tooltipstered">
+				<input name="_method" type="hidden" value="put" class="tooltipstered">
+				<input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered">
+				</div>
+				
+				<div class="form-groups">
 					<div class="form-group">
 					<label for="user_name">アカウント名</label>
 					<div class="form-control">
-					<input class="input-large tooltipstered" id="user-name" name="user[name]" type="text" value="<!--{$CustomerName1|h}-->">
+					<input class="input-large tooltipstered" id="user-name" name="user-name" type="text" value="<!--{$CustomerName1}-->">
 					</div>
 					</div>
 					<div class="form-group">
 					<label for="user_current_password">パスワード</label>
 					<div class="form-control">
-					<input class="input-large tooltipstered" id="user_current_password" name="user[current_password]" type="password">
+					<input class="input-large tooltipstered" id="userpass" name="userpass" type="password">
 					</div>
 					</div>
 					<div class="form-submit">
-					<input class="btn-s btn-blue loading-submit tooltipstered" name="commit" type="submit" value="アカウント名を変更する">
+					<input class="btn-s btn-blue loading-submit tooltipstered" name="commit1" id="commit1" type="submit" value="アカウント名を変更する">
 					</div>
 					</div>
 				</form>
@@ -64,7 +74,9 @@
 				<h2>
 				メールアドレス変更
 				</h2>
-				<form accept-charset="UTF-8" action="/account/email" class="edit_user" id="edit_user_22795" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="put" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div><div class="form-groups">
+				<form accept-charset="UTF-8" action="#" class="edit_user" id="edit_user_22795" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="put" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div><div class="form-groups">
+					<input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+            		<input type="hidden" name="mode" value="emailadd" />
 					<div class="form-group">
 					<span class="label">
 					現在の登録メールアドレス
@@ -78,13 +90,13 @@
 					<div class="form-group">
 					<label for="user_alter_email">新しいメールアドレス</label>
 					<div class="form-control">
-					<input class="input-large tooltipstered" id="user_alter_email" name="user[alter_email]" type="text">
+					<input class="input-large tooltipstered" id=email name="email" type="text">
 					</div>
 					</div>
 					<div class="form-group">
 					<label for="user_current_password">パスワード</label>
 					<div class="form-control">
-					<input class="input-large tooltipstered" id="user_current_password" name="user[current_password]" type="password">
+					<input class="input-large tooltipstered" id="userpass" name="userpass" type="password">
 					</div>
 					</div>
 					<div class="form-submit">
@@ -98,7 +110,15 @@
 				<h2>
 				パスワード変更
 				</h2>
-				<form accept-charset="UTF-8" action="/account/password" class="edit_user" id="edit_user_22795" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="put" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div><div class="form-groups">
+				<form accept-charset="UTF-8" action="#" class="edit_user" id="edit_user_22795" method="post">
+				<div style="display:none">
+				<input name="utf8" type="hidden" value="✓" class="tooltipstered">
+				<input name="_method" type="hidden" value="put" class="tooltipstered">
+				<input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered">
+				</div>
+				<div class="form-groups">
+					<input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+            		<input type="hidden" name="mode" value="password" />
 					<div class="form-group">
 					<label for="user_current_password">現在のパスワード</label>
 					<div class="form-control">
@@ -130,7 +150,7 @@
 				<h2>
 				ズッキュン通知メール
 				</h2>
-				<form accept-charset="UTF-8" action="/account/notification_flags" class="edit_profile" id="edit_profile_22774" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="put" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div>
+				<form accept-charset="UTF-8" action="#" class="edit_profile" id="edit_profile_22774" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="put" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div>
 					<div class="form-group">
 					<span class="label">
 					商品がズッキュンされたときに通知メールを送る
@@ -153,7 +173,7 @@
 				<h2>
 				退会
 				</h2>
-			<form accept-charset="UTF-8" action="/account" class="edit_user" id="edit_user_22795" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="delete" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div><div class="form-groups">
+			<form accept-charset="UTF-8" action="#" class="edit_user" id="edit_user_22795" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓" class="tooltipstered"><input name="_method" type="hidden" value="delete" class="tooltipstered"><input name="authenticity_token" type="hidden" value="ozauxojdrQhzZYUDWmTPCtg7/Sej/GZnm0C+Nte07Fs=" class="tooltipstered"></div><div class="form-groups">
 				<div class="form-group">
 				<label for="user_current_password">パスワード</label>
 				<div class="form-control">

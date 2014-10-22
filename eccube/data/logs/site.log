@@ -16,3 +16,6 @@
 2014/10/17 11:28:04 [/index.php] PAGE_DISPLAY_TIME_LOG [2.40sec] from 127.0.0.1
 2014/10/17 16:32:56 [/shopping/confirm.php] order complete. order_id=1 from 127.0.0.1
 2014/10/17 16:32:58 [/shopping/confirm.php] PAGE_DISPLAY_TIME_LOG [3.38sec] from 127.0.0.1
+2014/10/22 11:06:25 [/index.php] PAGE_DISPLAY_TIME_LOG [7.37sec] from 127.0.0.1
+2014/10/22 11:06:25 [/index.php] PAGE_DISPLAY_TIME_LOG [3.73sec] from 127.0.0.1
+2014/10/22 11:06:25 [/index.php] PAGE_DISPLAY_TIME_LOG [2.39sec] from 127.0.0.1

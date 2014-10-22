@@ -50,6 +50,8 @@ class LC_Page_Mypage_DeliveryAddr extends LC_Page_Ex {
         $this->validUrl = array(MYPAGE_DELIVADDR_URLPATH,
                                 DELIV_URLPATH,
                                 MULTIPLE_URLPATH);
+        
+       // echo $this->CustomerName2 = $objCustomer->getvalue('name02');
     }
 
     /**
