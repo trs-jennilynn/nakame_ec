@@ -87,6 +87,11 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
        	SC_Helper_Customer_Ex::sfCustomerEntryParam($objFormParam);
        	$objFormParam->setParam($_POST);
        	
+       	$objCartSess = new SC_CartSession_Ex();
+       	$this->cartItems = $objCartSess->getAllCartList();
+       	
+       	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
+       	
         $objCookie = new SC_Cookie_Ex();
        	$objCustomer->updateSession();
        	

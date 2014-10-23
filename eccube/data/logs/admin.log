@@ -304,3 +304,20 @@
 2014/10/22 19:04:02 [/admin/products/product.php] access : user=admin auth=0 sid=mvnf1a9ldp8jesi1qgfq97fv35 from 127.0.0.1
 2014/10/22 19:15:08 [/admin/products/product.php] access : user=admin auth=0 sid=mvnf1a9ldp8jesi1qgfq97fv35 from 127.0.0.1
 2014/10/22 19:15:08 [/admin/products/product.php] 1 -> C:\xampp\htdocs\nakame_ec\eccube\html/../data/download/temp/10221915_544783ac3d253.jpg from 127.0.0.1
+2014/10/23 11:04:36 [/admin/index.php] access error. from 127.0.0.1
+2014/10/23 11:04:36 [/admin/index.php] login: user=admin(2) auth=0 lastlogin=2014-10-22 19:03:53 sid= from 127.0.0.1
+2014/10/23 11:04:36 [/admin/home.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 11:05:10 [/admin/design/index.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 11:06:43 [/admin/design/bloc.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 11:06:47 [/admin/design/bloc.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 11:49:07 [/admin/design/index.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 11:49:12 [/admin/design/index.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 13:55:22 [/admin/design/index.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 16:54:19 [/admin/design/index.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 16:54:19 [/admin/design/main_edit.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 16:54:46 [/admin/design/index.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 16:58:22 [/admin/design/main_edit.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 16:58:22 [/admin/design/main_edit.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 17:04:06 [/admin/design/index.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 17:04:20 [/admin/design/index.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1
+2014/10/23 17:04:20 [/admin/design/index.php] access : user=admin auth=0 sid=5e4eftn26eqch61qilcge7d7j1 from 127.0.0.1

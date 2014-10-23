@@ -36,10 +36,13 @@
                             <h3>
                                 <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><!--{$arrProduct.name|h}--></a>
                             </h3>
+                            <a href="/hadashiA" target="_self"><img alt="9" class="profile-avatar-list" src="https://dp3obxrw75ln8.cloudfront.net/users/avatars/9.jpg?1398244153" width="20">hadashiA</a>
                             <p class="sale_price">
-                                <!--{$smarty.const.SALE_PRICE_TITLE}-->(税込)： <span class="price"><!--{$arrProduct.price02_min_inctax|number_format}--> 円</span>
+                                ¥<span class="price"><!--{$arrProduct.price02_min_inctax|number_format}--></span>
                             </p>
-                            <p class="mini comment"><!--{$arrProduct.comment|h|nl2br}--></p>
+                            <div class="float-r pad-t-05">
+	                            <button class="btn btn-trans favorite-button"><i class="icon text-red">♥</i><span class="favorites-count">0</span></button>
+	                        </div>
                         </div>
                     </div>
                     <!--{if $smarty.foreach.recommend_products.iteration % 2 === 0}-->

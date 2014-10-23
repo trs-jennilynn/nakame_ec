@@ -84,7 +84,7 @@ class LC_Page_Cart extends LC_Page_Ex {
 
         $objFormParam = $this->lfInitParam($_POST);
         $this->mode = $this->getMode();
-
+        
         // モバイル対応
         if (SC_Display_Ex::detectDevice() == DEVICE_TYPE_MOBILE) {
             if (isset($_GET['cart_no'])) {
@@ -124,7 +124,7 @@ class LC_Page_Cart extends LC_Page_Ex {
 
 
                     // 購入ページへ
-                    SC_Response_Ex::sendRedirect(SHOPPING_URL);
+                    SC_Response_Ex::sendRedirect(SHOPPING_URL.'order.php');
                     SC_Response_Ex::actionExit();
                 }
                 break;
@@ -189,6 +189,8 @@ class LC_Page_Cart extends LC_Page_Ex {
             $this->tpl_login = true;
             $this->tpl_user_point = $objCustomer->getValue('point');
             $this->tpl_name = $objCustomer->getValue('name01');
+            
+            
         }
 
         // 前頁のURLを取得
@@ -199,7 +201,7 @@ class LC_Page_Cart extends LC_Page_Ex {
         // すべてのカートの内容を取得する
         $this->cartItems = $objCartSess->getAllCartList();
 
-
+        $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     }
 
     /**

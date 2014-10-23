@@ -62,6 +62,8 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex {
      */
     function action() {
 
+    	$objCustomer = new SC_Customer_Ex();
+    	$this->isLogin = $objCustomer->isLoginSuccess(true);
         // モバイル判定
         switch (SC_Display_Ex::detectDevice()) {
             case DEVICE_TYPE_MOBILE:

@@ -6,6 +6,9 @@
 .LC_Page_Profile body{
 	background: #ede4cd;
 }
+.LC_Page_Profile .header-navs li:nth-child(1){
+	display:none;
+}
 
 .LC_Page_AbstractMypage .signup-header a:hover,
 .LC_Page_AbstractMypage .btn-graydark:hover,

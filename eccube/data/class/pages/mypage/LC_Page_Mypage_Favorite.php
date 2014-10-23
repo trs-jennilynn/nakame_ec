@@ -100,7 +100,10 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
         // 1ページあたりの件数
         $this->dispNumber = SEARCH_PMAX;
 
-
+        $objCartSess = new SC_CartSession_Ex();
+        $this->cartItems = $objCartSess->getAllCartList();
+        
+        $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     }
 
     /**

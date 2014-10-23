@@ -93,7 +93,8 @@ class LC_Page_Products_Detail extends LC_Page_Ex {
     function action() {
         // 会員クラス
         $objCustomer = new SC_Customer_Ex();
-
+        $this->isLogin = $objCustomer->isLoginSuccess(true);
+        
         // パラメーター管理クラス
         $this->objFormParam = new SC_FormParam_Ex();
         // パラメーター情報の初期化
@@ -103,6 +104,11 @@ class LC_Page_Products_Detail extends LC_Page_Ex {
         // ファイル情報の初期化
         $this->objUpFile = $this->lfInitFile($this->objUpFile);
 
+        $objCartSess = new SC_CartSession_Ex();
+        $this->cartItems = $objCartSess->getAllCartList();
+        
+        $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
+        
         // プロダクトIDの正当性チェック
         $product_id = $this->lfCheckProductId($this->objFormParam->getValue('admin'),$this->objFormParam->getValue('product_id'));
         $this->mode = $this->getMode();

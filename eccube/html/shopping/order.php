@@ -1,5 +1,5 @@
 <?php
-require_once '../../require.php';
+require_once '../require.php';
 require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
@@ -9,7 +9,7 @@ require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
  *
  * @package Page
  */
-class LC_Page_Materials extends LC_Page_Ex {
+class LC_Page_ShoppingOrder extends LC_Page_Ex {
 
     /**
      * Page を初期化する.
@@ -18,10 +18,6 @@ class LC_Page_Materials extends LC_Page_Ex {
      */
     function init() {
         parent::init();
-        
-        $this->tpl_title        = 'MYページ';
-        $this->tpl_navi         = 'mypage/navi.tpl';
-        $this->tpl_mainno       = 'mypage';
     }
 
     /**
@@ -31,23 +27,8 @@ class LC_Page_Materials extends LC_Page_Ex {
      */
     function process() {
         parent::process();
-       $objCustomer = new SC_Customer_Ex();
-    	 
-    	// ログインしていない場合は必ずログインページを表示する
-    	if ($objCustomer->isLoginSuccess(true) === false) {
-    		SC_Response_Ex::sendRedirect(HTTP_URL . 'login/');
-    		 
-    	} else {
-    		//マイページ会員情報表示用共通処理
-    		$this->tpl_login     = true;
-    		$this->CustomerName1 = $objCustomer->getvalue('name01');
-    		$this->CustomerName2 = $objCustomer->getvalue('name02');
-    		$this->CustomerPoint = $objCustomer->getvalue('point');
-    		$this->action();
-    	}
-    	 
-    	 
-    	$this->sendResponse();
+        $this->action();
+        $this->sendResponse();
     }
 
     /**
@@ -57,8 +38,8 @@ class LC_Page_Materials extends LC_Page_Ex {
      */
     function action() {
     	$objCartSess = new SC_CartSession_Ex();
+    	
     	$this->cartItems = $objCartSess->getAllCartList();
-    	 
     	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     }
 
@@ -73,7 +54,7 @@ class LC_Page_Materials extends LC_Page_Ex {
 }
 
 
-$objPage = new LC_Page_Materials();
+$objPage = new LC_Page_ShoppingOrder();
 register_shutdown_function(array($objPage, 'destroy'));
 $objPage->init();
 $objPage->process();

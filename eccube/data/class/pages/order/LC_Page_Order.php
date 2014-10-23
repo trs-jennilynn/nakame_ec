@@ -71,7 +71,10 @@ class LC_Page_Order extends LC_Page_Ex {
         $this->arrOrder = $objDb->sfGetBasisData();
         $this->tpl_login = true;
 
-
+        $objCartSess = new SC_CartSession_Ex();
+        $this->cartItems = $objCartSess->getAllCartList();
+        
+        $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     }
 
     /**
