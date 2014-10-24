@@ -6,7 +6,7 @@
 .LC_Page_Orders .section-pad{
 	padding:0px;
 }
-.LC_Page_Orders body{
+.LC_Page_Orders{
 	background: #ede4cd;
 	background-size: cover;
 }

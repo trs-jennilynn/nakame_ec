@@ -81,7 +81,7 @@
                                     <input type="submit" class="btn-m btn-blue loading-submit" name="commit" type="submit" value="ログイン" />
                             </div>
                             <p class='small mar-b-1'>
-                                <a class="link-gray" href="password_resets/new.html"><i class='icon'>&#128165;</i><span>パスワードを忘れた</span></a></p>
+                                <a class="link-gray" href="<!--{$smarty.const.HTTP_URL}-->forgot"><i class='icon'>&#128165;</i><span>パスワードを忘れた</span></a></p>
                             <p class='small'>
                             <a class="link-gray" href="<!--{$smarty.const.HTTP_URL}-->signup"><i class='icon'>&#59136;</i><span>あたらしくアカウントをつくる</span></a></p>
                        </div>

@@ -3,7 +3,7 @@
 .LC_Page_Entry table,.LC_Page_Entry .btn_area .hover_change_image{
     display:none;
 }
-.LC_Page_Entry body{
+.LC_Page_Entry{
     background: #474a4d;
     background-size: cover;
 }
@@ -47,9 +47,9 @@
 }
 
 /**login**/
-.LC_Page_Login body,
+.LC_Page_Login,
 .LC_Page_Materials .materials_login,
-.LC_Page_Materials_New body{
+.LC_Page_Materials_New{
 	background: #474a4d;
 	background-size: cover;
 }
@@ -97,4 +97,20 @@
 .logout input{
 	background-color: transparent;
 	color: #fff;
+}
+
+
+/**login pass resets**/
+.section-100{
+	height: 100vh;
+}
+.section-pad{
+	padding: 4em 2em;
+}
+.section-beige {
+	background: #ede4cd;
+	color: #474a4d;
+}
+.LC_Page_PasswordResets #one_maincolumn{
+	padding-bottom:0px;
 }

@@ -22,10 +22,10 @@
 
 <!--{include file="`$smarty.const.TEMPLATE_REALDIR`popup_header.tpl" subtitle="パスワードを忘れた方(入力ページ)"}-->
 
-<div id="window_area">
-    <h2>パスワードの再発行</h2>
-    <p class="information">ご登録時のメールアドレスと、ご登録されたお名前を入力して「次へ」ボタンをクリックしてください。<br />
-    <span class="attention">※新しくパスワードを発行いたしますので、お忘れになったパスワードはご利用できなくなります。</span></p>
+<div id="window_area" class="section section-beige section-pad section-100">
+    <h2> パスワードの再設定</h2>
+    <p class="information">パスワードの再設定を申請すると、再設定ページのURLがメールで通知されます。<br />
+    <label for="email">メールアドレス</label>
     <form action="?" method="post" name="form1">
     <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
     <input type="hidden" name="mode" value="mail_check" />
@@ -35,7 +35,6 @@
             <div class="mailaddres">
                 <p class="attention"><!--{$arrErr.email}--></p>
                 <p>
-                    メールアドレス：&nbsp;
                     <input type="text" name="email" value="<!--{$arrForm.email|default:$tpl_login_email|h}-->" class="box300" style="<!--{$arrErr.email|sfGetErrorColor}-->; ime-mode: disabled;" />
                 </p>
             </div>
@@ -44,20 +43,47 @@
                     <!--{$arrErr.name01}--><!--{$arrErr.name02}-->
                     <!--{$errmsg}-->
                 </p>
-                <p>
-                    お名前：&nbsp;
-                    姓&nbsp;<input type="text" class="box120" name="name01" value="<!--{$arrForm.name01|default:''|h}-->" maxlength="<!--{$smarty.const.STEXT_LEN}-->" style="<!--{$arrErr.name01|sfGetErrorColor}-->; ime-mode: active;" />
-                    名&nbsp;<input type="text" class="box120" name="name02" value="<!--{$arrForm.name02|default:''|h}-->" maxlength="<!--{$smarty.const.STEXT_LEN}-->" style="<!--{$arrErr.name02|sfGetErrorColor}-->; ime-mode: active;" />
-                </p>
             </div>
         </div>
     </div>
     <div class="btn_area">
         <ul>
-            <li><input type="image" onmouseover="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_next_on.jpg',this)" onmouseout="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_next.jpg',this)" src="<!--{$TPL_URLPATH}-->img/button/btn_next.jpg" alt="次へ" name="next" id="next" /></li>
+            <li><input disable_with="申請中..."  value="再設定を申請する" type="submit" class="loading-submit"  alt="次へ" name="next" id="next" /></li>
         </ul>
     </div>
     </form>
 </div>
 <!--{include file="`$smarty.const.TEMPLATE_REALDIR`popup_footer.tpl"}-->
 
+
+<!-- <div class="section section-beige section-pad section-100">
+    <div class="container columns">
+        <div class="column">
+            <div class="column-content">
+                <h2>
+                パスワードの再設定
+                </h2>
+                <p>
+                パスワードの再設定を申請すると、再設定ページのURLがメールで通知されます。
+                </p>
+                <form accept-charset="UTF-8" action="?" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="oaT6oNaHkBZG0YWfXzduuoH6Unsmn3Jh7PlBGEN+p3Y="></div>
+                    <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+                   <!--  <input type="hidden" name="mode" value="emailsub" />
+                    
+                    <div class="form-groups">
+                        <div class="form-group">
+                            <label for="email">メールアドレス</label>
+                            <div class="form-control">
+                            <input class="input-large" id="email" name="email" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-submit">
+                        <input class="btn-s btn-blue loading-submit" disable_with="申請中..." name="commit" type="submit" value="再設定を申請する">
+                        </div>
+                    </div>
+                </form>
+            
+            </div>
+        </div>
+    </div>
+</div> -->

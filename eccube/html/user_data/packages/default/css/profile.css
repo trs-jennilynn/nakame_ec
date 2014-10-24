@@ -3,7 +3,7 @@
 .LC_Page_Profile .signup-header, .notification-header{
 	top:2em;
 }
-.LC_Page_Profile body{
+.LC_Page_Profile{
 	background: #ede4cd;
 }
 .LC_Page_Profile .header-navs li:nth-child(1){

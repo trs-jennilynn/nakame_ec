@@ -3922,3 +3922,146 @@ C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093):
 customer_id = 28
 2014/10/23 16:44:39 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
 2014/10/23 17:03:10 [/shopping/order.php] Warning(E_USER_WARNING): Smarty error: unable to read resource: "C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/.tpl" on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+2014/10/24 12:04:19 [/admin/ownersstore/index.php] Warning(E_WARNING): strcasecmp() expects parameter 2 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(497)] from 127.0.0.1
+2014/10/24 12:04:20 [/admin/ownersstore/index.php] Warning(E_WARNING): strcasecmp() expects parameter 2 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(499)] from 127.0.0.1
+2014/10/24 18:14:23 [/login/password_resets/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php on line 104 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1
+2014/10/24 18:16:37 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:16:37 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(86)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:19:27 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:19:27 [/login/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(138)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:20:23 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:20:23 [/login/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(138)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:20:32 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:20:32 [/login/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(138)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:20:32 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:20:32 [/login/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(138)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:21:05 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:21:05 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(88)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:31:22 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:31:22 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(88)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:32:45 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:32:45 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(91)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:33:55 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:33:55 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(91)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:40:56 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:40:56 [/login/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected ';' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(140)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:42:56 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:42:56 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(86)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:45:10 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:45:10 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(86)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:47:33 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:47:33 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(88)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:47:54 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:47:54 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(88)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:55:18 [/login/password_resets/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
+2014/10/24 18:55:18 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:55:18 [/login/password_resets/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:55:18 [/login/password_resets/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
+2014/10/24 18:55:18 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:55:18 [/login/password_resets/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:56:37 [/login/password_resets/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
+2014/10/24 18:56:37 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:56:37 [/login/password_resets/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
+customer_id = 
+2014/10/24 18:56:37 [/login/password_resets/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
+2014/10/24 18:56:37 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 18:56:37 [/login/password_resets/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:21:20 [/forgot/index.php] Fatal error(E_USER_ERROR): Smarty error: [in forgot/index.tpl line 43]: syntax error: unrecognized tag: $arrErr.name02}
+                    {$errmsg}
+                </p>
+                <p>
+                    お名前：&nbsp;
+                    姓&nbsp;<input type="text" class="box120" name="name01" value="<!--{$arrForm.name01|default:''|h (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\forgot\index.php(34): LC_Page_Forgot_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\forgot\LC_Page_Forgot_Ex.php(56): LC_Page_Forgot->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(80): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1261): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
+2014/10/24 19:22:08 [/forgot/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [PREPARE mdb2_statement_mysql_8f526924b271843dc0fda24f8edc68e40c3a7e96d FROM 'SELECT reminder, status FROM dtb_customer WHERE (email = ? OR email_mobile = ?) AND del_flg = 0   ']
+PlaceHolder: [array (
+  0 => 'trs.jennilynn@gmail.com',
+)]
+MDB2 Error: not found
+[Error message: Unable to bind to missing placeholder: 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\forgot\index.php(34): LC_Page_Forgot_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\forgot\LC_Page_Forgot_Ex.php(56): LC_Page_Forgot->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(79): LC_Page_Forgot->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(106): LC_Page_Forgot->lfCheckForgotMail
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(158): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(284): SC_Query->execute
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(970): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/10/24 19:31:41 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:31:41 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:31:59 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:31:59 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:31:59 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:31:59 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:32:41 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:32:41 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:32:41 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:32:41 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:57:31 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:57:31 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:57:57 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:57:57 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:58:53 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:58:53 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:59:11 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:59:11 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:59:13 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:59:13 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:59:28 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
+2014/10/24 19:59:28 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+customer_id = 
+2014/10/24 19:59:56 [/forgot/index.php] Warning(E_WARNING): Missing argument 4 for LC_Page_Forgot::lfSendMail(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 227 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(282)] from 127.0.0.1
+2014/10/24 19:59:56 [/forgot/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 297 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1
+2014/10/24 20:05:07 [/forgot/index.php] Warning(E_WARNING): Missing argument 4 for LC_Page_Forgot::lfSendMail(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 227 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(282)] from 127.0.0.1
+2014/10/24 20:05:07 [/forgot/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 297 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1
+2014/10/24 20:05:07 [/forgot/index.php] Warning(E_USER_WARNING): Smarty error: unable to read resource: "login" on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+2014/10/24 20:05:21 [/forgot/index.php] Warning(E_WARNING): Missing argument 4 for LC_Page_Forgot::lfSendMail(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 227 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(282)] from 127.0.0.1
+2014/10/24 20:05:21 [/forgot/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 297 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1
+2014/10/24 20:05:21 [/forgot/index.php] Warning(E_USER_WARNING): Smarty error: unable to read resource: "login" on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+2014/10/24 20:08:00 [/forgot/index.php] Warning(E_WARNING): Missing argument 4 for LC_Page_Forgot::lfSendMail(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 227 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(282)] from 127.0.0.1
+2014/10/24 20:08:00 [/forgot/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 297 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1

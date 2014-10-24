@@ -56,9 +56,8 @@
 #whobought_area .product_item .productImage{
 	width:310px !important;
 }
-productContents a,
+.productContents a,
 .sale_price{
-	float:left !important;
 	color: #333 !important;
 }
 .sale_price{

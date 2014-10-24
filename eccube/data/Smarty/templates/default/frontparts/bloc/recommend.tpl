@@ -24,15 +24,18 @@
     <div class="block_outer clearfix">
         <div id="recommend_area">
             <h2><img src="<!--{$TPL_URLPATH}-->img/title/tit_bloc_recommend.jpg" alt="*" class="title_icon" /></h2>
-            <div class="block_body clearfix">
+            <div class="block_body clearfix items-container">
                 <!--{foreach from=$arrBestProducts item=arrProduct name="recommend_products"}-->
-                    <div class="product_item clearfix">
-                        <div class="productImage">
-                            <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->">
-                                <img src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->&amp;width=80&amp;height=80" alt="<!--{$arrProduct.name|h}-->" />
-                            </a>
-                        </div>
-                        <div class="productContents">
+                    <div class="product_item item clearfix" data-item-variant-id="11" data-product-id="14032" data-wow-delay="0.1s">
+                        <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->">
+	                        <div class="selected-badge-list">
+	                           <img alt="ピックアップサレタヨ！" src="https://dijsur42hqnz1.cloudfront.net/assets/shop/pickup-badge-ff932d7bcbd2d11a8885ac0a0c7b7fab.png">
+	                        </div>
+	                        <div class="productImage item-image">
+	                           <img class="lens-image product-list-image" src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->&amp;width=80&amp;height=80" alt="<!--{$arrProduct.name|h}-->" />
+	                        </div>
+                        </a>
+                        <div class="productContents item-info">
                             <h3>
                                 <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><!--{$arrProduct.name|h}--></a>
                             </h3>
@@ -41,7 +44,10 @@
                                 ¥<span class="price"><!--{$arrProduct.price02_min_inctax|number_format}--></span>
                             </p>
                             <div class="float-r pad-t-05">
-	                            <button class="btn btn-trans favorite-button"><i class="icon text-red">♥</i><span class="favorites-count">0</span></button>
+	                            <button class="btn btn-trans favorite-button">
+		                            <i class="icon text-red">♥</i>
+		                            <span class="favorites-count">0</span>
+	                            </button>
 	                        </div>
                         </div>
                     </div>
