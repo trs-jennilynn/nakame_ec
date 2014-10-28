@@ -3512,556 +3512,243 @@ C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
 C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
 C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
 2014/10/22 17:53:53 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
-2014/10/22 19:31:56 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
-2014/10/23 11:56:20 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
-2014/10/23 12:19:56 [/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
-SQL: [SELECT COUNT(order_id) as buy_times FROM DUAL   ]
-MDB2 Error: no such field
-_doQuery: [Error message: Could not execute statement]
-[Last executed query: PREPARE mdb2_statement_mysql_92be64b89fae4c2e2f7cc1fd752c73df5a4f0c00f FROM 'SELECT COUNT(order_id) as buy_times FROM DUAL   ']
-[Native code: 1054]
-[Native message: Unknown column 'order_id' in 'field list']
- on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(55): LC_Page_Index->action
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(70): SC_Query->getRow
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(681): SC_Query->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
-2014/10/23 12:19:58 [/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
-SQL: [SELECT COUNT(order_id) as buy_times FROM DUAL   ]
-MDB2 Error: no such field
-_doQuery: [Error message: Could not execute statement]
-[Last executed query: PREPARE mdb2_statement_mysql_9fce2ef876addea861adf66c0b4d5163a8d8be719 FROM 'SELECT COUNT(order_id) as buy_times FROM DUAL   ']
-[Native code: 1054]
-[Native message: Unknown column 'order_id' in 'field list']
- on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(55): LC_Page_Index->action
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(70): SC_Query->getRow
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(681): SC_Query->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
-2014/10/23 12:20:23 [/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
-SQL: [SELECT COUNT(order_id) as buy_times FROM DUAL   ]
-MDB2 Error: no such field
-_doQuery: [Error message: Could not execute statement]
-[Last executed query: PREPARE mdb2_statement_mysql_9536006ba0a084be1e907cbf1608381150f6dc08c FROM 'SELECT COUNT(order_id) as buy_times FROM DUAL   ']
-[Native code: 1054]
-[Native message: Unknown column 'order_id' in 'field list']
- on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(55): LC_Page_Index->action
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(70): SC_Query->getRow
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(681): SC_Query->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
-2014/10/23 12:20:33 [/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
-SQL: [SELECT COUNT(order_id) as buy_times FROM DUAL   ]
-MDB2 Error: no such field
-_doQuery: [Error message: Could not execute statement]
-[Last executed query: PREPARE mdb2_statement_mysql_9137d25218f462b3c539198f5497abe21ecd868f3 FROM 'SELECT COUNT(order_id) as buy_times FROM DUAL   ']
-[Native code: 1054]
-[Native message: Unknown column 'order_id' in 'field list']
- on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(55): LC_Page_Index->action
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(70): SC_Query->select
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
-2014/10/23 12:28:40 [/index.php] Fatal error(E_ERROR): Call to undefined function getCount() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(70)] from 127.0.0.1
-customer_id = 28
-2014/10/23 12:29:18 [/index.php] Fatal error(E_ERROR): Call to undefined function getCount() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(70)] from 127.0.0.1
-customer_id = 28
-2014/10/23 12:29:38 [/index.php] Fatal error(E_ERROR): Call to undefined function getCount() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(70)] from 127.0.0.1
-customer_id = 28
-2014/10/23 12:34:21 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::get() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(70)] from 127.0.0.1
-customer_id = 28
-2014/10/23 12:39:09 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(72)] from 127.0.0.1
-customer_id = 28
-2014/10/23 12:40:20 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(72)] from 127.0.0.1
-customer_id = 28
-2014/10/23 12:40:57 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(72)] from 127.0.0.1
-customer_id = 28
-2014/10/23 12:42:08 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(74)] from 127.0.0.1
-customer_id = 28
-2014/10/23 12:49:28 [/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
-SQL: [SELECT COUNT(*) FROM dtb_order WHERE ustomer_id = ?   ]
-MDB2 Error: no such field
-_doQuery: [Error message: Could not execute statement]
-[Last executed query: PREPARE mdb2_statement_mysql_962408d4f81aabfa507264488d2c283324d662060 FROM 'SELECT COUNT(*) FROM dtb_order WHERE ustomer_id = ?   ']
-[Native code: 1054]
-[Native message: Unknown column 'ustomer_id' in 'where clause']
- on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(54): LC_Page_Index->action
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(73): SC_Query->count
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(137): SC_Query->get
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(632): SC_Query->getOne
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(647): SC_Query->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
-2014/10/23 12:54:11 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
-2014/10/23 12:56:24 [/cart/index.php] Fatal error(E_ERROR): Call to a member function count() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\cart\LC_Page_Cart.php(90)] from 127.0.0.1
-customer_id = 
-2014/10/23 13:02:54 [/index.php] Fatal error(E_ERROR): Call to a member function count() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(71)] from 127.0.0.1
-customer_id = 
-2014/10/23 13:02:54 [/index.php] Fatal error(E_ERROR): Call to a member function count() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(71)] from 127.0.0.1
-customer_id = 
-2014/10/23 13:02:57 [/index.php] Fatal error(E_ERROR): Call to a member function count() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(71)] from 127.0.0.1
-customer_id = 
-2014/10/23 13:03:08 [/index.php] Fatal error(E_ERROR): Call to a member function count() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(71)] from 127.0.0.1
-customer_id = 
-2014/10/23 13:03:11 [/index.php] Fatal error(E_ERROR): Call to a member function count() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(71)] from 127.0.0.1
-customer_id = 
-2014/10/23 13:03:11 [/index.php] Fatal error(E_ERROR): Call to a member function count() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(71)] from 127.0.0.1
-customer_id = 
-2014/10/23 13:03:52 [/index.php] Fatal error(E_ERROR): Call to a member function count() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(71)] from 127.0.0.1
-customer_id = 
-2014/10/23 13:04:26 [/index.php] Fatal error(E_ERROR): Call to a member function count() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(71)] from 127.0.0.1
-customer_id = 
-2014/10/23 13:20:59 [/cart/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/cart/index.tpl line 200]: syntax error: unclosed tag \{if} (opened line 38). (Smarty_Compiler.class.php, line 317) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 
-C:\xampp\htdocs\nakame_ec\eccube\html\cart\index.php(34): LC_Page_Cart_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\cart\LC_Page_Cart_Ex.php(56): LC_Page_Cart->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\cart\LC_Page_Cart.php(71): LC_Page->sendResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(164): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(134): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(317): Smarty_Compiler->_syntax_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
-2014/10/23 13:27:40 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
-2014/10/23 13:35:50 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
-2014/10/23 13:36:53 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
-2014/10/23 13:37:13 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
-2014/10/23 13:51:20 [/index.php] Fatal error(E_ERROR): Call to undefined method SC_CartSession_Ex::count() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(75)] from 127.0.0.1
-customer_id = 28
-2014/10/23 13:55:23 [/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
-SQL: [SELECT COUNT(*) FROM SUM( payment_total) as buy_total, COUNT(order_id) as buy_times,MAX( create_date) as last_buy_date, MIN(create_date) as first_buy_date WHERE dtb_order   ]
+2014/10/27 11:49:34 [/signup/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\entry\LC_Page_Entry.php on line 249 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1
+2014/10/27 11:52:00 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
+2014/10/27 11:59:06 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
+2014/10/27 12:39:05 [/mypage/index.php] Warning(E_WARNING): strlen() expects parameter 1 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(320)] from 127.0.0.1
+2014/10/27 12:39:05 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT dtb_products FROM customer_id = ?   ]
 MDB2 Error: syntax error
 _doQuery: [Error message: Could not execute statement]
-[Last executed query: PREPARE mdb2_statement_mysql_94a9e0aecae4d7fe3f75782a8f75312eac6ced5b7 FROM 'SELECT COUNT(*) FROM SUM( payment_total) as buy_total, COUNT(order_id) as buy_times,MAX( create_date) as last_buy_date, MIN(create_date) as first_buy_date WHERE dtb_order   ']
+[Last executed query: PREPARE mdb2_statement_mysql_144cf727e4152d0e6cc3c95fe4e3fa1695e136ea36 FROM 'SELECT dtb_products FROM customer_id = ?   ']
 [Native code: 1064]
-[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SUM( payment_total) as buy_total, COUNT(order_id) as buy_times,MAX( create_date)' at line 1]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1]
  on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(54): LC_Page_Index->action
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(72): SC_Query->count
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(137): SC_Query->get
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(632): SC_Query->getOne
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(647): SC_Query->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
-2014/10/23 13:59:37 [/index.php] Warning(E_WARNING): strlen() expects parameter 1 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(313)] from 127.0.0.1
-2014/10/23 13:59:37 [/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
-SQL: [SELECT dtb_customer FROM Array WHERE customer_id = ?   ]
-MDB2 Error: no such table
-_doQuery: [Error message: Could not execute statement]
-[Last executed query: PREPARE mdb2_statement_mysql_108b159f0cb1c074a825eaf12b5b4614dd4b99f1cb FROM 'SELECT dtb_customer FROM Array WHERE customer_id = ?   ']
-[Native code: 1146]
-[Native message: Table 'nakame.array' doesn't exist]
- on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(54): LC_Page_Index->action
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(75): SC_Query->select
+customer_id = 34
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(72): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(96): SC_Query->select
 C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
 C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
 C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
 C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
-2014/10/23 15:04:32 [/index.php] Fatal error(E_ERROR): Call to undefined function getAllCartList() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(75)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:04:59 [/index.php] Warning(E_WARNING): strlen() expects parameter 1 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(313)] from 127.0.0.1
-2014/10/23 15:04:59 [/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
-SQL: [SELECT COUNT(*) FROM Array   ]
-MDB2 Error: no such table
+2014/10/27 12:39:16 [/mypage/index.php] Warning(E_WARNING): strlen() expects parameter 1 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(320)] from 127.0.0.1
+2014/10/27 12:39:16 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT dtb_products FROM customer_id = ?   ]
+MDB2 Error: syntax error
 _doQuery: [Error message: Could not execute statement]
-[Last executed query: PREPARE mdb2_statement_mysql_1011a2877a931358a72663dfa44794277a4c13b747 FROM 'SELECT COUNT(*) FROM Array   ']
-[Native code: 1146]
-[Native message: Table 'nakame.array' doesn't exist]
+[Last executed query: PREPARE mdb2_statement_mysql_149cdb6bc90d213e5e3a7a8273c263dc0583fec7a4 FROM 'SELECT dtb_products FROM customer_id = ?   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1]
  on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(54): LC_Page_Index->action
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(75): SC_Query->count
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(137): SC_Query->get
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(632): SC_Query->getOne
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(647): SC_Query->prepare
+customer_id = 34
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(72): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(96): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
 C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
 C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
-2014/10/23 15:06:10 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
-2014/10/23 15:07:51 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
-2014/10/23 15:25:35 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
-2014/10/23 15:26:02 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
-2014/10/23 15:35:43 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 77]: syntax error: unrecognized tag: count($cartItems) (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(55): LC_Page->sendResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(164): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(41): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
-2014/10/23 15:35:43 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 77]: syntax error: unrecognized tag: count($cartItems) (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(55): LC_Page->sendResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(164): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(41): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
-2014/10/23 15:35:46 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 77]: syntax error: unrecognized tag: count($cartItems) (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(55): LC_Page->sendResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(164): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(41): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
-2014/10/23 15:36:17 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 77]: syntax error: unrecognized tag: if(count($cartItems)) (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\index.php(33): LC_Page_Index_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\LC_Page_Index_Ex.php(56): LC_Page_Index->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(55): LC_Page->sendResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(164): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(41): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
-2014/10/23 15:39:40 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(78)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:39:40 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(78)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:39:47 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(78)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:40:00 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(78)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:41:36 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(78)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:41:46 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:41:52 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:42:05 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::lfGetCartPrevUrl() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(99)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:42:39 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:42:47 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:44:36 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:44:36 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 149]: syntax error: unclosed tag \{if} (opened line 78). (Smarty_Compiler.class.php, line 317) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:44:37 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:44:37 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 149]: syntax error: unclosed tag \{if} (opened line 78). (Smarty_Compiler.class.php, line 317) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:45:42 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:45:42 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 79]: syntax error: unrecognized tag: [$count]|h (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:45:59 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:45:59 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 78]: syntax error: unrecognized tag: [count($cartItems)]|h (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:46:36 [/cart/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 78]: syntax error: unrecognized tag: [count($cartItems)]|h (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\cart\index.php(34): LC_Page_Cart_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\cart\LC_Page_Cart_Ex.php(56): LC_Page_Cart->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\cart\LC_Page_Cart.php(71): LC_Page->sendResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(164): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(41): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
-2014/10/23 15:46:36 [/cart/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 78]: syntax error: unrecognized tag: [count($cartItems)]|h (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\cart\index.php(34): LC_Page_Cart_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\cart\LC_Page_Cart_Ex.php(56): LC_Page_Cart->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\cart\LC_Page_Cart.php(71): LC_Page->sendResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(164): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(41): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
-2014/10/23 15:47:35 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:47:35 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 78]: syntax error: unrecognized tag:  (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:48:27 [/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Index_Ex::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(78)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:48:27 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 78]: syntax error: unrecognized tag:  (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:49:01 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(104)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:49:01 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 78]: syntax error: unrecognized tag:  (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:49:27 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:49:27 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 78]: syntax error: unrecognized tag:  (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:49:42 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(92)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:49:42 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 78]: syntax error: unrecognized tag:  (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:51:38 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(80)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:51:38 [/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 78]: syntax error: unrecognized tag:  (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-2014/10/23 15:51:40 [/cart/index.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/header.tpl line 78]: syntax error: unrecognized tag:  (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 28
-C:\xampp\htdocs\nakame_ec\eccube\html\cart\index.php(34): LC_Page_Cart_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\cart\LC_Page_Cart_Ex.php(56): LC_Page_Cart->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\cart\LC_Page_Cart.php(71): LC_Page->sendResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(164): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
-C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(41): Smarty->_smarty_include
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
-2014/10/23 15:53:02 [/index.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page_Index.php(80)] from 127.0.0.1
-customer_id = 28
-2014/10/23 16:44:39 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
-2014/10/23 17:03:10 [/shopping/order.php] Warning(E_USER_WARNING): Smarty error: unable to read resource: "C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/.tpl" on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-2014/10/24 12:04:19 [/admin/ownersstore/index.php] Warning(E_WARNING): strcasecmp() expects parameter 2 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(497)] from 127.0.0.1
-2014/10/24 12:04:20 [/admin/ownersstore/index.php] Warning(E_WARNING): strcasecmp() expects parameter 2 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(499)] from 127.0.0.1
-2014/10/24 18:14:23 [/login/password_resets/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php on line 104 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1
-2014/10/24 18:16:37 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:16:37 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(86)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:19:27 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:19:27 [/login/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(138)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:20:23 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:20:23 [/login/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(138)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:20:32 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:20:32 [/login/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(138)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:20:32 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:20:32 [/login/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(138)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:21:05 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:21:05 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(88)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:31:22 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:31:22 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(88)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:32:45 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:32:45 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(91)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:33:55 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:33:55 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(91)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:40:56 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:40:56 [/login/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected ';' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(140)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:42:56 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:42:56 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(86)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:45:10 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:45:10 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(86)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:47:33 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:47:33 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(88)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:47:54 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:47:54 [/login/password_resets/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_PasswordResets_Ex::lfRegistCustomerData() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\login\password\LC_Page_PasswordResets.php(88)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:55:18 [/login/password_resets/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
-2014/10/24 18:55:18 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:55:18 [/login/password_resets/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:55:18 [/login/password_resets/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
-2014/10/24 18:55:18 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:55:18 [/login/password_resets/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:56:37 [/login/password_resets/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
-2014/10/24 18:56:37 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:56:37 [/login/password_resets/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
-customer_id = 
-2014/10/24 18:56:37 [/login/password_resets/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
-2014/10/24 18:56:37 [/login/password_resets/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 18:56:37 [/login/password_resets/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/login/password/LC_Page_Forgot_Ex.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\login\password_resets\index.php(26)] from 127.0.0.1
-customer_id = 
-2014/10/24 19:21:20 [/forgot/index.php] Fatal error(E_USER_ERROR): Smarty error: [in forgot/index.tpl line 43]: syntax error: unrecognized tag: $arrErr.name02}
-                    {$errmsg}
-                </p>
-                <p>
-                    お名前：&nbsp;
-                    姓&nbsp;<input type="text" class="box120" name="name01" value="<!--{$arrForm.name01|default:''|h (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-customer_id = 
-C:\xampp\htdocs\nakame_ec\eccube\html\forgot\index.php(34): LC_Page_Forgot_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\forgot\LC_Page_Forgot_Ex.php(56): LC_Page_Forgot->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(80): LC_Page->sendResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1261): Smarty->_compile_resource
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
-C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
-2014/10/24 19:22:08 [/forgot/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
-SQL: [PREPARE mdb2_statement_mysql_8f526924b271843dc0fda24f8edc68e40c3a7e96d FROM 'SELECT reminder, status FROM dtb_customer WHERE (email = ? OR email_mobile = ?) AND del_flg = 0   ']
-PlaceHolder: [array (
-  0 => 'trs.jennilynn@gmail.com',
-)]
-MDB2 Error: not found
-[Error message: Unable to bind to missing placeholder: 1]
+2014/10/27 12:40:26 [/mypage/index.php] Warning(E_WARNING): strlen() expects parameter 1 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(320)] from 127.0.0.1
+2014/10/27 12:40:26 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT dtb_products FROM maker_id = ?   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_1479a72f4faba9ae1a0cdf716f4e141f15b76b802f FROM 'SELECT dtb_products FROM maker_id = ?   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1]
  on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
-customer_id = 
-C:\xampp\htdocs\nakame_ec\eccube\html\forgot\index.php(34): LC_Page_Forgot_Ex->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\forgot\LC_Page_Forgot_Ex.php(56): LC_Page_Forgot->process
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(79): LC_Page_Forgot->action
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(106): LC_Page_Forgot->lfCheckForgotMail
-C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(158): SC_Query->select
+customer_id = 34
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(72): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(96): SC_Query->select
 C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(284): SC_Query->execute
-C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(970): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
 C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
-2014/10/24 19:31:41 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:31:41 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+2014/10/27 12:40:38 [/mypage/index.php] Warning(E_WARNING): strlen() expects parameter 1 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(320)] from 127.0.0.1
+2014/10/27 12:40:38 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT dtb_products FROM maker_id = ?   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_148e374c2d3f54109d808b257d70bc02035fbb21b9 FROM 'SELECT dtb_products FROM maker_id = ?   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 34
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(72): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(96): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/10/27 12:40:46 [/mypage/index.php] Warning(E_WARNING): strlen() expects parameter 1 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(320)] from 127.0.0.1
+2014/10/27 12:40:46 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT dtb_products FROM maker_id = ?   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_14c369809002e1b3940591a4b9b7ba2a4e5e70e6d6 FROM 'SELECT dtb_products FROM maker_id = ?   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 34
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(72): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(96): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/10/27 12:40:48 [/mypage/index.php] Warning(E_WARNING): strlen() expects parameter 1 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(320)] from 127.0.0.1
+2014/10/27 12:40:48 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT dtb_products FROM maker_id = ?   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_148b25bbb3a3a2f985a2fbb7202853cb2efcd457c1 FROM 'SELECT dtb_products FROM maker_id = ?   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 34
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(72): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(96): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/10/27 12:43:18 [/mypage/index.php] Warning(E_WARNING): strlen() expects parameter 1 to be string, array given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(320)] from 127.0.0.1
+2014/10/27 12:43:18 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT dtb_products FROM maker_id = ?   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_146844c99359e14156968bd5b75fe3092f28167e69 FROM 'SELECT dtb_products FROM maker_id = ?   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 34
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(72): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(95): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/10/27 12:43:40 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT dtb_products FROM DUAL   ]
+MDB2 Error: no such field
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_146d5ee835ec285bdf1e37d10303062c2e44f55395 FROM 'SELECT dtb_products FROM DUAL   ']
+[Native code: 1054]
+[Native message: Unknown column 'dtb_products' in 'field list']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 34
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(72): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(95): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/10/27 12:44:48 [/mypage/index.php] Warning(E_WARNING): Illegal string offset 'name' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(98)] from 127.0.0.1
+2014/10/27 12:46:56 [/mypage/index.php] Fatal error(E_ERROR): Cannot use object of type SC_Product_Ex as array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(95)] from 127.0.0.1
+customer_id = 34
+2014/10/27 12:47:22 [/mypage/index.php] Fatal error(E_ERROR): Call to undefined method SC_Product_Ex::getvalue() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(95)] from 127.0.0.1
+customer_id = 34
+2014/10/27 12:48:10 [/mypage/index.php] Fatal error(E_ERROR): Call to undefined method SC_Product_Ex::getvalue() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(95)] from 127.0.0.1
+customer_id = 34
+2014/10/27 15:11:23 [/mypage/index.php] Fatal error(E_ERROR): Call to a member function update() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(112)] from 127.0.0.1
+customer_id = 34
+2014/10/27 15:12:02 [/mypage/index.php] Fatal error(E_ERROR): Call to a member function update() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(112)] from 127.0.0.1
+customer_id = 34
+2014/10/27 15:12:08 [/mypage/index.php] Fatal error(E_ERROR): Call to a member function update() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(112)] from 127.0.0.1
+customer_id = 34
+2014/10/27 17:48:00 [/mypage/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(211)] from 127.0.0.1
+customer_id = 34
+2014/10/27 17:48:06 [/mypage/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(211)] from 127.0.0.1
+customer_id = 34
+2014/10/27 17:48:15 [/mypage/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(210)] from 127.0.0.1
+customer_id = 34
+2014/10/27 17:54:33 [/mypage/index.php] Fatal error(E_ERROR): Call to undefined method LC_Page_Mypage_Ex::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(100)] from 127.0.0.1
+customer_id = 34
+2014/10/27 18:16:45 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
+2014/10/27 18:53:26 [/mypage/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(26)] from 127.0.0.1
+2014/10/27 18:53:26 [/mypage/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(26)] from 127.0.0.1
+customer_id = 34
+2014/10/27 18:54:04 [/mypage/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(26)] from 127.0.0.1
+2014/10/27 18:54:04 [/mypage/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(26)] from 127.0.0.1
+customer_id = 34
+2014/10/27 18:54:06 [/mypage/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(26)] from 127.0.0.1
+2014/10/27 18:54:06 [/mypage/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(26)] from 127.0.0.1
+customer_id = 34
+2014/10/27 18:54:52 [/mypage/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(26)] from 127.0.0.1
+2014/10/27 18:54:52 [/mypage/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(26)] from 127.0.0.1
+customer_id = 34
+2014/10/27 18:54:53 [/mypage/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(26)] from 127.0.0.1
+2014/10/27 18:54:53 [/mypage/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(26)] from 127.0.0.1
+customer_id = 34
+2014/10/27 18:54:54 [/mypage/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(26)] from 127.0.0.1
+2014/10/27 18:54:54 [/mypage/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(26)] from 127.0.0.1
+customer_id = 34
+2014/10/27 18:55:25 [/mypage/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(26)] from 127.0.0.1
+2014/10/27 18:55:25 [/mypage/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/pages/SC_UploadFile.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(26)] from 127.0.0.1
+customer_id = 34
+2014/10/27 19:24:13 [/mypage/index.php] Fatal error(E_PARSE): syntax error, unexpected ':', expecting ']' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(78)] from 127.0.0.1
+customer_id = 34
+2014/10/27 19:28:20 [/mypage/index.php] Warning(E_WARNING): Division by zero on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%EB^EB7^EB73DE8C%%index.tpl.php(137)] from 127.0.0.1
+2014/10/27 19:28:34 [/mypage/index.php] Warning(E_WARNING): Division by zero on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%EB^EB7^EB73DE8C%%index.tpl.php(137)] from 127.0.0.1
+2014/10/27 19:48:56 [/mypage/index.php] Fatal error(E_PARSE): syntax error, unexpected ')', expecting '&' or variable (T_VARIABLE) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(168)] from 127.0.0.1
+customer_id = 34
+2014/10/27 19:49:02 [/mypage/index.php] Fatal error(E_PARSE): syntax error, unexpected ')', expecting '&' or variable (T_VARIABLE) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(170)] from 127.0.0.1
+customer_id = 34
+2014/10/27 19:49:16 [/mypage/index.php] Fatal error(E_PARSE): syntax error, unexpected ')', expecting '&' or variable (T_VARIABLE) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(157)] from 127.0.0.1
+customer_id = 34
+2014/10/28 11:44:44 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
+2014/10/28 11:50:15 [/frontparts/login_check.php] Warning(E_USER_WARNING): Smarty error: unable to read resource: "C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/.tpl" on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+2014/10/28 11:50:27 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
+2014/10/28 12:07:44 [/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected '}' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\passwordresets\LC_Page_PasswordResets.php(339)] from 127.0.0.1
+customer_id = 34
+2014/10/28 12:08:19 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
+2014/10/28 12:08:29 [/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected '}' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\passwordresets\LC_Page_PasswordResets.php(339)] from 127.0.0.1
 customer_id = 
-2014/10/24 19:31:59 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:31:59 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+2014/10/28 12:08:29 [/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected '}' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\passwordresets\LC_Page_PasswordResets.php(339)] from 127.0.0.1
 customer_id = 
-2014/10/24 19:31:59 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:31:59 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+2014/10/28 12:09:07 [/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected '}' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\passwordresets\LC_Page_PasswordResets.php(339)] from 127.0.0.1
 customer_id = 
-2014/10/24 19:32:41 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:32:41 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+2014/10/28 12:10:16 [/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected '}' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\passwordresets\LC_Page_PasswordResets.php(339)] from 127.0.0.1
 customer_id = 
-2014/10/24 19:32:41 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:32:41 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+2014/10/28 12:11:08 [/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected '}' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\passwordresets\LC_Page_PasswordResets.php(339)] from 127.0.0.1
 customer_id = 
-2014/10/24 19:57:31 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:57:31 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+2014/10/28 12:11:52 [/password_resets/index.php] Fatal error(E_PARSE): syntax error, unexpected '}' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\passwordresets\LC_Page_PasswordResets.php(340)] from 127.0.0.1
 customer_id = 
-2014/10/24 19:57:57 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:57:57 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+2014/10/28 12:13:27 [/password_resets/index.php] Fatal error(E_ERROR): Call to a member function getHashArray() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\passwordresets\LC_Page_PasswordResets.php(92)] from 127.0.0.1
 customer_id = 
-2014/10/24 19:58:53 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:58:53 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
+2014/10/28 12:22:08 [/password_resets/index.php] Fatal error(E_ERROR): Call to a member function getHashArray() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\passwordresets\LC_Page_PasswordResets.php(92)] from 127.0.0.1
 customer_id = 
-2014/10/24 19:59:11 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:59:11 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
-customer_id = 
-2014/10/24 19:59:13 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:59:13 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
-customer_id = 
-2014/10/24 19:59:28 [/forgot/index.php] Warning(E_WARNING): Illegal string offset 'customer_id' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\util\GC_Utils.php(186)] from 127.0.0.1
-2014/10/24 19:59:28 [/forgot/index.php] Fatal error(E_PARSE): syntax error, unexpected end of file, expecting function (T_FUNCTION) on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(311)] from 127.0.0.1
-customer_id = 
-2014/10/24 19:59:56 [/forgot/index.php] Warning(E_WARNING): Missing argument 4 for LC_Page_Forgot::lfSendMail(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 227 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(282)] from 127.0.0.1
-2014/10/24 19:59:56 [/forgot/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 297 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1
-2014/10/24 20:05:07 [/forgot/index.php] Warning(E_WARNING): Missing argument 4 for LC_Page_Forgot::lfSendMail(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 227 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(282)] from 127.0.0.1
-2014/10/24 20:05:07 [/forgot/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 297 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1
-2014/10/24 20:05:07 [/forgot/index.php] Warning(E_USER_WARNING): Smarty error: unable to read resource: "login" on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-2014/10/24 20:05:21 [/forgot/index.php] Warning(E_WARNING): Missing argument 4 for LC_Page_Forgot::lfSendMail(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 227 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(282)] from 127.0.0.1
-2014/10/24 20:05:21 [/forgot/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 297 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1
-2014/10/24 20:05:21 [/forgot/index.php] Warning(E_USER_WARNING): Smarty error: unable to read resource: "login" on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
-2014/10/24 20:08:00 [/forgot/index.php] Warning(E_WARNING): Missing argument 4 for LC_Page_Forgot::lfSendMail(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 227 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php(282)] from 127.0.0.1
-2014/10/24 20:08:00 [/forgot/index.php] Warning(E_WARNING): Missing argument 2 for SC_Helper_Mail::sfMakeSubject(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\forgot\LC_Page_Forgot.php on line 297 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Mail.php(250)] from 127.0.0.1
+2014/10/28 13:11:05 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
+2014/10/28 13:21:10 [/password_resets/index.php] Warning(E_USER_WARNING): Smarty error: unable to read resource: "C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/.tpl" on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+2014/10/28 15:27:21 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1

@@ -56,10 +56,7 @@ class LC_Page_Materials extends LC_Page_Ex {
      * @return void
      */
     function action() {
-    	$objCartSess = new SC_CartSession_Ex();
-    	$this->cartItems = $objCartSess->getAllCartList();
-    	 
-    	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
+    	
     }
 
     /**

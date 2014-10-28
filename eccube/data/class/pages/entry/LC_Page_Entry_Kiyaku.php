@@ -75,10 +75,10 @@ class LC_Page_Entry_Kiyaku extends LC_Page_Ex {
         $this->tpl_kiyaku_text = $this->lfMakeKiyakuText($arrKiyaku, $this->max, $this->offset);
         $this->tpl_login = true;
 
-        
         $objCartSess = new SC_CartSession_Ex();
-        $this->cartItems = $objCartSess->getAllCartList();
+        $objSiteSess = new SC_SiteSession_Ex();
         
+        $this->cartItems = $objCartSess->getAllCartList();
         $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     }
 

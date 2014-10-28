@@ -64,6 +64,12 @@ class LC_Page_Profile extends LC_Page_Ex {
     		$_POST['mode'] = 'return';
     	}*/
     	
+    	$objCartSess = new SC_CartSession_Ex();
+    	$objSiteSess = new SC_SiteSession_Ex();
+    	
+    	$this->cartItems = $objCartSess->getAllCartList();
+    	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
+    	
     	$objCookie = new SC_Cookie_Ex();
     	$objFormParam = new SC_FormParam_Ex();
     	SC_Helper_Customer_Ex::sfCustomerMypageParam($objFormParam);

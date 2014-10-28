@@ -49,7 +49,7 @@
                     <div class="page">
                         <div class="flipInY form-container wow animated animated" data-wow-duration="1s" data-wow-iteration="1" style="visibility: visible; -webkit-animation: 1s 1;">
                             <h1 class="brand pad-v-1">
-                            <a href="<!--{$smarty.const.HTTPS_URL}-->"><img alt="SUZURI" src="https://dijsur42hqnz1.cloudfront.net/assets/common/suzuri-logo-v-2ba32e5199c85b49e420621545041cf6.svg" width="120px">
+                            <a href="/"><img alt="SUZURI" src="https://dijsur42hqnz1.cloudfront.net/assets/common/suzuri-logo-v-2ba32e5199c85b49e420621545041cf6.svg" width="120px">
                             </a></h1>
                             <div style="display:none">
                                 <input name="utf8" type="hidden" value="✓" class="tooltipstered">
@@ -81,7 +81,7 @@
                                     <input type="submit" class="btn-m btn-blue loading-submit" name="commit" type="submit" value="ログイン" />
                             </div>
                             <p class='small mar-b-1'>
-                                <a class="link-gray" href="<!--{$smarty.const.HTTP_URL}-->forgot"><i class='icon'>&#128165;</i><span>パスワードを忘れた</span></a></p>
+                                <a class="link-gray" href="<!--{$smarty.const.HTTPS_URL}-->password_resets"><i class='icon'>&#128165;</i><span>パスワードを忘れた</span></a></p>
                             <p class='small'>
                             <a class="link-gray" href="<!--{$smarty.const.HTTP_URL}-->signup"><i class='icon'>&#59136;</i><span>あたらしくアカウントをつくる</span></a></p>
                        </div>

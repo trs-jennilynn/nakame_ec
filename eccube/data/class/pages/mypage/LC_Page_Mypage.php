@@ -84,16 +84,24 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
        	
        	$objFormParam = new SC_FormParam_Ex();
        	
-       	SC_Helper_Customer_Ex::sfCustomerEntryParam($objFormParam);
-       	$objFormParam->setParam($_POST);
-       	
        	$objCartSess = new SC_CartSession_Ex();
+       	$objSiteSess = new SC_SiteSession_Ex();
+       	$arrForm = $objFormParam->getHashArray();
+       	
        	$this->cartItems = $objCartSess->getAllCartList();
        	
        	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
        	
+       //	$objProduct = new SC_Product_Ex();
+       // echo $pro_name = $objProduct->getvalue('name');
+       	
+       	SC_Helper_Customer_Ex::sfCustomerEntryParam($objFormParam);
+       	$objFormParam->setParam($_POST);
+       	
         $objCookie = new SC_Cookie_Ex();
        	$objCustomer->updateSession();
+       	
+       	$objFormParam->convParam();
        	
         $this->tpl_login=true;
         $this->tpl_name1 = $objCustomer->getvalue('name01');
@@ -115,7 +123,7 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
                                             SC_Display_Ex::detectDevice() !== DEVICE_TYPE_MOBILE);
 
         $this->arrOrder = $this->lfGetOrderHistory($customer_id, $this->objNavi->start_row);
-        
+
         switch ($this->getMode()) {
             case 'getList':
                 echo SC_Utils_Ex::jsonEncode($this->arrOrder);
@@ -135,13 +143,17 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
              case 'キャンセル':
              	$objCustomer->updateSession();
              	break;
-            default:
-                break;
+        	default:
+				//echo '<script>alert("asd");</script>';
+             	break;
         }
         // 支払い方法の取得
         $this->arrPayment = SC_Helper_DB_Ex::sfGetIDValueList('dtb_payment', 'payment_id', 'payment_method');
         // 1ページあたりの件数
         $this->dispNumber = SEARCH_PMAX;
+        
+        
+      
     }
 
     /**

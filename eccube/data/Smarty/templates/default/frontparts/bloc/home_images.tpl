@@ -21,6 +21,7 @@
  *}-->
 
 <!--{strip}-->
+
     <div id="splash">
             <div class="splash-container">
                     <h1 class="splash_title">

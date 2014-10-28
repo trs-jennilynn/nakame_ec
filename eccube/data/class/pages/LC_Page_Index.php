@@ -35,6 +35,7 @@ class LC_Page_Index extends LC_Page_Ex {
 
     // }}}
     // {{{ functions
+
     /**
      * Page を初期化する.
      *
@@ -65,13 +66,12 @@ class LC_Page_Index extends LC_Page_Ex {
         $objCustomer = new SC_Customer_Ex();
         $this->isLogin = $objCustomer->isLoginSuccess(true);
         
-     
         $objCartSess = new SC_CartSession_Ex();
         $objSiteSess = new SC_SiteSession_Ex();
-  
-       	$this->cartItems = $objCartSess->getAllCartList();
         
-       	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
+        $this->cartItems = $objCartSess->getAllCartList();
+        
+        $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     }
 
     /**

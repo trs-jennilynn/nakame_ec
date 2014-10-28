@@ -53,7 +53,7 @@
     </div>
     </form>
 </div>
-<!--{include file="`$smarty.const.TEMPLATE_REALDIR`popup_footer.tpl"}-->
+<!--{include file="`$smarty.const.TEMPLATE_REALDIR`footer.tpl"}-->
 
 
 <!-- <div class="section section-beige section-pad section-100">

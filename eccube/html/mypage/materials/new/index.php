@@ -46,10 +46,6 @@ class LC_Page_Materials_New extends LC_Page_Ex {
     		$this->action();
     	}
     	
-    	$objCartSess = new SC_CartSession_Ex();
-    	$this->cartItems = $objCartSess->getAllCartList();
-    	
-    	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     	
     	$this->sendResponse();
     }
@@ -60,8 +56,12 @@ class LC_Page_Materials_New extends LC_Page_Ex {
      * @return void
      */
     function action() {
+    	$objCartSess = new SC_CartSession_Ex();
+    	$objSiteSess = new SC_SiteSession_Ex();
     	
+    	$this->cartItems = $objCartSess->getAllCartList();
     	
+    	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     }
 
     /**

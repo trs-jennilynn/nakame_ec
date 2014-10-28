@@ -22,16 +22,18 @@
  */
 
 // {{{ requires
-require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
+require_once CLASS_REALDIR . 'pages/passwordresets/LC_Page_PasswordResets.php';
 
 /**
- * 特定商取引に関する法律に基づく表記 のページクラス.
+ * PasswordResets のページクラス(拡張).
+ *
+ * LC_Page_PasswordResets をカスタマイズする場合はこのクラスを編集する.
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Order.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
+ * @version $Id: LC_Page_PasswordResets_Ex.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
-class LC_Page_Order extends LC_Page_Ex {
+class LC_Page_PasswordResets_Ex extends LC_Page_PasswordResets {
 
     // }}}
     // {{{ functions
@@ -43,10 +45,6 @@ class LC_Page_Order extends LC_Page_Ex {
      */
     function init() {
         parent::init();
-        $this->tpl_page_category = 'order';
-        $this->tpl_title = '特定商取引に関する法律に基づく表記';
-        $masterData = new SC_DB_MasterData_Ex();
-        $this->arrPref = $masterData->getMasterData('mtb_pref');
     }
 
     /**
@@ -56,27 +54,6 @@ class LC_Page_Order extends LC_Page_Ex {
      */
     function process() {
         parent::process();
-        $this->action();
-        $this->sendResponse();
-    }
-
-    /**
-     * Page のアクション.
-     *
-     * @return void
-     */
-    function action() {
-
-        $objDb = new SC_Helper_DB_Ex();
-        $this->arrOrder = $objDb->sfGetBasisData();
-        $this->tpl_login = true;
-
-        $objCartSess = new SC_CartSession_Ex();
-        $objSiteSess = new SC_SiteSession_Ex();
-        
-        $this->cartItems = $objCartSess->getAllCartList();
-        $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
-        
     }
 
     /**

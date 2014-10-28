@@ -44,7 +44,7 @@
                                 ファイルサイズは【5MB】までです。
                                 </li>
                                 <li>
-                                <a class="btn-s btn-blue" href="<!--{$smarty.const.HTTPS_URL}-->mypage/materials"><i class="icon"></i>アップした素材を使う</a>
+                                <a class="btn-s btn-blue" href="/mypage/materials"><i class="icon"></i>アップした素材を使う</a>
                                 </li>
                         </ul>
                 </div>

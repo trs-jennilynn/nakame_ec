@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-.LC_Page_Products_List body.controller-shops.action-item .shop, 
+.LC_Page_Products_List.controller-shops.action-item .shop, 
 body.controller-selections.action-index .shop, 
 body.controller-products.action-by_item .shop {
 	padding: 3em 0 0 0;

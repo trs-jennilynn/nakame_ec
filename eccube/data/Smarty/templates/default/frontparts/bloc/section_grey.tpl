@@ -21,7 +21,7 @@
  *}-->
 
 <!--{strip}-->
-<!--{if !$isLogin}-->
+<!--{if !isLogin}-->
     <div class="section section-graydark section-pad section-about section-arrow">
             <div class="container">
                    <h1 class="about-step-description kerning bold">

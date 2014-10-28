@@ -42,36 +42,4 @@
 .LC_Page_Index #header_login_area p.btn input[type=image]{
 	display:none;
 }
-.main_column #recommend_area .block_body .productImage, 
-#whobought_area .product_item .productImage,
-#one_maincolumn #recommend_area .block_body .productContents,
-.LC_Page_Index .productContents h3 a{
-	float:none !important;
-}
-.main_column #recommend_area .product_item, #whobought_area .product_item,
-#one_maincolumn #recommend_area .block_body .productContents{
-	width:auto !important;
-}
-.main_column #recommend_area .block_body .productImage, 
-#whobought_area .product_item .productImage{
-	width:310px !important;
-}
-.productContents a,
-.sale_price{
-	color: #333 !important;
-}
-.sale_price{
-	display:inline-block !important;
-}
-.text-red{
-	font-size:2em !important;
-}
-#recommend_area .block_body p, 
-#whobought_area .product_item p{
-	margin: 0 0 5px 5px !important;
-}
-#recommend_area h2{
-	display:none;
-}
-.LC_Page_Index
-.LC_Page_Index
+.LC_Page_Index 

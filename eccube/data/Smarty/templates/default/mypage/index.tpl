@@ -22,6 +22,23 @@
  */
 *}-->
 <script async="async" src="<!--{$TPL_URLPATH}-->js/signup.js"></script>
+<script type="text/javascript">
+function fnModeSubmit(mode) {
+	switch(mode) {
+	case 'bgupload':
+         alert("asd");
+        $objQuery = SC_Query_Ex::getSingletonInstance();
+        $objQuery->update('dtb_customer',
+                array('zip01' => $zip),
+                'customer_id = ?', array($customer_id));
+        $objCustomer->updateSession();
+        break;
+    default:
+        alert("ddd");
+        break;
+    }
+}
+</script>
 <div id="mypagecolumn">
     <h2 class="title"><!--{$tpl_title|h}--></h2>
     <!--{if $tpl_navi != ""}-->
@@ -83,15 +100,13 @@
         </form>
     </div>
 </div>
-     
      <div class="profile-wrapper section section-random crossorigin" data-profile="{&quot;url&quot;:null,&quot;body&quot;:null,&quot;userId&quot;:22795,&quot;headerUrl&quot;:null}" data-src="" id="header-dropzone" style="">
-       <a class="edit-header-icon needsclick" href="#" target="_self"><i class="icon needsclick">✎</i><div class="header-progress"></div></a>
-       <input id="user-profile-header" name="user[profile][header]" style="display:none" type="file">
+       <a class="edit-header-icon needsclick" id="uploadimg" href="javascript:;" onclick="fnModeSubmit('bgupload','',''); return false;" target="_self" ><i class="icon needsclick">✎</i><div class="header-progress"></div></a>
+        <input id="user-profile-header" name="user[profile][header]" style="display:none" type="file">
         <div class='container'>
             <div class='profile-content'>
                 <img alt="Icon default" class="profile-avatar wow flipInY" src="<!--{$TPL_URLPATH}-->img/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" />
                 <a class="edit-avatar-icon needsclick" href="#" target="_self"><i class="icon needsclick">✎</i></a>
-                
                 <div class="avatar-progress"></div>
                 <div class='text-shadow' id='user-profile-shown'>
                     <h1 class='wow fadeInUp user-name'>
@@ -220,3 +235,4 @@
                     </div>
     
                 </div>
+              

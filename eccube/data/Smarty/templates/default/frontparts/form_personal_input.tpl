@@ -30,7 +30,7 @@
         <div class="flipInY form-container wow animated animated" data-wow-duration="1s" data-wow-iteration="1" style="visibility: visible; -webkit-animation: 1s 1;">
             <div class="form-inner">
                 <h1 class="brand pad-v-1">
-                <a href="<!--{$smarty.const.HTTPS_URL}-->"><img alt="SUZURI" src="https://dijsur42hqnz1.cloudfront.net/assets/common/suzuri-logo-v-2ba32e5199c85b49e420621545041cf6.svg" width="120px">
+                <a href="/"><img alt="SUZURI" src="https://dijsur42hqnz1.cloudfront.net/assets/common/suzuri-logo-v-2ba32e5199c85b49e420621545041cf6.svg" width="120px">
                 </a></h1>
                 
                 <input name="utf8" type="hidden" value="✓" class="tooltipstered">
@@ -88,7 +88,7 @@
 <!--{/if}-->
               <div class="form_row mar-b-05">
                     <div class="form-checkbox">
-                    <label class="small" for="terms_of_service"><input class="input-checkbox tooltipstered" id="terms_of_service" name="terms_of_service" type="checkbox" value="1">利用規約に同意する<br class="visible-phone">(<a class="link-gray" href="/terms" target="_blank">利用規約を読む</a>)
+                    <label class="small" for="terms_of_service"><input class="input-checkbox tooltipstered" id="terms_of_service" name="terms_of_service" type="checkbox" value="1">利用規約に同意する<br class="visible-phone">(<a class="link-gray" href="<!--{$smarty.const.HTTP_URL}-->entry/kiyaku.php" target="_blank">利用規約を読む</a>)
                     </label></div>
                     </div>
                     </div>

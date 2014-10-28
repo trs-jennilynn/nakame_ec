@@ -1258,3 +1258,13 @@ span.btn-blue i{
 	color:#fff !important;
 	text-decoration:none !important;
 }
+.section-100 {
+    height: 100vh;
+}
+.section-pad {
+    padding: 4em 2em;
+}
+.section-beige {
+    background: #ede4cd;
+    color: #474a4d;
+}
