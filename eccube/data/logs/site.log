@@ -19,6 +19,30 @@
 2014/10/22 11:06:25 [/index.php] PAGE_DISPLAY_TIME_LOG [7.37sec] from 127.0.0.1
 2014/10/22 11:06:25 [/index.php] PAGE_DISPLAY_TIME_LOG [3.73sec] from 127.0.0.1
 2014/10/22 11:06:25 [/index.php] PAGE_DISPLAY_TIME_LOG [2.39sec] from 127.0.0.1
-2014/10/27 16:09:35 [/index.php] PAGE_DISPLAY_TIME_LOG [6.71sec] from 127.0.0.1
-2014/10/27 16:09:35 [/index.php] PAGE_DISPLAY_TIME_LOG [2.26sec] from 127.0.0.1
-2014/10/27 16:12:33 [/frontparts/login_check.php] PAGE_DISPLAY_TIME_LOG [3.83sec] from 127.0.0.1
+2014/10/23 11:56:31 [/shopping/confirm.php] order complete. order_id=2 from 127.0.0.1
+2014/10/23 13:37:04 [/shopping/confirm.php] order complete. order_id=3 from 127.0.0.1
+2014/10/23 15:16:28 [/shopping/confirm.php] order complete. order_id=4 from 127.0.0.1
+2014/10/31 18:32:38 [/cart/index.php] PAGE_DISPLAY_TIME_LOG [4.71sec] from 127.0.0.1
+2014/10/31 18:32:51 [/cart/index.php] PAGE_DISPLAY_TIME_LOG [5.05sec] from 127.0.0.1
+2014/11/04 11:02:32 [/index.php] PAGE_DISPLAY_TIME_LOG [8.79sec] from 127.0.0.1
+2014/11/04 11:03:05 [/index.php] PAGE_DISPLAY_TIME_LOG [2.18sec] from 127.0.0.1
+2014/11/04 11:03:05 [/index.php] PAGE_DISPLAY_TIME_LOG [2.12sec] from 127.0.0.1
+2014/11/04 11:03:05 [/index.php] PAGE_DISPLAY_TIME_LOG [2.59sec] from 127.0.0.1
+2014/11/04 11:03:05 [/index.php] PAGE_DISPLAY_TIME_LOG [4.68sec] from 127.0.0.1
+2014/11/04 11:03:05 [/index.php] PAGE_DISPLAY_TIME_LOG [3.16sec] from 127.0.0.1
+2014/11/04 11:03:05 [/index.php] PAGE_DISPLAY_TIME_LOG [2.33sec] from 127.0.0.1
+2014/11/04 11:03:05 [/index.php] PAGE_DISPLAY_TIME_LOG [2.03sec] from 127.0.0.1
+2014/11/04 11:03:05 [/index.php] PAGE_DISPLAY_TIME_LOG [2.03sec] from 127.0.0.1
+2014/11/04 18:57:36 [/index.php] PAGE_DISPLAY_TIME_LOG [5.94sec] from 127.0.0.1
+2014/11/04 18:58:50 [/login/index.php] PAGE_DISPLAY_TIME_LOG [2.18sec] from 127.0.0.1
+2014/11/04 18:59:07 [/frontparts/login_check.php] PAGE_DISPLAY_TIME_LOG [2.34sec] from 127.0.0.1
+2014/11/05 11:08:56 [/index.php] PAGE_DISPLAY_TIME_LOG [7.32sec] from 127.0.0.1
+2014/11/05 11:08:56 [/index.php] PAGE_DISPLAY_TIME_LOG [2.89sec] from 127.0.0.1
+2014/11/05 11:08:56 [/index.php] PAGE_DISPLAY_TIME_LOG [2.02sec] from 127.0.0.1
+2014/11/05 11:10:10 [/resize_image.php] PAGE_DISPLAY_TIME_LOG [2.67sec] from 127.0.0.1
+2014/11/06 11:10:53 [/index.php] PAGE_DISPLAY_TIME_LOG [5.23sec] from 127.0.0.1
+2014/11/06 15:11:11 [/index.php] PAGE_DISPLAY_TIME_LOG [6.22sec] from 127.0.0.1
+2014/11/06 15:11:11 [/index.php] PAGE_DISPLAY_TIME_LOG [2.58sec] from 127.0.0.1
+2014/11/07 11:05:10 [/index.php] PAGE_DISPLAY_TIME_LOG [8.76sec] from 127.0.0.1
+2014/11/07 11:05:10 [/index.php] PAGE_DISPLAY_TIME_LOG [5.66sec] from 127.0.0.1
+2014/11/07 11:05:10 [/index.php] PAGE_DISPLAY_TIME_LOG [5.62sec] from 127.0.0.1

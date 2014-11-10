@@ -22,23 +22,16 @@
  */
 *}-->
 <script async="async" src="<!--{$TPL_URLPATH}-->js/signup.js"></script>
-<script type="text/javascript">
-function fnModeSubmit(mode) {
-	switch(mode) {
-	case 'bgupload':
-         alert("asd");
-        $objQuery = SC_Query_Ex::getSingletonInstance();
-        $objQuery->update('dtb_customer',
-                array('zip01' => $zip),
-                'customer_id = ?', array($customer_id));
-        $objCustomer->updateSession();
-        break;
-    default:
-        alert("ddd");
-        break;
-    }
+<style>
+.profile-wrapper{
+background-image:url('../upload/mypage/background/<!--{$tpl_zip01}-->');
+background-image:url('../upload/mypage/background/<!--{$zip1}-->');
 }
-</script>
+.uploaded,#background_input{
+    visibility:hidden;
+}
+
+</style>
 <div id="mypagecolumn">
     <h2 class="title"><!--{$tpl_title|h}--></h2>
     <!--{if $tpl_navi != ""}-->
@@ -100,32 +93,55 @@ function fnModeSubmit(mode) {
         </form>
     </div>
 </div>
+     
      <div class="profile-wrapper section section-random crossorigin" data-profile="{&quot;url&quot;:null,&quot;body&quot;:null,&quot;userId&quot;:22795,&quot;headerUrl&quot;:null}" data-src="" id="header-dropzone" style="">
-       <a class="edit-header-icon needsclick" id="uploadimg" href="javascript:;" onclick="fnModeSubmit('bgupload','',''); return false;" target="_self" ><i class="icon needsclick">✎</i><div class="header-progress"></div></a>
-        <input id="user-profile-header" name="user[profile][header]" style="display:none" type="file">
+       <form method="post" action="?" name="upload1" id="upload1" enctype="multipart/form-data">
+           <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+           <input type="hidden" name="mode" value="upload" />
+           <input type="hidden" name="image_key" value="" />
+           <!--{if $tpl_login}-->
+          <a class="edit-header-icon needsclick" id="uploadimg" href="javascript:;" target="_self" ><i class="icon needsclick">✎</i><div class="header-progress"></div></a>
+           <input id="background_input" name="background_input" type="file"/>
+           <a class="uploaded" href="javascript:;" onclick="fnFormModeSubmit('upload1','bgs','image_key','background_input'); return false">Testing</a>
+           <!--{/if}-->
         <div class='container'>
             <div class='profile-content'>
-                <img alt="Icon default" class="profile-avatar wow flipInY" src="<!--{$TPL_URLPATH}-->img/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" />
-                <a class="edit-avatar-icon needsclick" href="#" target="_self"><i class="icon needsclick">✎</i></a>
+                <!--{if $tpl_zip02}-->
+                        <img alt="Icon default" class="profile-avatar wow flipInY" src="../upload/mypage/profile/<!--{$tpl_zip02}-->" />
+                <!--{elseif $zip2}-->
+                        <img alt="Icon default" class="profile-avatar wow flipInY" src="../upload/mypage/profile/<!--{$zip2}-->" />
+                    <!--{else}-->
+                        <img alt="Icon default" class="profile-avatar wow flipInY" src="<!--{$TPL_URLPATH}-->img/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" />
+                    <!--{/if}-->
+                <!--{if $tpl_login}-->
+                <a class="edit-avatar-icon needsclick" id="uploadimg" href="javascript:;" target="_self"><i class="icon needsclick">✎</i></a>
+                    <a class="uploaded2" href="javascript:;" onclick="fnFormModeSubmit('upload1','bgs2','image_key','background_input'); return false">Testing</a>
                 <div class="avatar-progress"></div>
+                <!--{/if}-->
+         </form>
                 <div class='text-shadow' id='user-profile-shown'>
                     <h1 class='wow fadeInUp user-name'>
                     <!--{if $tpl_name2}-->
                         <!--{$tpl_name2}-->(<!--{$tpl_name1|h}-->)
+                    <!--{elseif $name2}-->
+                        <!--{$name2}-->(<!--{$name1}-->)
                     <!--{else}-->
                         <!--{$tpl_name1|h}-->
                     <!--{/if}-->
                     </h1>
                     <ul class='profile-links mar-b-1 wow fadeIn'>
-                        <!--{if $tpl_kana1}-->
 	                        <li class="profile-url kerning">
+	                        <!--{if $tpl_kana1}-->
 	                            <a class="user-url" href="<!--{$tpl_kana1}-->"><i class="icon">🔗</i><span>website</span></a>
+	                        <!--{elseif $kana1}-->
+	                            <a class="user-url" href="<!--{$kana1}-->"><i class="icon">🔗</i><span>website</span></a>
+	                        <!--{/if}-->
 	                        </li>
-	                    <!--{/if}-->
                     </ul>
-                    <p class="user-profile profile-text wow fadeIn align-center animated animated" style="visibility: visible;"><!--{$tpl_kana2|h}--></p>
-                    <a class="btn-s btn-graydark link-white mar-t-1" href="#" id="edit-profile" target="_self"><i class="icon">✎</i>プロフィールを編集</a>
+                    <p class="user-profile profile-text wow fadeIn align-center animated animated" style="visibility: visible;"><!--{$tpl_kana2|h}--><!--{$kana2}--></p>
+                     <!--{if $tpl_login}--><a class="btn-s btn-graydark link-white mar-t-1" href="#" id="edit-profile" target="_self"><i class="icon">✎</i>プロフィールを編集</a><!--{/if}-->
                 </div>
+                <!--{if $tpl_login}-->
                 <form name="formsave" id="formsave" method="post" action="?">
                 <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
                 <input type="hidden" name="mode" value="saveprof" />
@@ -148,6 +164,7 @@ function fnModeSubmit(mode) {
                     </a>
                 </div>
                 </form>
+                <!--{/if}-->
             </div>
           </div>
       </div>
@@ -235,4 +252,3 @@ function fnModeSubmit(mode) {
                     </div>
     
                 </div>
-              

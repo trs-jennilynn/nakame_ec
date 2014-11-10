@@ -69,6 +69,39 @@ class LC_Page_Cart extends LC_Page_Ex {
         parent::process();
         $this->action();
         $this->sendResponse();
+        ?>
+                <script type="text/javascript">
+                $(document).ready(function(){
+                   
+                   
+            // assign oldVal data attribute at once on document ready
+            $(".quantity:input").data('oldVal', $(".quantity:input").val());
+        
+             $(".quantity").change(function(){
+                    //get the newVal on change
+                    var newVal = $(this).val();
+                    // get the oldVal from data attribute 
+                    var oldVal = $(this).data('oldVal');
+                    // do stuff you need here
+                    if ( newVal > oldVal) {
+                        //UP arrow pressed
+                        $('#up').trigger('click');
+                    } else {
+                        //DOWN arrow pressed
+                    	$('#down').trigger('click');
+                    }
+                    console.log( 'newVal is ' + newVal + ' oldVal was ' + oldVal);
+                    //store the newVal as the oldVal for the next change
+                    $(this).data('oldVal', newVal)
+               })
+               .focus(function(){
+                    // assign oldVal data attribute on input focus
+                    $(this).data('oldVal', $(this).val());
+               });
+        
+        });
+                </script>
+                <?php 
     }
 
     /**
@@ -84,7 +117,7 @@ class LC_Page_Cart extends LC_Page_Ex {
 
         $objFormParam = $this->lfInitParam($_POST);
         $this->mode = $this->getMode();
-
+        
         // モバイル対応
         if (SC_Display_Ex::detectDevice() == DEVICE_TYPE_MOBILE) {
             if (isset($_GET['cart_no'])) {
@@ -112,7 +145,7 @@ class LC_Page_Cart extends LC_Page_Ex {
             SC_Utils_Ex::sfDispSiteError(CART_NOT_FOUND);
             SC_Response_Ex::actionExit();
         }
-
+		
         switch ($this->mode) {
             case 'confirm':
                 // カート内情報の取得
@@ -124,9 +157,10 @@ class LC_Page_Cart extends LC_Page_Ex {
 
 
                     // 購入ページへ
-                    SC_Response_Ex::sendRedirect(SHOPPING_URL);
+                    SC_Response_Ex::sendRedirect(SHOPPING_URL.'order.php');
                     SC_Response_Ex::actionExit();
                 }
+                
                 break;
             case 'up'://1個追加
                 $objCartSess->upQuantity($cart_no, $cartKey);
@@ -189,6 +223,8 @@ class LC_Page_Cart extends LC_Page_Ex {
             $this->tpl_login = true;
             $this->tpl_user_point = $objCustomer->getValue('point');
             $this->tpl_name = $objCustomer->getValue('name01');
+            
+            
         }
 
         // 前頁のURLを取得

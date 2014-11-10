@@ -61,9 +61,24 @@ class LC_Page_AbstractMypage extends LC_Page_Ex {
         $objCustomer = new SC_Customer_Ex();
 
         // ログインしていない場合は必ずログインページを表示する
-        if ($objCustomer->isLoginSuccess(true) === false) {
-            SC_Response_Ex::sendRedirect(HTTP_URL . 'login/');
-
+        
+        if ($objCustomer->isLoginSuccess(true) === false and $_GET['cust_id']) {
+           $res = $_GET['cust_id'];
+           
+           $objQuery =& SC_Query_Ex::getSingletonInstance();
+           $col = 'customer_id,name01,name02,kana01,kana02,zip01,zip02';
+           $from = 'dtb_customer';
+           $where = 'customer_id='.$res;
+           $public = $objQuery->select($col, $from, $where,'','');
+           
+           $this->name1 = $public[0]['name01'];
+           $this->name2 = $public[0]['name02'];
+           $this->kana1 = $public[0]['kana01'];
+           $this->kana2 = $public[0]['name02'];
+           $this->zip1 = $public[0]['zip01'];
+           $this->zip2 = $public[0]['zip02'];
+        }elseif($objCustomer->isLoginSuccess(true) === false){
+        	SC_Response_Ex::sendRedirect(HTTP_URL . 'login/');
         } else {
             //マイページ会員情報表示用共通処理
             $this->tpl_login     = true;
@@ -75,66 +90,44 @@ class LC_Page_AbstractMypage extends LC_Page_Ex {
 
         $this->sendResponse();
         
-   ?>
-  <script type="text/javascript">
-        <!--
+        ?>
+                <script type="text/javascript">
+                $(document).ready(function(){
+                	 var test=0;
+             		$('#header-dropzone').find('.edit-header-icon').click(function(){
+             		$('#background_input').trigger('click');
+             		test=1;
+             		});
+             		$('#header-dropzone').find('.container').find('.profile-content').find('.edit-avatar-icon').click(function(){
+             		$('#background_input').trigger('click');
+             		test=2;
+             		});
+             		$('#header-dropzone').find('.container').find('.profile-content').find('.profile-avatar').click(function(){
+             		$('#background_input').trigger('click');
+             		test=2;
+             		});
+
+             		
+             		$('#background_input').live('change',function(){
+             			if(test==1){
+             				$('.uploaded').trigger('click');
+             			}else{
+             				$('.uploaded2').trigger('click');
+             			}
+             		});
+             		
+             		$("#edit-profile").click(function(){
+             		$("#user-profile-editor").show();
+             		});
+             		
+             		$(".btn-editor-close").click(function(){
+             		$("#user-profile-editor").hide();
+             		});
+            		
+              });
+        </script>
         
-        //-->
-        //$('.needsclick').click(function(){
-        //alert('js is working');
-        //});
-        $('#header-dropzone').find('.edit-header-icon').click(function(){
-         $('#user-profile-header').trigger('click');
-        });
-        $('#header-dropzone').find('.container').find('.profile-content').find('.edit-avatar-icon').click(function(){
-         $('#user-profile-header').trigger('click');
-        });
-        $('#header-dropzone').find('.container').find('.profile-content').find('.profile-avatar').click(function(){
-         $('#user-profile-header').trigger('click');
-        });
-  $('#user-profile-header').live('change', function(){
-   var file_name = this.value.replace(/\\/g, '/').replace(/.*\//, '')
-      alert(file_name);
-
-   $("#uploadimg")[0].onclick();
-   
-  });
-  
-        $("#edit-profile").click(function(){
-      $("#user-profile-editor").show();
-     });
-     
-     $(".btn-editor-close").click(function(){
-      $("#user-profile-editor").hide();
-     });
-
-      $('#user-profile-header').die('click').live('change', function(){ 
-            //$("#preview").html('');
-     
-  $("#prof_bg").ajaxForm({target: '#prof_bg',
-       beforeSubmit:function(){ 
-   
-   console.log('v');
-   $("#imageloadstatus").show();
-    $("#imageloadbutton").hide();
-    },
-   success:function(){ 
-   console.log('z');
-    $("#imageloadstatus").hide();
-    $("#imageloadbutton").show();
-   },
-   error:function(){ 
-     console.log('d');
-    $("#imageloadstatus").hide();
-   $("#imageloadbutton").show();
-   } }).submit();
-   
-
- });
-  </script>
-  
-<?php
-               
+                <?php 
     }
     /**
      * Page のAction.
@@ -142,37 +135,6 @@ class LC_Page_AbstractMypage extends LC_Page_Ex {
      * @return void
      */
     function action() {
-    
-    	$objCustomer = new SC_Customer_Ex();
-    	$customer_id = $objCustomer->getvalue('customer_id');
-    
-    	$objFormParam = new SC_FormParam_Ex();
-    
-    	SC_Helper_Customer_Ex::sfCustomerEntryParam($objFormParam);
-    	$objFormParam->setParam($_POST);
-    	$arrForm  = $objFormParam->getHashArray();
-    	$objCookie = new SC_Cookie_Ex();
-    	$objFormParam->convParam();
-    	
-    	
- 
-    		switch ($this->getMode()) {
-    			case 'bgupload':
-    				echo '<script>alert("vvv");</script>';
-    				$objQuery = SC_Query_Ex::getSingletonInstance();
-    				$objQuery->update('dtb_customer',
-    						array('zip01' => $zip),
-    						'customer_id = ?', array($customer_id));
-    				$objCustomer->updateSession();
-    				break;
-    			default:
-    				//echo '<script>alert("bbb");</script>';
-    				break;
-    				 
-    		}
-
-
-
     }
     /**
      * デストラクタ.

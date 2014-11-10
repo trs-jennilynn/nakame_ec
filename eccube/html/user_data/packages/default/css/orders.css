@@ -1,10 +1,10 @@
 @charset "utf-8";
 
+.LC_Page_Orders .header-navs li:nth-child(1){
+	display:none;
+}
 .LC_Page_Orders .section-pad{
 	padding:0px;
-}
-.LC_Page_Orders .header-inner .header-navs li:nth-child(1){
-	display:none;
 }
 .LC_Page_Orders{
 	background: #ede4cd;

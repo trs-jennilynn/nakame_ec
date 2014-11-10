@@ -3,7 +3,9 @@
 .LC_Page_Materials_New .steps{
 	padding: 2.4em 0 0 0;
 }
-
+.LC_Page_Materials_New #material-dropzone .uploaded{
+	visibility: hidden;
+}
 .LC_Page_Materials{
 	background: #fbca4d;
 }

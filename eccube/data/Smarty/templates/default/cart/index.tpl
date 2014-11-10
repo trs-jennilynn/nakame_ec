@@ -30,24 +30,31 @@
         });
     });
 //]]></script>
-
+<style>
+.header-inner, #form1 > p:nth-child(6), .title,
+.point_announce, #form1 > p.alignC, #footer{
+    display: none;
+}
+#empdiv{
+    text-align:center;
+}
+#empdiv h2{
+    border-bottom:2px solid #333;
+    display: inline-block;
+    padding-bottom: 20px;
+}
+#superbox #superbox-innerbox{
+    height:auto !important;
+}
+#layout{
+    min-height:auto !important;
+}
+</style>
 <div id="undercolumn">
     <div id="undercolumn_cart">
         <h2 class="title"><!--{$tpl_title|h}--></h2>
 
-    <!--{if $smarty.const.USE_POINT !== false || count($arrProductsClass) > 0}-->
-        <!--★ポイント案内★-->
-        <!--{if $smarty.const.USE_POINT !== false}-->
-            <div class="point_announce">
-                <!--{if $tpl_login}-->
-                    <span class="user_name"><!--{$tpl_name|h}--> 様</span>の、現在の所持ポイントは「<span class="point"><!--{$tpl_user_point|number_format|default:0}--> pt</span>」です。<br />
-                <!--{else}-->
-                    ポイント制度をご利用になられる場合は、会員登録後ログインしてくださいますようお願い致します。<br />
-                <!--{/if}-->
-                ポイントは商品購入時に<span class="price">1pt＝<!--{$smarty.const.POINT_VALUE}-->円</span>として使用することができます。<br />
-            </div>
-        <!--{/if}-->
-    <!--{/if}-->
+
 
     <p class="totalmoney_area">
         <!--{* カゴの中に商品がある場合にのみ表示 *}-->
@@ -71,7 +78,7 @@
     <div class="form_area">
         <form name="form<!--{$key}-->" id="form<!--{$key}-->" method="post" action="?">
             <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
-            <input type="hidden" name="mode" value="confirm" />
+            <input type="hidden" name="mode" value="confirms" />
             <input type="hidden" name="cart_no" value="" />
             <input type="hidden" name="cartKey" value="<!--{$key}-->" />
             <input type="hidden" name="category_id" value="<!--{$tpl_category_id|h}-->" />
@@ -113,62 +120,64 @@
                 <col width="15%" />
                 <col width="15%" />
                 <tr>
-                    <th class="alignC">削除</th>
-                    <th class="alignC">商品写真</th>
+                    <th class="alignC"></th>
                     <th class="alignC">商品名</th>
+                    <th class="alignC">サイズ</th>
+                    <th class="alignC">カラー</th>
                     <th class="alignC">単価</th>
-                    <th class="alignC">数量</th>
+                    <th class="alignC">個数</th>
                     <th class="alignC">小計</th>
                 </tr>
                 <!--{foreach from=$cartItems[$key] item=item}-->
                     <tr style="<!--{if $item.error}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->">
-                        <td class="alignC"><a href="?" onclick="fnFormModeSubmit('form<!--{$key}-->', 'delete', 'cart_no', '<!--{$item.cart_no}-->'); return false;">削除</a>
+                        <td class="alignC"><a href="?" onclick="fnFormModeSubmit('form<!--{$key}-->', 'delete', 'cart_no', '<!--{$item.cart_no}-->'); return false;">x</a>
                         </td>
-                        <td class="alignC">
-                        <a class="expansion" target="_blank"
-                                <!--{if $item.productsClass.main_image|strlen >= 1}--> href="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$item.productsClass.main_image|sfNoImageMainList|h}-->"
-                                <!--{/if}-->
-                                >
-                                <img src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$item.productsClass.main_list_image|sfNoImageMainList|h}-->&amp;width=65&amp;height=65" alt="<!--{$item.productsClass.name|h}-->" />
-                            </a>
+                        <td>
+                                                                商品名: <!--{* 商品名 *}--><strong><!--{$item.productsClass.name|h}--></strong><br />
                         </td>
-                        <td><!--{* 商品名 *}--><strong><!--{$item.productsClass.name|h}--></strong><br />
-                            <!--{if $item.productsClass.classcategory_name1 != ""}-->
-                                <!--{$item.productsClass.class_name1}-->：<!--{$item.productsClass.classcategory_name1}--><br />
+                        <td>
+                        <!--{if $item.productsClass.classcategory_name2 != ""}-->
+                                <!--{$item.productsClass.classcategory_name2}-->
                             <!--{/if}-->
-                            <!--{if $item.productsClass.classcategory_name2 != ""}-->
-                                <!--{$item.productsClass.class_name2}-->：<!--{$item.productsClass.classcategory_name2}-->
-                            <!--{/if}-->
+                        </td>
+                        <td>
+                        <!--{if $item.productsClass.classcategory_name1 != ""}-->
+                                <!--{$item.productsClass.classcategory_name1}--><br />
+                           
+                       <!--{else}-->
+                                not found
+                        <!--{/if}-->
                         </td>
                         <td class="alignR">
-                            <!--{$item.price|sfCalcIncTax|number_format}-->円
+                            ¥<!--{$item.price|sfCalcIncTax|number_format}-->
+                            
                         </td>
-                        <td class="alignC"><!--{$item.quantity}-->
+                        <td class="alignC"><input class="quantity" type="number" name="quantity" min="1" max="20" value="<!--{$item.quantity}-->">
                             <ul id="quantity_level">
-                                <li><a href="?" onclick="fnFormModeSubmit('form<!--{$key}-->','up','cart_no','<!--{$item.cart_no}-->'); return false"><img src="<!--{$TPL_URLPATH}-->img/button/btn_plus.jpg" width="16" height="16" alt="＋" /></a></li>
-                                <li><a href="?" onclick="fnFormModeSubmit('form<!--{$key}-->','down','cart_no','<!--{$item.cart_no}-->'); return false"><img src="<!--{$TPL_URLPATH}-->img/button/btn_minus.jpg" width="16" height="16" alt="-" /></a></li>
+                                <li><a href="?" onclick="fnFormModeSubmit('form<!--{$key}-->','up','cart_no','<!--{$item.cart_no}-->'); return false" id="up"><img src="<!--{$TPL_URLPATH}-->img/button/btn_plus.jpg" width="16" height="16" alt="＋" /></a></li>
+                                <li><a href="?" onclick="fnFormModeSubmit('form<!--{$key}-->','down','cart_no','<!--{$item.cart_no}-->'); return false" id="down"><img src="<!--{$TPL_URLPATH}-->img/button/btn_minus.jpg" width="16" height="16" alt="-" /></a></li>
                             </ul>
                         </td>
-                        <td class="alignR"><!--{$item.total_inctax|number_format}-->円</td>
+                        <td class="alignR"¥><!--{$item.total_inctax|number_format}--></td>
                     </tr>
                 <!--{/foreach}-->
                 <tr>
-                    <th colspan="5" class="alignR">小計</th>
-                    <td class="alignR"><!--{$tpl_total_inctax[$key]|number_format}-->円</td>
+                    <th colspan="6" class="alignR">小計</th>
+                    <td class="alignR">¥<!--{$tpl_total_inctax[$key]|number_format}--></td>
                 </tr>
                 <tr>
-                    <th colspan="5" class="alignR">合計</th>
-                    <td class="alignR"><span class="price"><!--{$arrData[$key].total-$arrData[$key].deliv_fee|number_format}-->円</span></td>
+                    <th colspan="6" class="alignR">合計</th>
+                    <td class="alignR"><span class="price">¥<!--{$arrData[$key].total-$arrData[$key].deliv_fee|number_format}--></span></td>
                 </tr>
                 <!--{if $smarty.const.USE_POINT !== false}-->
                     <!--{if $arrData[$key].birth_point > 0}-->
                         <tr>
-                            <th colspan="5" class="alignR">お誕生月ポイント</th>
+                            <th colspan="6" class="alignR">お誕生月ポイント</th>
                             <td class="alignR"><!--{$arrData[$key].birth_point|number_format}-->pt</td>
                         </tr>
                     <!--{/if}-->
                     <tr>
-                        <th colspan="5" class="alignR">今回加算ポイント</th>
+                        <th colspan="6" class="alignR">今回加算ポイント</th>
                         <td class="alignR"><!--{$arrData[$key].add_point|number_format}-->pt</td>
                     </tr>
                 <!--{/if}-->
@@ -178,25 +187,31 @@
                 <!--{/if}-->
             <div class="btn_area">
                 <ul>
-                    <li>
-                        <!--{if $tpl_prev_url != ""}-->
-                            <a href="<!--{$tpl_prev_url|h}-->" onmouseover="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_back_on.jpg','back<!--{$key}-->');" onmouseout="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_back.jpg','back<!--{$key}-->');">
-                                <img src="<!--{$TPL_URLPATH}-->img/button/btn_back.jpg" alt="戻る" name="back<!--{$key}-->" /></a>
-                        <!--{/if}-->
-                    </li>
-                    <li>
-                        <!--{if strlen($tpl_error) == 0}-->
-                            <input type="hidden" name="cartKey" value="<!--{$key}-->" />
-                            <input type="image" onmouseover="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_buystep_on.jpg',this)" onmouseout="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_buystep.jpg',this)" src="<!--{$TPL_URLPATH}-->img/button/btn_buystep.jpg" alt="購入手続きへ" name="confirm" />
-                        <!--{/if}-->
-                    </li>
+                    <!--{if count($cartItems) > 0}-->
+	                    <li>
+	                                <a class="btn-s overlay-nav-close btn-close btn-trans">
+		                                                                    買い物を続ける
+		                            </a>
+	                    </li>
+	                    <li>
+	                        <!--{if strlen($tpl_error) == 0}-->
+	                            <input type="hidden" name="cartKey" value="<!--{$key}-->" />
+	                            <input type="submit" class="to-form btn-m btn-blue" value="注文画面に進む" alt="注文画面に進む" name="confirm" />
+	                        <!--{/if}-->
+	                    </li>
+                    <!--{else}-->
+                        <li></li>
+                    <!--{/if}-->
                 </ul>
             </div>
         </form>
         </div>
     <!--{/foreach}-->
     <!--{else}-->
-        <p class="empty"><span class="attention">※ 現在カート内に商品はございません。</span></p>
+        <div id="empdiv">
+            <h2>カートに入っている商品</h2>
+            <p>カートに商品はありません</p>
+        </div>
     <!--{/if}-->
     </div>
 </div>

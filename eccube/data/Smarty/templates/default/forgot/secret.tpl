@@ -22,7 +22,7 @@
 
 <!--{include file="`$smarty.const.TEMPLATE_REALDIR`popup_header.tpl" subtitle="パスワードを忘れた方(確認ページ)"}-->
 
-<div id="window_area">
+<div id="window_area" class="section section-beige section-pad section-100">
     <h2>パスワードの再発行 秘密の質問の確認</h2>
     <p class="information">
         ご登録時に入力した下記質問の答えを入力して「次へ」ボタンをクリックしてください。<br />
@@ -44,12 +44,12 @@
     <div id="completebox">
     <p>
         <span class="attention"><!--{$arrErr.reminder}--><!--{$arrErr.reminder_answer}--></span>
-        <!--{$arrReminder[$arrForm.reminder]}-->：&nbsp;<!--★答え入力★--><input type="text" name="reminder_answer" value="" class="box300" style="<!--{$arrErr.reminder_answer|sfGetErrorColor}-->" /></p>
+        <!--{$arrReminder[$arrForm.reminder]}--><!-- &nbsp; --><!--★答え入力★--><input type="password" name="reminder_answer" value="" class="box300" style="<!--{$arrErr.reminder_answer|sfGetErrorColor}-->" /></p>
         <span class="attention"><!--{$errmsg}--></span>
     </div>
     <div class="btn_area">
         <ul>
-            <li><input type="image" onmouseover="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_next_on.jpg',this)" onmouseout="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_next.jpg',this)" src="<!--{$TPL_URLPATH}-->img/button/btn_next.jpg" alt="次へ" name="next" id="next" />
+            <li><input type="submit" alt="次へ" name="next" id="next" />
         </ul>
     </div>
     </form>

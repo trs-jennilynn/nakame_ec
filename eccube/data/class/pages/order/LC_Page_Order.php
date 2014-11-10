@@ -72,11 +72,9 @@ class LC_Page_Order extends LC_Page_Ex {
         $this->tpl_login = true;
 
         $objCartSess = new SC_CartSession_Ex();
-        $objSiteSess = new SC_SiteSession_Ex();
-        
         $this->cartItems = $objCartSess->getAllCartList();
-        $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
         
+        $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     }
 
     /**

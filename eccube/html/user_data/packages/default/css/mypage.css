@@ -1,8 +1,22 @@
 @charset "utf-8";
 
-.LC_Page_AbstractMypage div#mypagecolumn{
+.LC_Page_AbstractMypage div#mypagecolumn h2.title,
+.LC_Page_AbstractMypage div#mypagecolumn div#mynavi_area,
+.LC_Page_AbstractMypage div#mypagecolumn h3,
+.LC_Page_AbstractMypage div#mypagecolumn p,
+.LC_Page_AbstractMypage div#mypagecolumn table{
 	display:none;
 } 
 .LC_Page_AbstractMypage #one_maincolumn{
 	padding:0px;
 }
+.LC_Page_AbstractMypage 
+.LC_Page_AbstractMypage 
+.LC_Page_AbstractMypage 
+.LC_Page_AbstractMypage 
+.LC_Page_AbstractMypage 
+.LC_Page_AbstractMypage 
+.LC_Page_AbstractMypage 
+.LC_Page_AbstractMypage 
+.LC_Page_AbstractMypage 
+.LC_Page_AbstractMypage 

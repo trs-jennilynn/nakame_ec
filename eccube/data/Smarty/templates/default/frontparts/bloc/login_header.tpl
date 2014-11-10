@@ -1,3 +1,20 @@
+<script type="text/javascript">
+  $(function(){
+   $.superbox.settings = {
+     boxId: "superbox", // Id attribute of the "superbox" element
+     boxClasses: "", // Class of the "superbox" element
+     overlayOpacity: 0.9, // Background opaqueness
+     boxWidth: "1020", // Default width of the box
+     boxHeight: "600", // Default height of the box
+     loadTxt: "Loading...", // Loading text
+     closeTxt: "X", // "Close" button text
+     prevTxt: "Previous", // "Previous" button text
+     nextTxt: "Next", //, "Next" button text
+     closeText: "買い物を続ける"
+   };
+   $.superbox();
+  });
+ </script>
 <div class="block_outer">
     <div id="header_login_area" class="clearfix">
         <form name="header_login_form" id="header_login_form" method="post" action="<!--{$smarty.const.HTTPS_URL}-->frontparts/login_check.php" onsubmit="return fnCheckLogin('header_login_form')">

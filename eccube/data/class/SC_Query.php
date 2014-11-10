@@ -163,7 +163,7 @@ class SC_Query {
      * @return array|null
      */
     function select($cols, $from = '', $where = '', $arrWhereVal = array(), $fetchmode = MDB2_FETCHMODE_ASSOC) {
-        $sqlse = $this->getSql($cols, $from, $where, $arrWhereVal);
+    	$sqlse = $this->getSql($cols, $from, $where, $arrWhereVal);
         return $this->getAll($sqlse, $arrWhereVal, $fetchmode);
     }
 

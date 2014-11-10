@@ -235,4 +235,7 @@
 .LC_Page_Products_Detail #tpbrd{
 	padding: 15px;
 }
-.LC_Page_Products_Detail 
+.LC_Page_Products_Detail img#add_favorite_product{
+	visibility:hidden;
+	position: absolute;
+}

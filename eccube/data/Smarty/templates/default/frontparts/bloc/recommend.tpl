@@ -28,27 +28,39 @@
                 <!--{foreach from=$arrBestProducts item=arrProduct name="recommend_products"}-->
                     <div class="product_item item clearfix" data-item-variant-id="11" data-product-id="14032" data-wow-delay="0.1s">
                         <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->">
-                            <div class="selected-badge-list">
-                               <img alt="ピックアップサレタヨ！" src="https://dijsur42hqnz1.cloudfront.net/assets/shop/pickup-badge-ff932d7bcbd2d11a8885ac0a0c7b7fab.png">
-                            </div>
-                            <div class="productImage item-image">
-                               <img class="lens-image product-list-image" src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->&amp;width=80&amp;height=80" alt="<!--{$arrProduct.name|h}-->" />
-                            </div>
+	                        <div class="selected-badge-list">
+	                           <img alt="ピックアップサレタヨ！" src="https://dijsur42hqnz1.cloudfront.net/assets/shop/pickup-badge-ff932d7bcbd2d11a8885ac0a0c7b7fab.png">
+	                        </div>
+	                        <div class="productImage item-image">
+	                           <img class="lens-image product-list-image" src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->&amp;width=80&amp;height=80" alt="<!--{$arrProduct.name|h}-->" />
+	                        </div>
                         </a>
                         <div class="productContents item-info">
                             <h3>
                                 <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><!--{$arrProduct.name|h}--></a>
                             </h3>
-                            <a href="/hadashiA" target="_self"><img alt="9" class="profile-avatar-list" src="https://dp3obxrw75ln8.cloudfront.net/users/avatars/9.jpg?1398244153" width="20">hadashiA</a>
+                            <a href="<!--{$smarty.const.HTTPS_URL}-->mypage?cust_id=<!--{$arrProduct.customer_id}-->" target="_self"><img alt="9" class="profile-avatar-list" src="../upload/mypage/profile/<!--{$arrProduct.zip02}-->" width="20"><!--{$arrProduct.name01}--></a>
                             <p class="sale_price">
                                 ¥<span class="price"><!--{$arrProduct.price02_min_inctax|number_format}--></span>
+                           
                             </p>
-                            <div class="float-r pad-t-05">
-                                <button class="btn btn-trans favorite-button">
-                                    <i class="icon text-red">♥</i>
-                                    <span class="favorites-count">0</span>
-                                </button>
-                            </div>
+                            
+                            <form name="fav" id="fav" method="post" action="?">
+                                <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+                                <input type="hidden" name="mode" value="fav" />
+                                <input type="hidden" name="product_id" value="<!--{$tpl_product_id}-->" />
+					            <input type="hidden" name="product_class_id" value="<!--{$tpl_product_class_id}-->" id="product_class_id" />
+					            <input type="hidden" name="favorite_product_id" value="" />
+	                            <div class="float-r pad-t-05">
+		                            <!--{if $smarty.const.OPTION_FAVORITE_PRODUCT == 1}-->
+		                            <!--{assign var=add_favorite value="add_favorite`$product_id`"}-->
+			                            <a class="btn btn-trans favorite-button" href="javascript:fnChangeAction('?product_id=<!--{$arrProduct.product_id|h}-->');" onclick="fnFormModeSubmit('fav','fav_like','favorite_product_id','<!--{$arrProduct.product_id|h}-->'); return false" target="_self" >
+			                              <i class="icon text-red">♥</i>
+	                                      <span class="favorites-count"><!--{$arrProduct.total}--></span>
+			                            </a>
+		                            <!--{/if}-->
+		                        </div>
+	                        </form>
                         </div>
                     </div>
                     <!--{if $smarty.foreach.recommend_products.iteration % 2 === 0}-->
@@ -56,6 +68,10 @@
                     <!--{/if}-->
                 <!--{/foreach}-->
             </div>
+            <div id="readmore">
+				<a class="btn-l btn-darken btn-block" href="/products/list.php" target="_self"><i class="icon">✈</i>もっと見たい
+				</a>
+			</div>
         </div>
     </div>
 <!--{/if}-->

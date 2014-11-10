@@ -42,4 +42,54 @@
 .LC_Page_Index #header_login_area p.btn input[type=image]{
 	display:none;
 }
-.LC_Page_Index 
+.main_column #recommend_area .block_body .productImage, 
+#whobought_area .product_item .productImage,
+#one_maincolumn #recommend_area .block_body .productContents,
+.LC_Page_Index .productContents h3 a{
+	float:none !important;
+}
+.main_column #recommend_area .product_item, #whobought_area .product_item,
+#one_maincolumn #recommend_area .block_body .productContents{
+	width:auto !important;
+}
+.main_column #recommend_area .block_body .productImage, 
+#whobought_area .product_item .productImage{
+	width:310px !important;
+}
+.productContents a,
+.sale_price{
+	color: #333 !important;
+}
+.sale_price{
+	display:inline-block !important;
+}
+.text-red{
+	font-size:2em !important;
+}
+#recommend_area .block_body p, 
+#whobought_area .product_item p{
+	margin: 0 0 5px 5px !important;
+}
+#recommend_area h2{
+	display:none;
+}
+form#fav{
+	display:inline;
+}
+.LC_Page_Index #recommend_area .block_body, #whobought_area .product_item{
+	margin-bottom:0px !important;
+	background:#fff !important;
+}
+.LC_Page_Index #recommend_area{
+	background: #4D8189;
+}
+.LC_Page_Index .main_column .block_outer{
+	margin-bottom:0px !important;
+}
+.LC_Page_Index #one_maincolumn{
+	padding:0px;
+}
+.LC_Page_Index #recommend_area .pad-t-05{
+	padding:0px;
+	line-height: 0px;
+}

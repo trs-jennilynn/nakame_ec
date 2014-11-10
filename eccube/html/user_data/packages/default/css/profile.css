@@ -3,11 +3,11 @@
 .LC_Page_Profile .signup-header, .notification-header{
 	top:2em;
 }
-.LC_Page_Profile .header-inner .header-navs li:nth-child(1){
-	display:none;
-}
 .LC_Page_Profile{
 	background: #ede4cd;
+}
+.LC_Page_Profile .header-navs li:nth-child(1){
+	display:none;
 }
 
 .LC_Page_AbstractMypage .signup-header a:hover,

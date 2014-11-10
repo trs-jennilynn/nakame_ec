@@ -46,8 +46,30 @@ class LC_Page_Materials_New extends LC_Page_Ex {
     		$this->action();
     	}
     	
+    	$objCartSess = new SC_CartSession_Ex();
+    	$this->cartItems = $objCartSess->getAllCartList();
+    	
+    	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     	
     	$this->sendResponse();
+    	?>
+    	<script type="text/javascript">
+    	$(document).ready(function(){
+			$('#material-editor').click(function(){
+				$('#material-texture').trigger('click');
+			});
+
+			$('#material-texture').live('change', function(){
+				 $('.icon-large').css({'display':'none'});
+			     $('.uploader').find('h1').css({'display':'none'});
+			     $('.uploader').find('p').css({'display':'none'});
+			     $('.material-upload-preview').css({'display':'block'});
+			     $('.editor-step02').css({'display':'block'});
+				$('.uploaded').trigger('click');
+			});
+        });
+    	</script>
+    	<?php 
     }
 
     /**
@@ -56,12 +78,46 @@ class LC_Page_Materials_New extends LC_Page_Ex {
      * @return void
      */
     function action() {
-    	$objCartSess = new SC_CartSession_Ex();
-    	$objSiteSess = new SC_SiteSession_Ex();
-    	
-    	$this->cartItems = $objCartSess->getAllCartList();
-    	
-    	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
+
+    	$objCustomer = new SC_Customer_Ex();
+    	$objFormParam = new SC_FormParam_Ex();
+		$customer_id = $objCustomer->getvalue('customer_id');
+		
+		$objProduct = new SC_Product_Ex();
+		$main_img = $_FILES['material-texture']['name'];
+		$this->design_img = $main_img;
+		
+		$this->note = $objFormParam->getValue('note');
+		
+		
+    	switch ($this->getMode()) {
+    		case 'load':
+    			$main_img = $_FILES['material-texture']['name'];
+    			$objQuery =& SC_Query_Ex::getSingletonInstance();
+    			
+    			$product_id = $objQuery->nextVal('dtb_products_product_id');
+    			
+    			$sqlval['product_id'] = $product_id;
+    			$sqlval['customer_id'] = $customer_id;
+    			$sqlval['note'] = $main_img; 
+    			
+    			$objQuery->insert('dtb_products', $sqlval);
+    			
+    			$tmp = $_FILES['material-texture']['tmp_name'];
+
+    			$fileName = $_FILES["material-texture"]["name"];
+    			$fileTmpLoc = $_FILES["material-texture"]["tmp_name"];
+    			// Path and file name
+    			$pathAndName =  "../../../upload/mypage/new/".$fileName;
+    			
+    			// Run the move_uploaded_file() function here
+    			$moveResult = move_uploaded_file($fileTmpLoc, $pathAndName);
+    			
+    			echo $note = $objFormParam->getValue('note');
+    			break;
+    		default:
+    			break;
+    	}
     }
 
     /**

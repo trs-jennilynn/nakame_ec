@@ -69,7 +69,6 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
      */
     function process() {
         parent::process();
-        
     }
 
     /**
@@ -84,30 +83,26 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
        	
        	$objFormParam = new SC_FormParam_Ex();
        	
-       	$objCartSess = new SC_CartSession_Ex();
-       	$objSiteSess = new SC_SiteSession_Ex();
-       	$arrForm = $objFormParam->getHashArray();
-       	
-       	$this->cartItems = $objCartSess->getAllCartList();
-       	
-       	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
-       	
-       //	$objProduct = new SC_Product_Ex();
-       // echo $pro_name = $objProduct->getvalue('name');
-       	
        	SC_Helper_Customer_Ex::sfCustomerEntryParam($objFormParam);
        	$objFormParam->setParam($_POST);
        	
+       	$objCartSess = new SC_CartSession_Ex();
+       	$this->cartItems = $objCartSess->getAllCartList();
+       	
+       	
+       	
+       	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
+       	
         $objCookie = new SC_Cookie_Ex();
        	$objCustomer->updateSession();
-       	
-       	$objFormParam->convParam();
        	
         $this->tpl_login=true;
         $this->tpl_name1 = $objCustomer->getvalue('name01');
      	$this->tpl_name2 = $objCustomer->getvalue('name02');
 		$this->tpl_kana1 = $objCustomer->getvalue('kana01');
         $this->tpl_kana2 = $objCustomer->getvalue('kana02');
+        $this->tpl_zip01 = $objCustomer->getvalue('zip01');
+        $this->tpl_zip02 = $objCustomer->getvalue('zip02');
         
         $name = $_POST['userdisplayName'];
         $web = $_POST['userprofileurl'];
@@ -123,7 +118,7 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
                                             SC_Display_Ex::detectDevice() !== DEVICE_TYPE_MOBILE);
 
         $this->arrOrder = $this->lfGetOrderHistory($customer_id, $this->objNavi->start_row);
-
+        
         switch ($this->getMode()) {
             case 'getList':
                 echo SC_Utils_Ex::jsonEncode($this->arrOrder);
@@ -143,17 +138,55 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
              case 'キャンセル':
              	$objCustomer->updateSession();
              	break;
-        	default:
-				//echo '<script>alert("asd");</script>';
+             case 'bgs':
+             	$zip01 = $_FILES['background_input']['name'];
+             	$objQuery = SC_Query_Ex::getSingletonInstance();
+             	$result = $objQuery->update('dtb_customer',
+             			array('zip01' => $zip01),
+             			'customer_id = ?', array($customer_id));
+             	
+             	//print_r($_FILES);
+             	$tmp = $_FILES['background_input']['tmp_name'];
+             	
+             	$fileName = $_FILES["background_input"]["name"];
+             	$fileTmpLoc = $_FILES["background_input"]["tmp_name"];
+             	// Path and file name
+             	$pathAndName =  "../upload/mypage/background/".$fileName;
+             	
+             	// Run the move_uploaded_file() function here
+             	$moveResult = move_uploaded_file($fileTmpLoc, $pathAndName);
+             	
+             	$objCustomer->updateSession();
+             	$this->tpl_zip01 = $objCustomer->getvalue('zip01');
              	break;
+             case 'bgs2':
+             	$zip02 = $_FILES['background_input']['name'];
+             	$objQuery = SC_Query_Ex::getSingletonInstance();
+             	$result = $objQuery->update('dtb_customer',
+             			array('zip02' => $zip02),
+             			'customer_id = ?', array($customer_id));
+             	
+             	//print_r($_FILES);
+             	$tmp = $_FILES['background_input']['tmp_name'];
+             	
+             	$fileName = $_FILES["background_input"]["name"];
+             	$fileTmpLoc = $_FILES["background_input"]["tmp_name"];
+             	// Path and file name
+             	$pathAndName =  "../upload/mypage/profile/".$fileName;
+             	
+             	// Run the move_uploaded_file() function here
+             	$moveResult = move_uploaded_file($fileTmpLoc, $pathAndName);
+             	
+             	$objCustomer->updateSession();
+             	$this->tpl_zip02 = $objCustomer->getvalue('zip02');
+             	break;
+            default:
+                break;
         }
         // 支払い方法の取得
         $this->arrPayment = SC_Helper_DB_Ex::sfGetIDValueList('dtb_payment', 'payment_id', 'payment_method');
         // 1ページあたりの件数
         $this->dispNumber = SEARCH_PMAX;
-        
-        
-      
     }
 
     /**

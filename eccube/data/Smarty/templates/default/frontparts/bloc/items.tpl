@@ -134,25 +134,31 @@
 </div>
 
 <div class="item" data-item-variant-id="2" data-product-id="108008" data-wow-delay="0.1s">
-<a class="product-permalink" href="/superelastic/94300/t-shirt/s/black" target="_self"><div class="selected-badge-list">
-<img alt="ピックアップサレタヨ！" src="https://dijsur42hqnz1.cloudfront.net/assets/shop/pickup-badge-ff932d7bcbd2d11a8885ac0a0c7b7fab.png">
-</div>
-<div class="item-image">
-<img alt="1410926592 1969x1969.png" class="lens-image product-list-image" height="323" src="https://d1q9av5b648rmv.cloudfront.net/v3/323x323/t-shirt/s/black/94300/1410926592-1969x1969.png.jpg?h=1183684b37cd9e3cbe19f91c8bbb20e87d48562a" width="323">
-</div>
-<ul class="itemlist-btn">
-</ul>
-</a><div class="item-info">
-<div class="clearfix">
-<div class="float-l"><h1 class="material-title small"><a class="product-permalink" href="/superelastic/94300/t-shirt/s/black" target="_self">フロート</a></h1><span class="item-author small"><a href="/superelastic" target="_self"><img alt="16131" class="profile-avatar-list" src="https://dp3obxrw75ln8.cloudfront.net/users/avatars/16131.jpg?1403707007" width="20">superela..</a></span><span class="item-price small">
-¥3,402
-</span>
-</div>
-<div class="float-r pad-t-05">
-<button class="btn btn-trans favorite-button"><i class="icon text-red">♥</i><span class="favorites-count">7</span></button>
-</div>
-</div>
-</div>
+	<a class="product-permalink" href="/superelastic/94300/t-shirt/s/black" target="_self">
+		<div class="selected-badge-list">
+		   <img alt="ピックアップサレタヨ！" src="https://dijsur42hqnz1.cloudfront.net/assets/shop/pickup-badge-ff932d7bcbd2d11a8885ac0a0c7b7fab.png">
+		</div>
+		<div class="item-image">
+		   <img alt="1410926592 1969x1969.png" class="lens-image product-list-image" height="323" src="https://d1q9av5b648rmv.cloudfront.net/v3/323x323/t-shirt/s/black/94300/1410926592-1969x1969.png.jpg?h=1183684b37cd9e3cbe19f91c8bbb20e87d48562a" width="323">
+		</div>
+		<ul class="itemlist-btn">
+		</ul>
+	</a>
+	<div class="item-info">
+		<div class="clearfix">
+			<div class="float-l">
+				<h1 class="material-title small"><a class="product-permalink" href="/superelastic/94300/t-shirt/s/black" target="_self">フロート</a></h1><span class="item-author small"><a href="/superelastic" target="_self"><img alt="16131" class="profile-avatar-list" src="https://dp3obxrw75ln8.cloudfront.net/users/avatars/16131.jpg?1403707007" width="20">superela..</a></span><span class="item-price small">
+				¥3,402
+				</span>
+			</div>
+			<div class="float-r pad-t-05">
+				<button class="btn btn-trans favorite-button">
+					<i class="icon text-red">♥</i>
+					<span class="favorites-count">7</span>
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="item" data-item-variant-id="81" data-product-id="3260" data-wow-delay="0.1s">
@@ -465,8 +471,6 @@
 
 </div>
 <div style="display:none"></div>
-<div id="readmore">
-<a class="btn-l btn-darken btn-block" href="/products/list.php" target="_self"><i class="icon">✈</i>もっと見たい
-</a></div>
+
 </div>
 <!--{/strip}-->

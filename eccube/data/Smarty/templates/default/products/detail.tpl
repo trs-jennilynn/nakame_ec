@@ -245,17 +245,24 @@
 				<div class="product-info-bottom">
 					<a class="btn-l btn-blue btn-block mar-b-1" href="javascript:void(document.form1.submit())" id="cart-in" target="_self"><i class="icon hidden-phone"></i><span>カートにいれる</span></a>
 					<div class="clearfix mar-b-1">
-					<div class="float-l" id="product-favorites"><button class="favorite-button btn-s btn-red kerning"><i class="icon">♥</i><span>ズッキュン</span></button></div>
-					<div id="widget"><span class="kerning btn-s btn-gray" id="widget-code"><i class="icon"></i><span>サ<span style="letter-spacing:-0.075em">イ</span><span style="letter-spacing:-0.075em">ト</span>で紹介</span></span></div>
-					</div>
-				</div>
-
+				 <!--★お気に入り登録★-->
+	            <!--{if $smarty.const.OPTION_FAVORITE_PRODUCT == 1}-->
+	                <div class="favorite_btn float-l" id="product-favorites">
+	                    <!--{assign var=add_favorite value="add_favorite`$product_id`"}-->
+	                        <a href="javascript:fnChangeAction('?product_id=<!--{$arrProduct.product_id|h}-->'); fnModeSubmit('add_favorite','favorite_product_id','<!--{$arrProduct.product_id|h}-->');" onmouseover="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_add_favorite_on.jpg','add_favorite_product');" onmouseout="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_add_favorite.jpg','add_favorite_product');" class="float-l" id="product-favorites"><button class="favorite-button btn-s btn-red kerning"><i class="icon">♥</i><span>ズッキュン</span></button><img src="<!--{$TPL_URLPATH}-->img/button/btn_add_favorite.jpg" alt="お気に入りに追加" name="add_favorite_product" id="add_favorite_product" /></a>
+	                </div>
+	            <!--{/if}-->
+				
+				<div id="widget"><span class="kerning btn-s btn-gray" id="widget-code"><i class="icon"></i><span>サ<span style="letter-spacing:-0.075em">イ</span><span style="letter-spacing:-0.075em">ト</span>で紹介</span></span></div>
+                    </div>
+                </div>
+				
 				<span class="page_view_count mar-b-1">
 					<span class="mar-r-1"><i class="icon"></i><span>
 					0
 					</span><span class="hidden-phone">views</span></span>
 					<span><i class="icon">♥</i><span>
-					0
+					<!--{$likes}-->
 					</span><span class="hidden-phone kerning"><span style="letter-spacing:-0.05em">ズ</span><span style="letter-spacing:-0.075em">ッ</span><span style="letter-spacing:-0.05em">キ</span><span style="letter-spacing:-0.05em">ュ</span>ンズ</span></span>
 				</span>
 				<ul class="share-buttons pad-v-1">
@@ -289,32 +296,7 @@
                 <div class="attention">申し訳ございませんが、只今品切れ中です。</div>
             <!--{/if}-->
 
-            <!--★お気に入り登録★-->
-            <!--{if $smarty.const.OPTION_FAVORITE_PRODUCT == 1 && $tpl_login === true}-->
-                <div class="favorite_btn">
-                    <!--{assign var=add_favorite value="add_favorite`$product_id`"}-->
-                    <!--{if $arrErr[$add_favorite]}-->
-                        <div class="attention"><!--{$arrErr[$add_favorite]}--></div>
-                    <!--{/if}-->
-                    <!--{if !$is_favorite}-->
-                        <a href="javascript:fnChangeAction('?product_id=<!--{$arrProduct.product_id|h}-->'); fnModeSubmit('add_favorite','favorite_product_id','<!--{$arrProduct.product_id|h}-->');" onmouseover="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_add_favorite_on.jpg','add_favorite_product');" onmouseout="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_add_favorite.jpg','add_favorite_product');"><img src="<!--{$TPL_URLPATH}-->img/button/btn_add_favorite.jpg" alt="お気に入りに追加" name="add_favorite_product" id="add_favorite_product" /></a>
-                    <!--{else}-->
-                        <img src="<!--{$TPL_URLPATH}-->img/button/btn_add_favorite_on.jpg" alt="お気に入り登録済" name="add_favorite_product" id="add_favorite_product" />
-                        <script type="text/javascript" src="<!--{$smarty.const.ROOT_URLPATH}-->js/jquery.tipsy.js"></script>
-                        <script type="text/javascript">
-                            var favoriteButton = $("#add_favorite_product");
-                            favoriteButton.tipsy({gravity: $.fn.tipsy.autoNS, fallback: "お気に入りに登録済み", fade: true });
-
-                            <!--{if $just_added_favorite == true}-->
-                            favoriteButton.load(function(){$(this).tipsy("show")});
-                            $(function(){
-                                var tid = setTimeout('favoriteButton.tipsy("hide")',5000);
-                            });
-                            <!--{/if}-->
-                        </script>
-                    <!--{/if}-->
-                </div>
-            <!--{/if}-->
+           
         </div>
     </div>
     <!--▲買い物かご-->

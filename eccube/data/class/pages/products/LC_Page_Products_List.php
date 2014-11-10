@@ -117,10 +117,10 @@ class LC_Page_Products_List extends LC_Page_Ex {
         
         $objCustomer = new SC_Customer_Ex();
         $this->isLogin = $objCustomer->isLoginSuccess(true);
+
         $objCartSess = new SC_CartSession_Ex();
-        $objSiteSess = new SC_SiteSession_Ex();
-        
         $this->cartItems = $objCartSess->getAllCartList();
+        
         $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
         
         //表示条件の取得

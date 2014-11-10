@@ -59,6 +59,7 @@
             return true;
         });
     });
+    
 //]]></script>
 <!--{/if}-->
  <p></p>
@@ -71,12 +72,12 @@
                 </a></div>
                 <ul class='header-navs'>
                     <li class='header-nav'>
-                        <a href="<!--{$smarty.const.TOP_URLPATH}-->cart" id="open-cart">
-		                    <span class='btn-s btn-yellow'>
+                        <a class="default_popup" href="<!--{$smarty.const.TOP_URLPATH}-->cart" rel="superbox[iframe][1020x600]" >
+		                    <span class='btn-s btn-yellow view_cart'>
 		                       <i class='icon'><img class="hover_change_image" src="<!--{$TPL_URLPATH}-->img/common/cart.png" alt="カゴの中を見る" /></i>
-		                        <span id='nav-cart-count'><!--{$tpl_count}--></span>
+		                        <span id='nav-cart-count'><!--{$tpl_count|h}--></span>
 		                    </span>
-		                </a>
+	                    </a>
                     </li>
 	                <li class='header-nav overlay-nav-open'>
 	                    <span class='btn-s btn-blue'><i class='icon'>&#9776;</i>

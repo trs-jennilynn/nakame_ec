@@ -71,6 +71,13 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
         $objProduct  = new SC_Product_Ex();
         $objCustomer = new SC_Customer_Ex();
         $customer_id = $objCustomer->getValue('customer_id');
+        
+        $objFormParam = new SC_FormParam_Ex();
+        
+        SC_Helper_Customer_Ex::sfCustomerEntryParam($objFormParam);
+        $objFormParam->setParam($_POST);
+        
+        
 
         switch ($this->getMode()) {
             case 'delete_favorite':
@@ -90,6 +97,8 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
                 echo SC_Utils_Ex::jsonEncode($this->arrFavorite);
                 SC_Response_Ex::actionExit();
                 break;
+                
+               // echo $_POST['product_id'];
         }
 
         // ページ送り用
@@ -100,7 +109,10 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
         // 1ページあたりの件数
         $this->dispNumber = SEARCH_PMAX;
 
-
+        $objCartSess = new SC_CartSession_Ex();
+        $this->cartItems = $objCartSess->getAllCartList();
+        
+        $this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
     }
 
     /**
@@ -130,7 +142,14 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
             $where .= ' AND EXISTS(SELECT * FROM dtb_products_class WHERE product_id = dtb_customer_favorite_products.product_id AND del_flg = 0 AND (stock >= 1 OR stock_unlimited = 1))';
         }
         $arrProductId  = $objQuery->getCol('product_id', 'dtb_customer_favorite_products', $where, array($customer_id));
-
+		
+        /* $col = 'T1.product_id,SUM(T2.num_of_likes)as total,T3.zip01,T3.name01,T3.customer_id';
+        $table = 'dtb_products_class as T1 INNER JOIN dtb_customer_favorite_products as T2 ON T1.product_id = T2.product_id JOIN dtb_customer as T3 ON T2.product_id = T3.product_id and T2.customer_id = T3.customer_id';
+        $wheres = 'del_flg = 0 AND (stock >= 1 OR stock_unlimited = 1)';
+        $arrfav = $objQuery->getCol($col, $table, $wheres);
+        
+        echo $likes = $arrfav[0]['num_of_likes']; */
+        
         $objQuery       =& SC_Query_Ex::getSingletonInstance();
         $objQuery->setWhere($this->lfMakeWhere('alldtl.', $arrProductId));
         $linemax        = $objProduct->findProductCount($objQuery);
