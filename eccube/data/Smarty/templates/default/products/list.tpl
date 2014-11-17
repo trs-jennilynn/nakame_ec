@@ -61,7 +61,11 @@
         cartForm.submit();
     }
 //]]></script>
-
+<style type="text/css">
+.listphoto{
+    width:100% !important;
+}
+</style>
 <div id="undercolumn">
     <form name="form1" id="form1" method="get" action="?">
         <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
@@ -77,6 +81,7 @@
         <input type="hidden" name="pageno" value="<!--{$tpl_pageno|h}-->" />
         <!--{* ▲ページナビ関連 *}-->
         <input type="hidden" name="rnd" value="<!--{$tpl_rnd|h}-->" />
+        
     </form>
 
     <!--★タイトル★-->
@@ -142,8 +147,9 @@
         <!--{assign var=id value=$arrProduct.product_id}-->
         <!--{assign var=arrErr value=$arrProduct.arrErr}-->
         <!--▼商品-->
-        <form name="product_form<!--{$id|h}-->" action="?" onsubmit="return false;" class="flipInY item wow animated">
+        <form name="product_form<!--{$id|h}-->" class="flipInY item wow animated">
         <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+        
         <div class="list_area clearfix">
             <a name="product<!--{$id|h}-->"></a>
             <div class="listphoto">
@@ -152,7 +158,7 @@
                </div>
                 <!--★画像★-->
                 <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->" class="item-image">
-                    <img src="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->" alt="<!--{$arrProduct.name|h}-->" class="picture" /></a>
+                    <img src="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProduct.main_image|sfNoImageMainList|h}-->" alt="<!--{$arrProduct.name|h}-->" class="picture" /></a>
             </div>
 
             <div class="listrightbloc">
@@ -168,6 +174,7 @@
                 <!--{/if}-->
                 <!--▲商品ステータス-->
 
+                
                 <div class="item-info">
                     <div class="clearfix">
                         <div class="float-l">
@@ -190,11 +197,22 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="float-r pad-t-05">
-                            <button class="btn btn-trans favorite-button"><i class="icon text-red">♥</i><span class="favorites-count">0</span></button>
-                        </div>
+                                <div class="float-r pad-t-05">
+                                    <!--{if $smarty.const.OPTION_FAVORITE_PRODUCT == 1}-->
+	                                    <div class="favorite_btn float-l" id="product-favorites">
+	                                        <!--{assign var=add_favorite value="add_favorite`$id`"}-->
+	                                        <input type="hidden" name="favorite_product_id" value="" />
+	                                        <a class="btn btn-trans favorite-button" href="javascript:fnChangeAction('?product_id=<!--{$arrProduct.product_id}-->'); fnModeSubmit('fav','favorite_product_id','<!--{$arrProduct.product_id}-->'); return false" name="add_favorite_product" id="add_favorite_product" target="_self" >
+	                                          <i class="icon text-red">♥</i>
+	                                          <span class="favorites-count"><!--{$arrProduct.total}--></span>
+	                                        </a>
+	                                    </div>
+                                    <!--{/if}-->
+                                </div>
                     </div>
+                    
                 </div>
+                
                 <!--★コメント★-->
                 <div class="listcomment"><!--{$arrProduct.main_list_comment|h|nl2br}--></div>
 

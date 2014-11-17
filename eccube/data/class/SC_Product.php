@@ -179,6 +179,7 @@ __EOS__;
         $objQuery->setWhere($where, $arrProductId);
         $arrProducts = $this->lists($objQuery);
 
+        
         // 配列のキーを商品IDに
         $arrTmp = array();
         foreach ($arrProducts as $arrProduct) {

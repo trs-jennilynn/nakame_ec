@@ -1,0 +1,8 @@
+2014/11/13 11:16:24 [/products/list.php] [execute end 546414761d2f1#18]
+SQL: PREPARE mdb2_statement_mysql_18ff43c39829e3e8532ead0e43607cf444b100a8cc FROM 'UPDATE dtb_session SET sess_data= ?, update_date= CURRENT_TIMESTAMP WHERE sess_id = ?'
+PlaceHolder: array (
+  0 => 'cart|a:0:{}prev_url|s:18:"/products/list.php";transactionid|s:40:"bedaaa0c3307b641c05330e11163097f6e93cc77";site|a:4:{s:18:"pre_regist_success";s:0:"";s:14:"regist_success";b:0;s:8:"pre_page";s:0:"";s:8:"now_page";s:10:"/index.php";}customer|s:0:"";cart_referer_url|s:44:"http://nakame_ec.localhost/products/list.php";',
+  1 => '4if93pbgcjh13qd3kukat5d675',
+)
+execution time: 2.04 sec
+ from 127.0.0.1

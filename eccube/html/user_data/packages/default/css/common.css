@@ -848,10 +848,12 @@ a {
     overflow: hidden;
 }
 .item {
-    width: 25%;
-    float: left;
-    margin-right: 0%;
+    width: 25% !important;
+    float: left !important;
+    margin-right: 0% !important;
     background-color: #CFCFCF;
+    padding-left:0% !important;
+    padding-right:0% !important; 
 }
 .selected-badge-list {
     width: 50%;
@@ -860,7 +862,7 @@ a {
     background: lighen(#afafb0, 20);
     height: 100%;
     position: relative;
-    width: 100%;
+    width: 100% !important;
 }
 .item .itemlist-btn {
     position: absolute;

@@ -187,6 +187,16 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
         $this->arrPayment = SC_Helper_DB_Ex::sfGetIDValueList('dtb_payment', 'payment_id', 'payment_method');
         // 1ページあたりの件数
         $this->dispNumber = SEARCH_PMAX;
+        
+        //$this->arrGetProducts = $this->lfGetproduct($cs);
+        /**get display items designed by specific user **/
+       /*  $objQuery =& SC_Query_Ex::getSingletonInstance();
+        $cols = 't2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id';
+        $tables = 'dtb.products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id';
+        $wheres = 't4.customer_id = 37 group by t3.product_id';
+        $getproducts = $objQuery->select($cols, $tables, $wheres,'',''); */
+    	
+     //   $this->arrGetProducts = $this->lfGetproduct();
     }
 
     /**
@@ -226,6 +236,47 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
         //購入履歴の取得
         return $objQuery->select($col, $from, $where, $arrWhereVal);
     }
+    /**
+     * おすすめ商品検索.
+     *
+     * @return array $arrGetProducts 検索結果配列
+     */
+     function lfGetproduct($customer_id) {
+    	$objQuery =& SC_Query_Ex::getSingletonInstance();
+    	$objProduct = new SC_Product_Ex();
+    	// おすすめ商品取得
+    	
+    	$objQuery =& SC_Query_Ex::getSingletonInstance();
+        $cols = 'T2.product_id,T3.SUM(num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id';
+        $tables = 'dtb_products as T2 JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id';
+        $wheres = 'T2.status = 1 and T2.customer_id = '.$customer_id.' group by T3.product_id';
+        $arrGetProducts = $objQuery->select($cols, $tables, $wheres);
     
+    	$objQuery =& SC_Query_Ex::getSingletonInstance();
+    	if (count($arrGetProducts) > 0) {
+    		// 商品一覧を取得
+    		// where条件生成&セット
+    		$arrProductId = array();
+    		$where = 'product_id IN (';
+    		foreach ($arrGetProducts as $key => $val) {
+    			$arrProductId[] = $val['product_id'];
+    		}
+    		// 取得
+    		$arrProductList = $objProduct->getListByProductIds($objQuery, $arrProductId);
     
+    		// おすすめ商品情報にマージ
+    		foreach ($arrGetProducts as $key => $value) {
+    			$arrRow =& $arrGetProducts[$key];
+    
+    			if (isset($arrProductList[$arrRow['product_id']])) {
+    				$arrRow = array_merge($arrRow, $arrProductList[$arrRow['product_id']]);
+    
+    			} else {
+    				// 削除済み商品は除外
+    				unset($arrGetProducts[$key]);
+    			}
+    		}
+    	}
+    	return $arrGetProducts;
+    }
 }

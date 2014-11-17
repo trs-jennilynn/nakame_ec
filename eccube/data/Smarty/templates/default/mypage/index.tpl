@@ -25,9 +25,9 @@
 <style>
 .profile-wrapper{
 background-image:url('../upload/mypage/background/<!--{$tpl_zip01}-->');
-background-image:url('../upload/mypage/background/<!--{$zip1}-->');
+/* background-image:url('../upload/mypage/background/<!--{$zip1}-->'); */
 }
-.uploaded,#background_input{
+.uploaded,#background_input,.uploaded2{
     visibility:hidden;
 }
 
@@ -109,8 +109,13 @@ background-image:url('../upload/mypage/background/<!--{$zip1}-->');
                 <!--{if $tpl_zip02}-->
                         <img alt="Icon default" class="profile-avatar wow flipInY" src="../upload/mypage/profile/<!--{$tpl_zip02}-->" />
                 <!--{elseif $zip2}-->
+	                <style>
+						.profile-wrapper{
+						background-image:url('../upload/mypage/background/<!--{$zip1}-->');
+						}
+					</style>
                         <img alt="Icon default" class="profile-avatar wow flipInY" src="../upload/mypage/profile/<!--{$zip2}-->" />
-                    <!--{else}-->
+                <!--{else}-->
                         <img alt="Icon default" class="profile-avatar wow flipInY" src="<!--{$TPL_URLPATH}-->img/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" />
                     <!--{/if}-->
                 <!--{if $tpl_login}-->
@@ -171,84 +176,36 @@ background-image:url('../upload/mypage/background/<!--{$zip1}-->');
         
         <div class='page'>
             <div class='content shop'>
+            <!--{if count($arrGetProducts) > 0}-->
                 <div class='previews items-container' data-omikuji='null' id='products'>
-                    <div class='flipInY item wow' data-item-variant-id='1' data-product-id='692' data-wow-delay='0.1s'>
-                        <a class="product-permalink" href="zuro01/435/t-shirt/s/white.html"><div class='item-image'>
-                        <img alt="1396412098 2448x3264.jpg" class="lens-image product-list-image" height="323" src="" width="323" />
-	                    </div>
-	                    <ul class='itemlist-btn'>
-	                    </ul>
-	                    </a>
-	                    <div class='item-info'>
-	                        <div class='clearfix'>
-	                            <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/t-shirt/s/white.html">ひなた</a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../dijsur42hqnz1.cloudfront.net/assets/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />zuro01</a></span><span class='item-price small'>
-	                            &yen;2,354
-	                            </span>
+                    <!--{foreach from=$arrGetProducts item=arrProduct name="get_products"}-->
+	                    <div class='flipInY item wow' data-item-variant-id='1' data-product-id='692' data-wow-delay='0.1s'>
+		                    <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->">
+	                            <div class="selected-badge-list">
+	                               <img alt="ピックアップサレタヨ！" src="https://dijsur42hqnz1.cloudfront.net/assets/shop/pickup-badge-ff932d7bcbd2d11a8885ac0a0c7b7fab.png">
 	                            </div>
-		                        <div class='float-r pad-t-05'>
-		                            <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'>0</span></button>
+	                            <div class="productImage item-image">
+	                               <img class="lens-image product-list-image" src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->&amp;width=80&amp;height=80" alt="<!--{$arrProduct.name|h}-->" />
+	                            </div>
+                            </a>
+		                    
+		                    </a>
+		                    <div class='item-info'>
+		                        <div class='clearfix'>
+		                            <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/t-shirt/s/white.html">ひなた</a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../dijsur42hqnz1.cloudfront.net/assets/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />zuro01</a></span><span class='item-price small'>
+		                            &yen;2,354
+		                            </span>
+		                            </div>
+		                            <form name="disp" id="disp" method="post" action="?">
+				                        <div class='float-r pad-t-05'>
+				                            <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'>0</span></button>
+				                        </div>
+			                        </form>
 		                        </div>
-	                        </div>
+		                    </div>
 	                    </div>
-                    </div>
-                    
-                    <div class='flipInY item wow' data-item-variant-id='1' data-product-id='692' data-wow-delay='0.1s'>
-                        <a class="product-permalink" href="zuro01/435/t-shirt/s/white.html"><div class='item-image'>
-                        <img alt="1396412098 2448x3264.jpg" class="lens-image product-list-image" height="323" src="" width="323" />
-                        </div>
-                        <ul class='itemlist-btn'>
-                        </ul>
-                        </a>
-                        <div class='item-info'>
-                            <div class='clearfix'>
-                                <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/t-shirt/s/white.html">ひなた</a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../dijsur42hqnz1.cloudfront.net/assets/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />zuro01</a></span><span class='item-price small'>
-                                &yen;2,354
-                                </span>
-                                </div>
-                                <div class='float-r pad-t-05'>
-                                    <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'>0</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class='flipInY item wow' data-item-variant-id='1' data-product-id='692' data-wow-delay='0.1s'>
-                        <a class="product-permalink" href="zuro01/435/t-shirt/s/white.html"><div class='item-image'>
-                        <img alt="1396412098 2448x3264.jpg" class="lens-image product-list-image" height="323" src="" width="323" />
-                        </div>
-                        <ul class='itemlist-btn'>
-                        </ul>
-                        </a>
-                        <div class='item-info'>
-                            <div class='clearfix'>
-                                <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/t-shirt/s/white.html">ひなた</a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../dijsur42hqnz1.cloudfront.net/assets/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />zuro01</a></span><span class='item-price small'>
-                                &yen;2,354
-                                </span>
-                                </div>
-                                <div class='float-r pad-t-05'>
-                                    <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'>0</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='flipInY item wow' data-item-variant-id='1' data-product-id='692' data-wow-delay='0.1s'>
-                        <a class="product-permalink" href="zuro01/435/t-shirt/s/white.html"><div class='item-image'>
-                        <img alt="1396412098 2448x3264.jpg" class="lens-image product-list-image" height="323" src="" width="323" />
-                        </div>
-                        <ul class='itemlist-btn'>
-                        </ul>
-                        </a>
-                        <div class='item-info'>
-                            <div class='clearfix'>
-                                <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/t-shirt/s/white.html">ひなた</a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../dijsur42hqnz1.cloudfront.net/assets/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />zuro01</a></span><span class='item-price small'>
-                                &yen;2,354
-                                </span>
-                                </div>
-                                <div class='float-r pad-t-05'>
-                                    <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'>0</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
+	                <!--{if $smarty.foreach.get_products.iteration % 2 === 0}-->
+                    <!--{/if}-->
+                <!--{/foreach}-->
                 </div>
+             <!--{/if}-->

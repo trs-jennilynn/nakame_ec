@@ -101,8 +101,9 @@ class LC_Page_FrontParts_Bloc_Recommend extends LC_Page_FrontParts_Bloc_Ex {
         		
         		$objQuery =& SC_Query_Ex::getSingletonInstance();
         		$exists = $objQuery->exists('dtb_customer_favorite_products', 'customer_id = ? AND product_id = ?', array($customer_id, $favorite_product_id));
-        		
         		if (!$exists){
+        			
+        			
         			
         			$sqlval['customer_id'] = $customer_id;
         			$sqlval['product_id'] = $favorite_product_id;
@@ -158,10 +159,10 @@ class LC_Page_FrontParts_Bloc_Recommend extends LC_Page_FrontParts_Bloc_Ex {
         $objProduct = new SC_Product_Ex();
 
         // おすすめ商品取得
-        $col = 'T1.best_id, T1.category_id, T1.rank, T1.product_id, T1.title, T1.comment, T1.create_date, T1.update_date, SUM(T3.num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id';
-        $table = 'dtb_best_products as T1 INNER JOIN dtb_products as T2 ON T1.product_id = T2.product_id JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id';
-        $where = 'T1.del_flg = 0 and T2.status = 1 group by T3.product_id';
-        $objQuery->setOrder('T1.rank');
+        $col = 'T2.product_id,SUM(T3.num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id';
+        $table = 'dtb_products as T2 JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id';
+        $where = 'T2.status = 1 group by T3.product_id';
+        //$objQuery->setOrder('total');
         $objQuery->setLimit(RECOMMEND_NUM);
         $arrBestProducts = $objQuery->select($col, $table, $where);
         

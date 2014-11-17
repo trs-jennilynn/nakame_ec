@@ -10,9 +10,11 @@
      closeTxt: "X", // "Close" button text
      prevTxt: "Previous", // "Previous" button text
      nextTxt: "Next", //, "Next" button text
-     closeText: "買い物を続ける"
+     closeText: "買い物を続ける" /*close button**/
    };
    $.superbox();
+   
+   
   });
  </script>
 <div class="block_outer">

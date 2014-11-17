@@ -46,3 +46,31 @@
 2014/11/07 11:05:10 [/index.php] PAGE_DISPLAY_TIME_LOG [8.76sec] from 127.0.0.1
 2014/11/07 11:05:10 [/index.php] PAGE_DISPLAY_TIME_LOG [5.66sec] from 127.0.0.1
 2014/11/07 11:05:10 [/index.php] PAGE_DISPLAY_TIME_LOG [5.62sec] from 127.0.0.1
+2014/11/12 11:14:36 [/products/detail.php] PAGE_DISPLAY_TIME_LOG [2.02sec] from 127.0.0.1
+2014/11/13 11:07:39 [/index.php] PAGE_DISPLAY_TIME_LOG [5.71sec] from 127.0.0.1
+2014/11/13 11:07:39 [/index.php] PAGE_DISPLAY_TIME_LOG [2.18sec] from 127.0.0.1
+2014/11/13 11:16:24 [/products/list.php] PAGE_DISPLAY_TIME_LOG [2.49sec] from 127.0.0.1
+2014/11/13 11:16:24 [/products/list.php] PAGE_DISPLAY_TIME_LOG [2.43sec] from 127.0.0.1
+2014/11/13 11:16:24 [/products/list.php] PAGE_DISPLAY_TIME_LOG [2.59sec] from 127.0.0.1
+2014/11/13 16:02:32 [/products/detail.php] access : user=admin auth=0 sid=4if93pbgcjh13qd3kukat5d675 from 127.0.0.1
+2014/11/14 11:22:00 [/index.php] PAGE_DISPLAY_TIME_LOG [7.90sec] from 127.0.0.1
+2014/11/14 11:22:01 [/index.php] PAGE_DISPLAY_TIME_LOG [4.97sec] from 127.0.0.1
+2014/11/14 11:22:01 [/index.php] PAGE_DISPLAY_TIME_LOG [5.01sec] from 127.0.0.1
+2014/11/14 12:22:02 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [3.84sec] from 127.0.0.1
+2014/11/14 12:22:19 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [3.88sec] from 127.0.0.1
+2014/11/14 12:26:24 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.48sec] from 127.0.0.1
+2014/11/14 12:27:39 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.26sec] from 127.0.0.1
+2014/11/14 12:28:26 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.17sec] from 127.0.0.1
+2014/11/14 12:28:49 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.31sec] from 127.0.0.1
+2014/11/14 15:04:57 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.27sec] from 127.0.0.1
+2014/11/14 17:38:05 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [3.90sec] from 127.0.0.1
+2014/11/14 17:41:15 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.35sec] from 127.0.0.1
+2014/11/14 17:47:16 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.50sec] from 127.0.0.1
+2014/11/14 17:47:53 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.12sec] from 127.0.0.1
+2014/11/14 17:48:57 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.50sec] from 127.0.0.1
+2014/11/14 17:52:01 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.75sec] from 127.0.0.1
+2014/11/14 17:59:54 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.46sec] from 127.0.0.1
+2014/11/14 18:01:34 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.29sec] from 127.0.0.1
+2014/11/14 18:01:57 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.00sec] from 127.0.0.1
+2014/11/14 18:03:28 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.09sec] from 127.0.0.1
+2014/11/14 18:49:34 [/preview/index.php] access : user=admin auth=0 sid=oji0j3cplrsm9sj11e4o6pdb53 from 127.0.0.1

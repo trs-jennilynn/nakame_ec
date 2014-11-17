@@ -21,23 +21,25 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
+require_once CLASS_REALDIR . 'pages/mypage/LC_Page_Materials_New.php';
 
 /**
- * Index のページクラス.
+ * Index のページクラス(拡張).
+ *
+ * LC_Page_Materials_New_Index をカスタマイズする場合はこのクラスを編集する.
  *
  * @package Page
  * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Materials_New.php 23230 2013-09-19 02:49:03Z m_uehara $
+ * @version $Id: LC_Page_Materials_New_Ex.php 22926 2013-06-29 16:24:23Z Seasoft $
  */
-class LC_Page_Materials_New extends LC_Page_Ex
+class LC_Page_Materials_New_Ex extends LC_Page_Materials_New
 {
     /**
      * Page を初期化する.
      *
      * @return void
      */
-    public function init()
+    function init()
     {
         parent::init();
     }
@@ -47,19 +49,8 @@ class LC_Page_Materials_New extends LC_Page_Ex
      *
      * @return void
      */
-    public function process()
+    function process()
     {
         parent::process();
-        $this->action();
-        $this->sendResponse();
-    }
-
-    /**
-     * Page のアクション.
-     *
-     * @return void
-     */
-    public function action()
-    {
     }
 }

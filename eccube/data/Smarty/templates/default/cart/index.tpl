@@ -188,17 +188,17 @@
             <div class="btn_area">
                 <ul>
                     <!--{if count($cartItems) > 0}-->
-	                    <li>
-	                                <a class="btn-s overlay-nav-close btn-close btn-trans">
-		                                                                    買い物を続ける
-		                            </a>
-	                    </li>
-	                    <li>
-	                        <!--{if strlen($tpl_error) == 0}-->
-	                            <input type="hidden" name="cartKey" value="<!--{$key}-->" />
-	                            <input type="submit" class="to-form btn-m btn-blue" value="注文画面に進む" alt="注文画面に進む" name="confirm" />
-	                        <!--{/if}-->
-	                    </li>
+                        <li>
+                                    <a class="btn-s overlay-nav-close btn-close btn-trans">
+                                                                            買い物を続ける
+                                    </a>
+                        </li>
+                        <li>
+                            <!--{if strlen($tpl_error) == 0}-->
+                                <input type="hidden" name="cartKey" value="<!--{$key}-->" />
+                                <input type="submit" class="to-form btn-m btn-blue" value="注文画面に進む" alt="注文画面に進む" name="confirm" />
+                            <!--{/if}-->
+                        </li>
                     <!--{else}-->
                         <li></li>
                     <!--{/if}-->

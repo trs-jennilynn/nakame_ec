@@ -96,27 +96,31 @@ class LC_Page_Products_List extends LC_Page_Ex {
     function action() {
 
         $objProduct = new SC_Product_Ex();
-
-        // パラメーター管理クラス
-        $objFormParam = new SC_FormParam_Ex();        
         
+        // パラメーター管理クラス
+        $this->objFormParam = new SC_FormParam_Ex();
         // パラメーター情報の初期化
-        $this->lfInitParam($objFormParam);
+        $this->arrForm = $this->lfInitParam($this->objFormParam);
+        // プロダクトIDの正当性チェック
+       // $product_id = $this->lfCheckProductId($this->objFormParam->getValue('admin'),$this->objFormParam->getValue('product_id'));
         
         // 値の設定
-        $objFormParam->setParam($_REQUEST);
+        $this->objFormParam->setParam($_POST);
         
         // 入力値の変換
-        $objFormParam->convParam();
-        
+        $this->objFormParam->convParam();
+      echo  $product_id = $_GET['product_id'];
         // 値の取得
-        $this->arrForm = $objFormParam->getHashArray();
-
+        $this->arrForm = $this->objFormParam->getHashArray();
+        
+        
         //modeの取得
         $this->mode = $this->getMode();
         
         $objCustomer = new SC_Customer_Ex();
-        $this->isLogin = $objCustomer->isLoginSuccess(true);
+    	$customer_id = $objCustomer->getvalue('customer_id');
+    	
+        //$this->isLogin = $objCustomer->isLoginSuccess(true);
 
         $objCartSess = new SC_CartSession_Ex();
         $this->cartItems = $objCartSess->getAllCartList();
@@ -132,14 +136,14 @@ class LC_Page_Products_List extends LC_Page_Ex {
         $this->orderby = $this->arrForm['orderby'];
 
         //ページング設定
-        $this->tpl_pageno   = $this->arrForm['pageno'];
-        $this->disp_number  = $this->lfGetDisplayNum($this->arrForm['disp_number']);
+  		$this->tpl_pageno   = $this->arrForm['pageno'];
+   		$this->disp_number  = $this->lfGetDisplayNum($this->arrForm['disp_number']);
 
         // 画面に表示するサブタイトルの設定
-        $this->tpl_subtitle = $this->lfGetPageTitle($this->mode, $this->arrSearchData['category_id']);
+     $this->tpl_subtitle = $this->lfGetPageTitle($this->mode, $this->arrSearchData['category_id']);
 
         // 画面に表示する検索条件を設定
-        $this->arrSearch    = $this->lfGetSearchConditionDisp($this->arrSearchData);
+      $this->arrSearch    = $this->lfGetSearchConditionDisp($this->arrSearchData);
 
         // 商品一覧データの取得
         $arrSearchCondition = $this->lfGetSearchCondition($this->arrSearchData);
@@ -152,13 +156,50 @@ class LC_Page_Products_List extends LC_Page_Ex {
         }
         $this->objNavi      = new SC_PageNavi_Ex($this->tpl_pageno, $this->tpl_linemax, $this->disp_number, 'fnNaviPage', NAVI_PMAX, $urlParam, SC_Display_Ex::detectDevice() !== DEVICE_TYPE_MOBILE);
         $this->arrProducts  = $this->lfGetProductsList($arrSearchCondition, $this->disp_number, $this->objNavi->start_row, $this->tpl_linemax, $objProduct);
-
+        
         switch ($this->getMode()) {
 
             case 'json':
                 $this->doJson($objProduct);
                 break;
-
+            case 'fav':
+            	echo $this->objFormParam->getValue('product_id');
+            	echo '<script>alert("aaa");</script>';
+            		//echo 'asasasa';
+            		/* $objQuery =& SC_Query_Ex::getSingletonInstance();
+            		$exists = $objQuery->exists('dtb_customer_favorite_products', 'customer_id = ? AND product_id = ?', array($customer_id, $favorite_product_id));
+            		
+            		if (!$exists){
+            			 
+            			$sqlval['customer_id'] = $customer_id;
+            			$sqlval['product_id'] = $favorite_product_id;
+            			$sqlval['update_date'] = 'CURRENT_TIMESTAMP';
+            			$sqlval['create_date'] = 'CURRENT_TIMESTAMP';
+            			$sqlval['num_of_likes'] = 1;
+            		
+            			$objQuery->begin();
+            			$objQuery->insert('dtb_customer_favorite_products', $sqlval);
+            			$objQuery->commit();
+            			 
+            			header("Location: ".$_SERVER['PHP_SELF']);
+            		}else{
+            			$objQuery =& SC_Query_Ex::getSingletonInstance();
+            			$col = 'num_of_likes';
+            			$from = 'dtb_customer_favorite_products';
+            			$where = 'customer_id='.$customer_id . " and ". 'product_id='.$favorite_product_id;
+            			$numoflike = $objQuery->select($col, $from, $where,'','');
+            			 
+            			$likes = $numoflike[0]['num_of_likes'];
+            			 
+            			 
+            			$likenum = $likes +1;
+            			$date = 'CURRENT_TIMESTAMP';
+            			$result = $objQuery->update('dtb_customer_favorite_products',
+            					array('num_of_likes' => $likenum, 'update_date' => $date),
+            					'customer_id = ? AND product_id = ?', array($customer_id, $favorite_product_id));
+            			header("Location: ".$_SERVER['PHP_SELF']);
+            		} */
+            	break;
             default:
                 $this->doDefault($objProduct);
                 break;
@@ -574,5 +615,25 @@ __EOS__;
 
         $this->tpl_javascript   .= 'function fnOnLoad(){' . $js_fnOnLoad . '}';
         $this->tpl_onload       .= 'fnOnLoad(); ';
+    }
+    
+    function lfCheckProductId($admin_mode,$product_id) {
+    	// 管理機能からの確認の場合は、非公開の商品も表示する。
+    	if (isset($admin_mode) && $admin_mode == 'on') {
+    		SC_Utils_Ex::sfIsSuccess(new SC_Session_Ex());
+    		$status = true;
+    		$where = 'del_flg = 0';
+    	} else {
+    		$status = false;
+    		$where = 'del_flg = 0 AND status = 1';
+    	}
+    
+    	if (!SC_Utils_Ex::sfIsInt($product_id)
+    			|| SC_Utils_Ex::sfIsZeroFilling($product_id)
+    			|| !SC_Helper_DB_Ex::sfIsRecord('dtb_products', 'product_id', (array)$product_id, $where)
+    	) {
+    		SC_Utils_Ex::sfDispSiteError(PRODUCT_NOT_FOUND);
+    	}
+    	return $product_id;
     }
 }

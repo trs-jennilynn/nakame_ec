@@ -98,6 +98,11 @@
         </div>
     </div>
     <!--{if $design_img}-->
+    <form name="save_item" id="" action="?" method="post" >
+    <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+    <input type="hidden" name="mode" value="save">
+    <input type="hidden" name="custid" value="">
+    
         <section class="material-product-list">
                             <div class="container steps editor-step02" style="height: 244px;">
                             <div class="page">
@@ -125,7 +130,7 @@
                             </div>
                             <div class="check-border"></div>
                             <div class="item-image">
-                                <img src="<!--{$TPL_URLPATH}-->img/items/1415356441-10x50.png (1).jpg" class="unit_pic" style="display: inline;" />
+                                <img src="<!--{$img_shirt}-->" class="unit_pic" style="display: inline;" />
                             </div>
                             <div class="item-info">
                               
@@ -144,7 +149,7 @@
                             <div class="check-border"></div>
                             <div class="item-image">
                               
-                                <img src="<!--{$TPL_URLPATH}-->img/items/1415356441-10x50.png (2).jpg" class="unit_pic" style="display: inline;" />
+                                <img src="<!--{$img_cup}-->" class="unit_pic" style="display: inline;" />
                               
                             </div>
                             <div class="item-info">
@@ -162,7 +167,7 @@
                             <div class="check-border"></div>
                             <div class="item-image">
                               
-                                <img src="<!--{$TPL_URLPATH}-->img/items/1415356441-10x50.png (3).jpg" class="unit_pic" style="display: inline;" />
+                                <img src="<!--{$img_bag}-->" class="unit_pic" style="display: inline;" />
                               
                             </div>
                             <div class="item-info">
@@ -182,7 +187,7 @@
                             <div class="check-border"></div>
                             <div class="item-image">
                               
-                                <img src="<!--{$TPL_URLPATH}-->img/items/1415356441-10x50.png.jpg" class="unit_pic" style="display: inline;" />
+                                <img src="<!--{$img_phone}-->" class="unit_pic" style="display: inline;" />
                               
                             </div>
                             <div class="item-info">
@@ -225,7 +230,7 @@
                                 <div class="next-step pad-v-1 kerning align-center">
                                   <p id="message"></p>
                                   
-                                    <button type="button" class="confirm-open btn-l btn-blue">商品を販売する</button>
+                                    <a href="javascript:;" onclick="fnFormModeSubmit('save_item','itemsave','',''); return false" class="confirm-open btn-l btn-blue">商品を販売する</a>
                                     <div class="confirm-content confirm-product">
                                       <h3 class="confirm-title">
                                         本当に販売しますか？
@@ -244,5 +249,6 @@
                             </div>
                             </div>
                             </section>
+                   </form>
        <!--{/if}-->
 <!--{/strip}-->

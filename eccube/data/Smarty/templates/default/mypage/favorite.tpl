@@ -133,9 +133,11 @@
                         </a>
                         <div class="productContents item-info">
                             <h3>
-                                <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><!--{$arrProduct.name|h}--></a>
+                            
+                                <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><!--{$arrFavorite[cnt].name}--></a>
                             </h3>
-                            <a href="<!--{$smarty.const.HTTPS_URL}-->mypage?cust_id=<!--{$arrProduct.customer_id}-->" target="_self"><img alt="9" class="profile-avatar-list" src="../upload/mypage/profile/<!--{$arrProduct.zip02}-->" width="20"><!--{$arrProduct.name01}--></a>
+                            
+                            <a href="<!--{$smarty.const.HTTPS_URL}-->mypage" target="_self"><img alt="9" class="profile-avatar-list" src="../upload/mypage/profile/<!--{$arrFavorite[cnt].zip02}-->" width="20"><!--{$arrProduct.name01}--></a>
                             <p class="sale_price">
                                 ¥<span class="price">
                                 <!--{if $arrFavorite[cnt].price02_min_inctax == $arrFavorite[cnt].price02_max_inctax}-->

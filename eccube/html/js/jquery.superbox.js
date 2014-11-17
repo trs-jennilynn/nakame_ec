@@ -21,7 +21,7 @@
 		boxWidth: "600",
 		boxHeight: "400",
 		loadTxt: "Loading...",
-		closeTxt: "Close",
+		closeTxt: "x",
 		prevTxt: "Previous",
 		nextTxt: "Next",
 		closeText: "買い物を続ける",

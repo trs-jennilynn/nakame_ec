@@ -44,10 +44,30 @@ class LC_Page_Materials extends LC_Page_Ex {
     		$this->CustomerName2 = $objCustomer->getvalue('name02');
     		$this->CustomerPoint = $objCustomer->getvalue('point');
     		$this->action();
+    		
     	}
-    	 
-    	 
     	$this->sendResponse();
+    	
+    	?>
+    			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    	    	<script type="text/javascript">
+    	    	//$(document).ready(function(){
+	    			$('.materials').find('.material').mouseover(function(){
+	    				$('.material').find('.deldiv').css({
+		    				display: 'block',
+		    				width: '100%',
+		    				height: '100%',
+		    				display: 'block',
+		    				background: 'rgba(255, 164, 60, 0.270588)',
+		    				position: 'absolute'
+		    			});
+	        		});
+	    			$('.materials').find('.material').mouseout(function(){
+	    				$('.material').find('.deldiv').css('display','none');
+		    		});
+    	       // });
+    	    	</script>
+    	    	<?php
     }
 
     /**
@@ -60,6 +80,14 @@ class LC_Page_Materials extends LC_Page_Ex {
     	$this->cartItems = $objCartSess->getAllCartList();
     	 
     	$this->tpl_count = count($this->cartItems = $objCartSess->getAllCartList());
+    	
+    	$objCustomer = new SC_Customer_Ex();
+    	$this->cus_id = $objCustomer->getvalue('customer_id');
+    	
+    	$objQuery =& SC_Query_Ex::getSingletonInstance();
+    	
+    	$designs = $objQuery->select('name,note', 'dtb_products','customer_id=?', array($cus_id));
+    	$this->note = $designs[0]['note'];
     }
 
     /**
@@ -70,6 +98,8 @@ class LC_Page_Materials extends LC_Page_Ex {
     function destroy() {
         parent::destroy();
     }
+    
+    
 }
 
 

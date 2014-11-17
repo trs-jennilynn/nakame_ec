@@ -98,7 +98,8 @@ class LC_Page_Cart extends LC_Page_Ex {
                     // assign oldVal data attribute on input focus
                     $(this).data('oldVal', $(this).val());
                });
-        
+
+             
         });
                 </script>
                 <?php 
@@ -136,8 +137,8 @@ class LC_Page_Cart extends LC_Page_Ex {
             }
         }
 
-        $cart_no = $objFormParam->getValue('cart_no');
-        $cartKey = $objFormParam->getValue('cartKey');
+       echo $cart_no = $objFormParam->getValue('cart_no');
+     		$cartKey = $objFormParam->getValue('cartKey');
         
         // エラーチェック
         $arrError = $objFormParam->checkError();
