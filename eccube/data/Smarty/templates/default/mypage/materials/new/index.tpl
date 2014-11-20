@@ -102,6 +102,15 @@
     <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
     <input type="hidden" name="mode" value="save">
     <input type="hidden" name="custid" value="">
+    <input type="hidden" name="shirts" value="<!--{$img_shirt}-->">
+    <input type="hidden" name="bag" value="<!--{$img_bag}-->">
+    <input type="hidden" name="cup" value="<!--{$img_cup}-->">
+    <input type="hidden" name="phone" value="<!--{$img_phone}-->">
+    <input type="hidden" name="test" value="<!--{$test}-->">
+    <input type='hidden' class='shirt_dis' name="shirt_stat" value="1" />
+    <input type='hidden' class='bag_dis' name="bag_stat" value="1" />
+    <input type='hidden' class='mug_dis' name="mug_stat" value="1" />
+    <input type='hidden' class='phone_dis' name="phone_stat" value="1" />
     
         <section class="material-product-list">
                             <div class="container steps editor-step02" style="height: 244px;">

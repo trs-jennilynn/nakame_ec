@@ -176,36 +176,32 @@ background-image:url('../upload/mypage/background/<!--{$tpl_zip01}-->');
         
         <div class='page'>
             <div class='content shop'>
-            <!--{if count($arrGetProducts) > 0}-->
                 <div class='previews items-container' data-omikuji='null' id='products'>
-                    <!--{foreach from=$arrGetProducts item=arrProduct name="get_products"}-->
+                    <!--{foreach from=$getproducts item=arrProduct name="get_products"}-->
 	                    <div class='flipInY item wow' data-item-variant-id='1' data-product-id='692' data-wow-delay='0.1s'>
 		                    <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->">
 	                            <div class="selected-badge-list">
 	                               <img alt="ピックアップサレタヨ！" src="https://dijsur42hqnz1.cloudfront.net/assets/shop/pickup-badge-ff932d7bcbd2d11a8885ac0a0c7b7fab.png">
 	                            </div>
 	                            <div class="productImage item-image">
-	                               <img class="lens-image product-list-image" src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->&amp;width=80&amp;height=80" alt="<!--{$arrProduct.name|h}-->" />
+	                               <img class="lens-image product-list-image" src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image}-->&amp;" alt="<!--{$arrProduct.name|h}-->" />
 	                            </div>
                             </a>
 		                    
 		                    </a>
 		                    <div class='item-info'>
 		                        <div class='clearfix'>
-		                            <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/t-shirt/s/white.html">ひなた</a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../dijsur42hqnz1.cloudfront.net/assets/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />zuro01</a></span><span class='item-price small'>
-		                            &yen;2,354
+		                            <div class='float-l'><h1 class='material-title small'><a class="product-permalink" href="zuro01/435/t-shirt/s/white.html"><!--{$arrProduct.name}--></a></h1><span class='item-author small'><a href="zuro01.html"><img alt="Icon default" class="profile-avatar-list" src="../upload/mypage/profile/<!--{$arrProduct.zip02}-->" width="20" /><!--{$arrProduct.name01}--></a></span><span class='item-price small'>
+		                            &yen;<!--{$arrProduct.price02}-->
 		                            </span>
 		                            </div>
 		                            <form name="disp" id="disp" method="post" action="?">
 				                        <div class='float-r pad-t-05'>
-				                            <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'>0</span></button>
+				                            <button class='btn btn-trans favorite-button'><i class='icon text-red'>&hearts;</i><span class='favorites-count'><!--{$arrProduct.total}--></span></button>
 				                        </div>
 			                        </form>
 		                        </div>
 		                    </div>
 	                    </div>
-	                <!--{if $smarty.foreach.get_products.iteration % 2 === 0}-->
-                    <!--{/if}-->
                 <!--{/foreach}-->
                 </div>
-             <!--{/if}-->

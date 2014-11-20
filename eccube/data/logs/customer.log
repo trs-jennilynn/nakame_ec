@@ -183,3 +183,10 @@
 2014/11/14 18:53:47 [/frontparts/login_check.php] logout : user=37	ip=127.0.0.1 from 127.0.0.1
 2014/11/14 18:55:45 [/frontparts/login_check.php] access : user=29	ip=127.0.0.1 from 127.0.0.1
 2014/11/17 12:09:35 [/frontparts/login_check.php] access : user=37	ip=127.0.0.1 from 127.0.0.1
+2014/11/18 19:20:08 [/shopping/index.php] access : user=37	ip=127.0.0.1 from 127.0.0.1
+2014/11/19 11:23:59 [/frontparts/login_check.php] access : user=37	ip=127.0.0.1 from 127.0.0.1
+2014/11/20 11:05:00 [/frontparts/login_check.php] access : user=37	ip=127.0.0.1 from 127.0.0.1
+2014/11/20 11:09:47 [/frontparts/login_check.php] access : user=37	ip=127.0.0.1 from 127.0.0.1
+2014/11/20 11:52:47 [/frontparts/login_check.php] access : user=37	ip=127.0.0.1 from 127.0.0.1
+2014/11/20 13:10:13 [/frontparts/login_check.php] logout : user=37	ip=127.0.0.1 from 127.0.0.1
+2014/11/20 13:18:40 [/frontparts/login_check.php] access : user=37	ip=127.0.0.1 from 127.0.0.1

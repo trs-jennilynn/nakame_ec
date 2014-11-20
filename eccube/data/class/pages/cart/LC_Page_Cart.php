@@ -158,7 +158,7 @@ class LC_Page_Cart extends LC_Page_Ex {
 
 
                     // 購入ページへ
-                    SC_Response_Ex::sendRedirect(SHOPPING_URL.'order.php');
+                    SC_Response_Ex::sendRedirect(SHOPPING_URL.'order.php?cust_id='.$customer_id);
                     SC_Response_Ex::actionExit();
                 }
                 

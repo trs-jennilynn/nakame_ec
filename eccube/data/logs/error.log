@@ -3189,3 +3189,1302 @@ C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
 2014/11/14 19:52:16 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
 2014/11/17 12:36:17 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
 2014/11/17 12:37:15 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 15:17:45 [/shopping/payment.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(300)] from 127.0.0.1
+2014/11/17 16:11:59 [/shopping/payment.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(300)] from 127.0.0.1
+2014/11/17 16:29:29 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:29:36 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:32:13 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:32:44 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:32:50 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:34:41 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:35:01 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:35:47 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:44:45 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:45:17 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_products_class as T5 ON T1.product_id = T5.product_id JOIN  dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37group by T2.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_14fc9c86178392a5b4f2d22afc6f74bd0bf532be78 FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_products_class as T5 ON T1.product_id = T5.product_id JOIN  dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37group by T2.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by T2.product_id' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 16:45:38 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_products_class as T5 ON T1.product_id = T5.product_id JOIN  dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37group by T1.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_14508dc7c2533d54f03142f97898e3230386f9aa86 FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_products_class as T5 ON T1.product_id = T5.product_id JOIN  dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37group by T1.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by T1.product_id' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 16:46:03 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_products_class as T5 ON T1.product_id = T5.product_id JOIN  dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37groupby T2.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_14e84a9d1b5c97534756bdf4802bbd54a50ca7ee51 FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_products_class as T5 ON T1.product_id = T5.product_id JOIN  dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37groupby T2.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'T2.product_id' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 16:46:38 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_products_class as T5 ON T1.product_id = T5.product_id JOIN  dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37group by T1.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_148397579681d3be6fbd108c415893a3a546fc155f FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_products_class as T5 ON T1.product_id = T5.product_id JOIN  dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37group by T1.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by T1.product_id' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 16:47:28 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:47:49 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:48:08 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:48:13 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:49:06 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:56:45 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 16:57:10 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:01:37 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37group by T1.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_141b4f13abae331e7ed4ac789b0f7039f006a13f14 FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37group by T1.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by T1.product_id' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 17:01:50 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:14:21 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:16:51 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:16:58 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:20:37 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:20:47 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:20:59 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:24:39 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:25:08 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:25:36 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:25:46 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:27:15 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(205)] from 127.0.0.1
+2014/11/17 17:27:59 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image,T1.price02 FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37   ]
+MDB2 Error: no such field
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_14a8392312998d92baf6e223f8afb5c6fc8c6d9a8a FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image,T1.price02 FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37   ']
+[Native code: 1054]
+[Native message: Unknown column 'T1.price02' in 'field list']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 17:28:29 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, T1.price02 FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37   ]
+MDB2 Error: no such field
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_14974d02d9a59f4f73eb4a953f64a8ceab27b1441c FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, T1.price02 FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37   ']
+[Native code: 1054]
+[Native message: Unknown column 'T1.price02' in 'field list']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 17:32:40 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, T1.price02 FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37   ]
+MDB2 Error: no such field
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_141c3cd78b4ecae8c089a5dedeb31483556392498d FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, T1.price02 FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id WHERE T2.customer_id =37   ']
+[Native code: 1054]
+[Native message: Unknown column 'T1.price02' in 'field list']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 17:32:54 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(207)] from 127.0.0.1
+2014/11/17 17:34:10 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(207)] from 127.0.0.1
+2014/11/17 17:34:31 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(207)] from 127.0.0.1
+2014/11/17 17:34:59 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, T4.price02 FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37group by T2.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_14415799cf3a355ac09b8beac69dfd76467b5e49cf FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, T4.price02 FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37group by T2.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by T2.product_id' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 17:35:27 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, T4.price02 FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37group by T1.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_147650afb5da316f023b9155a2165d075ee400bad0 FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, T4.price02 FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37group by T1.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by T1.product_id' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 17:35:59 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(207)] from 127.0.0.1
+2014/11/17 17:36:11 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(207)] from 127.0.0.1
+2014/11/17 17:36:17 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(207)] from 127.0.0.1
+2014/11/17 17:36:30 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(207)] from 127.0.0.1
+2014/11/17 17:36:43 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(207)] from 127.0.0.1
+2014/11/17 17:39:06 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(207)] from 127.0.0.1
+2014/11/17 17:48:40 [/mypage/favorite.php] Warning(E_WARNING): Missing argument 1 for SC_CartSession::getAllProductsTotal(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php on line 194 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CartSession.php(168)] from 127.0.0.1
+2014/11/17 17:48:40 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 17:48:50 [/mypage/favorite.php] Warning(E_WARNING): Missing argument 1 for SC_CartSession::getAllProductsTotal(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php on line 194 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CartSession.php(168)] from 127.0.0.1
+2014/11/17 17:48:50 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 17:49:09 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 17:50:54 [/mypage/favorite.php] Warning(E_WARNING): Missing argument 1 for SC_CartSession::getAllProductsTotal(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php on line 194 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CartSession.php(168)] from 127.0.0.1
+2014/11/17 17:50:54 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 17:58:36 [/mypage/favorite.php] Warning(E_WARNING): Missing argument 1 for SC_CartSession::getAllProductsTotal(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php on line 194 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CartSession.php(168)] from 127.0.0.1
+2014/11/17 17:58:36 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 17:59:31 [/mypage/favorite.php] Warning(E_WARNING): Missing argument 1 for SC_CartSession::getAllProductsTotal(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php on line 194 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CartSession.php(168)] from 127.0.0.1
+2014/11/17 17:59:31 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 17:59:41 [/mypage/favorite.php] Warning(E_WARNING): Missing argument 1 for SC_CartSession::getAllProductsTotal(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php on line 194 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CartSession.php(168)] from 127.0.0.1
+2014/11/17 17:59:41 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 17:59:51 [/mypage/favorite.php] Warning(E_WARNING): Missing argument 1 for SC_CartSession::getAllProductsTotal(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php on line 194 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CartSession.php(168)] from 127.0.0.1
+2014/11/17 17:59:51 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 18:00:22 [/mypage/favorite.php] Warning(E_WARNING): Missing argument 1 for SC_CartSession::getAllProductsTotal(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php on line 194 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CartSession.php(168)] from 127.0.0.1
+2014/11/17 18:00:22 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 18:08:21 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 18:10:47 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 18:10:55 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(211)] from 127.0.0.1
+2014/11/17 18:18:13 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:18:26 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:24:19 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:24:52 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:28:50 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:29:05 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:29:15 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:29:34 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:31:07 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:43:53 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:43:58 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:46:03 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:46:31 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:46:59 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 18:56:52 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, (T4.price02 + ) as taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37 group by T1.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_14ae83e97f4906538c6338f03c8861b571ed4ae57d FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, (T4.price02 + ) as taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37 group by T1.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') as taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON ' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 18:56:57 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, (T4.price02 + ) as taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37 group by T1.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_14fcfdbcee2ddd5fdff1d889b78fc2a11b73f2bd64 FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, (T4.price02 + ) as taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37 group by T1.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') as taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON ' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 18:58:53 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, (T4.price02 + ) as taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37 group by T1.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_144b270d0d354272c983a745bf5aba51b0f39cba9d FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, (T4.price02 + ) as taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37 group by T1.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') as taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON ' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 18:59:25 [/mypage/favorite.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, (T4.price02 + ) AS taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37 group by T1.product_id   ]
+MDB2 Error: syntax error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_147962fc071483f95176b299aa83de0fd799f67449 FROM 'SELECT T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, (T4.price02 + ) AS taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 WHERE T2.customer_id =37 group by T1.product_id   ']
+[Native code: 1064]
+[Native message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AS taxes FROM dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON ' at line 1]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage_Favorite->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(108): LC_Page_MyPage_Favorite->lfGetFavoriteProduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(190): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/17 19:01:02 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(214)] from 127.0.0.1
+2014/11/17 19:01:03 [/mypage/favorite.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/mypage/favorite.tpl line 148]: syntax error: unrecognized tag: .taxes|number_format (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(91): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(169): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(135): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
+2014/11/17 19:02:06 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 19:02:06 [/mypage/favorite.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/mypage/favorite.tpl line 148]: syntax error: unrecognized tag: .taxes|number_format (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(91): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(169): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(135): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
+2014/11/17 19:02:20 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 19:05:01 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(214)] from 127.0.0.1
+2014/11/17 19:05:10 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(214)] from 127.0.0.1
+2014/11/17 19:05:25 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(214)] from 127.0.0.1
+2014/11/17 19:05:36 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(214)] from 127.0.0.1
+2014/11/17 19:06:16 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 19:06:33 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 19:06:39 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 19:09:29 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 19:09:38 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(215)] from 127.0.0.1
+2014/11/17 19:11:30 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(214)] from 127.0.0.1
+2014/11/17 19:14:12 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:14:35 [/mypage/favorite.php] Fatal error(E_COMPILE_ERROR): Cannot use [] for reading on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(225)] from 127.0.0.1
+customer_id = 37
+2014/11/17 19:14:39 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:15:26 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:15:35 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:17:52 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:20:24 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:20:33 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:20:49 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:21:46 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:21:53 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:22:36 [/mypage/favorite.php] Fatal error(E_COMPILE_ERROR): Cannot use [] for reading on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(228)] from 127.0.0.1
+customer_id = 37
+2014/11/17 19:22:46 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:23:08 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:23:29 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:24:18 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:24:48 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:26:41 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:26:42 [/mypage/favorite.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/mypage/favorite.tpl line 171]: syntax error: mismatched tag {/section}. expected {/if} (opened line 143). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(91): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(169): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(135): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(517): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
+2014/11/17 19:26:45 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:27:16 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:27:16 [/mypage/favorite.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/mypage/favorite.tpl line 171]: syntax error: mismatched tag {/section}. expected {/if} (opened line 143). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\favorite.php(34): LC_Page_Mypage_Favorite_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Favorite_Ex.php(56): LC_Page_MyPage_Favorite->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(61): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(91): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(169): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(135): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(517): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
+2014/11/17 19:27:20 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:28:07 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(213)] from 127.0.0.1
+2014/11/17 19:29:53 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 19:32:21 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 19:36:09 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 19:44:02 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 19:44:54 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 19:45:37 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 19:45:44 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
+2014/11/17 19:46:25 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 19:47:01 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/17 19:49:25 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/18 13:23:31 [/shopping/order.php] Fatal error(E_ERROR): Call to undefined method LC_Page_ShoppingOrder::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(44)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:24:31 [/shopping/order.php] Fatal error(E_ERROR): Call to undefined method LC_Page_ShoppingOrder::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(44)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:26:25 [/shopping/order.php] Fatal error(E_ERROR): Call to undefined method LC_Page_ShoppingOrder::lfInitParam() on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(44)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:44:06 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 13:44:06 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:44:08 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 13:44:08 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:44:13 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 13:44:13 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:44:34 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 13:44:34 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:52:38 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 13:52:38 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:54:36 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 13:54:36 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:54:55 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 13:54:55 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:55:31 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 13:55:31 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:55:49 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 13:55:49 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 13:57:58 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 13:57:58 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 14:00:58 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 14:00:58 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 14:01:10 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 14:01:10 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 14:05:10 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 14:05:10 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:29:50 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 15:29:50 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:30:18 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 15:30:18 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:32:06 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 15:32:06 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:32:20 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 15:32:20 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:32:36 [/shopping/order.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+2014/11/18 15:32:36 [/shopping/order.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class_extends/page_extends/shopping/LC_Page_ShoppingOrder.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(26)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:33:38 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(79)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:33:56 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(79)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:40:41 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:42:38 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:44:19 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:46:59 [/shopping/order.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/shopping/order.tpl line 433]: syntax error: unclosed tag \{if} (opened line 299). (Smarty_Compiler.class.php, line 317) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(34): LC_Page_Cart_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\cart\LC_Page_Cart_Ex.php(56): LC_Page_Cart->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\cart\LC_Page_Cart.php(71): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(169): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(135): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(317): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
+2014/11/18 15:55:14 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:55:29 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:56:26 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 15:57:32 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 16:01:35 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 16:02:37 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 16:06:30 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 16:10:03 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getKeys() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(66)] from 127.0.0.1
+customer_id = 
+2014/11/18 16:10:29 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(79)] from 127.0.0.1
+customer_id = 
+2014/11/18 16:10:46 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(79)] from 127.0.0.1
+customer_id = 
+2014/11/18 16:11:07 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(73)] from 127.0.0.1
+customer_id = 
+2014/11/18 16:11:10 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(73)] from 127.0.0.1
+customer_id = 
+2014/11/18 16:12:25 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(73)] from 127.0.0.1
+customer_id = 
+2014/11/18 16:12:55 [/shopping/order.php] Fatal error(E_ERROR): Call to a member function getValue() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(74)] from 127.0.0.1
+customer_id = 
+2014/11/18 17:13:31 [/shopping/order.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/shopping/order.tpl line 413]: syntax error: mismatched tag {/foreach}. expected {/if} (opened line 313). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(34): LC_Page_ShoppingOrder_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\shopping\LC_Page_ShoppingOrder_Ex.php(56): LC_Page_ShoppingOrder->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(58): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(169): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(135): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(533): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
+2014/11/18 17:13:55 [/shopping/order.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/shopping/order.tpl line 411]: syntax error: mismatched tag {/foreach}. expected {/if} (opened line 313). (Smarty_Compiler.class.php, line 2338) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(34): LC_Page_ShoppingOrder_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\shopping\LC_Page_ShoppingOrder_Ex.php(56): LC_Page_ShoppingOrder->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(58): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(169): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(135): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(533): Smarty_Compiler->_pop_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2338): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
+2014/11/18 18:35:33 [/shopping/order.php] Warning(E_WARNING): Illegal offset type on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%78^78F^78F2C262%%order.tpl.php(202)] from 127.0.0.1
+2014/11/18 18:38:06 [/shopping/order.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/shopping/order.tpl line 175]: syntax error: unrecognized tag: $item.arrData[$key]['is_deliv_free']|number_format (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(34): LC_Page_ShoppingOrder_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\shopping\LC_Page_ShoppingOrder_Ex.php(56): LC_Page_ShoppingOrder->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(58): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(169): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(135): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
+2014/11/18 18:39:51 [/shopping/order.php] Fatal error(E_USER_ERROR): Smarty error: [in C:\xampp\htdocs\nakame_ec\eccube\html/../data/Smarty/templates/default/shopping/order.tpl line 175]: syntax error: unrecognized tag: $arrData[$key]['is_deliv_free']|number_format (Smarty_Compiler.class.php, line 446) on [C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093)] from 127.0.0.1
+customer_id = 
+C:\xampp\htdocs\nakame_ec\eccube\html\shopping\order.php(34): LC_Page_ShoppingOrder_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\shopping\LC_Page_ShoppingOrder_Ex.php(56): LC_Page_ShoppingOrder->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_ShoppingOrder.php(58): LC_Page->sendResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\LC_Page.php(144): SC_Display->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Display.php(77): SC_View->getResponse
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_View.php(100): Smarty->fetch
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1263): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%F1^F15^F158E3F4%%site_frame.tpl.php(169): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1869): include
+C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\default\%%58^587^5876E692%%site_main.tpl.php(135): Smarty->_smarty_include
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1867): Smarty->_compile_resource
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1422): Smarty->_compile_source
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1489): Smarty_Compiler->_compile_file
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(312): Smarty_Compiler->_compile_tag
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(446): Smarty_Compiler->_syntax_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty_Compiler.class.php(2256): Smarty->_trigger_fatal_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1815): Smarty->trigger_error
+C:\xampp\htdocs\nakame_ec\eccube\data\module\Smarty\libs\Smarty.class.php(1093): trigger_error
+2014/11/18 18:44:31 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:31 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:31 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:31 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:31 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:31 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:44:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:34 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:37 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:37 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:37 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:37 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:37 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 18:52:37 [/admin/products/product.php] Warning(E_WARNING): array_diff(): Argument #1 is not an array on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_CheckError.php(63)] from 127.0.0.1
+2014/11/18 19:20:08 [/shopping/deliv.php] Warning(E_WARNING): array_keys() expects parameter 1 to be array, null given on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Deliv.php(156)] from 127.0.0.1
+2014/11/18 19:22:36 [/shopping/confirm.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(300)] from 127.0.0.1
+2014/11/18 19:22:39 [/shopping/payment.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(300)] from 127.0.0.1
+2014/11/18 19:22:39 [/shopping/payment.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Payment.php(286)] from 127.0.0.1
+2014/11/18 19:22:47 [/shopping/payment.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(300)] from 127.0.0.1
+2014/11/18 19:22:47 [/shopping/payment.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Payment.php(286)] from 127.0.0.1
+2014/11/18 19:22:47 [/shopping/payment.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\shopping\LC_Page_Shopping_Payment.php(350)] from 127.0.0.1
+2014/11/18 19:22:47 [/shopping/confirm.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(300)] from 127.0.0.1
+2014/11/18 19:22:47 [/shopping/confirm.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(368)] from 127.0.0.1
+2014/11/18 19:22:55 [/shopping/confirm.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(300)] from 127.0.0.1
+2014/11/18 19:22:55 [/shopping/confirm.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(368)] from 127.0.0.1
+2014/11/18 19:22:55 [/shopping/confirm.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(300)] from 127.0.0.1
+2014/11/18 19:22:55 [/shopping/confirm.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(84)] from 127.0.0.1
+2014/11/18 19:22:55 [/shopping/confirm.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(732)] from 127.0.0.1
+2014/11/18 19:22:58 [/shopping/confirm.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\helper\SC_Helper_Purchase.php(300)] from 127.0.0.1
+2014/11/18 19:25:45 [/admin/mail/history.php] Warning(E_WARNING): Missing argument 4 for SC_PageNavi::__construct(), called in C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\admin\mail\LC_Page_Admin_Mail_History.php on line 132 and defined on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_PageNavi.php(44)] from 127.0.0.1
+2014/11/18 19:26:04 [/admin/order/edit.php] Warning(E_WARNING): number_format() expects parameter 1 to be double, string given on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\admin\%%C8^C80^C80C6CBD%%edit.tpl.php(504)] from 127.0.0.1
+2014/11/18 19:26:04 [/admin/order/edit.php] Warning(E_WARNING): number_format() expects parameter 1 to be double, string given on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\admin\%%C8^C80^C80C6CBD%%edit.tpl.php(554)] from 127.0.0.1
+2014/11/18 19:26:04 [/admin/order/edit.php] Warning(E_WARNING): number_format() expects parameter 1 to be double, string given on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\admin\%%C8^C80^C80C6CBD%%edit.tpl.php(563)] from 127.0.0.1
+2014/11/18 19:26:04 [/admin/order/edit.php] Warning(E_WARNING): number_format() expects parameter 1 to be double, string given on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\admin\%%C8^C80^C80C6CBD%%edit.tpl.php(596)] from 127.0.0.1
+2014/11/18 19:31:47 [/admin/order/edit.php] Warning(E_WARNING): number_format() expects parameter 1 to be double, string given on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\admin\%%C8^C80^C80C6CBD%%edit.tpl.php(504)] from 127.0.0.1
+2014/11/18 19:31:47 [/admin/order/edit.php] Warning(E_WARNING): number_format() expects parameter 1 to be double, string given on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\admin\%%C8^C80^C80C6CBD%%edit.tpl.php(554)] from 127.0.0.1
+2014/11/18 19:31:47 [/admin/order/edit.php] Warning(E_WARNING): number_format() expects parameter 1 to be double, string given on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\admin\%%C8^C80^C80C6CBD%%edit.tpl.php(563)] from 127.0.0.1
+2014/11/18 19:31:47 [/admin/order/edit.php] Warning(E_WARNING): number_format() expects parameter 1 to be double, string given on [C:\xampp\htdocs\nakame_ec\eccube\data\Smarty\templates_c\admin\%%C8^C80^C80C6CBD%%edit.tpl.php(596)] from 127.0.0.1
+2014/11/19 11:20:46 [/index.php] Fatal error(E_ERROR): Maximum execution time of 30 seconds exceeded on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\bloc\LC_Page_FrontParts_Bloc.php(25)] from 127.0.0.1
+customer_id = 
+2014/11/19 12:41:56 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/post_comment.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(154)] from 127.0.0.1
+2014/11/19 12:53:17 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/19 12:57:17 [/mypage/materials/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class/pages/LC_Page_Materials.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_Ex.php(24)] from 127.0.0.1
+2014/11/19 12:57:17 [/mypage/materials/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class/pages/LC_Page_Materials.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_Ex.php(24)] from 127.0.0.1
+customer_id = 37
+2014/11/19 12:57:21 [/mypage/materials/index.php] Warning(E_WARNING): require_once(C:\xampp\htdocs\nakame_ec\eccube\html/../data/class/pages/LC_Page_Materials.php): failed to open stream: No such file or directory on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_Ex.php(24)] from 127.0.0.1
+2014/11/19 12:57:21 [/mypage/materials/index.php] Fatal error(E_COMPILE_ERROR): require_once(): Failed opening required 'C:\xampp\htdocs\nakame_ec\eccube\html/../data/class/pages/LC_Page_Materials.php' (include_path='C:\xampp\htdocs\nakame_ec\eccube\data\module;.;C:\xampp\php\PEAR') on [C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_Ex.php(24)] from 127.0.0.1
+customer_id = 37
+2014/11/19 13:02:31 [/mypage/materials/index.php] Fatal error(E_ERROR): Call to undefined function printr() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials.php(117)] from 127.0.0.1
+customer_id = 37
+2014/11/19 13:03:56 [/mypage/materials/index.php] Fatal error(E_ERROR): Call to undefined function printr() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials.php(117)] from 127.0.0.1
+customer_id = 37
+2014/11/19 13:04:19 [/mypage/materials/index.php] Fatal error(E_COMPILE_ERROR): Cannot use [] for reading on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials.php(117)] from 127.0.0.1
+customer_id = 37
+2014/11/19 13:05:50 [/mypage/materials/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [PREPARE mdb2_statement_mysql_103a26cd4a58d6c79ccf5c741169771c2a5f981211 FROM 'SELECT name,note FROM dtb_products WHERE customer_id=?   ']
+PlaceHolder: [NULL]
+MDB2 Error: not found
+[Error message: Unable to bind to missing placeholder: 0]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\materials\index.php(34): LC_Page_Materials_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_Ex.php(54): LC_Page_Materials->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials.php(69): LC_Page_Materials->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials.php(114): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(284): SC_Query->execute
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(970): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 13:06:03 [/mypage/materials/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [PREPARE mdb2_statement_mysql_1098f441e4f17232949b0a6fbedd3fb6edada75294 FROM 'SELECT name,note FROM dtb_products WHERE customer_id=?   ']
+PlaceHolder: [array (
+)]
+MDB2 Error: not found
+[Error message: Unable to bind to missing placeholder: 0]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\materials\index.php(34): LC_Page_Materials_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_Ex.php(54): LC_Page_Materials->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials.php(69): LC_Page_Materials->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials.php(114): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(284): SC_Query->execute
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(970): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 13:46:36 [/mypage/materials/index.php] Fatal error(E_ERROR): Method name must be a string on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials.php(118)] from 127.0.0.1
+customer_id = 37
+2014/11/19 13:46:45 [/mypage/materials/index.php] Fatal error(E_COMPILE_ERROR): Cannot use [] for reading on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials.php(118)] from 127.0.0.1
+customer_id = 37
+2014/11/19 15:02:44 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T2.product_id,T3.SUM(num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id FROM dtb_products as T2 JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id WHERE T2.status = 1 and T2.customer_id = 37 group by T3.product_id   ]
+MDB2 Error: unknown error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_15acad1d170d23ad8fc673170f2e43c9ba1c945709 FROM 'SELECT T2.product_id,T3.SUM(num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id FROM dtb_products as T2 JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id WHERE T2.status = 1 and T2.customer_id = 37 group by T3.product_id   ']
+[Native code: 1630]
+[Native message: FUNCTION t3.SUM does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(199): LC_Page_MyPage->lfGetproduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(253): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 15:03:24 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T2.product_id,T3.SUM(num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id FROM dtb_products as T2 JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id WHERE T2.status = 1 and T2.customer_id = 37 group by T3.product_id   ]
+MDB2 Error: unknown error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_1561d7341a574c99c18e6f97791853981538fae14e FROM 'SELECT T2.product_id,T3.SUM(num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id FROM dtb_products as T2 JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id WHERE T2.status = 1 and T2.customer_id = 37 group by T3.product_id   ']
+[Native code: 1630]
+[Native message: FUNCTION t3.SUM does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(199): LC_Page_MyPage->lfGetproduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(253): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 15:04:14 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T2.product_id,T3.SUM(num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id FROM dtb_products as T2 JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id WHERE T2.status = 1 and T2.customer_id = 37 group by T3.product_id   ]
+MDB2 Error: unknown error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_152ca1df29e72eede14ee130992c4da1e21ad4582f FROM 'SELECT T2.product_id,T3.SUM(num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id FROM dtb_products as T2 JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id WHERE T2.status = 1 and T2.customer_id = 37 group by T3.product_id   ']
+[Native code: 1630]
+[Native message: FUNCTION t3.SUM does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(199): LC_Page_MyPage->lfGetproduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(253): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 15:05:27 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT T2.product_id,T3.SUM(num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id FROM dtb_products as T2 JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id WHERE T2.status = 1 and T2.customer_id = 37 group by T3.product_id   ]
+MDB2 Error: unknown error
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_152fda0c91e160d1d3e34452744b4ce4da0f5ea3f2 FROM 'SELECT T2.product_id,T3.SUM(num_of_likes) as total, T4.zip02, T4.name01, T4.customer_id FROM dtb_products as T2 JOIN dtb_customer_favorite_products as T3 ON T3.product_id = T2.product_id JOIN dtb_customer as T4 ON T2.customer_id = T4.customer_id WHERE T2.status = 1 and T2.customer_id = 37 group by T3.product_id   ']
+[Native code: 1630]
+[Native message: FUNCTION t3.SUM does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(199): LC_Page_MyPage->lfGetproduct
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(253): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 15:06:45 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT t2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id FROM dtb.products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id WHERE t4.customer_id = 37 group by t3.product_id   ]
+MDB2 Error: no such table
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_153edeac4ed2fd89b1d1d403155344985662548c85 FROM 'SELECT t2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id FROM dtb.products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id WHERE t4.customer_id = 37 group by t3.product_id   ']
+[Native code: 1146]
+[Native message: Table 'dtb.products' doesn't exist]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(197): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 15:06:47 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT t2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id FROM dtb.products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id WHERE t4.customer_id = 37 group by t3.product_id   ]
+MDB2 Error: no such table
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_1515e3bbdc526d658f4e8f8e27a7ce11a46b2d874c FROM 'SELECT t2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id FROM dtb.products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id WHERE t4.customer_id = 37 group by t3.product_id   ']
+[Native code: 1146]
+[Native message: Table 'dtb.products' doesn't exist]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(197): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 15:07:59 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT t2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id FROM dtb.products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id WHERE t4.customer_id = 37 group by t3.product_id   ]
+MDB2 Error: no such table
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_156695518dae7f4c3f32c292d7a708195a4bb3ad6d FROM 'SELECT t2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id FROM dtb.products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id WHERE t4.customer_id = 37 group by t3.product_id   ']
+[Native code: 1146]
+[Native message: Table 'dtb.products' doesn't exist]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(197): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 15:08:14 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT t2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id FROM dtb.products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id WHERE t4.customer_id = 37 group by t3.product_id   ]
+MDB2 Error: no such table
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_15de0d8f01a86e663fe40b5cd08045f5b400e8860e FROM 'SELECT t2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id FROM dtb.products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id WHERE t4.customer_id = 37 group by t3.product_id   ']
+[Native code: 1146]
+[Native message: Table 'dtb.products' doesn't exist]
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(197): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 15:16:59 [/mypage/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT t2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id FROM dtb_products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id WHERE t4.customer_id = 37 group by t3.product_id   ]
+MDB2 Error: no such field
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_15b7a1bc7b69f6b2e9788cd8a7b26e1050a637d9af FROM 'SELECT t2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id FROM dtb_products as t2 join dtb_customer_favorite_products as t3 on t2.product_id = t3.product_id join dtb_customer on t2.customer_id = t4.customer_id WHERE t4.customer_id = 37 group by t3.product_id   ']
+[Native code: 1054]
+[Native message: Unknown column 't4.customer_id' in 'field list']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\index.php(34): LC_Page_Mypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Mypage_Ex.php(56): LC_Page_MyPage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(71): LC_Page_AbstractMypage_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_AbstractMypage_Ex.php(56): LC_Page_AbstractMypage->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_AbstractMypage.php(87): LC_Page_MyPage->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(196): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 15:31:35 [/mypage/index.php] Fatal error(E_PARSE): syntax error, unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage.php(199)] from 127.0.0.1
+customer_id = 37
+2014/11/19 16:26:42 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(155)] from 127.0.0.1
+2014/11/19 17:10:20 [/mypage/materials/new/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT product_id.customer_id,note,main_list_image FROM dtb_products WHERE product_id=103 and customer_id=37   ]
+MDB2 Error: no such field
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_10da14e541fdc7c898899f70463bdfc30b4bcaadad FROM 'SELECT product_id.customer_id,note,main_list_image FROM dtb_products WHERE product_id=103 and customer_id=37   ']
+[Native code: 1054]
+[Native message: Unknown column 'product_id.customer_id' in 'field list']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\materials\new\index.php(34): LC_Page_Materials_New_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_New_Ex.php(54): LC_Page_Materials_New->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(71): LC_Page_Materials_New->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(138): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 17:13:15 [/mypage/materials/new/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT product_id.customer_id,note,main_list_image FROM dtb_products WHERE customer_id=? and product_id=?   ]
+MDB2 Error: no such field
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_10d46c2c1dba5641dc8300e02c73961872d6682f6a FROM 'SELECT product_id.customer_id,note,main_list_image FROM dtb_products WHERE customer_id=? and product_id=?   ']
+[Native code: 1054]
+[Native message: Unknown column 'product_id.customer_id' in 'field list']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\materials\new\index.php(34): LC_Page_Materials_New_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_New_Ex.php(54): LC_Page_Materials_New->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(71): LC_Page_Materials_New->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(135): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 17:19:22 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(160)] from 127.0.0.1
+2014/11/19 17:21:02 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(160)] from 127.0.0.1
+2014/11/19 17:23:37 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(165)] from 127.0.0.1
+2014/11/19 17:24:23 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/noisy_logo-300x86.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(165)] from 127.0.0.1
+2014/11/19 17:24:38 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/post_comment.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(165)] from 127.0.0.1
+2014/11/19 17:32:35 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(165)] from 127.0.0.1
+2014/11/19 17:32:48 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(165)] from 127.0.0.1
+2014/11/19 17:33:41 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(165)] from 127.0.0.1
+2014/11/19 17:33:48 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(165)] from 127.0.0.1
+2014/11/19 17:37:54 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(165)] from 127.0.0.1
+2014/11/19 17:38:02 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(165)] from 127.0.0.1
+2014/11/19 17:40:39 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(166)] from 127.0.0.1
+2014/11/19 17:43:26 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(168)] from 127.0.0.1
+2014/11/19 17:43:40 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(168)] from 127.0.0.1
+2014/11/19 17:45:38 [/mypage/materials/new/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [SELECT product_id,customer_id,note,main_list_image FROM dtb_products WHERE status=2 and customer_id=? and note=""   ]
+MDB2 Error: no such field
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: PREPARE mdb2_statement_mysql_109c249f1e309c467f27cede802253fd3566f14c11 FROM 'SELECT product_id,customer_id,note,main_list_image FROM dtb_products WHERE status=2 and customer_id=? and note=\"\"   ']
+[Native code: 1054]
+[Native message: Unknown column '' in 'where clause']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\materials\new\index.php(34): LC_Page_Materials_New_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_New_Ex.php(54): LC_Page_Materials_New->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(71): LC_Page_Materials_New->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(135): SC_Query->select
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(167): SC_Query->getAll
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(279): SC_Query->prepare
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(948): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/19 17:49:11 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(168)] from 127.0.0.1
+2014/11/19 17:49:34 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(168)] from 127.0.0.1
+2014/11/19 17:50:44 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(168)] from 127.0.0.1
+2014/11/19 17:51:02 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(168)] from 127.0.0.1
+2014/11/19 17:51:14 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/noisy.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(168)] from 127.0.0.1
+2014/11/19 17:59:19 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/19 18:02:49 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/noisy_logo.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/19 18:08:10 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/19 18:08:18 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/19 18:10:14 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/19 18:11:34 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment3.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/19 18:18:58 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/19 18:19:58 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/19 18:20:37 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(230)] from 127.0.0.1
+2014/11/19 18:20:38 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(230)] from 127.0.0.1
+2014/11/19 18:20:43 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/19 18:21:03 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(230)] from 127.0.0.1
+2014/11/19 18:39:13 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/noisy_logo.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 11:14:09 [/mypage/materials/new/index.php] Fatal error(E_PARSE): syntax error, unexpected ')' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(181)] from 127.0.0.1
+customer_id = 37
+2014/11/20 11:14:15 [/mypage/materials/new/index.php] Fatal error(E_PARSE): syntax error, unexpected ')' on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(181)] from 127.0.0.1
+customer_id = 37
+2014/11/20 11:16:29 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 11:19:42 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 11:32:59 [/mypage/favorite.php] Warning(E_WARNING): Invalid argument supplied for foreach() on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Mypage_Favorite.php(210)] from 127.0.0.1
+2014/11/20 11:53:42 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 11:54:20 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 12:58:31 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(176)] from 127.0.0.1
+2014/11/20 13:10:13 [/frontparts/login_check.php] Warning(E_WARNING): strpos(): Empty delimiter on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\frontparts\LC_Page_FrontParts_LoginCheck.php(187)] from 127.0.0.1
+2014/11/20 13:20:57 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 13:22:53 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(172)] from 127.0.0.1
+2014/11/20 13:23:32 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(172)] from 127.0.0.1
+2014/11/20 13:24:22 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 13:26:51 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 13:46:24 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 13:55:43 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 13:57:23 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 13:59:26 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/noisy_logo.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 13:59:31 [/mypage/materials/new/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [PREPARE mdb2_statement_mysql_10115d9a0e0f313780f2b530ee1ed03391f1e5fc12 FROM 'INSERT INTO dtb_products(product_id,customer_id,note) SELECT ?,?,?']
+PlaceHolder: [array (
+  0 => NULL,
+  1 => '37',
+  2 => 'my_shirt.jpg',
+)]
+MDB2 Error: constraint violation
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: EXECUTE mdb2_statement_mysql_10115d9a0e0f313780f2b530ee1ed03391f1e5fc12 USING @0, @1, @2]
+[Native code: 1062]
+[Native message: Duplicate entry '0' for key 'PRIMARY']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\materials\new\index.php(34): LC_Page_Materials_New_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_New_Ex.php(54): LC_Page_Materials_New->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(71): LC_Page_Materials_New->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(200): SC_Query->insert
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(530): SC_Query->query
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(814): SC_Query->execute
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(970): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/20 14:00:07 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 14:00:12 [/mypage/materials/new/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [PREPARE mdb2_statement_mysql_105a49f3f8b47698f260fa96ad6fce02aba1f4b180 FROM 'INSERT INTO dtb_products(product_id,customer_id,note) SELECT ?,?,?']
+PlaceHolder: [array (
+  0 => NULL,
+  1 => '37',
+  2 => 'my_shirt.jpg',
+)]
+MDB2 Error: constraint violation
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: EXECUTE mdb2_statement_mysql_105a49f3f8b47698f260fa96ad6fce02aba1f4b180 USING @0, @1, @2]
+[Native code: 1062]
+[Native message: Duplicate entry '0' for key 'PRIMARY']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\materials\new\index.php(34): LC_Page_Materials_New_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_New_Ex.php(54): LC_Page_Materials_New->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(71): LC_Page_Materials_New->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(200): SC_Query->insert
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(530): SC_Query->query
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(814): SC_Query->execute
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(970): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/20 14:00:55 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 14:00:58 [/mypage/materials/new/index.php] Fatal error(E_ERROR): Call to a member function nextVal() on a non-object on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(190)] from 127.0.0.1
+customer_id = 37
+2014/11/20 14:01:22 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:04:43 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:04:46 [/mypage/materials/new/index.php] Fatal error(E_USER_ERROR): DB処理でエラーが発生しました。
+SQL: [PREPARE mdb2_statement_mysql_10d9bca001bb942a6a947c45967f1adf4d8afd6c07 FROM 'INSERT INTO dtb_products(product_id,customer_id,note,main_list_img) SELECT ?,?,?,?']
+PlaceHolder: [array (
+  0 => 160,
+  1 => '37',
+  2 => NULL,
+  3 => 'my_shirt.jpg',
+)]
+MDB2 Error: no such field
+_doQuery: [Error message: Could not execute statement]
+[Last executed query: EXECUTE mdb2_statement_mysql_10d9bca001bb942a6a947c45967f1adf4d8afd6c07 USING @0, @1, @2, @3]
+[Native code: 1054]
+[Native message: Unknown column 'main_list_img' in 'field list']
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007)] from 127.0.0.1
+customer_id = 37
+C:\xampp\htdocs\nakame_ec\eccube\html\mypage\materials\new\index.php(34): LC_Page_Materials_New_Ex->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class_extends\page_extends\mypage\LC_Page_Materials_New_Ex.php(54): LC_Page_Materials_New->process
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(71): LC_Page_Materials_New->action
+C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(203): SC_Query->insert
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(530): SC_Query->query
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(814): SC_Query->execute
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(970): SC_Query->error
+C:\xampp\htdocs\nakame_ec\eccube\data\class\SC_Query.php(1007): trigger_error
+2014/11/20 15:05:49 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:08:35 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:10:18 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:12:28 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:13:31 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:15:21 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:18:07 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:19:31 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:19:58 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:20:21 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:21:23 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:22:33 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment1.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:23:53 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:25:49 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:26:15 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:27:51 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:34:09 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:36:51 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:37:48 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment1.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 15:42:02 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(173)] from 127.0.0.1
+2014/11/20 15:43:00 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment3.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(172)] from 127.0.0.1
+2014/11/20 15:45:07 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 15:46:24 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment3.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 15:47:25 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 15:49:20 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 15:50:00 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/noisy_logo-300x86.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 15:50:43 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 15:51:45 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 16:00:13 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 16:01:12 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 16:03:25 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 16:05:33 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 16:09:39 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(172)] from 127.0.0.1
+2014/11/20 16:11:07 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(172)] from 127.0.0.1
+2014/11/20 16:11:41 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(172)] from 127.0.0.1
+2014/11/20 16:12:16 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(172)] from 127.0.0.1
+2014/11/20 16:13:01 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(172)] from 127.0.0.1
+2014/11/20 16:13:46 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(172)] from 127.0.0.1
+2014/11/20 16:14:12 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 16:14:39 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 16:15:04 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-885F0.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 16:15:27 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment1.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(171)] from 127.0.0.1
+2014/11/20 16:16:26 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 16:17:21 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 16:17:41 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 16:18:12 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 16:20:01 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(172)] from 127.0.0.1
+2014/11/20 16:39:36 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/ir9rCAPUTJlRpVnZ-E606D.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 17:07:03 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment2.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(170)] from 127.0.0.1
+2014/11/20 20:02:58 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment3.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(250)] from 127.0.0.1
+2014/11/20 20:04:53 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/comment3.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(250)] from 127.0.0.1
+2014/11/20 20:05:13 [/mypage/materials/new/index.php] Warning(E_WARNING): file_get_contents(http://nakame_ec.localhost/mypage/materials/new/process_shirt1.php?path_name=../../../upload/mypage/new/commentbox.png): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ on [C:\xampp\htdocs\nakame_ec\eccube\data\class\pages\mypage\LC_Page_Materials_New.php(250)] from 127.0.0.1

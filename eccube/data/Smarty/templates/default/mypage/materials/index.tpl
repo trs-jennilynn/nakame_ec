@@ -30,15 +30,12 @@
     .material-image{
         display: table-header-group;
     }
-    .deldiv{
-		display:none;
-    }
 </style>
 <!--{strip}-->
             <div class="page pad-v-6">
                 <ul class="materials">
                     <li class="material material-new">
-                        <a class="material-image" href="<!--{$smarty.const.HTTPS_URL}-->mypage/materials/new"><img alt="" src="https://dijsur42hqnz1.cloudfront.net/assets/icons/icon-plus-23082a483a652026fb2f94c393db39ee.png">
+                        <a class="material-image" href="<!--{$smarty.const.HTTPS_URL}-->mypage/materials/new/"><img alt="" src="https://dijsur42hqnz1.cloudfront.net/assets/icons/icon-plus-23082a483a652026fb2f94c393db39ee.png">
                         </a>
                         <div class="material-info">
                         <span class="material-title"><font><font>
@@ -46,18 +43,20 @@
                         </font></font></span>
                         </div>
                     </li>
+                    <!--{foreach from=$arrdesigns item=arrdesign name="design"}-->
                     <li class="material material-100360">
                         <div class="deldiv">
                             <a class="delete material-delete" data-confirm="「sea」を削除します。この素材で作成された商品も非公開になりますが、よろしいですか？" data-method="delete" href="/account/materials/100360" rel="nofollow"><font><font>×</font></font></a>
                         </div>
-                        <a class="material-image" href="/account/materials/100360"><img alt="1412158777 1920x1200.jpg" class="lens-image" height="323" src="https://d1q9av5b648rmv.cloudfront.net/v3/323x323/100360/1412158777-1920x1200.jpg.png?h=414ab38232e19f643896d4c799ebd03973268022" width="323">
+                        <a class="material-image" href="/account/materials/100360"><img alt="1412158777 1920x1200.jpg" class="lens-image" height="323" src="../../../upload/mypage/new/<!--{$arrdesign.note}-->" width="323">
                         </a>
                             <div class="material-info">
                             <span class="material-title"><font><font>
-                            sea
+                            <!--{$arrdesign.name}-->
                             </font></font></span>
                             </div>
                     </li>
+                    <!--{/foreach}-->
                 </ul>
             </div>
 <!--{/strip}-->

@@ -19,7 +19,7 @@
 }
 .overlay-nav-open i.icon{
 	float: left;
-	line-height: 1.5em;
+	line-height: 0.4em;
 }
 .header{
 	position: relative !important;
@@ -61,9 +61,9 @@
 .sale_price{
 	display:inline-block !important;
 }
-.text-red{
+/* .text-red{
 	font-size:2em !important;
-}
+} */
 #recommend_area .block_body p, 
 #whobought_area .product_item p{
 	margin: 0 0 5px 5px !important;

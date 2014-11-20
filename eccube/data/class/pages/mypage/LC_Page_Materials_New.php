@@ -92,6 +92,87 @@ class LC_Page_Materials_New extends LC_Page_Ex
         			     $('.editor-step02').css({'display':'block'});
         				$('.uploaded').trigger('click');
         			});
+
+        			$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(1)').find('div.item-image').click(function(){
+    					//alert('assa');
+    					$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(1)').toggleClass("published draft");
+    					if($('.shirt_dis').val() == '1'){
+    						$('.shirt_dis').val("2");
+    					}
+    					else{
+    						$('.shirt_dis').val("1");
+    					}
+                	});
+                	$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(1)').find('div.check-icon').click(function(){
+    					//alert('assa');
+    					$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(1)').toggleClass("published draft");
+    					if($('.shirt_dis').val() == '1'){
+    						$('.shirt_dis').val("2");
+    					}
+    					else{
+    						$('.shirt_dis').val("1");
+    					}
+    	            });
+                	$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(2)').find('div.item-image').click(function(){
+    					//alert('assa');
+    					$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(2)').toggleClass("published draft");
+    					if($('.bag_dis').val() == '1'){
+    						$('.bag_dis').val("2");
+    					}
+    					else{
+    						$('.bag_dis').val("1");
+    					}
+                	});
+                	$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(2)').find('div.check-icon').click(function(){
+    					//alert('assa');
+    					$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(2)').toggleClass("published draft");
+    					if($('.bag_dis').val() == '1'){
+    						$('.bag_dis').val("2");
+    					}
+    					else{
+    						$('.bag_dis').val("1");
+    					}
+                	});
+                	$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(3)').find('div.item-image').click(function(){
+    					//alert('assa');
+    					$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(3)').toggleClass("published draft");
+    					if($('.mug_dis').val() == '1'){
+    						$('.mug_dis').val("2");
+    					}
+    					else{
+    						$('.mug_dis').val("1");
+    					}
+                	});
+                	$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(3)').find('div.check-icon').click(function(){
+    					//alert('assa');
+    					$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(3)').toggleClass("published draft");
+    					if($('.mug_dis').val() == '1'){
+    						$('.mug_dis').val("2");
+    					}
+    					else{
+    						$('.mug_dis').val("1");
+    					}
+                	});
+                	$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(4)').find('div.item-image').click(function(){
+    					//alert('assa');
+    					$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(4)').toggleClass("published draft");
+    					if($('.phone_dis').val() == '1'){
+    						$('.phone_dis').val("2");
+    					}
+    					else{
+    						$('.phone_dis').val("1");
+    					}
+                	});
+                	$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(4)').find('div.check-icon').click(function(){
+    					//alert('assa');
+    					$('#material-product-preview').find('div.previews.previews-editor').find('div:nth-child(4)').toggleClass("published draft");
+    					if($('.phone_dis').val() == '1'){
+    						$('.phone_dis').val("2");
+    					}
+    					else{
+    						$('.phone_dis').val("1");
+    					}
+                	});
                 });
             	</script>
             	<?php 
@@ -113,7 +194,6 @@ class LC_Page_Materials_New extends LC_Page_Ex
 		$main_img = $_FILES['material-texture']['name'];
 		$this->design_img = $main_img;
 		
-		$this->note = $objFormParam->getValue('note');
 		
 		switch ($this->getMode()) {
 			case 'load':
@@ -121,14 +201,30 @@ class LC_Page_Materials_New extends LC_Page_Ex
 				$customer_id = $objCustomer->getvalue('customer_id');
 				
 				$objProduct = new SC_Product_Ex();
-				$main_img = $_FILES['material-texture']['name'];
+				$main_img1 = $_FILES['material-texture']['name'];
+				
 				$objQuery =& SC_Query_Ex::getSingletonInstance();
 				
 				$product_id = $objQuery->nextVal('dtb_products_product_id');
 				
 				$sqlval['product_id'] = $product_id;
 				$sqlval['customer_id'] = $customer_id;
-				$sqlval['note'] = $main_img;
+				$sqlval['note'] = $main_img1;
+				$this->test=$main_img1;
+				
+				/* $arrdes = $objQuery->select('product_id,customer_id,note,main_list_image','dtb_products','customer_id=?', array($customer_id));
+				
+				$image_main = $arrdes[0]['main_list_image'];
+				$pro_id = $arrdes[0]['product_id'];
+				if(count($arrdes) > 0){
+					//$objQuery->insert('dtb_products', $sqlval);
+					echo '<script>alert("aaaa")</script>';
+				}else{
+					if($image_main == NULL){
+					//$objQuery->update('dtb_products', $sqlval);
+					echo '<script>alert("asasas")</script>';
+					}
+				}  */
 				
 				//$objQuery->insert('dtb_products', $sqlval);
 				
@@ -157,34 +253,43 @@ class LC_Page_Materials_New extends LC_Page_Ex
 				$this->img_cup = "my_cup.jpg";
 				$this->img_bag = "my_bag.jpg";
 				$this->img_phone = "my_phone.jpg";
-    			 
-    			 
-    			 
-    			 
-    			/* 
-    			// Content type
-    			header('Content-Type: image/jpeg');
-    			 
-    			// Get new dimensions
-    			list($width, $height) = getimagesize($filename);
-    			$new_width = $width / 5;
-    			$new_height = $height /5;
-    			$dest = imagecreatefrompng('photos/shirt.png');
-    			// Resample
-    			$image_p = imagecreatetruecolor($new_width, $new_height);
-    			$image = imagecreatefrompng($filename);
-    			imagecopyresampled($dest, $image, 180, 110, 0, 0, $new_width, $new_height, $width, $height);
-    			 
-    			// Output
-    			$quality = 90;
-    			imagejpeg($dest, "my_image.jpeg");
-    			 
-    			// Free up memory
-    			//imagedestroy($dest);
-    			*/
+    			
+				
     			break;
 			case 'itemsave':
+				$shirt = $_POST['shirts'];
+				$cup = $_POST['cup'];
+				$bag = $_POST['bag'];
+				$phone = $_POST['phone'];
+				$mainimg = $_POST['test'];
 				
+				$shirt_stat = $_POST['shirt_stat'];
+				$bag_stat = $_POST['bag_stat'];
+				$mug_stat = $_POST['mug_stat'];
+				$phone_stat = $_POST['phone_stat'];
+				
+				$arr = array($shirt,$cup,$bag,$phone);
+				$arr2 = array($shirt_stat, $bag_stat, $mug_stat, $phone_stat);
+				
+				for($i=0;$i<=3;$i++){
+					$ray = $arr[$i];
+					$stats = $arr2[$i];
+					$customer_id = $objCustomer->getvalue('customer_id');
+					
+					$objProduct = new SC_Product_Ex();
+					
+					$objQuery =& SC_Query_Ex::getSingletonInstance();
+		
+					$product_id = $objQuery->nextVal('dtb_products_product_id');
+					
+					$sqlval['product_id'] = $product_id;
+					$sqlval['customer_id'] = $customer_id;
+					$sqlval['note'] = $mainimg;
+					$sqlval['main_list_image'] = $ray;
+					$sqlval['status'] = $stats;
+					
+					$sql = $objQuery->insert('dtb_products', $sqlval);
+				}
     		break;
     			default:
     			break;

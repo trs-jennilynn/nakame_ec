@@ -22,13 +22,46 @@
  */
 
 // {{{ requires
-require_once '../require.php';
-require_once CLASS_EX_REALDIR . 'page_extends/shopping/LC_Page_ShoppingOrder_Ex.php';
+require_once CLASS_REALDIR . 'pages/shopping/LC_Page_ShoppingOrder.php';
 
-// }}}
-// {{{ generate page
+/**
+ * ショッピングログイン のページクラス(拡張).
+ *
+ * LC_Page_Shopping をカスタマイズする場合はこのクラスを編集する.
+ *
+ * @package Page
+ * @author LOCKON CO.,LTD.
+ * @version $Id: LC_Page_ShoppingOrder_Ex.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
+ */
+class LC_Page_ShoppingOrder_Ex extends LC_Page_ShoppingOrder {
 
-$objPage = new LC_Page_ShoppingOrder_Ex();
-register_shutdown_function(array($objPage, 'destroy'));
-$objPage->init();
-$objPage->process();
+    // }}}
+    // {{{ functions
+
+    /**
+     * Page を初期化する.
+     *
+     * @return void
+     */
+    function init() {
+        parent::init();
+    }
+
+    /**
+     * Page のプロセス.
+     *
+     * @return void
+     */
+    function process() {
+        parent::process();
+    }
+
+    /**
+     * デストラクタ.
+     *
+     * @return void
+     */
+    function destroy() {
+        parent::destroy();
+    }
+}

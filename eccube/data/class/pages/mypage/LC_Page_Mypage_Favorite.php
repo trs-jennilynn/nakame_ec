@@ -37,7 +37,7 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
 
     /** ページナンバー */
     var $tpl_pageno;
-
+	var $cartSession;
     // }}}
     // {{{ functions
 
@@ -141,7 +141,7 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
         if (NOSTOCK_HIDDEN) {
             $where .= ' AND EXISTS(SELECT * FROM dtb_products_class WHERE product_id = dtb_customer_favorite_products.product_id AND product_id = dtb_products.product_id AND del_flg = 0 AND (stock >= 1 OR stock_unlimited = 1))';
         }
-        
+      //  $arrProductId  = $objQuery->getcol('dtb_customer_favorite_products.product_id', 'dtb_customer_favorite_products', $where, $customer_id);
         $arrProductId  = $objQuery->getcol('dtb_customer_favorite_products.product_id', 'dtb_customer_favorite_products', $where, $customer_id);
         $arrCustomerId = $objQuery->getcol('dtb_customer_favorite_products.customer_id', 'dtb_customer_favorite_products', $where, $customer_id);//echo 'dtb_customer_favorite_products.product_id', 'dtb_customer_favorite_products join dtb_products on dtb_products.product_id = dtb_customer_favorite_products.product_id', $where, $customer_id;
      	
@@ -181,14 +181,17 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
 		
         return $arrProductsList;
 		*/
-        $col = 'T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image';
-        $table = 'dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id';
-        $where = 'T2.customer_id =37';
+        $col = 'T1.product_id, T1.name, T2.num_of_likes, T3.zip02, T3.name01, T3.customer_id, T1.main_list_image, T4.price02';
+        $table = 'dtb_products AS T1 JOIN dtb_customer_favorite_products AS T2 ON T1.product_id = T2.product_id JOIN dtb_customer AS T3 ON T1.customer_id = T3.customer_id JOIN dtb_products_class AS T4 ON T1.product_id = T4.product_id';
+        $where = 'T2.customer_id ='.$customer_id.' group by T1.product_id';
         //print_r($where);
         //$objQuery->setOrder('total');
         //$objQuery->setLimit(RECOMMEND_NUM);
         $arrFavProducts = $objQuery->select($col, $table, $where);
-        //print_r($arrBestProducts);
+
+        $price = $arrFavProducts[0]['price02'];
+        $tax = SC_Helper_DB_Ex::sfTax($price);
+
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         if (count($arrFavProducts) > 0) {
         	// 商品一覧を取得
@@ -197,6 +200,8 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
         	$where = 'product_id IN (';
         	foreach ($arrFavProducts as $key => $val) {
         		$arrProductId[] = $val['product_id'];
+        		$arrProductId[] = $val['price02'] + $tax;
+        	//print_r($arrProductId);	
         	}
         	// 取得
         	$arrProductList = $objProduct->getListByProductIds($objQuery, $arrProductId);
@@ -214,8 +219,10 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
         		}
         	}
         }
-        //print_r($arrFavProducts);
+       // print_r($arrFavProducts);
         return $arrFavProducts;
+     //   print_r($arrFavProducts);
+        return $arrProductId['price02'];
     }
 
     /* 仕方がない処理。。 */
