@@ -149,12 +149,12 @@
                             <form name="fav" id="fav" method="post" action="?">
                                 <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
                                 <input type="hidden" name="mode" value="fav" />
-                                <input type="hidden" name="product_id" value="<!--{$tpl_product_id}-->" />
+                                <input type="hidden" name="product_id" value="<!--{$arrProduct.product_id|h}-->" />
                                 <input type="hidden" name="product_class_id" value="<!--{$tpl_product_class_id}-->" id="product_class_id" />
                                 <input type="hidden" name="favorite_product_id" value="" />
                                 <div class="float-r pad-t-05">
                                     
-                                        <a class="btn btn-trans favorite-button" href="javascript:fnChangeAction('?product_id=<!--{$arrProduct.product_id|h}-->');" onclick="fnFormModeSubmit('fav','fav_like','favorite_product_id','<!--{$arrProduct.product_id|h}-->'); return false" target="_self" >
+                                        <a class="btn btn-trans favorite-button" href="javascript:fnChangeAction('?product_id" onclick="fnFormModeSubmit('fav','fav_like','favorite_product_id','<!--{$arrProduct.product_id|h}-->'); return false" target="_self" >
                                           <i class="icon text-red">♥</i>
                                           <span class="favorites-count"><!--{$arrFavorite[cnt].num_of_likes}--></span>
                                         </a>

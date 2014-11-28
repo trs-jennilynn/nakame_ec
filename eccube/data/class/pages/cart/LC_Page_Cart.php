@@ -115,6 +115,7 @@ class LC_Page_Cart extends LC_Page_Ex {
         $objCartSess = new SC_CartSession_Ex();
         $objSiteSess = new SC_SiteSession_Ex();
         $objCustomer = new SC_Customer_Ex();
+     	$this->customer_id = $objCustomer->getValue('customer_id');
 
         $objFormParam = $this->lfInitParam($_POST);
         $this->mode = $this->getMode();
@@ -137,7 +138,7 @@ class LC_Page_Cart extends LC_Page_Ex {
             }
         }
 
-       echo $cart_no = $objFormParam->getValue('cart_no');
+        $cart_no = $objFormParam->getValue('cart_no');
      		$cartKey = $objFormParam->getValue('cartKey');
         
         // エラーチェック

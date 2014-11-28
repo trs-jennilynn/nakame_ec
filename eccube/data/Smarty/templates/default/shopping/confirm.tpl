@@ -20,6 +20,60 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *}-->
 
+<style>
+.block_body, #cart_area, .flow_area, .title, .information, #form1 > table:nth-child(6) > tbody,
+#form1 > h3, #form1 > table:nth-child(8) > tbody, #next-top, .btn-yellow, #footer,#leftcolumn
+{
+    display: none;
+}
+.clearfix, #container{
+    background: #474a4d !important;
+}
+#undercolumn{
+    background: white;
+}
+#undercolumn > h2{
+display: inline-block;
+line-height: 2.5;
+margin: 0 0 1.5em 0;
+border-bottom: 2px solid #474a4d;
+}
+table th{
+    border-right: none !important;
+    background-color: white;
+}
+#form1 > table:nth-child(5) > tbody > tr:nth-child(1){
+    border-top: 1px solid #ccc;
+}
+#leftcolumn,#two_maincolumn_right{
+    float:none;
+}
+#two_maincolumn_right{
+    margin:0 auto;
+    padding-right:0px;
+    width: 60%;
+}
+#undercolumn{
+    text-align: center;
+    padding: 40px;
+}
+table ul{
+    white-space: nowrap;
+}
+.total{
+    background: #f7f7f7;
+}
+.btn_area #next{
+	background-color: #007bbb;
+	border: 0;
+	color: white;
+	padding: 10px;
+}
+.btn-trans{
+    color: #595857 !important;
+}
+</style>
+
 <script type="text/javascript" src="<!--{$smarty.const.ROOT_URLPATH}-->js/jquery.facebox/facebox.js"></script>
 <link rel="stylesheet" type="text/css" href="<!--{$smarty.const.ROOT_URLPATH}-->js/jquery.facebox/facebox.css" media="screen" />
 <script type="text/javascript">//<![CDATA[
@@ -44,11 +98,15 @@
 //]]></script>
 
 <!--CONTENTS-->
+
 <div id="undercolumn">
+<h2>
+          <!--{$tpl_title|h}-->
+        </h2>
     <div id="undercolumn_shopping">
         <p class="flow_area"><img src="<!--{$TPL_URLPATH}-->img/picture/img_flow_03.jpg" alt="購入手続きの流れ" /></p>
         <h2 class="title"><!--{$tpl_title|h}--></h2>
-
+        
         <p class="information">下記ご注文内容で送信してもよろしいでしょうか？<br />
             よろしければ、「<!--{if $use_module}-->次へ<!--{else}-->ご注文完了ページへ<!--{/if}-->」ボタンをクリックしてください。</p>
 
@@ -59,44 +117,51 @@
 
         <div class="btn_area">
             <ul>
-                <li>
-                    <a href="./payment.php" onmouseover="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_back_on.jpg', 'back04-top')" onmouseout="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_back.jpg', 'back04-top')"><img src="<!--{$TPL_URLPATH}-->img/button/btn_back.jpg" alt="戻る" border="0" name="back04-top" id="back04-top" /></a>
-                </li>
-                    <!--{if $use_module}-->
-                <li>
-                    <input type="image" onclick="return fnCheckSubmit();" onmouseover="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_next_on.jpg',this)" onmouseout="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_next.jpg',this)" src="<!--{$TPL_URLPATH}-->img/button/btn_next.jpg" alt="次へ" name="next-top" id="next-top" />
-                </li>
-                    <!--{else}-->
-                <li>
-                    <input type="image" onclick="return fnCheckSubmit();" onmouseover="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_order_complete_on.jpg',this)" onmouseout="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_order_complete.jpg',this)" src="<!--{$TPL_URLPATH}-->img/button/btn_order_complete.jpg" alt="ご注文完了ページへ" name="next-top" id="next-top" />
-                </li>
-                <!--{/if}-->
+              
             </ul>
         </div>
-
+        
         <table summary="ご注文内容確認">
             <col width="10%" />
             <col width="40%" />
             <col width="20%" />
             <col width="10%" />
             <col width="20%" />
+            
             <tr>
-                <th scope="col">商品写真</th>
-                <th scope="col">商品名</th>
-                <th scope="col">単価</th>
+                <th colspan="2">お届け先住所</th>
+                <th colspan="2">〒<!--{$zipz}--><br/><!--{$address_code}--><!--{$address1}--><!--{$address2}-->&nbsp;&nbsp;<!--{$address3}--><br/><!--{$address3}--></th>
+                <th colspan="3"></th>
+            </tr>
+            
+            <tr>
+                <th colspan="2">電話番号    </th>
+                <th colspan="2"><!--{$phones}--></th>
+                <th colspan="3"></th>
+            </tr>
+            
+            <tr>
+                <th colspan="2">メールアドレス</th>
+                <th colspan="2"><!--{$emails}--></th>
+                <th colspan="3"></th>
+            </tr>
+            
+            <tr>
+                <th colspan="2">お支払い方法</th>  
+                <th colspan="2"><!--{$payments}-->&nbsp;&nbsp;<!--{$card_number}--></th>
+                <th colspan="3"></th>
+            </tr>
+            <tr>
+                <th colspan="3">商品名</th>
+                <th scope="col">サイズ</th>
+                <th scope="col">カラー</th>
                 <th scope="col">数量</th>
-                <th scope="col">小計</th>
+                <th scope="col">単価</th>
             </tr>
             <!--{foreach from=$arrCartItems item=item}-->
                 <tr>
-                    <td class="alignC">
-                        <a
-                            <!--{if $item.productsClass.main_image|strlen >= 1}--> href="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$item.productsClass.main_image|sfNoImageMainList|h}-->" class="expansion" target="_blank"
-                            <!--{/if}-->
-                        >
-                            <img src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$item.productsClass.main_list_image|sfNoImageMainList|h}-->&amp;width=65&amp;height=65" alt="<!--{$item.productsClass.name|h}-->" /></a>
-                    </td>
-                    <td>
+                    
+                    <td colspan="3">
                         <ul>
                             <li><strong><!--{$item.productsClass.name|h}--></strong></li>
                             <!--{if $item.productsClass.classcategory_name1 != ""}-->
@@ -107,37 +172,32 @@
                             <!--{/if}-->
                         </ul>
                     </td>
-                    <td class="alignR">
-                        <!--{$item.price|sfCalcIncTax|number_format}-->円
-                    </td>
-                    <td class="alignR"><!--{$item.quantity|number_format}--></td>
-                    <td class="alignR"><!--{$item.total_inctax|number_format}-->円</td>
+                    <td class="alignC">
+                        <!--{if $item.productsClass.classcategory_name1 != ""}-->
+                                <!--{$item.productsClass.classcategory_name1}--><br />
+                           
+                       <!--{else}-->
+                                not found
+                        <!--{/if}-->
+                     </td>
+                     <td class="alignC">
+                        <!--{if $item.productsClass.classcategory_name2 != ""}-->
+                                <!--{$item.productsClass.classcategory_name2}-->
+                            <!--{/if}-->
+                        </td>
+                    <td class="alignC"><!--{$item.quantity|number_format}--></td>
+                    <td class="alignC"><!--{$item.total_inctax|number_format}-->円</td>
                 </tr>
             <!--{/foreach}-->
             <tr>
-                <th colspan="4" class="alignR" scope="row">小計</th>
-                <td class="alignR"><!--{$tpl_total_inctax[$cartKey]|number_format}-->円</td>
-            </tr>
-            <!--{if $smarty.const.USE_POINT !== false}-->
-                <tr>
-                    <th colspan="4" class="alignR" scope="row">値引き（ポイントご使用時）</th>
-                    <td class="alignR">
-                        <!--{assign var=discount value=`$arrForm.use_point*$smarty.const.POINT_VALUE`}-->
-                        -<!--{$discount|number_format|default:0}-->円</td>
-                </tr>
-            <!--{/if}-->
-            <tr>
-                <th colspan="4" class="alignR" scope="row">送料</th>
-                <td class="alignR"><!--{$arrForm.deliv_fee|number_format}-->円</td>
+                <th colspan="6" class="alignR" scope="row"></th>
+                <td class="alignR">送料 : ¥500</td>
             </tr>
             <tr>
-                <th colspan="4" class="alignR" scope="row">手数料</th>
-                <td class="alignR"><!--{$arrForm.charge|number_format}-->円</td>
+                <th colspan="6" class="alignR" scope="row"></th>
+                <td class="alignR total">注文合計（税込）: ¥<!--{$tpl_total_inctax[$cartKey]|number_format}--></td>
             </tr>
-            <tr>
-                <th colspan="4" class="alignR" scope="row">合計</th>
-                <td class="alignR"><span class="price"><!--{$arrForm.payment_total|number_format}-->円</span></td>
-            </tr>
+
         </table>
 
         <!--{* ログイン済みの会員のみ *}-->
@@ -171,7 +231,7 @@
             </table>
         <!--{/if}-->
         <!--{* ログイン済みの会員のみ *}-->
-
+        
         <!--お届け先ここから-->
         <!--{* 販売方法判定（ダウンロード販売のみの場合はお届け先を表示しない） *}-->
         <!--{if $cartKey != $smarty.const.PRODUCT_TYPE_DOWNLOAD}-->
@@ -195,10 +255,10 @@
                 <!--{foreach item=item from=$shippingItem.shipment_item}-->
                     <tr>
                         <td class="alignC">
-                            <a
-                                <!--{if $item.productsClass.main_image|strlen >= 1}--> href="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$item.productsClass.main_image|sfNoImageMainList|h}-->" class="expansion" target="_blank"
+                            <a>
+                                <!--{if $item.productsClass.main_image|strlen >= 1}--><!--  href=" --><!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$item.productsClass.main_image|sfNoImageMainList|h}--><!-- " class="expansion" target="_blank" -->
                                 <!--{/if}-->
-                            >
+                           
                                 <img src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$item.productsClass.main_list_image|sfNoImageMainList|h}-->&amp;width=65&amp;height=65" alt="<!--{$item.productsClass.name|h}-->" /></a>
                         </td>
                         <td><!--{* 商品名 *}--><strong><!--{$item.productsClass.name|h}--></strong><br />
@@ -292,7 +352,7 @@
         <div class="btn_area">
             <ul>
                 <li>
-                    <a href="./payment.php" onmouseover="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_back_on.jpg','back<!--{$key}-->');" onmouseout="chgImg('<!--{$TPL_URLPATH}-->img/button/btn_back.jpg','back<!--{$key}-->');"><img src="<!--{$TPL_URLPATH}-->img/button/btn_back.jpg" alt="戻る" name="back<!--{$key}-->" /></a>
+                    <a href="./payment.php" class="btn-trans"><i class="icon"></i> 前にもどる</a>
                 </li>
                 <!--{if $use_module}-->
                 <li>
@@ -300,7 +360,7 @@
                 </li>
                 <!--{else}-->
                 <li>
-                    <input type="image" onclick="return fnCheckSubmit();" onmouseover="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_order_complete_on.jpg',this)" onmouseout="chgImgImageSubmit('<!--{$TPL_URLPATH}-->img/button/btn_order_complete.jpg',this)" src="<!--{$TPL_URLPATH}-->img/button/btn_order_complete.jpg" alt="ご注文完了ページへ"  name="next" id="next" />
+                    <input type="submit" onclick="return fnCheckSubmit();" value="購入する" alt="ご注文完了ページへ"  name="next" id="next" />
                 </li>
                 <!--{/if}-->
         </ul>

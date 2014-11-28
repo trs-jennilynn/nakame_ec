@@ -81,6 +81,7 @@
         <input type="hidden" name="pageno" value="<!--{$tpl_pageno|h}-->" />
         <!--{* ▲ページナビ関連 *}-->
         <input type="hidden" name="rnd" value="<!--{$tpl_rnd|h}-->" />
+       
         
     </form>
 
@@ -128,7 +129,6 @@
     <!--▲ページナビ(本文)-->
 
     <!--{foreach from=$arrProducts item=arrProduct name=arrProducts}-->
-
         <!--{if $smarty.foreach.arrProducts.first}-->
             <!--▼件数-->
             <div>
@@ -147,9 +147,12 @@
         <!--{assign var=id value=$arrProduct.product_id}-->
         <!--{assign var=arrErr value=$arrProduct.arrErr}-->
         <!--▼商品-->
-        <form name="product_form<!--{$id|h}-->" class="flipInY item wow animated">
-        <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
-        
+        <form name="product_form<!--{$id|h}-->" class="flipInY item wow animated" method="post" action="?">
+	        <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+	        <input type="hidden" name="mode" value="favo" />
+	        <input type="hidden" name="product_id" value="<!--{$tpl_product_id}-->" />
+	        <input type="hidden" name="product_class_id" value="<!--{$tpl_product_class_id}-->" id="product_class_id" />
+	        <input type="hidden" name="favorite_product_id" value="" />
         <div class="list_area clearfix">
             <a name="product<!--{$id|h}-->"></a>
             <div class="listphoto">
@@ -184,7 +187,15 @@
                             </h3>
                             <!--★価格★-->
                             <div class="pricebox sale_price">
-                                <a href="/hadashiA" target="_self"><img alt="9" class="profile-avatar-list" src="https://dp3obxrw75ln8.cloudfront.net/users/avatars/9.jpg?1398244153" width="20">hadashiA</a>
+                                <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->" target="_self">
+	                                <!--{if $arrProduct.zip02}-->
+						                        <img alt="Icon default" class="profile-avatar-list" src="../upload/mypage/profile/<!--{$arrProduct.zip02}-->" width="20" />
+						                <!--{else}-->
+						                        <img alt="Icon default" class="profile-avatar-list" src="<!--{$TPL_URLPATH}-->img/common/icon_default-6a3458a14c1aba00b963b37c7fec20f4.jpg" width="20" />
+					                  <!--{/if}-->
+                                
+                                    <!--{$arrProduct.name01|h}-->
+                                </a>
                                 <span class="price">
                                     <span id="price02_default_<!--{$id}-->"><!--{strip}-->
                                         ¥
@@ -197,18 +208,19 @@
                                 </span>
                             </div>
                         </div>
+                            
                                 <div class="float-r pad-t-05">
-                                    <!--{if $smarty.const.OPTION_FAVORITE_PRODUCT == 1}-->
-	                                    <div class="favorite_btn float-l" id="product-favorites">
-	                                        <!--{assign var=add_favorite value="add_favorite`$id`"}-->
-	                                        <input type="hidden" name="favorite_product_id" value="" />
-	                                        <a class="btn btn-trans favorite-button" href="javascript:fnChangeAction('?product_id=<!--{$arrProduct.product_id}-->'); fnModeSubmit('fav','favorite_product_id','<!--{$arrProduct.product_id}-->'); return false" name="add_favorite_product" id="add_favorite_product" target="_self" >
+                                    <div class="favorite_btn float-l" id="product-favorites">
+	                                    <!--{if $smarty.const.OPTION_FAVORITE_PRODUCT == 1}-->
+	                                        <!--{assign var=add_favorite value="add_favorite`$product_id`"}-->
+	                                        <a class="btn btn-trans favorite-button" href="javascript:fnChangeAction('product_id','<!--{$arrProduct.product_id|h}-->');" onclick="fnFormModeSubmit('product_form<!--{$id|h}-->','add_favorite','favorite_product_id','<!--{$arrProduct.product_id|h}-->'); return false" target="_self" >
 	                                          <i class="icon text-red">♥</i>
-	                                          <span class="favorites-count"><!--{$arrProduct.total}--></span>
+	                                          <span class="favorites-count"><!--{$arrfav.total}--></span>
 	                                        </a>
-	                                    </div>
-                                    <!--{/if}-->
+	                                    <!--{/if}-->
+	                                 </div>
                                 </div>
+                        
                     </div>
                     
                 </div>

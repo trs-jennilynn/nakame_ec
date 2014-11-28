@@ -173,6 +173,70 @@ class LC_Page_Materials_New extends LC_Page_Ex
     						$('.phone_dis').val("1");
     					}
                 	});
+
+                	var p = document.getElementById("price"),
+                    res = document.getElementById("results");
+
+	                p.addEventListener("input", function() {
+	                	$(".price").each(function(){    
+	                	    if(!$(this).data("price")){
+	                	        $(this).data("price",parseInt($(this).html()));
+	                	    }        
+	                	});       
+	                			                
+						if(p.value == 0){
+							res.innerHTML = "原価";
+						}
+						else{
+	                    res.innerHTML = "+" + p.value + "円";
+						}
+						$(".price").each(function(){    
+					        $(this).html((parseInt($(this).data("price"))+parseInt(p.value))+"円");
+					    });
+	                }, false); 
+
+	                //#material-product-preview > div.previews.previews-editor > div:nth-child(1) > div.item-info > h3 > span
+	                
+	                
+	                $('#material-title').keyup(function (e) {
+
+	                    $(".title").each(function(){    
+	                        if(!$(this).data("html")){
+	                            $(this).data("html",$(this).html());
+	                        }        
+	                    });
+	                    
+	                    if (event.keyCode == 8 || event.keyCode == 46) {
+	                        if ($('#material-title').val() != "") {
+
+	                            $(".title").each(function(){
+	                                $(this).html($('#material-title').val()+"<br />"+$(this).data("html"));
+	                            });
+	                                        
+	                        } else {
+
+	                            $(".title").each(function(){
+	                                $(this).html($('#material-title').val()+$(this).data("html"));
+	                            });
+	                            
+	                        }
+	                    } else {
+	                        if ($('#material-title').val() != "") {
+
+	                            $(".title").each(function(){
+	                                $(this).html($('#material-title').val()+"<br />"+$(this).data("html"));
+	                            });
+	                            
+	                        } else {
+	                            
+	                            $(".title").each(function(){
+	                                $(this).html($('#material-title').val()+$(this).data("html"));
+	                            });
+	                            
+	                            
+	                        }
+	                    }
+	                });
                 });
             	</script>
             	<?php 
@@ -185,7 +249,6 @@ class LC_Page_Materials_New extends LC_Page_Ex
      */
     public function action()
     {
-    	
     	$objCustomer = new SC_Customer_Ex();
 		$objFormParam = new SC_FormParam_Ex();
 		$customer_id = $objCustomer->getvalue('customer_id');
@@ -194,7 +257,10 @@ class LC_Page_Materials_New extends LC_Page_Ex
 		$main_img = $_FILES['material-texture']['name'];
 		$this->design_img = $main_img;
 		
+		$des_img = $_GET['des_img'];
+		$this->arredit = $this->editproduct($des_img);
 		
+		//$this->arredit = $this->editproduct($des_img);
 		switch ($this->getMode()) {
 			case 'load':
 				$objFormParam = new SC_FormParam_Ex();
@@ -226,7 +292,7 @@ class LC_Page_Materials_New extends LC_Page_Ex
 					}
 				}  */
 				
-				//$objQuery->insert('dtb_products', $sqlval);
+				$objQuery->insert('dtb_products', $sqlval);
 				
 				$tmp = $_FILES['material-texture']['tmp_name'];
 				
@@ -294,6 +360,8 @@ class LC_Page_Materials_New extends LC_Page_Ex
     			default:
     			break;
     			}
+    			
+    			
     }
     /**
      * デストラクタ.
@@ -302,5 +370,13 @@ class LC_Page_Materials_New extends LC_Page_Ex
      */
     function destroy() {
     	parent::destroy();
+    }
+    
+    function editproduct($des_img){
+		$objQuery =& SC_Query_Ex::getSingletonInstance();
+		$arredit= $objQuery->select('product_id,name,note','dtb_products','note=?',array($des_img));
+		
+	//	print_r($arredit);
+		return $arredit;
     }
 }

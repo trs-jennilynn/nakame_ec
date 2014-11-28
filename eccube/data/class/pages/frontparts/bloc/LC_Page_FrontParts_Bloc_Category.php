@@ -97,10 +97,12 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex {
      * @return array $arrCategoryId 選択中のカテゴリID
      */
     function lfGetSelectedCategoryId($arrRequest) {
+    	$objQuery   = SC_Query_Ex::getSingletonInstance();
             // 商品ID取得
         $product_id = '';
+        
         if (isset($arrRequest['product_id']) && $arrRequest['product_id'] != '' && is_numeric($arrRequest['product_id'])) {
-            $product_id = $arrRequest['product_id'];
+            $product_id = $arrRequest['product_id'];        
         }
         // カテゴリID取得
         $category_id = '';
@@ -109,10 +111,12 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex {
         }
         // 選択中のカテゴリIDを判定する
         $objDb = new SC_Helper_DB_Ex();
+        
         $arrCategoryId = $objDb->sfGetCategoryId($product_id, $category_id);
         if (empty($arrCategoryId)) {
             $arrCategoryId = array(0);
         }
+       
         return $arrCategoryId;
     }
 
@@ -127,15 +131,16 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $objDb = new SC_Helper_DB_Ex();
         $col = '*';
-        $from = 'dtb_category left join dtb_category_total_count ON dtb_category.category_id = dtb_category_total_count.category_id';
+        $from = 'dtb_category left join dtb_category_total_count ON dtb_category.category_id = dtb_category_total_count.category_id left join dtb_product_categories on dtb_category.category_id = dtb_product_categories.category_id left join dtb_products on dtb_product_categories.product_id = dtb_products.product_id left join dtb_customer_favorite_products on dtb_products.product_id = dtb_customer_favorite_products.product_id left join dtb_customer on dtb_products.customer_id = dtb_customer.customer_id';
         // 登録商品数のチェック
         if ($count_check) {
-            $where = 'del_flg = 0 AND product_count > 0';
+            $where = 'dtb_category.del_flg = 0 AND product_count > 0 group by dtb_category.category_id';
         } else {
-            $where = 'del_flg = 0';
+            $where = 'dtb_category.del_flg = 0 group by dtb_category.category_id';
         }
-        $objQuery->setOption('ORDER BY rank DESC');
+        //$objQuery->setOption('ORDER BY dtb_category.rank DESC');
         $arrRet = $objQuery->select($col, $from, $where);
+        //print_r($arrRet);
         foreach ($arrParentCategoryId as $category_id) {
             $arrParentID = $objDb->sfGetParents(
                 'dtb_category',
@@ -143,18 +148,21 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex {
                 'category_id',
                 $category_id
             );
+            //print_r($arrParentID);
             $arrBrothersID = SC_Utils_Ex::sfGetBrothersArray(
                 $arrRet,
                 'parent_category_id',
                 'category_id',
                 $arrParentID
             );
+            //print_r($arrBrothersID);
             $arrChildrenID = SC_Utils_Ex::sfGetUnderChildrenArray(
                 $arrRet,
                 'parent_category_id',
                 'category_id',
                 $category_id
             );
+            //print_r($arrChildrenID);
             $this->root_parent_id[] = $arrParentID[0];
             $arrDispID = array_merge($arrBrothersID, $arrChildrenID);
             foreach ($arrRet as &$arrCategory) {
@@ -163,6 +171,7 @@ class LC_Page_FrontParts_Bloc_Category extends LC_Page_FrontParts_Bloc_Ex {
                 }
             }
         }
+        //print_r($arrRet);
         return $arrRet;
     }
 

@@ -35,7 +35,7 @@
             <div class="page pad-v-6">
                 <ul class="materials">
                     <li class="material material-new">
-                        <a class="material-image" href="<!--{$smarty.const.HTTPS_URL}-->mypage/materials/new/"><img alt="" src="https://dijsur42hqnz1.cloudfront.net/assets/icons/icon-plus-23082a483a652026fb2f94c393db39ee.png">
+                        <a class="material-image" href="/mypage/materials/new"><img alt="" src="https://dijsur42hqnz1.cloudfront.net/assets/icons/icon-plus-23082a483a652026fb2f94c393db39ee.png">
                         </a>
                         <div class="material-info">
                         <span class="material-title"><font><font>
@@ -43,20 +43,26 @@
                         </font></font></span>
                         </div>
                     </li>
+                    <form name="listform" id="listform" action="?" method="post">
+                    <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+                    <input type="hidden" name="mode" value="list">
+                    
                     <!--{foreach from=$arrdesigns item=arrdesign name="design"}-->
-                    <li class="material material-100360">
-                        <div class="deldiv">
-                            <a class="delete material-delete" data-confirm="「sea」を削除します。この素材で作成された商品も非公開になりますが、よろしいですか？" data-method="delete" href="/account/materials/100360" rel="nofollow"><font><font>×</font></font></a>
-                        </div>
-                        <a class="material-image" href="/account/materials/100360"><img alt="1412158777 1920x1200.jpg" class="lens-image" height="323" src="../../../upload/mypage/new/<!--{$arrdesign.note}-->" width="323">
-                        </a>
-                            <div class="material-info">
-                            <span class="material-title"><font><font>
-                            <!--{$arrdesign.name}-->
-                            </font></font></span>
-                            </div>
-                    </li>
+	                    <li class="material material-100360">
+	                       <input type="hidden" name="id" value="<!--{$arrdesign.product_id}-->">
+	                        <div class="deldiv">
+	                            <a class="delete material-delete" href="javascript:;" onclick="fnFormModeSubmit('listform','delete','',''); return false" ><font><font>×</font></font></a>
+	                        </div>
+	                        <a class="material-image" href="/mypage/materials/edit.php?des_img=<!--{$arrdesign.note}-->"><img alt="1412158777 1920x1200.jpg" class="lens-image" height="323" src="../../../upload/mypage/new/<!--{$arrdesign.note}-->" width="323">
+	                        </a>
+	                            <div class="material-info">
+	                            <span class="material-title"><font><font>
+	                            <!--{$arrdesign.name}-->
+	                            </font></font></span>
+	                            </div>
+	                    </li>
                     <!--{/foreach}-->
+                    </form>
                 </ul>
             </div>
 <!--{/strip}-->

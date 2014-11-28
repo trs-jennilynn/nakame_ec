@@ -188,3 +188,22 @@
 2014/11/20 20:02:58 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.13sec] from 127.0.0.1
 2014/11/20 20:04:53 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.34sec] from 127.0.0.1
 2014/11/20 20:05:13 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [3.75sec] from 127.0.0.1
+2014/11/21 12:46:53 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [3.04sec] from 127.0.0.1
+2014/11/21 15:34:34 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.87sec] from 127.0.0.1
+2014/11/21 15:34:43 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.09sec] from 127.0.0.1
+2014/11/21 15:56:26 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.54sec] from 127.0.0.1
+2014/11/21 16:02:20 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.32sec] from 127.0.0.1
+2014/11/21 16:04:14 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [3.79sec] from 127.0.0.1
+2014/11/21 16:04:24 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.49sec] from 127.0.0.1
+2014/11/21 16:04:36 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.06sec] from 127.0.0.1
+2014/11/21 17:15:54 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [3.17sec] from 127.0.0.1
+2014/11/21 17:39:41 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.11sec] from 127.0.0.1
+2014/11/24 11:13:16 [/products/detail.php] PAGE_DISPLAY_TIME_LOG [2.34sec] from 127.0.0.1
+2014/11/24 11:37:24 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.56sec] from 127.0.0.1
+2014/11/24 11:49:18 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [3.65sec] from 127.0.0.1
+2014/11/26 20:05:22 [/mypage/materials/new/index.php] PAGE_DISPLAY_TIME_LOG [4.73sec] from 127.0.0.1
+2014/11/28 15:42:54 [/shopping/confirm.php] order complete. order_id=6 from 127.0.0.1
+2014/11/28 15:52:23 [/shopping/confirm.php] order complete. order_id=7 from 127.0.0.1
+2014/11/28 16:02:39 [/shopping/confirm.php] order complete. order_id=8 from 127.0.0.1
+2014/11/28 16:48:58 [/shopping/confirm.php] PAGE_DISPLAY_TIME_LOG [29.98sec] from 127.0.0.1
+2014/11/28 16:50:31 [/shopping/confirm.php] PAGE_DISPLAY_TIME_LOG [29.98sec] from 127.0.0.1

@@ -189,13 +189,6 @@ class LC_Page_MyPage extends LC_Page_AbstractMypage_Ex {
         $this->dispNumber = SEARCH_PMAX;
         
        
-        /* $objQuery =& SC_Query_Ex::getSingletonInstance();
-        $cols = 't2.product_id, SUM(t3.num_of_likes) as total, t4.customer_id';
-        $tables = 'dtb_products as t2 JOIN dtb_customer_favorite_products as t3 ON t2.product_id = t3.product_id JOIN dtb_customer as T4 ON t2.customer_id = t4.customer_id';
-        $wheres = 't4.customer_id = '.$customer_id.' group by t3.product_id';
-        $getproducts = $objQuery->select($cols, $tables, $wheres);
-    	
-        print_r($getproducts); */
         
         $this->getproducts = $this->lfGetproduct($customer_id);
     }

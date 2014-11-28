@@ -117,9 +117,6 @@ vertical-align: -0.11em;
 	display: block;
 	z-index: 9999;
 }
-.btn_area ul li:nth-child(1) a{
-	visibility:hidden;
-}
 #superbox #superbox-innerbox{
     height:auto !important;
 }

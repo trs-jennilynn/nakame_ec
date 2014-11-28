@@ -43,7 +43,7 @@ class LC_Page_Shopping_Confirm extends LC_Page_Ex {
      */
     function init() {
         parent::init();
-        $this->tpl_title = 'ご入力内容のご確認';
+        $this->tpl_title = 'ご注文内容の確認';
         $masterData = new SC_DB_MasterData_Ex();
         $this->arrPref = $masterData->getMasterData('mtb_pref');
         $this->arrSex = $masterData->getMasterData('mtb_sex');
@@ -51,6 +51,7 @@ class LC_Page_Shopping_Confirm extends LC_Page_Ex {
         $this->arrReminder = $masterData->getMasterData('mtb_reminder');
         $this->arrDeliv = SC_Helper_DB_Ex::sfGetIDValueList('dtb_deliv', 'deliv_id', 'service_name');
         $this->httpCacheControl('nocache');
+        
     }
 
     /**
@@ -62,6 +63,7 @@ class LC_Page_Shopping_Confirm extends LC_Page_Ex {
         parent::process();
         $this->action();
         $this->sendResponse();
+        
     }
 
     /**
@@ -71,12 +73,41 @@ class LC_Page_Shopping_Confirm extends LC_Page_Ex {
      */
     function action() {
 
+    	
         $objCartSess = new SC_CartSession_Ex();
         $objSiteSess = new SC_SiteSession_Ex();
         $objCustomer = new SC_Customer_Ex();
         $objPurchase = new SC_Helper_Purchase_Ex();
         $objHelperMail = new SC_Helper_Mail_Ex();
-
+        
+        $customer_id = $objCustomer->getvalue('customer_id');
+        
+        $objQuery =& SC_Query_Ex::getSingletonInstance();
+       	$cols = '*';
+       	$tables = 'dtb_customer';
+       	$wheres = 'customer_id = '.$customer_id;
+       	$arrGetCustomer = $objQuery->select($cols, $tables, $wheres);
+       	
+       	$this->email = $arrGetCustomer[0]['email'];
+       	$this->names1 = $arrGetCustomer[0]['name03'];
+       	$this->names2 = $arrGetCustomer[0]['name04'];
+       	$this->zipz = $arrGetCustomer[0]['zip03'];
+       	$this->address_code = $arrGetCustomer[0]['addr_code'];
+       	$this->address1 = $arrGetCustomer[0]['addr01'];
+       	$this->address2 = $arrGetCustomer[0]['addr02'];
+       	$this->address3 = $arrGetCustomer[0]['addr03'];
+       	$this->phones = $arrGetCustomer[0]['tel01'];
+       	$this->emails = $arrGetCustomer[0]['email_mobile'];
+       	
+        
+       	if($arrGetCustomer[0]['note'] == "Cod"){
+       		$this->payments = "代金引換";
+       	}else{
+       		$this->payments = "クレジットカード決済";
+       		$this->card_number = ":      ". $arrGetCustomer[0]['card_number'];
+       		$this->card_expired = $arrGetCustomer[0]['card_expired'];
+       		$this->card_code = $arrGetCustomer[0]['card_code'];
+       	}
         $this->is_multiple = $objPurchase->isMultiple();
 
         // 前のページで正しく登録手続きが行われた記録があるか判定

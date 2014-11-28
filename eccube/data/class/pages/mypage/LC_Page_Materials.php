@@ -111,6 +111,17 @@ class LC_Page_Materials extends LC_Page_Ex
     	
     	
     	$this->arrdesigns = $this->ifgetdesign($cus_id);
+    	
+    	//echo $_POST['id'];
+    	
+    	switch ($this->getMode()){
+    		case 'delete':
+    			$id = $_POST['id'];
+    			$objQuery =& SC_Query_Ex::getSingletonInstance();
+    			$sql = $objQuery->delete('dtb_products','product_id=?',array($id));
+    			header('Location: '.$_SERVER['PHP_SELF']);
+    			break;
+    	}
     }
     
     /**
@@ -126,7 +137,7 @@ class LC_Page_Materials extends LC_Page_Ex
     function ifgetdesign($cus_id){
     	$objQuery =& SC_Query_Ex::getSingletonInstance();
  
-		$arrdesigns = $objQuery->select('name,note', 'dtb_products','customer_id=?', array($cus_id));
+		$arrdesigns = $objQuery->select('product_id,name,note', 'dtb_products','status=2 and customer_id=?', array($cus_id));
 		
 		return $arrdesigns; 
     }

@@ -61,7 +61,7 @@
 	                            <div class="float-r pad-t-05">
 		                            <!--{if $smarty.const.OPTION_FAVORITE_PRODUCT == 1}-->
 		                            <!--{assign var=add_favorite value="add_favorite`$product_id`"}-->
-			                            <a class="btn btn-trans favorite-button" href="javascript:fnChangeAction('?product_id=<!--{$arrProduct.product_id|h}-->');" onclick="fnFormModeSubmit('fav','fav_like','favorite_product_id','<!--{$arrProduct.product_id|h}-->'); return false" target="_self" >
+			                            <a class="btn btn-trans favorite-button" href="javascript:;" onclick="fnFormModeSubmit('fav','fav_like','favorite_product_id','<!--{$arrProduct.product_id|h}-->'); return false" target="_self" >
 			                              <i class="icon text-red">♥</i>
 	                                      <span class="favorites-count"><!--{$arrProduct.total}--></span>
 			                            </a>

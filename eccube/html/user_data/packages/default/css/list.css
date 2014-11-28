@@ -103,9 +103,11 @@ body.controller-products.action-by_item .shop {
 .LC_Page_Products_List .picture{
 	border:0px;
 }
-.LC_Page_Products_List div.listrightbloc .text-red{
+/* .LC_Page_Products_List div.listrightbloc .text-red{
 	font-size:2em;
+} */
+.LC_Page_Products_List .small{
+	text-align:left;
 }
-.LC_Page_Products_List 
 .LC_Page_Products_List
 

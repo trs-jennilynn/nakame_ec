@@ -130,6 +130,9 @@ __EOS__;
     function lists(&$objQuery) {
         $col = <<< __EOS__
              product_id
+        	,name01
+        	,zip02
+        	,num_of_likes
             ,product_code_min
             ,product_code_max
             ,name
@@ -172,11 +175,12 @@ __EOS__;
         if (empty($arrProductId)) {
             return array();
         }
-
+		
         $where = 'alldtl.product_id IN (' . SC_Utils_Ex::repeatStrWithSeparator('?', count($arrProductId)) . ')';
         $where .= ' AND alldtl.del_flg = 0';
-
+		//print_r($arrProductId);
         $objQuery->setWhere($where, $arrProductId);
+        //print_r($this->lists($objQuery));
         $arrProducts = $this->lists($objQuery);
 
         
@@ -194,6 +198,7 @@ __EOS__;
             foreach ($arrProductId as $product_id) {
                 $arrTmp[$product_id] = $arrProducts[$product_id];
             }
+            
             $arrProducts =& $arrTmp;
             unset($arrTmp);
         }
@@ -349,6 +354,7 @@ __EOS__;
      */
     function getProductsClassByQuery(&$objQuery, $params) {
         // 末端の規格を取得
+        //print_r($params);
         $col = <<< __EOS__
             T1.product_id,
             T1.stock,
@@ -388,7 +394,7 @@ __EOS__;
 
         $objQuery->setOrder('T3.rank DESC, dtb_classcategory2.rank DESC'); // XXX
         $arrRet = $objQuery->select($col, $table, '', $params);
-
+		//print_r($arrRet);
         return $arrRet;
     }
 
@@ -611,6 +617,9 @@ __EOS__;
                 SELECT
                      dtb_products.product_id
                     ,dtb_products.name
+                    ,dtb_customer.name01
+                    ,dtb_customer.zip02
+                    ,dtb_customer_favorite_products.num_of_likes
                     ,dtb_products.maker_id
                     ,dtb_products.status
                     ,dtb_products.comment1
@@ -669,6 +678,10 @@ __EOS__;
                     ,T4.class_count
                     ,dtb_maker.name AS maker_name
                 FROM dtb_products
+                LEFT JOIN dtb_customer
+                	ON dtb_products.customer_id = dtb_customer.customer_id
+                LEFT JOIN dtb_customer_favorite_products
+                	ON dtb_products.product_id = dtb_customer_favorite_products.product_id
                     JOIN (
                         SELECT product_id,
                             MIN(product_code) AS product_code_min,

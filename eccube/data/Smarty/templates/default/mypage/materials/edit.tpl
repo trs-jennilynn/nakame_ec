@@ -33,32 +33,6 @@
 #one_maincolumn{
     background: #fbca4d;
 }
-#material-edit-form > div > div > div.form-material-price.form-group > p{
-    color: white;
-}
-#material-product-preview > div.previews.previews-editor > div:nth-child(1) > div.item-info > span.color-button.btn-xs.btn-white.kerning.tooltipstered,
-#material-product-preview > div.previews.previews-editor > div:nth-child(3) > div.item-info > span.angle-button.btn-xs.btn-white.kerning.tooltipstered{
-    cursor: pointer;
-    position: absolute;
-    right: 1px;
-    border: 2px solid rgba(0,0,0,0.1);
-}
-input[type=range] {
-    -webkit-appearance: none;
-    background-color: silver;
-    width: 500px;
-    height:5px;
-    margin-top: 30px;
-    margin-bottom: 25px;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-     -webkit-appearance: none;
-    background-color: red;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-}
 </style>
 <!--{strip}-->
     <div class="container steps editor-step01" style="height: 271px;">
@@ -123,7 +97,6 @@ input[type="range"]::-webkit-slider-thumb {
              </form>
         </div>
     </div>
-    <!--{if $design_img}-->
     <form name="save_item" id="" action="?" method="post" >
     <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
     <input type="hidden" name="mode" value="save">
@@ -184,7 +157,7 @@ input[type="range"]::-webkit-slider-thumb {
                             <div class="check-border"></div>
                             <div class="item-image">
                               
-                                <img src="<!--{$img_bag}-->" class="unit_pic" style="display: inline;" />
+                                <img src="<!--{$img_cup}-->" class="unit_pic" style="display: inline;" />
                               
                             </div>
                             <div class="item-info">
@@ -202,7 +175,7 @@ input[type="range"]::-webkit-slider-thumb {
                             <div class="check-border"></div>
                             <div class="item-image">
                               
-                                <img src="<!--{$img_cup}-->" class="unit_pic" style="display: inline;" />
+                                <img src="<!--{$img_bag}-->" class="unit_pic" style="display: inline;" />
                               
                             </div>
                             <div class="item-info">
@@ -254,10 +227,9 @@ input[type="range"]::-webkit-slider-thumb {
                                     <div id="material-price-slider" class="dragdealer">
                                       <div class="bar"></div>
                                       <div class="handle" style="left: 0px;">
-                                        <input type="range" id="price" name="price" step="100" min="0" max="3000" value="0">
                                         <div class="values">
                                           <span class="value-toribun" style="display: none;">+<span class="value">0</span>円</span>
-                                          <span id="results" class="value-cost"><span class="value">原価</span></span>
+                                          <span class="value-cost"><span class="value">原価</span></span>
                                         </div>
                                       </div>
                                     </div>
@@ -286,5 +258,4 @@ input[type="range"]::-webkit-slider-thumb {
                             </div>
                             </section>
                    </form>
-       <!--{/if}-->
 <!--{/strip}-->

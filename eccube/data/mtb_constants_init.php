@@ -289,7 +289,7 @@ define('SHOPPING_COMPLETE_URLPATH', ROOT_URLPATH . "shopping/complete.php");
 /** モジュール追加用画面 */
 define('SHOPPING_MODULE_URLPATH', ROOT_URLPATH . "shopping/load_payment_module.php");
 /** 商品詳細(HTML出力) */
-define('P_DETAIL_URLPATH', ROOT_URLPATH . "products/detail.php?product_id=");
+define('P_DETAIL_URLPATH', ROOT_URLPATH . "products/detail.php?product_id");
 /** マイページお届け先URL */
 define('MYPAGE_DELIVADDR_URLPATH', ROOT_URLPATH . "mypage/delivery.php");
 /** 新着情報管理画面 開始年(西暦) */

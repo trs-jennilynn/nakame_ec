@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2014 at 04:58 AM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Generation Time: Nov 26, 2014 at 11:55 AM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -33,8 +33,7 @@ CREATE TABLE IF NOT EXISTS `dtb_api_account` (
   `enable` smallint(6) NOT NULL DEFAULT '0',
   `del_flg` smallint(6) NOT NULL DEFAULT '0',
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`api_account_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -44,8 +43,7 @@ CREATE TABLE IF NOT EXISTS `dtb_api_account` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_api_account_api_account_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -64,8 +62,7 @@ CREATE TABLE IF NOT EXISTS `dtb_api_config` (
   `sub_data` text COLLATE utf8_unicode_ci,
   `del_flg` smallint(6) NOT NULL DEFAULT '0',
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`api_config_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -75,8 +72,7 @@ CREATE TABLE IF NOT EXISTS `dtb_api_config` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_api_config_api_config_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -91,8 +87,6 @@ CREATE TABLE IF NOT EXISTS `dtb_baseinfo` (
   `company_kana` text COLLATE utf8_unicode_ci,
   `zip01` text COLLATE utf8_unicode_ci,
   `zip02` text COLLATE utf8_unicode_ci,
-  `zipcode` text COLLATE utf8_unicode_ci,
-  `country_id` int(11) DEFAULT NULL,
   `pref` smallint(6) DEFAULT NULL,
   `addr01` text COLLATE utf8_unicode_ci,
   `addr02` text COLLATE utf8_unicode_ci,
@@ -107,8 +101,6 @@ CREATE TABLE IF NOT EXISTS `dtb_baseinfo` (
   `law_manager` text COLLATE utf8_unicode_ci,
   `law_zip01` text COLLATE utf8_unicode_ci,
   `law_zip02` text COLLATE utf8_unicode_ci,
-  `law_zipcode` text COLLATE utf8_unicode_ci,
-  `law_country_id` int(11) DEFAULT NULL,
   `law_pref` smallint(6) DEFAULT NULL,
   `law_addr01` text COLLATE utf8_unicode_ci,
   `law_addr02` text COLLATE utf8_unicode_ci,
@@ -130,10 +122,13 @@ CREATE TABLE IF NOT EXISTS `dtb_baseinfo` (
   `law_term08` text COLLATE utf8_unicode_ci,
   `law_term09` text COLLATE utf8_unicode_ci,
   `law_term10` text COLLATE utf8_unicode_ci,
+  `tax` decimal(10,0) NOT NULL DEFAULT '5',
+  `tax_rule` smallint(6) NOT NULL DEFAULT '1',
   `email01` text COLLATE utf8_unicode_ci,
   `email02` text COLLATE utf8_unicode_ci,
   `email03` text COLLATE utf8_unicode_ci,
   `email04` text COLLATE utf8_unicode_ci,
+  `email05` text COLLATE utf8_unicode_ci,
   `free_rule` decimal(10,0) DEFAULT NULL,
   `shop_name` text COLLATE utf8_unicode_ci,
   `shop_kana` text COLLATE utf8_unicode_ci,
@@ -151,16 +146,15 @@ CREATE TABLE IF NOT EXISTS `dtb_baseinfo` (
   `latitude` text COLLATE utf8_unicode_ci,
   `longitude` text COLLATE utf8_unicode_ci,
   `downloadable_days` decimal(10,0) DEFAULT '30',
-  `downloadable_days_unlimited` smallint(6) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `downloadable_days_unlimited` smallint(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `dtb_baseinfo`
 --
 
-INSERT INTO `dtb_baseinfo` (`id`, `company_name`, `company_kana`, `zip01`, `zip02`, `zipcode`, `country_id`, `pref`, `addr01`, `addr02`, `tel01`, `tel02`, `tel03`, `fax01`, `fax02`, `fax03`, `business_hour`, `law_company`, `law_manager`, `law_zip01`, `law_zip02`, `law_zipcode`, `law_country_id`, `law_pref`, `law_addr01`, `law_addr02`, `law_tel01`, `law_tel02`, `law_tel03`, `law_fax01`, `law_fax02`, `law_fax03`, `law_email`, `law_url`, `law_term01`, `law_term02`, `law_term03`, `law_term04`, `law_term05`, `law_term06`, `law_term07`, `law_term08`, `law_term09`, `law_term10`, `email01`, `email02`, `email03`, `email04`, `free_rule`, `shop_name`, `shop_kana`, `shop_name_eng`, `point_rate`, `welcome_point`, `update_date`, `top_tpl`, `product_tpl`, `detail_tpl`, `mypage_tpl`, `good_traded`, `message`, `regular_holiday_ids`, `latitude`, `longitude`, `downloadable_days`, `downloadable_days_unlimited`) VALUES
-(1, NULL, NULL, NULL, NULL, NULL, 392, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'trs.jennilynn@gmail.com', 'trs.jennilynn@gmail.com', 'trs.jennilynn@gmail.com', 'trs.jennilynn@gmail.com', NULL, 'nakame_ec', NULL, NULL, 0, 0, '2014-10-02 04:47:37', 'default1', 'default1', 'default1', 'default1', NULL, NULL, NULL, NULL, NULL, 30, NULL);
+INSERT INTO `dtb_baseinfo` (`id`, `company_name`, `company_kana`, `zip01`, `zip02`, `pref`, `addr01`, `addr02`, `tel01`, `tel02`, `tel03`, `fax01`, `fax02`, `fax03`, `business_hour`, `law_company`, `law_manager`, `law_zip01`, `law_zip02`, `law_pref`, `law_addr01`, `law_addr02`, `law_tel01`, `law_tel02`, `law_tel03`, `law_fax01`, `law_fax02`, `law_fax03`, `law_email`, `law_url`, `law_term01`, `law_term02`, `law_term03`, `law_term04`, `law_term05`, `law_term06`, `law_term07`, `law_term08`, `law_term09`, `law_term10`, `tax`, `tax_rule`, `email01`, `email02`, `email03`, `email04`, `email05`, `free_rule`, `shop_name`, `shop_kana`, `shop_name_eng`, `point_rate`, `welcome_point`, `update_date`, `top_tpl`, `product_tpl`, `detail_tpl`, `mypage_tpl`, `good_traded`, `message`, `regular_holiday_ids`, `latitude`, `longitude`, `downloadable_days`, `downloadable_days_unlimited`) VALUES
+(1, NULL, NULL, '333', '2222', 3, '千代田区神田神保町', '1-3-3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '5', 1, 'trs.jennilynn@gmail.com', 'trs.jennilynn@gmail.com', 'trs.jennilynn@gmail.com', 'trs.jennilynn@gmail.com', 'trs.jennilynn@gmail.com', NULL, 'EC_project', NULL, NULL, '0', '0', '2014-11-14 09:50:25', 'default1', 'default1', 'default1', 'default1', NULL, NULL, NULL, NULL, NULL, '30', NULL);
 
 -- --------------------------------------------------------
 
@@ -178,8 +172,7 @@ CREATE TABLE IF NOT EXISTS `dtb_best_products` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`best_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -187,8 +180,8 @@ CREATE TABLE IF NOT EXISTS `dtb_best_products` (
 --
 
 INSERT INTO `dtb_best_products` (`best_id`, `category_id`, `rank`, `product_id`, `title`, `comment`, `creator_id`, `create_date`, `update_date`, `del_flg`) VALUES
-(1, 0, 1, 2, NULL, 'たまには鍋でもどうでしょう。', 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 0),
-(2, 0, 2, 1, NULL, 'お口直しに。', 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 0);
+(1, 0, 1, 2, NULL, 'たまには鍋でもどうでしょう。', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', 0),
+(2, 0, 2, 1, NULL, 'お口直しに。', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', 0);
 
 -- --------------------------------------------------------
 
@@ -197,8 +190,7 @@ INSERT INTO `dtb_best_products` (`best_id`, `category_id`, `rank`, `product_id`,
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_best_products_best_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
@@ -217,8 +209,7 @@ INSERT INTO `dtb_best_products_best_id_seq` (`sequence`) VALUES
 CREATE TABLE IF NOT EXISTS `dtb_bkup` (
   `bkup_name` text COLLATE utf8_unicode_ci NOT NULL,
   `bkup_memo` text COLLATE utf8_unicode_ci,
-  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`bkup_name`(255))
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -237,9 +228,7 @@ CREATE TABLE IF NOT EXISTS `dtb_bloc` (
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `php_path` text COLLATE utf8_unicode_ci,
   `deletable_flg` smallint(6) NOT NULL DEFAULT '1',
-  `plugin_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`device_type_id`,`bloc_id`),
-  UNIQUE KEY `device_type_id` (`device_type_id`,`filename`(255))
+  `plugin_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -247,30 +236,34 @@ CREATE TABLE IF NOT EXISTS `dtb_bloc` (
 --
 
 INSERT INTO `dtb_bloc` (`device_type_id`, `bloc_id`, `bloc_name`, `tpl_path`, `filename`, `create_date`, `update_date`, `php_path`, `deletable_flg`, `plugin_id`) VALUES
-(1, 1, 'サイトロゴ', 'site_logo.tpl', 'site_logo', '2014-10-02 04:46:23', '2014-10-02 04:46:23', NULL, 0, NULL),
-(1, 2, '新着情報', 'news.tpl', 'news', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/news.php', 0, NULL),
-(1, 3, 'おすすめ商品', 'recommend.tpl', 'recommend', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/recommend.php', 0, NULL),
-(1, 4, 'カテゴリ', 'category.tpl', 'category', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/category.php', 0, NULL),
-(2, 1, '新着情報', 'news.tpl', 'news', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/news.php', 0, NULL),
-(2, 2, 'ログイン', 'login.tpl', 'login', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/login.php', 0, NULL),
-(2, 3, 'おすすめ商品', 'recommend.tpl', 'recommend', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/recommend.php', 0, NULL),
-(2, 4, 'カテゴリ', 'category.tpl', 'category', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/category.php', 0, NULL),
-(2, 5, '【ヘッダー】ログイン', 'login_header.tpl', 'login_header', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/login_header.php', 0, NULL),
-(2, 6, '【ヘッダー】ナビ', 'navi_header.tpl', 'navi_header', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/navi_header.php', 0, NULL),
-(2, 7, '【フッター】ログイン', 'login_footer.tpl', 'login_footer', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/login_footer.php', 0, NULL),
-(2, 8, '【フッター】ナビ', 'navi_footer.tpl', 'navi_footer', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/navi_footer.php', 0, NULL),
-(10, 1, 'カテゴリ', 'category.tpl', 'category', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/category.php', 0, NULL),
-(10, 2, '利用ガイド', 'guide.tpl', 'guide', '2014-10-02 04:46:23', '2014-10-02 04:46:23', NULL, 0, NULL),
-(10, 3, 'かごの中', 'cart.tpl', 'cart', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/cart.php', 0, NULL),
-(10, 4, '商品検索', 'search_products.tpl', 'search_products', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/search_products.php', 0, NULL),
-(10, 5, '新着情報', 'news.tpl', 'news', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/news.php', 0, NULL),
-(10, 6, 'ログイン', 'login.tpl', 'login', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/login.php', 0, NULL),
-(10, 7, 'おすすめ商品', 'recommend.tpl', 'recommend', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/recommend.php', 0, NULL),
-(10, 8, 'カレンダー', 'calendar.tpl', 'calendar', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/calendar.php', 0, NULL),
-(10, 9, '【ヘッダー】ログイン', 'login_header.tpl', 'login_header', '2014-10-02 04:46:23', '2014-10-02 04:46:23', 'frontparts/bloc/login_header.php', 0, NULL),
-(10, 10, 'home_images', 'home_images.tpl', 'home_images', '2014-10-02 07:11:44', '2014-10-02 07:55:15', NULL, 1, NULL),
-(10, 11, 'section_grey', 'section_grey.tpl', 'section_grey', '2014-10-02 08:20:04', '2014-10-02 08:20:04', NULL, 1, NULL),
-(10, 12, 'items', 'items.tpl', 'items', '2014-10-02 09:22:59', '2014-10-02 09:22:59', NULL, 1, NULL);
+(1, 1, 'サイトロゴ', 'site_logo.tpl', 'site_logo', '2014-10-12 06:47:04', '2014-10-12 06:47:04', NULL, 0, NULL),
+(1, 2, '新着情報', 'news.tpl', 'news', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/news.php', 0, NULL),
+(1, 3, 'おすすめ商品', 'recommend.tpl', 'recommend', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/recommend.php', 0, NULL),
+(1, 4, 'カテゴリ', 'category.tpl', 'category', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/category.php', 0, NULL),
+(2, 1, '新着情報', 'news.tpl', 'news', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/news.php', 0, NULL),
+(2, 2, 'ログイン', 'login.tpl', 'login', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/login.php', 0, NULL),
+(2, 3, 'おすすめ商品', 'recommend.tpl', 'recommend', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/recommend.php', 0, NULL),
+(2, 4, 'カテゴリ', 'category.tpl', 'category', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/category.php', 0, NULL),
+(2, 5, '【ヘッダー】ログイン', 'login_header.tpl', 'login_header', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/login_header.php', 0, NULL),
+(2, 6, '【ヘッダー】ナビ', 'navi_header.tpl', 'navi_header', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/navi_header.php', 0, NULL),
+(2, 7, '【フッター】ログイン', 'login_footer.tpl', 'login_footer', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/login_footer.php', 0, NULL),
+(2, 8, '【フッター】ナビ', 'navi_footer.tpl', 'navi_footer', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/navi_footer.php', 0, NULL),
+(10, 1, 'カテゴリ', 'category.tpl', 'category', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/category.php', 0, NULL),
+(10, 2, '利用ガイド', 'guide.tpl', 'guide', '2014-10-12 06:47:04', '2014-10-12 06:47:04', NULL, 0, NULL),
+(10, 3, 'かごの中', 'cart.tpl', 'cart', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/cart.php', 0, NULL),
+(10, 4, '商品検索', 'search_products.tpl', 'search_products', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/search_products.php', 0, NULL),
+(10, 5, '新着情報', 'news.tpl', 'news', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/news.php', 0, NULL),
+(10, 6, 'ログイン', 'login.tpl', 'login', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/login.php', 0, NULL),
+(10, 7, 'おすすめ商品', 'recommend.tpl', 'recommend', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/recommend.php', 0, NULL),
+(10, 8, 'カレンダー', 'calendar.tpl', 'calendar', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/calendar.php', 0, NULL),
+(10, 9, '【ヘッダー】ログイン', 'login_header.tpl', 'login_header', '2014-10-12 06:47:04', '2014-10-12 06:47:04', 'frontparts/bloc/login_header.php', 0, NULL),
+(10, 10, 'home_images', 'home_images.tpl', 'home_images', '2014-10-13 05:53:39', '2014-10-13 05:53:39', NULL, 1, NULL),
+(10, 11, 'items', 'items.tpl', 'items', '2014-10-13 05:54:13', '2014-10-13 05:54:13', NULL, 1, NULL),
+(10, 12, 'section_grey', 'section_grey.tpl', 'section_grey', '2014-10-13 05:54:42', '2014-10-13 05:54:42', NULL, 1, NULL),
+(10, 13, 'home_images1', 'home_images1.tpl', 'home_images1', '2014-10-14 10:17:47', '2014-10-14 10:17:47', NULL, 1, NULL),
+(10, 14, 'breadcrumbs', 'breadcrumbs.tpl', 'breadcrumbs', '2014-10-15 06:18:19', '2014-10-15 06:18:19', NULL, 1, NULL),
+(10, 15, 'prof_products', 'prof_products.tpl', 'prof_products', '2014-10-16 04:38:35', '2014-10-16 04:38:35', NULL, 1, NULL),
+(10, 16, 'prof_items', 'prof_items.tpl', 'prof_items', '2014-11-13 10:21:25', '2014-11-13 10:21:25', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -284,8 +277,7 @@ CREATE TABLE IF NOT EXISTS `dtb_blocposition` (
   `target_id` int(11) NOT NULL,
   `bloc_id` int(11) NOT NULL,
   `bloc_row` int(11) DEFAULT NULL,
-  `anywhere` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`device_type_id`,`page_id`,`target_id`,`bloc_id`)
+  `anywhere` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -388,9 +380,16 @@ INSERT INTO `dtb_blocposition` (`device_type_id`, `page_id`, `target_id`, `bloc_
 (2, 29, 6, 7, 2, 0),
 (2, 29, 6, 8, 1, 0),
 (2, 29, 10, 6, 1, 0),
+(10, 0, 10, 9, 1, 0),
+(10, 1, 4, 7, 3, 0),
 (10, 1, 4, 10, 1, 0),
-(10, 1, 4, 11, 2, 0),
-(10, 1, 4, 12, 3, 0),
+(10, 1, 4, 12, 2, 0),
+(10, 1, 10, 9, 1, 0),
+(10, 2, 5, 1, 1, 0),
+(10, 2, 10, 9, 1, 0),
+(10, 3, 5, 14, 1, 0),
+(10, 3, 10, 9, 1, 0),
+(10, 4, 10, 9, 1, 0),
 (10, 5, 1, 1, 2, 0),
 (10, 5, 1, 2, 3, 0),
 (10, 5, 1, 3, 1, 0),
@@ -400,12 +399,11 @@ INSERT INTO `dtb_blocposition` (`device_type_id`, `page_id`, `target_id`, `bloc_
 (10, 7, 1, 1, 2, 0),
 (10, 7, 1, 2, 3, 0),
 (10, 7, 1, 3, 1, 0),
-(10, 8, 1, 1, 2, 0),
-(10, 8, 1, 2, 3, 0),
-(10, 8, 1, 3, 1, 0),
+(10, 8, 10, 9, 1, 0),
 (10, 9, 1, 1, 2, 0),
 (10, 9, 1, 2, 3, 0),
 (10, 9, 1, 3, 1, 0),
+(10, 10, 2, 6, 1, 0),
 (10, 11, 1, 1, 2, 0),
 (10, 11, 1, 2, 3, 0),
 (10, 11, 1, 3, 1, 0),
@@ -415,18 +413,19 @@ INSERT INTO `dtb_blocposition` (`device_type_id`, `page_id`, `target_id`, `bloc_
 (10, 13, 1, 1, 2, 0),
 (10, 13, 1, 2, 3, 0),
 (10, 13, 1, 3, 1, 0),
-(10, 14, 1, 1, 2, 0),
-(10, 14, 1, 2, 3, 0),
-(10, 14, 1, 3, 1, 0),
+(10, 14, 10, 9, 1, 0),
 (10, 15, 1, 1, 2, 0),
 (10, 15, 1, 2, 3, 0),
 (10, 15, 1, 3, 1, 0),
 (10, 16, 1, 1, 2, 0),
 (10, 16, 1, 2, 3, 0),
 (10, 16, 1, 3, 1, 0),
+(10, 17, 10, 9, 1, 0),
+(10, 18, 10, 9, 1, 0),
 (10, 19, 1, 1, 2, 0),
 (10, 19, 1, 2, 3, 0),
 (10, 19, 1, 3, 1, 0),
+(10, 20, 10, 9, 1, 0),
 (10, 21, 1, 1, 2, 0),
 (10, 21, 1, 2, 3, 0),
 (10, 21, 1, 3, 1, 0),
@@ -450,7 +449,15 @@ INSERT INTO `dtb_blocposition` (`device_type_id`, `page_id`, `target_id`, `bloc_
 (10, 27, 1, 3, 1, 0),
 (10, 28, 1, 1, 2, 0),
 (10, 28, 1, 2, 3, 0),
-(10, 28, 1, 3, 1, 0);
+(10, 28, 1, 3, 1, 0),
+(10, 29, 10, 9, 1, 0),
+(10, 30, 2, 6, 1, 0),
+(10, 31, 10, 9, 1, 0),
+(10, 32, 10, 9, 1, 0),
+(10, 33, 10, 9, 1, 0),
+(10, 34, 10, 9, 1, 0),
+(10, 35, 10, 9, 1, 0),
+(10, 36, 10, 9, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -459,8 +466,7 @@ INSERT INTO `dtb_blocposition` (`device_type_id`, `page_id`, `target_id`, `bloc_
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_bloc_bloc_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
@@ -485,8 +491,7 @@ CREATE TABLE IF NOT EXISTS `dtb_category` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`category_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -494,12 +499,10 @@ CREATE TABLE IF NOT EXISTS `dtb_category` (
 --
 
 INSERT INTO `dtb_category` (`category_id`, `category_name`, `parent_category_id`, `level`, `rank`, `creator_id`, `create_date`, `update_date`, `del_flg`) VALUES
-(1, '食品', 0, 1, 5, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(2, '雑貨', 0, 1, 6, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(3, 'お菓子', 1, 2, 3, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(4, 'なべ', 1, 2, 4, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(5, 'アイス', 3, 3, 2, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(6, 'レシピ', 0, 1, 1, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0);
+(1, 'shirt', 0, 1, 1, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0),
+(2, 'bag', 0, 1, 1, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0),
+(3, 'cup', 0, 1, 1, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0),
+(4, 'phone', 0, 1, 1, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0);
 
 -- --------------------------------------------------------
 
@@ -508,8 +511,7 @@ INSERT INTO `dtb_category` (`category_id`, `category_name`, `parent_category_id`
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_category_category_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
@@ -528,8 +530,7 @@ INSERT INTO `dtb_category_category_id_seq` (`sequence`) VALUES
 CREATE TABLE IF NOT EXISTS `dtb_category_count` (
   `category_id` int(11) NOT NULL,
   `product_count` int(11) NOT NULL,
-  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`category_id`)
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -537,9 +538,10 @@ CREATE TABLE IF NOT EXISTS `dtb_category_count` (
 --
 
 INSERT INTO `dtb_category_count` (`category_id`, `product_count`, `create_date`) VALUES
-(4, 2, '2014-10-02 04:46:24'),
-(5, 1, '2014-10-02 04:46:24'),
-(6, 1, '2014-10-02 04:46:24');
+(2, 1, '2014-11-13 04:36:33'),
+(4, 2, '2014-10-12 06:47:06'),
+(5, 1, '2014-10-12 06:47:06'),
+(6, 1, '2014-10-12 06:47:06');
 
 -- --------------------------------------------------------
 
@@ -550,8 +552,7 @@ INSERT INTO `dtb_category_count` (`category_id`, `product_count`, `create_date`)
 CREATE TABLE IF NOT EXISTS `dtb_category_total_count` (
   `category_id` int(11) NOT NULL,
   `product_count` int(11) DEFAULT NULL,
-  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`category_id`)
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -559,12 +560,12 @@ CREATE TABLE IF NOT EXISTS `dtb_category_total_count` (
 --
 
 INSERT INTO `dtb_category_total_count` (`category_id`, `product_count`, `create_date`) VALUES
-(1, 3, '2014-10-02 04:46:24'),
-(2, NULL, '2014-10-02 04:46:24'),
-(3, 1, '2014-10-02 04:46:24'),
-(4, 2, '2014-10-02 04:46:24'),
-(5, 1, '2014-10-02 04:46:24'),
-(6, 1, '2014-10-02 04:46:24');
+(1, 3, '2014-10-12 06:47:06'),
+(2, 1, '2014-11-13 04:36:33'),
+(3, 1, '2014-10-12 06:47:06'),
+(4, 2, '2014-10-12 06:47:06'),
+(5, 1, '2014-10-12 06:47:06'),
+(6, 1, '2014-10-12 06:47:06');
 
 -- --------------------------------------------------------
 
@@ -579,8 +580,7 @@ CREATE TABLE IF NOT EXISTS `dtb_class` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`class_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -588,8 +588,8 @@ CREATE TABLE IF NOT EXISTS `dtb_class` (
 --
 
 INSERT INTO `dtb_class` (`class_id`, `name`, `rank`, `creator_id`, `create_date`, `update_date`, `del_flg`) VALUES
-(1, '味', 1, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(2, '大きさ', 2, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0);
+(1, '味', 1, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0),
+(2, '大きさ', 2, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0);
 
 -- --------------------------------------------------------
 
@@ -605,8 +605,7 @@ CREATE TABLE IF NOT EXISTS `dtb_classcategory` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`classcategory_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -614,13 +613,13 @@ CREATE TABLE IF NOT EXISTS `dtb_classcategory` (
 --
 
 INSERT INTO `dtb_classcategory` (`classcategory_id`, `name`, `class_id`, `rank`, `creator_id`, `create_date`, `update_date`, `del_flg`) VALUES
-(0, NULL, 0, 0, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(1, 'バニラ', 1, 1, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(2, 'チョコ', 1, 2, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(3, '抹茶', 1, 3, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(4, 'L', 2, 1, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(5, 'M', 2, 2, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(6, 'S', 2, 3, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0);
+(0, NULL, 0, 0, 0, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0),
+(1, 'バニラ', 1, 1, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0),
+(2, 'チョコ', 1, 2, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0),
+(3, '抹茶', 1, 3, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0),
+(4, 'L', 2, 1, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0),
+(5, 'M', 2, 2, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0),
+(6, 'S', 2, 3, 2, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 0);
 
 -- --------------------------------------------------------
 
@@ -629,8 +628,7 @@ INSERT INTO `dtb_classcategory` (`classcategory_id`, `name`, `class_id`, `rank`,
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_classcategory_classcategory_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
@@ -647,8 +645,7 @@ INSERT INTO `dtb_classcategory_classcategory_id_seq` (`sequence`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_class_class_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
@@ -676,8 +673,7 @@ CREATE TABLE IF NOT EXISTS `dtb_csv` (
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mb_convert_kana_option` text COLLATE utf8_unicode_ci,
   `size_const_type` text COLLATE utf8_unicode_ci,
-  `error_check_types` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`no`)
+  `error_check_types` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -685,162 +681,159 @@ CREATE TABLE IF NOT EXISTS `dtb_csv` (
 --
 
 INSERT INTO `dtb_csv` (`no`, `csv_id`, `col`, `disp_name`, `rank`, `rw_flg`, `status`, `create_date`, `update_date`, `mb_convert_kana_option`, `size_const_type`, `error_check_types`) VALUES
-(1, 1, 'product_id', '商品ID', 1, 3, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(2, 1, 'product_class_id', '商品規格ID', 2, 3, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(3, 1, 'parent_classcategory_id', '親規格分類ID', 3, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(4, 1, 'classcategory_id', '規格分類ID', 4, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(5, 1, 'parent_classcategory_name', '親規格分類名', 5, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(6, 1, 'classcategory_name', '規格分類名', 6, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(7, 1, 'maker_id', 'メーカーID', 7, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(8, 1, '(SELECT name as maker_name FROM dtb_maker WHERE prdcls.maker_id = dtb_maker.maker_id) as maker_name', 'メーカー名', 8, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(9, 1, 'name', '商品名', 9, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
-(10, 1, 'status', '表示ステータス(公開・非公開)', 10, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(11, 1, 'comment1', 'メーカーURL(コメント1)', 11, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'URL_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,URL_CHECK'),
-(12, 1, 'comment2', 'コメント2', 12, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(13, 1, 'comment3', '検索ワード(コメント3)', 13, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(14, 1, 'comment4', 'コメント4', 14, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(15, 1, 'comment5', 'コメント5', 15, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(16, 1, 'comment6', 'コメント6', 16, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(17, 1, 'note', '備考欄(SHOP専用)', 17, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(18, 1, 'main_list_comment', '一覧-メインコメント', 18, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'MTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
-(19, 1, 'main_list_image', '一覧-メイン画像', 19, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(20, 1, 'main_comment', '詳細-メインコメント', 20, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK,HTML_TAG_CHECK'),
-(21, 1, 'main_image', '詳細-メイン画像', 21, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(22, 1, 'main_large_image', '詳細-メイン拡大画像 ', 22, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(23, 1, 'sub_title1', '詳細-サブタイトル(1)', 23, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(24, 1, 'sub_comment1', '詳細-サブコメント(1)', 24, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,HTML_TAG_CHECK'),
-(25, 1, 'sub_image1', '詳細-サブ画像(1)', 25, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(26, 1, 'sub_large_image1', '詳細-サブ拡大画像(1)', 26, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(27, 1, 'sub_title2', '詳細-サブタイトル(2)', 27, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(28, 1, 'sub_comment2', '詳細-サブコメント(2)', 28, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(29, 1, 'sub_image2', '詳細-サブ画像(2)', 29, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(30, 1, 'sub_large_image2', '詳細-サブ拡大画像(2)', 30, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(31, 1, 'sub_title3', '詳細-サブタイトル(3)', 31, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(32, 1, 'sub_comment3', '詳細-サブコメント(3)', 32, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(33, 1, 'sub_image3', '詳細-サブ画像(3)', 33, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(34, 1, 'sub_large_image3', '詳細-サブ拡大画像(3)', 34, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(35, 1, 'sub_title4', '詳細-サブタイトル(4)', 35, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(36, 1, 'sub_comment4', '詳細-サブコメント(4)', 36, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(37, 1, 'sub_image4', '詳細-サブ画像(4)', 37, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(38, 1, 'sub_large_image4', '詳細-サブ拡大画像(4)', 38, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(39, 1, 'sub_title5', '詳細-サブタイトル(5)', 39, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(40, 1, 'sub_comment5', '詳細-サブコメント(5)', 40, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(41, 1, 'sub_image5', '詳細-サブ画像(5)', 41, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(42, 1, 'sub_large_image5', '詳細-サブ拡大画像(5)', 42, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
-(43, 1, 'deliv_date_id', '発送日目安ID', 43, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(44, 1, 'del_flg', '削除フラグ', 44, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(45, 1, 'product_type_id', '商品種別ID', 45, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(46, 1, 'product_code', '商品コード', 46, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(47, 1, 'stock', '在庫数', 47, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'AMOUNT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(48, 1, 'stock_unlimited', '在庫無制限フラグ', 48, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(49, 1, 'sale_limit', '販売制限数', 49, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'AMOUNT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(50, 1, 'price01', '通常価格', 50, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(51, 1, 'price02', '販売価格', 51, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
-(52, 1, 'deliv_fee', '送料', 52, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(53, 1, 'point_rate', 'ポイント付与率', 53, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PERCENTAGE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(54, 1, 'down_filename', 'ダウンロードファイル名', 54, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(55, 1, 'down_realfilename', 'ダウンロード実ファイル', 55, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,DOWN_FILE_EXISTS'),
-(56, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 0) AS recommend_product_id1', '関連商品ID(1)', 56, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(57, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 0) AS recommend_comment1', '関連商品コメント(1)', 57, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(58, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 1) AS recommend_product_id2', '関連商品ID(2)', 58, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(59, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 1) AS recommend_comment2', '関連商品コメント(2)', 59, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(60, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 2) AS recommend_product_id3', '関連商品ID(3)', 60, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(61, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 2) AS recommend_comment3', '関連商品コメント(3)', 61, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(62, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 3) AS recommend_product_id4', '関連商品ID(4)', 62, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(63, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 3) AS recommend_comment4', '関連商品コメント(4)', 63, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(64, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 4) AS recommend_product_id5', '関連商品ID(5)', 64, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(65, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 4) AS recommend_comment5', '関連商品コメント(5)', 65, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(66, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 5) AS recommend_product_id6', '関連商品ID(6)', 66, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(67, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 5) AS recommend_comment6', '関連商品コメント(6)', 67, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(68, 1, '(SELECT ARRAY_TO_STRING(ARRAY(SELECT product_status_id FROM dtb_product_status WHERE dtb_product_status.product_id = prdcls.product_id and del_flg = 0 ORDER BY dtb_product_status.product_status_id), '','')) as product_statuses', '商品ステータス', 68, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(69, 1, '(SELECT ARRAY_TO_STRING(ARRAY(SELECT name FROM dtb_product_status LEFT JOIN mtb_status ON  dtb_product_status.product_status_id = mtb_status.id  WHERE dtb_product_status.product_id = prdcls.product_id and del_flg = 0 ORDER BY dtb_product_status.product_status_id), '','')) as product_status_names', '商品ステータス名', 69, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(70, 1, '(SELECT ARRAY_TO_STRING(ARRAY(SELECT category_id FROM dtb_product_categories WHERE dtb_product_categories.product_id = prdcls.product_id ORDER BY dtb_product_categories.rank), '','')) as category_ids', 'カテゴリID', 70, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
-(71, 1, '(SELECT ARRAY_TO_STRING(ARRAY(SELECT category_name FROM dtb_product_categories LEFT JOIN dtb_category ON dtb_product_categories.category_id = dtb_category.category_id WHERE dtb_product_categories.product_id = prdcls.product_id ORDER BY dtb_product_categories.rank), '','')) as category_names', 'カテゴリ名', 71, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(72, 2, 'customer_id', '会員ID', 1, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(73, 2, 'name01', 'お名前(姓)', 2, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(74, 2, 'name02', 'お名前(名)', 3, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(75, 2, 'kana01', 'お名前(フリガナ・姓)', 4, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(76, 2, 'kana02', 'お名前(フリガナ・名)', 5, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(77, 2, 'company_name', '会社名', 6, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', NULL, NULL),
-(78, 2, 'zip01', '郵便番号1', 7, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(79, 2, 'zip02', '郵便番号2', 8, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(80, 2, '(SELECT name FROM mtb_pref WHERE mtb_pref.id = dtb_customer.pref) as pref', '都道府県', 9, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(81, 2, 'addr01', '住所1', 10, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(82, 2, 'addr02', '住所2', 11, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(83, 2, 'email', 'E-MAIL', 12, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(84, 2, 'tel01', 'TEL1', 13, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(85, 2, 'tel02', 'TEL2', 14, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(86, 2, 'tel03', 'TEL3', 15, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(87, 2, 'fax01', 'FAX1', 16, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(88, 2, 'fax02', 'FAX2', 17, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(89, 2, 'fax03', 'FAX3', 18, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(90, 2, '(SELECT name FROM mtb_sex WHERE mtb_sex.id = dtb_customer.sex) as sex', '性別', 19, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(91, 2, '(SELECT name FROM mtb_job WHERE mtb_job.id = dtb_customer.job) as job', '職業', 20, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(92, 2, 'birth', '誕生日', 21, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(93, 2, 'first_buy_date', '初回購入日', 22, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(94, 2, 'last_buy_date', '最終購入日', 23, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(95, 2, 'buy_times', '購入回数', 24, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(96, 2, 'point', 'ポイント残高', 25, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(97, 2, 'note', '備考', 26, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(98, 2, 'create_date', '登録日', 27, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(99, 2, 'update_date', '更新日', 28, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL, NULL, NULL),
-(100, 3, 'order_id', '注文番号', 1, 3, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(101, 3, 'customer_id', '会員ID', 2, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(102, 3, 'message', '要望等', 3, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(103, 3, 'order_name01', 'お名前(姓)', 4, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
-(104, 3, 'order_name02', 'お名前(名)', 5, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
-(105, 3, 'order_kana01', 'お名前(フリガナ・姓)', 6, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVCa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(106, 3, 'order_kana02', 'お名前(フリガナ名)', 7, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVCa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(107, 3, 'order_company_name', '会社名', 8, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', NULL, NULL),
-(108, 3, 'order_email', 'メールアドレス', 9, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'a', 'null', 'NO_SPTAB,EMAIL_CHECK,EMAIL_CHAR_CHECK'),
-(109, 3, 'order_tel01', '電話番号1', 10, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(110, 3, 'order_tel02', '電話番号2', 11, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(111, 3, 'order_tel03', '電話番号3', 12, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(112, 3, 'order_fax01', 'FAX1', 13, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(113, 3, 'order_fax02', 'FAX2', 14, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(114, 3, 'order_fax03', 'FAX3', 15, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(115, 3, 'order_zip01', '郵便番号1', 16, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'ZIP01_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK,NUM_COUNT_CHECK'),
-(116, 3, 'order_zip02', '郵便番号2', 17, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'ZIP02_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK,NUM_COUNT_CHECK'),
-(117, 3, '(SELECT name FROM mtb_pref WHERE mtb_pref.id = dtb_order.order_pref) as pref', '都道府県', 18, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(118, 3, 'order_addr01', '住所1', 19, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'MTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,NUM_CHECK'),
-(119, 3, 'order_addr02', '住所2', 20, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'MTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,NUM_CHECK'),
-(120, 3, 'order_sex', '性別', 21, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(121, 3, 'order_birth', '生年月日', 22, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(122, 3, 'order_job', '職種', 23, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(123, 3, 'subtotal', '小計', 38, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(124, 3, 'discount', '値引き', 39, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(125, 3, 'deliv_fee', '送料', 40, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(126, 3, 'charge', '手数料', 41, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(127, 3, 'use_point', '使用ポイント', 42, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(128, 3, 'add_point', '加算ポイント', 43, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(129, 3, 'tax', '税金', 44, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(130, 3, 'total', '合計', 45, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(131, 3, 'payment_total', 'お支払い合計', 46, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
-(132, 3, 'deliv_id', '配送業者ID', 47, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(133, 3, 'payment_method', '支払い方法', 48, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(134, 3, 'note', 'SHOPメモ', 50, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(135, 3, 'status', '対応状況', 51, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(136, 3, 'create_date', '注文日時', 52, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'a', '', 'CHECK_DATE'),
-(137, 3, 'update_date', '更新日時', 53, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'a', '', 'CHECK_DATE'),
-(138, 3, 'commit_date', '発送完了日時', 54, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'a', '', 'CHECK_DATE'),
-(139, 3, 'device_type_id', '端末種別ID', 55, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(140, 3, '(SELECT COUNT(shipping_id) as shipping_target_num FROM dtb_shipping WHERE dtb_shipping.order_id = dtb_order.order_id) as shipping_num', '配送先数', 56, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(141, 3, '(SELECT ARRAY_TO_STRING(ARRAY(SELECT shipping_id FROM dtb_shipping WHERE dtb_shipping.order_id = dtb_order.order_id), '','')) as shipping_ids', '配送情報ID', 57, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
-(142, 4, 'B.name', '商品名', 1, 2, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
-(143, 4, '(SELECT name FROM mtb_disp WHERE mtb_disp.id = A.status) as status', 'レビュー表示', 2, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
-(144, 4, 'A.create_date', '投稿日', 3, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'a', '', 'CHECK_DATE,EXIST_CHECK'),
-(145, 4, 'A.reviewer_name', '投稿者名', 4, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
-(146, 4, 'A.reviewer_url', '投稿者URL', 5, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVas', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
-(147, 4, '(SELECT name FROM mtb_sex WHERE mtb_sex.id = A.sex) as sex', '性別', 6, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
-(148, 4, '(SELECT name FROM mtb_recommend WHERE mtb_recommend.id = A.recommend_level) as recommend_level', 'おすすめレベル', 7, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(149, 4, 'A.title', 'タイトル', 8, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
-(150, 4, 'A.comment', 'コメント', 9, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'LTEXT_LEN', 'MAX_LENGTH_CHECK'),
-(151, 5, 'category_id', 'カテゴリID', 1, 3, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(152, 5, 'category_name', 'カテゴリ名', 2, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
-(153, 5, 'parent_category_id', '親カテゴリID', 3, 1, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(154, 5, 'level', '階層', NULL, 2, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(155, 5, 'rank', '表示ランク', NULL, 2, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
-(156, 5, 'del_flg', '削除フラグ', NULL, 1, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK');
+(1, 1, 'product_id', '商品ID', 1, 3, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(2, 1, 'product_class_id', '商品規格ID', 2, 3, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(3, 1, 'parent_classcategory_id', '親規格分類ID', 3, 2, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(4, 1, 'classcategory_id', '規格分類ID', 4, 2, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(5, 1, 'parent_classcategory_name', '親規格分類名', 5, 2, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(6, 1, 'classcategory_name', '規格分類名', 6, 2, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(7, 1, 'maker_id', 'メーカーID', 7, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(8, 1, '(SELECT name as maker_name FROM dtb_maker WHERE prdcls.maker_id = dtb_maker.maker_id) as maker_name', 'メーカー名', 8, 2, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(9, 1, 'name', '商品名', 9, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
+(10, 1, 'status', '表示ステータス(公開・非公開)', 10, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(11, 1, 'comment1', 'メーカーURL(コメント1)', 11, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'URL_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,URL_CHECK'),
+(12, 1, 'comment2', 'コメント2', 12, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(13, 1, 'comment3', '検索ワード(コメント3)', 13, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(14, 1, 'comment4', 'コメント4', 14, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(15, 1, 'comment5', 'コメント5', 15, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(16, 1, 'comment6', 'コメント6', 16, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(17, 1, 'note', '備考欄(SHOP専用)', 17, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(18, 1, 'main_list_comment', '一覧-メインコメント', 18, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'MTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
+(19, 1, 'main_list_image', '一覧-メイン画像', 19, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(20, 1, 'main_comment', '詳細-メインコメント', 20, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK,HTML_TAG_CHECK'),
+(21, 1, 'main_image', '詳細-メイン画像', 21, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(22, 1, 'main_large_image', '詳細-メイン拡大画像 ', 22, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(23, 1, 'sub_title1', '詳細-サブタイトル(1)', 23, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(24, 1, 'sub_comment1', '詳細-サブコメント(1)', 24, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,HTML_TAG_CHECK'),
+(25, 1, 'sub_image1', '詳細-サブ画像(1)', 25, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(26, 1, 'sub_large_image1', '詳細-サブ拡大画像(1)', 26, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(27, 1, 'sub_title2', '詳細-サブタイトル(2)', 27, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(28, 1, 'sub_comment2', '詳細-サブコメント(2)', 28, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(29, 1, 'sub_image2', '詳細-サブ画像(2)', 29, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(30, 1, 'sub_large_image2', '詳細-サブ拡大画像(2)', 30, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(31, 1, 'sub_title3', '詳細-サブタイトル(3)', 31, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(32, 1, 'sub_comment3', '詳細-サブコメント(3)', 32, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(33, 1, 'sub_image3', '詳細-サブ画像(3)', 33, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(34, 1, 'sub_large_image3', '詳細-サブ拡大画像(3)', 34, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(35, 1, 'sub_title4', '詳細-サブタイトル(4)', 35, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(36, 1, 'sub_comment4', '詳細-サブコメント(4)', 36, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(37, 1, 'sub_image4', '詳細-サブ画像(4)', 37, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(38, 1, 'sub_large_image4', '詳細-サブ拡大画像(4)', 38, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(39, 1, 'sub_title5', '詳細-サブタイトル(5)', 39, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(40, 1, 'sub_comment5', '詳細-サブコメント(5)', 40, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(41, 1, 'sub_image5', '詳細-サブ画像(5)', 41, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(42, 1, 'sub_large_image5', '詳細-サブ拡大画像(5)', 42, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,FILE_EXISTS'),
+(43, 1, 'deliv_date_id', '発送日目安ID', 43, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(44, 1, 'del_flg', '削除フラグ', 44, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(45, 1, 'product_type_id', '商品種別ID', 45, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(46, 1, 'product_code', '商品コード', 46, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(47, 1, 'stock', '在庫数', 47, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'AMOUNT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(48, 1, 'stock_unlimited', '在庫無制限フラグ', 48, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(49, 1, 'sale_limit', '販売制限数', 49, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'AMOUNT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(50, 1, 'price01', '通常価格', 50, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(51, 1, 'price02', '販売価格', 51, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
+(52, 1, 'deliv_fee', '送料', 52, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(53, 1, 'point_rate', 'ポイント付与率', 53, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'PERCENTAGE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(54, 1, 'down_filename', 'ダウンロードファイル名', 54, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(55, 1, 'down_realfilename', 'ダウンロード実ファイル', 55, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', NULL, 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,DOWN_FILE_EXISTS'),
+(56, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 0) AS recommend_product_id1', '関連商品ID(1)', 56, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(57, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 0) AS recommend_comment1', '関連商品コメント(1)', 57, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(58, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 1) AS recommend_product_id2', '関連商品ID(2)', 58, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(59, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 1) AS recommend_comment2', '関連商品コメント(2)', 59, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(60, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 2) AS recommend_product_id3', '関連商品ID(3)', 60, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(61, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 2) AS recommend_comment3', '関連商品コメント(3)', 61, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(62, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 3) AS recommend_product_id4', '関連商品ID(4)', 62, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(63, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 3) AS recommend_comment4', '関連商品コメント(4)', 63, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(64, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 4) AS recommend_product_id5', '関連商品ID(5)', 64, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(65, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 4) AS recommend_comment5', '関連商品コメント(5)', 65, 1, 1, '2014-10-12 06:47:06', '2014-10-12 06:47:06', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(66, 1, '(SELECT recommend_product_id FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 5) AS recommend_product_id6', '関連商品ID(6)', 66, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(67, 1, '(SELECT comment FROM dtb_recommend_products WHERE prdcls.product_id = dtb_recommend_products.product_id ORDER BY rank DESC, recommend_product_id DESC limit 1 offset 5) AS recommend_comment6', '関連商品コメント(6)', 67, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(68, 1, '(SELECT ARRAY_TO_STRING(ARRAY(SELECT product_status_id FROM dtb_product_status WHERE dtb_product_status.product_id = prdcls.product_id and del_flg = 0 ORDER BY dtb_product_status.product_status_id), '','')) as product_statuses', '商品ステータス', 68, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(69, 1, '(SELECT ARRAY_TO_STRING(ARRAY(SELECT name FROM dtb_product_status LEFT JOIN mtb_status ON  dtb_product_status.product_status_id = mtb_status.id  WHERE dtb_product_status.product_id = prdcls.product_id and del_flg = 0 ORDER BY dtb_product_status.product_status_id), '','')) as product_status_names', '商品ステータス名', 69, 2, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(70, 1, '(SELECT ARRAY_TO_STRING(ARRAY(SELECT category_id FROM dtb_product_categories WHERE dtb_product_categories.product_id = prdcls.product_id ORDER BY dtb_product_categories.rank), '','')) as category_ids', 'カテゴリID', 70, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
+(71, 1, '(SELECT ARRAY_TO_STRING(ARRAY(SELECT category_name FROM dtb_product_categories LEFT JOIN dtb_category ON dtb_product_categories.category_id = dtb_category.category_id WHERE dtb_product_categories.product_id = prdcls.product_id ORDER BY dtb_product_categories.rank), '','')) as category_names', 'カテゴリ名', 71, 2, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'LTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(72, 2, 'customer_id', '会員ID', 1, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(73, 2, 'name01', 'お名前(姓)', 2, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(74, 2, 'name02', 'お名前(名)', 3, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(75, 2, 'kana01', 'お名前(フリガナ・姓)', 4, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(76, 2, 'kana02', 'お名前(フリガナ・名)', 5, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(77, 2, 'zip01', '郵便番号1', 6, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(78, 2, 'zip02', '郵便番号2', 7, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(79, 2, '(SELECT name FROM mtb_pref WHERE mtb_pref.id = dtb_customer.pref) as pref', '都道府県', 8, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(80, 2, 'addr01', '住所1', 9, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(81, 2, 'addr02', '住所2', 10, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(82, 2, 'email', 'E-MAIL', 11, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(83, 2, 'tel01', 'TEL1', 12, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(84, 2, 'tel02', 'TEL2', 13, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(85, 2, 'tel03', 'TEL3', 14, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(86, 2, 'fax01', 'FAX1', 15, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(87, 2, 'fax02', 'FAX2', 16, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(88, 2, 'fax03', 'FAX3', 17, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(89, 2, '(SELECT name FROM mtb_sex WHERE mtb_sex.id = dtb_customer.sex) as sex', '性別', 18, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(90, 2, '(SELECT name FROM mtb_job WHERE mtb_job.id = dtb_customer.job) as job', '職業', 19, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(91, 2, 'birth', '誕生日', 20, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(92, 2, 'first_buy_date', '初回購入日', 21, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(93, 2, 'last_buy_date', '最終購入日', 22, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(94, 2, 'buy_times', '購入回数', 23, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(95, 2, 'point', 'ポイント残高', 24, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(96, 2, 'note', '備考', 25, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(97, 2, 'create_date', '登録日', 26, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(98, 2, 'update_date', '更新日', 27, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', NULL, NULL, NULL),
+(99, 3, 'order_id', '注文番号', 1, 3, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(100, 3, 'customer_id', '会員ID', 2, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(101, 3, 'message', '要望等', 3, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(102, 3, 'order_name01', 'お名前(姓)', 4, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
+(103, 3, 'order_name02', 'お名前(名)', 5, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
+(104, 3, 'order_kana01', 'お名前(フリガナ・姓)', 6, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVCa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(105, 3, 'order_kana02', 'お名前(フリガナ名)', 7, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVCa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(106, 3, 'order_email', 'メールアドレス', 8, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'a', 'null', 'NO_SPTAB,EMAIL_CHECK,EMAIL_CHAR_CHECK'),
+(107, 3, 'order_tel01', '電話番号1', 9, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(108, 3, 'order_tel02', '電話番号2', 10, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(109, 3, 'order_tel03', '電話番号3', 11, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(110, 3, 'order_fax01', 'FAX1', 12, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(111, 3, 'order_fax02', 'FAX2', 13, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(112, 3, 'order_fax03', 'FAX3', 14, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'TEL_ITEM_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(113, 3, 'order_zip01', '郵便番号1', 15, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'ZIP01_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK,NUM_COUNT_CHECK'),
+(114, 3, 'order_zip02', '郵便番号2', 16, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'ZIP02_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK,NUM_COUNT_CHECK'),
+(115, 3, '(SELECT name FROM mtb_pref WHERE mtb_pref.id = dtb_order.order_pref) as pref', '都道府県', 17, 2, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(116, 3, 'order_addr01', '住所1', 18, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'MTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,NUM_CHECK'),
+(117, 3, 'order_addr02', '住所2', 19, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'MTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,NUM_CHECK'),
+(118, 3, 'order_sex', '性別', 20, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(119, 3, 'order_birth', '生年月日', 21, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(120, 3, 'order_job', '職種', 22, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(121, 3, 'subtotal', '小計', 38, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(122, 3, 'discount', '値引き', 39, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(123, 3, 'deliv_fee', '送料', 40, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(124, 3, 'charge', '手数料', 41, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(125, 3, 'use_point', '使用ポイント', 42, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(126, 3, 'add_point', '加算ポイント', 43, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(127, 3, 'tax', '税金', 44, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(128, 3, 'total', '合計', 45, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(129, 3, 'payment_total', 'お支払い合計', 46, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'PRICE_LEN', 'MAX_LENGTH_CHECK,NUM_CHECK'),
+(130, 3, 'deliv_id', '配送業者ID', 47, 2, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(131, 3, 'payment_method', '支払い方法', 48, 2, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(132, 3, 'note', 'SHOPメモ', 50, 2, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'LLTEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(133, 3, 'status', '対応状況', 51, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(134, 3, 'create_date', '注文日時', 52, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'a', '', 'CHECK_DATE'),
+(135, 3, 'update_date', '更新日時', 53, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'a', '', 'CHECK_DATE'),
+(136, 3, 'commit_date', '発送完了日時', 54, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'a', '', 'CHECK_DATE'),
+(137, 3, 'device_type_id', '端末種別ID', 55, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(138, 3, '(SELECT COUNT(shipping_id) as shipping_target_num FROM dtb_shipping WHERE dtb_shipping.order_id = dtb_order.order_id) as shipping_num', '配送先数', 56, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(139, 3, '(SELECT ARRAY_TO_STRING(ARRAY(SELECT shipping_id FROM dtb_shipping WHERE dtb_shipping.order_id = dtb_order.order_id), '','')) as shipping_ids', '配送情報ID', 57, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK'),
+(140, 4, 'B.name', '商品名', 1, 2, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
+(141, 4, '(SELECT name FROM mtb_disp WHERE mtb_disp.id = A.status) as status', 'レビュー表示', 2, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
+(142, 4, 'A.create_date', '投稿日', 3, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'a', '', 'CHECK_DATE,EXIST_CHECK'),
+(143, 4, 'A.reviewer_name', '投稿者名', 4, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
+(144, 4, '(SELECT name FROM mtb_sex WHERE mtb_sex.id = A.sex) as sex', '性別', 5, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
+(145, 4, '(SELECT name FROM mtb_recommend WHERE mtb_recommend.id = A.recommend_level) as recommend_level', 'おすすめレベル', 6, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(146, 4, 'A.title', 'タイトル', 7, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'MAX_LENGTH_CHECK'),
+(147, 4, 'A.comment', 'コメント', 8, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'LTEXT_LEN', 'MAX_LENGTH_CHECK'),
+(148, 5, 'category_id', 'カテゴリID', 1, 3, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(149, 5, 'category_name', 'カテゴリ名', 2, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'),
+(150, 5, 'parent_category_id', '親カテゴリID', 3, 1, 1, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(151, 5, 'level', '階層', NULL, 2, 2, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(152, 5, 'rank', '表示ランク', NULL, 2, 2, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK'),
+(153, 5, 'del_flg', '削除フラグ', NULL, 1, 2, '2014-10-12 06:47:07', '2014-10-12 06:47:07', 'n', 'INT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK');
 
 -- --------------------------------------------------------
 
@@ -849,16 +842,15 @@ INSERT INTO `dtb_csv` (`no`, `csv_id`, `col`, `disp_name`, `rank`, `rw_flg`, `st
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_csv_no_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=157 ;
+`sequence` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=154 ;
 
 --
 -- Dumping data for table `dtb_csv_no_seq`
 --
 
 INSERT INTO `dtb_csv_no_seq` (`sequence`) VALUES
-(156);
+(153);
 
 -- --------------------------------------------------------
 
@@ -871,8 +863,7 @@ CREATE TABLE IF NOT EXISTS `dtb_csv_sql` (
   `sql_name` text COLLATE utf8_unicode_ci NOT NULL,
   `csv_sql` text COLLATE utf8_unicode_ci,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`sql_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -882,8 +873,7 @@ CREATE TABLE IF NOT EXISTS `dtb_csv_sql` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_csv_sql_sql_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -896,18 +886,23 @@ CREATE TABLE IF NOT EXISTS `dtb_customer` (
   `customer_id` int(11) NOT NULL,
   `name01` text COLLATE utf8_unicode_ci NOT NULL,
   `name02` text COLLATE utf8_unicode_ci NOT NULL,
-  `kana01` text COLLATE utf8_unicode_ci,
-  `kana02` text COLLATE utf8_unicode_ci,
-  `company_name` text COLLATE utf8_unicode_ci,
+  `name03` text COLLATE utf8_unicode_ci NOT NULL,
+  `name04` text COLLATE utf8_unicode_ci NOT NULL,
+  `kana01` text COLLATE utf8_unicode_ci NOT NULL,
+  `kana02` text COLLATE utf8_unicode_ci NOT NULL,
   `zip01` text COLLATE utf8_unicode_ci,
   `zip02` text COLLATE utf8_unicode_ci,
-  `zipcode` text COLLATE utf8_unicode_ci,
-  `country_id` int(11) DEFAULT NULL,
+  `zip03` text COLLATE utf8_unicode_ci NOT NULL,
   `pref` smallint(6) DEFAULT NULL,
+  `addr_code` text COLLATE utf8_unicode_ci NOT NULL,
   `addr01` text COLLATE utf8_unicode_ci,
   `addr02` text COLLATE utf8_unicode_ci,
+  `addr03` text COLLATE utf8_unicode_ci NOT NULL,
   `email` text COLLATE utf8_unicode_ci NOT NULL,
   `email_mobile` text COLLATE utf8_unicode_ci,
+  `card_number` text COLLATE utf8_unicode_ci NOT NULL,
+  `card_expired` text COLLATE utf8_unicode_ci NOT NULL,
+  `card_code` text COLLATE utf8_unicode_ci NOT NULL,
   `tel01` text COLLATE utf8_unicode_ci,
   `tel02` text COLLATE utf8_unicode_ci,
   `tel03` text COLLATE utf8_unicode_ci,
@@ -933,11 +928,19 @@ CREATE TABLE IF NOT EXISTS `dtb_customer` (
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `del_flg` smallint(6) NOT NULL DEFAULT '0',
   `mobile_phone_id` text COLLATE utf8_unicode_ci,
-  `mailmaga_flg` smallint(6) DEFAULT NULL,
-  PRIMARY KEY (`customer_id`),
-  UNIQUE KEY `secret_key` (`secret_key`(255)),
-  KEY `dtb_customer_mobile_phone_id_key` (`mobile_phone_id`(255))
+  `mailmaga_flg` smallint(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `dtb_customer`
+--
+
+INSERT INTO `dtb_customer` (`customer_id`, `name01`, `name02`, `name03`, `name04`, `kana01`, `kana02`, `zip01`, `zip02`, `zip03`, `pref`, `addr_code`, `addr01`, `addr02`, `addr03`, `email`, `email_mobile`, `card_number`, `card_expired`, `card_code`, `tel01`, `tel02`, `tel03`, `fax01`, `fax02`, `fax03`, `sex`, `job`, `birth`, `password`, `reminder`, `reminder_answer`, `salt`, `secret_key`, `first_buy_date`, `last_buy_date`, `buy_times`, `buy_total`, `point`, `note`, `status`, `create_date`, `update_date`, `del_flg`, `mobile_phone_id`, `mailmaga_flg`) VALUES
+(0, 'anonymous', '', '', '', '', '', NULL, NULL, '', NULL, '', NULL, NULL, '', '', NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '224f1d305dc4420e588139fb43a8208f3592112e470bf69b8aef787156e133d4', NULL, NULL, 'phimeabiot', 'r543c9c6cd9b91955QvAqJ', NULL, NULL, '0', '0', '0', NULL, 2, '2014-10-14 03:45:48', '2014-10-14 03:45:48', 0, NULL, NULL),
+(29, 'daniel', '', '', '', '', '', '2_b.jpg', '5_b.jpg', '', NULL, '', NULL, NULL, '', 'trd.cabaledaniel@gmail.com', NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cf86418bda678c013b93a17b3bdc66bcae6fa67f8027c69262a10cc022981f44', NULL, NULL, 'baipraipro', 'r543b7c2a05a5bhJQXvxCq', '2014-10-23 12:37:03', '2014-10-23 12:37:03', '1', '2713', '0', NULL, 2, '2014-10-13 07:15:54', '2014-10-13 07:15:54', 0, NULL, NULL),
+(35, 'caca', '', 'test', 'test1', '', '', '37799_1284234160635_379174_n.jpg', '68324_1346049985992_7755515_n.jpg', '123-1231', NULL, '', 'test4', 'test5', 'test6', 'caca@caca.caca', 'caca@caca.caca', '11', '11', '11', '1211323442', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '00ab8304cc4eb0b40ee692a3dd030f7581825d49e080cfdf3174b99bd818c86f', NULL, NULL, 'wrochitoul', 'r544f370d24754DsdqBvyR', '2014-11-26 12:50:36', '2014-11-26 12:50:36', '1', NULL, '0', 'Cod', 2, '2014-10-28 06:26:21', '2014-10-28 06:26:21', 0, NULL, NULL),
+(36, 'jennilynn', '', '', '', '', '', NULL, NULL, '', NULL, '', NULL, NULL, '', 'trs.neilross@gmail.com', NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0e9663aa4c6ba639fcd9d70afa3144c52acc55229cfc58abc51fb1d27955f2ef', NULL, NULL, 'thimioprio', 'r5451f36f62639yTdqBzgw', NULL, NULL, '0', '0', '0', NULL, 2, '2014-10-30 08:14:39', '2014-10-30 08:14:39', 0, NULL, NULL),
+(37, 'jennilynn', 'dfsdfds', '', '', 'dfsdf', 'dfsf', '1620470_870703842940696_7551227959000370778_n.jpg', '1620470_870703842940696_7551227959000370778_n.jpg', '', NULL, '', NULL, NULL, '', 'trs.jennilynn@gmail.com', NULL, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ac41e9a3eccbd093784f8214fc91ee0603e95c4b6dad071d6fa7a0eb7d928bed', NULL, NULL, 'weatitiacr', 'r5452f17aede42QUZvUg7b', NULL, NULL, '0', '0', '0', NULL, 2, '2014-10-31 02:18:35', '2014-10-31 02:18:35', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -946,9 +949,15 @@ CREATE TABLE IF NOT EXISTS `dtb_customer` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_customer_customer_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+`sequence` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=38 ;
+
+--
+-- Dumping data for table `dtb_customer_customer_id_seq`
+--
+
+INSERT INTO `dtb_customer_customer_id_seq` (`sequence`) VALUES
+(37);
 
 -- --------------------------------------------------------
 
@@ -961,8 +970,22 @@ CREATE TABLE IF NOT EXISTS `dtb_customer_favorite_products` (
   `product_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`customer_id`,`product_id`)
+  `num_of_likes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `dtb_customer_favorite_products`
+--
+
+INSERT INTO `dtb_customer_favorite_products` (`customer_id`, `product_id`, `create_date`, `update_date`, `num_of_likes`) VALUES
+(0, 0, '2014-11-11 10:29:13', '2014-11-11 10:29:13', 1),
+(0, 1, '2014-11-05 10:40:29', '2014-11-10 08:39:00', 3),
+(29, 2, '2014-11-05 10:45:52', '2014-11-10 07:42:44', 10),
+(29, 3, '2014-11-13 06:42:23', '2014-11-13 07:22:48', 3),
+(29, 76, '2014-11-14 10:36:22', '2014-11-14 10:36:22', 1),
+(37, 1, '2014-11-05 10:57:24', '2014-11-12 09:37:20', 31),
+(37, 2, '2014-11-06 02:31:25', '2014-11-13 04:50:14', 22),
+(37, 76, '2014-11-13 04:51:53', '2014-11-13 07:22:21', 2);
 
 -- --------------------------------------------------------
 
@@ -982,8 +1005,7 @@ CREATE TABLE IF NOT EXISTS `dtb_deliv` (
   `del_flg` smallint(6) NOT NULL DEFAULT '0',
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`deliv_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -991,8 +1013,8 @@ CREATE TABLE IF NOT EXISTS `dtb_deliv` (
 --
 
 INSERT INTO `dtb_deliv` (`deliv_id`, `product_type_id`, `name`, `service_name`, `remark`, `confirm_url`, `rank`, `status`, `del_flg`, `creator_id`, `create_date`, `update_date`) VALUES
-(1, 1, 'サンプル業者', 'サンプル業者', NULL, NULL, 2, 1, 0, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24'),
-(2, 2, '配送無し(ダウンロード商品用)', 'なし', NULL, NULL, 1, 1, 0, 2, '2014-10-02 04:46:24', '2014-10-02 04:46:24');
+(1, 1, 'サンプル業者', 'サンプル業者', NULL, NULL, 2, 1, 0, 2, '2014-10-12 06:47:07', '2014-10-12 06:47:07'),
+(2, 2, '配送無し(ダウンロード商品用)', 'なし', NULL, NULL, 1, 1, 0, 2, '2014-10-12 06:47:07', '2014-10-12 06:47:07');
 
 -- --------------------------------------------------------
 
@@ -1004,8 +1026,7 @@ CREATE TABLE IF NOT EXISTS `dtb_delivfee` (
   `deliv_id` int(11) NOT NULL,
   `fee_id` int(11) NOT NULL,
   `fee` decimal(10,0) NOT NULL,
-  `pref` smallint(6) DEFAULT NULL,
-  PRIMARY KEY (`deliv_id`,`fee_id`)
+  `pref` smallint(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1013,100 +1034,100 @@ CREATE TABLE IF NOT EXISTS `dtb_delivfee` (
 --
 
 INSERT INTO `dtb_delivfee` (`deliv_id`, `fee_id`, `fee`, `pref`) VALUES
-(1, 1, 1000, 1),
-(1, 2, 1000, 2),
-(1, 3, 1000, 3),
-(1, 4, 1000, 4),
-(1, 5, 1000, 5),
-(1, 6, 1000, 6),
-(1, 7, 1000, 7),
-(1, 8, 1000, 8),
-(1, 9, 1000, 9),
-(1, 10, 1000, 10),
-(1, 11, 1000, 11),
-(1, 12, 1000, 12),
-(1, 13, 1000, 13),
-(1, 14, 1000, 14),
-(1, 15, 1000, 15),
-(1, 16, 1000, 16),
-(1, 17, 1000, 17),
-(1, 18, 1000, 18),
-(1, 19, 1000, 19),
-(1, 20, 1000, 20),
-(1, 21, 1000, 21),
-(1, 22, 1000, 22),
-(1, 23, 1000, 23),
-(1, 24, 1000, 24),
-(1, 25, 1000, 25),
-(1, 26, 1000, 26),
-(1, 27, 1000, 27),
-(1, 28, 1000, 28),
-(1, 29, 1000, 29),
-(1, 30, 1000, 30),
-(1, 31, 1000, 31),
-(1, 32, 1000, 32),
-(1, 33, 1000, 33),
-(1, 34, 1000, 34),
-(1, 35, 1000, 35),
-(1, 36, 1000, 36),
-(1, 37, 1000, 37),
-(1, 38, 1000, 38),
-(1, 39, 1000, 39),
-(1, 40, 1000, 40),
-(1, 41, 1000, 41),
-(1, 42, 1000, 42),
-(1, 43, 1000, 43),
-(1, 44, 1000, 44),
-(1, 45, 1000, 45),
-(1, 46, 1000, 46),
-(1, 47, 1000, 47),
-(2, 1, 0, 1),
-(2, 2, 0, 2),
-(2, 3, 0, 3),
-(2, 4, 0, 4),
-(2, 5, 0, 5),
-(2, 6, 0, 6),
-(2, 7, 0, 7),
-(2, 8, 0, 8),
-(2, 9, 0, 9),
-(2, 10, 0, 10),
-(2, 11, 0, 11),
-(2, 12, 0, 12),
-(2, 13, 0, 13),
-(2, 14, 0, 14),
-(2, 15, 0, 15),
-(2, 16, 0, 16),
-(2, 17, 0, 17),
-(2, 18, 0, 18),
-(2, 19, 0, 19),
-(2, 20, 0, 20),
-(2, 21, 0, 21),
-(2, 22, 0, 22),
-(2, 23, 0, 23),
-(2, 24, 0, 24),
-(2, 25, 0, 25),
-(2, 26, 0, 26),
-(2, 27, 0, 27),
-(2, 28, 0, 28),
-(2, 29, 0, 29),
-(2, 30, 0, 30),
-(2, 31, 0, 31),
-(2, 32, 0, 32),
-(2, 33, 0, 33),
-(2, 34, 0, 34),
-(2, 35, 0, 35),
-(2, 36, 0, 36),
-(2, 37, 0, 37),
-(2, 38, 0, 38),
-(2, 39, 0, 39),
-(2, 40, 0, 40),
-(2, 41, 0, 41),
-(2, 42, 0, 42),
-(2, 43, 0, 43),
-(2, 44, 0, 44),
-(2, 45, 0, 45),
-(2, 46, 0, 46),
-(2, 47, 0, 47);
+(1, 1, '1000', 1),
+(1, 2, '1000', 2),
+(1, 3, '1000', 3),
+(1, 4, '1000', 4),
+(1, 5, '1000', 5),
+(1, 6, '1000', 6),
+(1, 7, '1000', 7),
+(1, 8, '1000', 8),
+(1, 9, '1000', 9),
+(1, 10, '1000', 10),
+(1, 11, '1000', 11),
+(1, 12, '1000', 12),
+(1, 13, '1000', 13),
+(1, 14, '1000', 14),
+(1, 15, '1000', 15),
+(1, 16, '1000', 16),
+(1, 17, '1000', 17),
+(1, 18, '1000', 18),
+(1, 19, '1000', 19),
+(1, 20, '1000', 20),
+(1, 21, '1000', 21),
+(1, 22, '1000', 22),
+(1, 23, '1000', 23),
+(1, 24, '1000', 24),
+(1, 25, '1000', 25),
+(1, 26, '1000', 26),
+(1, 27, '1000', 27),
+(1, 28, '1000', 28),
+(1, 29, '1000', 29),
+(1, 30, '1000', 30),
+(1, 31, '1000', 31),
+(1, 32, '1000', 32),
+(1, 33, '1000', 33),
+(1, 34, '1000', 34),
+(1, 35, '1000', 35),
+(1, 36, '1000', 36),
+(1, 37, '1000', 37),
+(1, 38, '1000', 38),
+(1, 39, '1000', 39),
+(1, 40, '1000', 40),
+(1, 41, '1000', 41),
+(1, 42, '1000', 42),
+(1, 43, '1000', 43),
+(1, 44, '1000', 44),
+(1, 45, '1000', 45),
+(1, 46, '1000', 46),
+(1, 47, '1000', 47),
+(2, 1, '0', 1),
+(2, 2, '0', 2),
+(2, 3, '0', 3),
+(2, 4, '0', 4),
+(2, 5, '0', 5),
+(2, 6, '0', 6),
+(2, 7, '0', 7),
+(2, 8, '0', 8),
+(2, 9, '0', 9),
+(2, 10, '0', 10),
+(2, 11, '0', 11),
+(2, 12, '0', 12),
+(2, 13, '0', 13),
+(2, 14, '0', 14),
+(2, 15, '0', 15),
+(2, 16, '0', 16),
+(2, 17, '0', 17),
+(2, 18, '0', 18),
+(2, 19, '0', 19),
+(2, 20, '0', 20),
+(2, 21, '0', 21),
+(2, 22, '0', 22),
+(2, 23, '0', 23),
+(2, 24, '0', 24),
+(2, 25, '0', 25),
+(2, 26, '0', 26),
+(2, 27, '0', 27),
+(2, 28, '0', 28),
+(2, 29, '0', 29),
+(2, 30, '0', 30),
+(2, 31, '0', 31),
+(2, 32, '0', 32),
+(2, 33, '0', 33),
+(2, 34, '0', 34),
+(2, 35, '0', 35),
+(2, 36, '0', 36),
+(2, 37, '0', 37),
+(2, 38, '0', 38),
+(2, 39, '0', 39),
+(2, 40, '0', 40),
+(2, 41, '0', 41),
+(2, 42, '0', 42),
+(2, 43, '0', 43),
+(2, 44, '0', 44),
+(2, 45, '0', 45),
+(2, 46, '0', 46),
+(2, 47, '0', 47);
 
 -- --------------------------------------------------------
 
@@ -1117,8 +1138,7 @@ INSERT INTO `dtb_delivfee` (`deliv_id`, `fee_id`, `fee`, `pref`) VALUES
 CREATE TABLE IF NOT EXISTS `dtb_delivtime` (
   `deliv_id` int(11) NOT NULL,
   `time_id` int(11) NOT NULL,
-  `deliv_time` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`deliv_id`,`time_id`)
+  `deliv_time` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1136,8 +1156,7 @@ INSERT INTO `dtb_delivtime` (`deliv_id`, `time_id`, `deliv_time`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_deliv_deliv_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
@@ -1162,8 +1181,7 @@ CREATE TABLE IF NOT EXISTS `dtb_holiday` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`holiday_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1171,21 +1189,21 @@ CREATE TABLE IF NOT EXISTS `dtb_holiday` (
 --
 
 INSERT INTO `dtb_holiday` (`holiday_id`, `title`, `month`, `day`, `rank`, `creator_id`, `create_date`, `update_date`, `del_flg`) VALUES
-(1, '元日(1月1日)', 1, 1, 100, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(2, '成人の日(1月第2月曜日)', 1, 14, 99, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(3, '建国記念の日(2月11日)', 2, 11, 98, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(4, '春分の日(3月21日)', 3, 21, 97, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(5, '昭和の日(4月29日)', 4, 29, 96, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(6, '憲法記念日(5月3日)', 5, 3, 95, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(7, 'みどりの日(5月4日)', 5, 4, 94, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(8, 'こどもの日(5月5日)', 5, 5, 93, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(9, '海の日(7月第3月曜日)', 7, 21, 92, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(10, '敬老の日(9月第3月曜日)', 9, 15, 91, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(11, '秋分の日(9月23日)', 9, 23, 90, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(12, '体育の日(10月第2月曜日)', 10, 13, 89, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(13, '文化の日(11月3日)', 11, 3, 88, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(14, '勤労感謝の日(11月23日)', 11, 23, 87, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(15, '天皇誕生日(12月23日)', 12, 23, 86, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0);
+(1, '元旦(1月1日)', 1, 1, 100, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(2, '成人の日(1月第2月曜日)', 1, 14, 99, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(3, '建国記念の日(2月11日)', 2, 11, 98, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(4, '春分の日(3月21日)', 3, 21, 97, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(5, '昭和の日(4月29日)', 4, 29, 96, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(6, '憲法記念日(5月3日)', 5, 3, 95, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(7, 'みどりの日(5月4日)', 5, 4, 94, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(8, 'こどもの日(5月5日)', 5, 5, 93, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(9, '海の日(7月第3月曜日)', 7, 21, 92, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(10, '敬老の日(9月第3月曜日)', 9, 15, 91, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(11, '秋分の日(9月23日)', 9, 23, 90, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(12, '体育の日(10月第2月曜日)', 10, 13, 89, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(13, '文化の日(11月3日)', 11, 3, 88, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(14, '勤労感謝の日(11月23日)', 11, 23, 87, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(15, '天皇誕生日(12月23日)', 12, 23, 86, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0);
 
 -- --------------------------------------------------------
 
@@ -1194,8 +1212,7 @@ INSERT INTO `dtb_holiday` (`holiday_id`, `title`, `month`, `day`, `rank`, `creat
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_holiday_holiday_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
 
 --
@@ -1215,8 +1232,7 @@ CREATE TABLE IF NOT EXISTS `dtb_index_list` (
   `table_name` text COLLATE utf8_unicode_ci NOT NULL,
   `column_name` text COLLATE utf8_unicode_ci NOT NULL,
   `recommend_flg` smallint(6) NOT NULL DEFAULT '0',
-  `recommend_comment` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`table_name`(255),`column_name`(255))
+  `recommend_comment` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1262,8 +1278,7 @@ CREATE TABLE IF NOT EXISTS `dtb_kiyaku` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`kiyaku_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1271,18 +1286,18 @@ CREATE TABLE IF NOT EXISTS `dtb_kiyaku` (
 --
 
 INSERT INTO `dtb_kiyaku` (`kiyaku_id`, `kiyaku_title`, `kiyaku_text`, `rank`, `creator_id`, `create_date`, `update_date`, `del_flg`) VALUES
-(1, '第1条 (会員)', '1. 「会員」とは、当社が定める手続に従い本規約に同意の上、入会の申し込みを行う個人をいいます。\n2. 「会員情報」とは、会員が当社に開示した会員の属性に関する情報および会員の取引に関する履歴等の情報をいいます。\n3. 本規約は、全ての会員に適用され、登録手続時および登録後にお守りいただく規約です。', 12, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(2, '第2条 (登録)', '1. 会員資格\n本規約に同意の上、所定の入会申込みをされたお客様は、所定の登録手続完了後に会員としての資格を有します。会員登録手続は、会員となるご本人が行ってください。代理による登録は一切認められません。なお、過去に会員資格が取り消された方やその他当社が相応しくないと判断した方からの会員申込はお断りする場合があります。\n\n2. 会員情報の入力\n会員登録手続の際には、入力上の注意をよく読み、所定の入力フォームに必要事項を正確に入力してください。会員情報の登録において、特殊記号・旧漢字・ローマ数字などはご使用になれません。これらの文字が登録された場合は当社にて変更致します。\n\n3. パスワードの管理\n(1)パスワードは会員本人のみが利用できるものとし、第三者に譲渡・貸与できないものとします。\n(2)パスワードは、他人に知られることがないよう定期的に変更する等、会員本人が責任をもって管理してください。\n(3)パスワードを用いて当社に対して行われた意思表示は、会員本人の意思表示とみなし、そのために生じる支払等は全て会員の責任となります。', 11, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(3, '第3条 (変更)', '1. 会員は、氏名、住所など当社に届け出た事項に変更があった場合には、速やかに当社に連絡するものとします。\n2. 変更登録がなされなかったことにより生じた損害について、当社は一切責任を負いません。また、変更登録がなされた場合でも、変更登録前にすでに手続がなされた取引は、変更登録前の情報に基づいて行われますのでご注意ください。', 10, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(4, '第4条 (退会)', '会員が退会を希望する場合には、会員本人が退会手続きを行ってください。所定の退会手続の終了後に、退会となります。', 9, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(5, '第5条 (会員資格の喪失及び賠償義務)', '1. 会員が、会員資格取得申込の際に虚偽の申告をしたとき、通信販売による代金支払債務を怠ったとき、その他当社が会員として不適当と認める事由があるときは、当社は、会員資格を取り消すことができることとします。\n2. 会員が、以下の各号に定める行為をしたときは、これにより当社が被った損害を賠償する責任を負います。\n(1)会員番号、パスワードを不正に使用すること\n(2)当ホームページにアクセスして情報を改ざんしたり、当ホームページに有害なコンピュータープログラムを送信するなどして、当社の営業を妨害すること\n(3)当社が扱う商品の知的所有権を侵害する行為をすること\n(4)その他、この利用規約に反する行為をすること', 8, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(6, '第6条 (会員情報の取扱い)', '1. 当社は、原則として会員情報を会員の事前の同意なく第三者に対して開示することはありません。ただし、次の各号の場合には、会員の事前の同意なく、当社は会員情報その他のお客様情報を開示できるものとします。\n(1)法令に基づき開示を求められた場合\n(2)当社の権利、利益、名誉等を保護するために必要であると当社が判断した場合\n2. 会員情報につきましては、当社の「個人情報保護への取組み」に従い、当社が管理します。当社は、会員情報を、会員へのサービス提供、サービス内容の向上、サービスの利用促進、およびサービスの健全かつ円滑な運営の確保を図る目的のために、当社おいて利用することができるものとします。\n3. 当社は、会員に対して、メールマガジンその他の方法による情報提供(広告を含みます)を行うことができるものとします。会員が情報提供を希望しない場合は、当社所定の方法に従い、その旨を通知して頂ければ、情報提供を停止します。ただし、本サービス運営に必要な情報提供につきましては、会員の希望により停止をすることはできません。', 7, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(7, '第7条 (禁止事項)', '本サービスの利用に際して、会員に対し次の各号の行為を行うことを禁止します。\n\n1. 法令または本規約、本サービスご利用上のご注意、本サービスでのお買い物上のご注意その他の本規約等に違反すること\n2. 当社、およびその他の第三者の権利、利益、名誉等を損ねること\n3. 青少年の心身に悪影響を及ぼす恐れがある行為、その他公序良俗に反する行為を行うこと\n4. 他の利用者その他の第三者に迷惑となる行為や不快感を抱かせる行為を行うこと\n5. 虚偽の情報を入力すること\n6. 有害なコンピュータープログラム、メール等を送信または書き込むこと\n7. 当社のサーバーその他のコンピューターに不正にアクセスすること\n8. パスワードを第三者に貸与・譲渡すること、または第三者と共用すること\n9. その他当社が不適切と判断すること', 6, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(8, '第8条 (サービスの中断・停止等)', '1. 当社は、本サービスの稼動状態を良好に保つために、次の各号の一に該当する場合、予告なしに、本サービスの提供全てあるいは一部を停止することがあります。\n(1)システムの定期保守および緊急保守のために必要な場合\n(2)システムに負荷が集中した場合\n(3)火災、停電、第三者による妨害行為などによりシステムの運用が困難になった場合\n(4)その他、止むを得ずシステムの停止が必要と当社が判断した場合', 5, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(9, '第9条 (サービスの変更・廃止)', '当社は、その判断によりサービスの全部または一部を事前の通知なく、適宜変更・廃止できるものとします。', 4, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(10, '第10条 (免責)', '1. 通信回線やコンピューターなどの障害によるシステムの中断・遅滞・中止・データの消失、データへの不正アクセスにより生じた損害、その他当社のサービスに関して会員に生じた損害について、当社は一切責任を負わないものとします。\n2. 当社は、当社のウェブページ・サーバー・ドメインなどから送られるメール・コンテンツに、コンピューター・ウィルスなどの有害なものが含まれていないことを保証いたしません。\n3. 会員が本規約等に違反したことによって生じた損害については、当社は一切責任を負いません。', 3, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(11, '第11条 (本規約の改定)', '当社は、本規約を任意に改定できるものとし、また、当社において本規約を補充する規約(以下「補充規約」といいます)を定めることができます。本規約の改定または補充は、改定後の本規約または補充規約を当社所定のサイトに掲示したときにその効力を生じるものとします。この場合、会員は、改定後の規約および補充規約に従うものと致します。', 2, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0),
-(12, '第12条 (準拠法、管轄裁判所)', '本規約に関して紛争が生じた場合、当社本店所在地を管轄する地方裁判所を第一審の専属的合意管轄裁判所とします。 ', 1, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0);
+(1, '第1条 (会員)', '1. 「会員」とは、当社が定める手続に従い本規約に同意の上、入会の申し込みを行う個人をいいます。\n2. 「会員情報」とは、会員が当社に開示した会員の属性に関する情報および会員の取引に関する履歴等の情報をいいます。\n3. 本規約は、すべての会員に適用され、登録手続時および登録後にお守りいただく規約です。', 12, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(2, '第2条 (登録)', '1. 会員資格\n本規約に同意の上、所定の入会申込みをされたお客様は、所定の登録手続完了後に会員としての資格を有します。会員登録手続は、会員となるご本人が行ってください。代理による登録は一切認められません。なお、過去に会員資格が取り消された方やその他当社が相応しくないと判断した方からの会員申込はお断りする場合があります。\n\n2. 会員情報の入力\n会員登録手続の際には、入力上の注意をよく読み、所定の入力フォームに必要事項を正確に入力してください。会員情報の登録において、特殊記号・旧漢字・ローマ数字などはご使用になれません。これらの文字が登録された場合は当社にて変更致します。\n\n3. パスワードの管理\n(1)パスワードは会員本人のみが利用できるものとし、第三者に譲渡・貸与できないものとします。\n(2)パスワードは、他人に知られることがないよう定期的に変更する等、会員本人が責任をもって管理してください。\n(3)パスワードを用いて当社に対して行われた意思表示は、会員本人の意思表示とみなし、そのために生じる支払等はすべて会員の責任となります。', 11, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(3, '第3条 (変更)', '1. 会員は、氏名、住所など当社に届け出た事項に変更があった場合には、速やかに当社に連絡するものとします。\n2. 変更登録がなされなかったことにより生じた損害について、当社は一切責任を負いません。また、変更登録がなされた場合でも、変更登録前にすでに手続がなされた取引は、変更登録前の情報に基づいて行われますのでご注意ください。', 10, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(4, '第4条 (退会)', '会員が退会を希望する場合には、会員本人が退会手続きを行ってください。所定の退会手続の終了後に、退会となります。', 9, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(5, '第5条 (会員資格の喪失及び賠償義務)', '1. 会員が、会員資格取得申込の際に虚偽の申告をしたとき、通信販売による代金支払債務を怠ったとき、その他当社が会員として不適当と認める事由があるときは、当社は、会員資格を取り消すことができることとします。\n2. 会員が、以下の各号に定める行為をしたときは、これにより当社が被った損害を賠償する責任を負います。\n(1)会員番号、パスワードを不正に使用すること\n(2)当ホームページにアクセスして情報を改ざんしたり、当ホームページに有害なコンピュータープログラムを送信するなどして、当社の営業を妨害すること\n(3)当社が扱う商品の知的所有権を侵害する行為をすること\n(4)その他、この利用規約に反する行為をすること', 8, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(6, '第6条 (会員情報の取扱い)', '1. 当社は、原則として会員情報を会員の事前の同意なく第三者に対して開示することはありません。ただし、次の各号の場合には、会員の事前の同意なく、当社は会員情報その他のお客様情報を開示できるものとします。\n(1)法令に基づき開示を求められた場合\n(2)当社の権利、利益、名誉等を保護するために必要であると当社が判断した場合\n2. 会員情報につきましては、当社の「個人情報保護への取組み」に従い、当社が管理します。当社は、会員情報を、会員へのサービス提供、サービス内容の向上、サービスの利用促進、およびサービスの健全かつ円滑な運営の確保を図る目的のために、当社おいて利用することができるものとします。\n3. 当社は、会員に対して、メールマガジンその他の方法による情報提供(広告を含みます)を行うことができるものとします。会員が情報提供を希望しない場合は、当社所定の方法に従い、その旨を通知して頂ければ、情報提供を停止します。ただし、本サービス運営に必要な情報提供につきましては、会員の希望により停止をすることはできません。', 7, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(7, '第7条 (禁止事項)', '本サービスの利用に際して、会員に対し次の各号の行為を行うことを禁止します。\n\n1. 法令または本規約、本サービスご利用上のご注意、本サービスでのお買い物上のご注意その他の本規約等に違反すること\n2. 当社、およびその他の第三者の権利、利益、名誉等を損ねること\n3. 青少年の心身に悪影響を及ぼす恐れがある行為、その他公序良俗に反する行為を行うこと\n4. 他の利用者その他の第三者に迷惑となる行為や不快感を抱かせる行為を行うこと\n5. 虚偽の情報を入力すること\n6. 有害なコンピュータープログラム、メール等を送信または書き込むこと\n7. 当社のサーバーその他のコンピューターに不正にアクセスすること\n8. パスワードを第三者に貸与・譲渡すること、または第三者と共用すること\n9. その他当社が不適切と判断すること', 6, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(8, '第8条 (サービスの中断・停止等)', '1. 当社は、本サービスの稼動状態を良好に保つために、次の各号の一に該当する場合、予告なしに、本サービスの提供全てあるいは一部を停止することがあります。\n(1)システムの定期保守および緊急保守のために必要な場合\n(2)システムに負荷が集中した場合\n(3)火災、停電、第三者による妨害行為などによりシステムの運用が困難になった場合\n(4)その他、止むを得ずシステムの停止が必要と当社が判断した場合', 5, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(9, '第9条 (サービスの変更・廃止)', '当社は、その判断によりサービスの全部または一部を事前の通知なく、適宜変更・廃止できるものとします。', 4, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(10, '第10条 (免責)', '1. 通信回線やコンピューターなどの障害によるシステムの中断・遅滞・中止・データの消失、データへの不正アクセスにより生じた損害、その他当社のサービスに関して会員に生じた損害について、当社は一切責任を負わないものとします。\n2. 当社は、当社のウェブページ・サーバー・ドメインなどから送られるメール・コンテンツに、コンピューター・ウィルスなどの有害なものが含まれていないことを保証いたしません。\n3. 会員が本規約等に違反したことによって生じた損害については、当社は一切責任を負いません。', 3, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(11, '第11条 (本規約の改定)', '当社は、本規約を任意に改定できるものとし、また、当社において本規約を補充する規約(以下「補充規約」といいます)を定めることができます。本規約の改定または補充は、改定後の本規約または補充規約を当社所定のサイトに掲示したときにその効力を生じるものとします。この場合、会員は、改定後の規約および補充規約に従うものと致します。', 2, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0),
+(12, '第12条 (準拠法、管轄裁判所)', '本規約に関して紛争が生じた場合、当社本店所在地を管轄する地方裁判所を第一審の専属的合意管轄裁判所とします。 ', 1, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0);
 
 -- --------------------------------------------------------
 
@@ -1291,8 +1306,7 @@ INSERT INTO `dtb_kiyaku` (`kiyaku_id`, `kiyaku_title`, `kiyaku_text`, `rank`, `c
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_kiyaku_kiyaku_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
@@ -1316,8 +1330,7 @@ CREATE TABLE IF NOT EXISTS `dtb_mailmaga_template` (
   `del_flg` smallint(6) NOT NULL DEFAULT '0',
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`template_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1327,8 +1340,7 @@ CREATE TABLE IF NOT EXISTS `dtb_mailmaga_template` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_mailmaga_template_template_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1345,8 +1357,7 @@ CREATE TABLE IF NOT EXISTS `dtb_mailtemplate` (
   `creator_id` int(11) NOT NULL,
   `del_flg` smallint(6) NOT NULL DEFAULT '0',
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`template_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1354,8 +1365,8 @@ CREATE TABLE IF NOT EXISTS `dtb_mailtemplate` (
 --
 
 INSERT INTO `dtb_mailtemplate` (`template_id`, `subject`, `header`, `footer`, `creator_id`, `del_flg`, `create_date`, `update_date`) VALUES
-(1, 'ご注文ありがとうございます', 'この度はご注文いただき誠にありがとうございます。\n下記ご注文内容にお間違えがないかご確認下さい。\n\n', '\n============================================\n\n\nこのメッセージはお客様へのお知らせ専用ですので、\nこのメッセージへの返信としてご質問をお送りいただいても回答できません。\nご了承ください。\n\nご質問やご不明な点がございましたら、こちらからお願いいたします。\n\n', 0, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24'),
-(5, 'お問い合わせを受け付けました', NULL, NULL, 0, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24');
+(1, 'ご注文ありがとうございます', 'この度はご注文いただき誠にありがとうございます。\n下記ご注文内容にお間違えがないかご確認下さい。\n\n', '\n============================================\n\n\nこのメッセージはお客様へのお知らせ専用ですので、\nこのメッセージへの返信としてご質問をお送りいただいても回答できません。\nご了承ください。\n\nご質問やご不明な点がございましたら、こちらからお願いいたします。\n\n', 0, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(5, 'お問い合わせを受け付けました', NULL, NULL, 0, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08');
 
 -- --------------------------------------------------------
 
@@ -1370,9 +1381,19 @@ CREATE TABLE IF NOT EXISTS `dtb_mail_history` (
   `template_id` int(11) DEFAULT NULL,
   `creator_id` int(11) NOT NULL,
   `subject` text COLLATE utf8_unicode_ci,
-  `mail_body` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`send_id`)
+  `mail_body` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `dtb_mail_history`
+--
+
+INSERT INTO `dtb_mail_history` (`send_id`, `order_id`, `send_date`, `template_id`, `creator_id`, `subject`, `mail_body`) VALUES
+(1, 1, '2014-10-17 15:32:58', 1, 0, '【nakame_ec】 ご注文ありがとうございます', 'jennilynn  様\n\nこの度はご注文いただき誠にありがとうございます。\n下記ご注文内容にお間違えがないかご確認下さい。\n\n************************************************\n　ご請求金額\n************************************************\n\nご注文番号：1\nお支払合計：￥ 4,446\nご決済方法：銀行振込\nメッセージ：\n\n\n************************************************\n　ご注文商品明細\n************************************************\n\n商品コード: nabe-01\n商品名: おなべ  \n単価：￥ 1,733\n数量：2\n\n商品コード: ice-02\n商品名: アイスクリーム 抹茶 M\n単価：￥ 980\n数量：1\n\n-------------------------------------------------\n小　計 ￥ 4,446 (うち消費税 ￥213）\n値引き ￥ 0\n送　料 ￥ 0\n手数料 ￥ 0\n============================================\n合　計 ￥ 4,446\n\n************************************************\n　配送情報\n************************************************\n\n◎お届け先\n　お名前　：jennilynn 　様\n　郵便番号：〒-\n　住所　　：\n　電話番号：--\n　FAX番号 ：\n　お届け日：指定なし\n　お届け時間：指定なし\n\n商品コード: ice-02\n商品名: アイスクリーム 抹茶 M\n単価：￥ 980\n数量：1\n\n商品コード: nabe-01\n商品名: おなべ  \n単価：￥ 1,733\n数量：2\n\n============================================\nご使用ポイント 0 pt\n今回加算される予定のポイント 423 pt\n現在の所持ポイント 0 pt\n\n============================================\n\n\nこのメッセージはお客様へのお知らせ専用ですので、\nこのメッセージへの返信としてご質問をお送りいただいても回答できません。\nご了承ください。\n\nご質問やご不明な点がございましたら、こちらからお願いいたします。'),
+(2, 2, '2014-10-23 10:56:33', 1, 2, '【nakame_ec】 ご注文ありがとうございます', 'jennilynn jen 様\n\nこの度はご注文いただき誠にありがとうございます。\n下記ご注文内容にお間違えがないかご確認下さい。\n\n************************************************\n　ご請求金額\n************************************************\n\nご注文番号：2\nお支払合計：￥ 980\nご決済方法：現金書留\nメッセージ：\n\n\n************************************************\n　ご注文商品明細\n************************************************\n\n商品コード: ice-01\n商品名: アイスクリーム 抹茶 S\n単価：￥ 980\n数量：1\n\n-------------------------------------------------\n小　計 ￥ 980 (うち消費税 ￥47）\n値引き ￥ 0\n送　料 ￥ 0\n手数料 ￥ 0\n============================================\n合　計 ￥ 980\n\n************************************************\n　配送情報\n************************************************\n\n◎お届け先\n　お名前　：jennilynn jen　様\n　郵便番号：〒-\n　住所　　：\n　電話番号：--\n　FAX番号 ：\n　お届け日：指定なし\n　お届け時間：指定なし\n\n商品コード: ice-01\n商品名: アイスクリーム 抹茶 S\n単価：￥ 980\n数量：1\n\n============================================\nご使用ポイント 0 pt\n今回加算される予定のポイント 93 pt\n現在の所持ポイント 0 pt\n\n============================================\n\n\nこのメッセージはお客様へのお知らせ専用ですので、\nこのメッセージへの返信としてご質問をお送りいただいても回答できません。\nご了承ください。\n\nご質問やご不明な点がございましたら、こちらからお願いいたします。'),
+(3, 3, '2014-10-23 12:37:04', 1, 2, '【nakame_ec】 ご注文ありがとうございます', 'daniel  様\n\nこの度はご注文いただき誠にありがとうございます。\n下記ご注文内容にお間違えがないかご確認下さい。\n\n************************************************\n　ご請求金額\n************************************************\n\nご注文番号：3\nお支払合計：￥ 2,713\nご決済方法：代金引換\nメッセージ：\n\n\n************************************************\n　ご注文商品明細\n************************************************\n\n商品コード: ice-05\n商品名: アイスクリーム チョコ M\n単価：￥ 980\n数量：1\n\n商品コード: nabe-01\n商品名: おなべ  \n単価：￥ 1,733\n数量：1\n\n-------------------------------------------------\n小　計 ￥ 2,713 (うち消費税 ￥130）\n値引き ￥ 0\n送　料 ￥ 0\n手数料 ￥ 0\n============================================\n合　計 ￥ 2,713\n\n************************************************\n　配送情報\n************************************************\n\n◎お届け先\n　お名前　：daniel 　様\n　郵便番号：〒-\n　住所　　：\n　電話番号：--\n　FAX番号 ：\n　お届け日：指定なし\n　お届け時間：指定なし\n\n商品コード: ice-05\n商品名: アイスクリーム チョコ M\n単価：￥ 980\n数量：1\n\n商品コード: nabe-01\n商品名: おなべ  \n単価：￥ 1,733\n数量：1\n\n============================================\nご使用ポイント 0 pt\n今回加算される予定のポイント 258 pt\n現在の所持ポイント 0 pt\n\n============================================\n\n\nこのメッセージはお客様へのお知らせ専用ですので、\nこのメッセージへの返信としてご質問をお送りいただいても回答できません。\nご了承ください。\n\nご質問やご不明な点がございましたら、こちらからお願いいたします。'),
+(4, 4, '2014-10-23 14:16:29', 1, 2, '【nakame_ec】 ご注文ありがとうございます', 'jennilynn jen 様\n\nこの度はご注文いただき誠にありがとうございます。\n下記ご注文内容にお間違えがないかご確認下さい。\n\n************************************************\n　ご請求金額\n************************************************\n\nご注文番号：4\nお支払合計：￥ 980\nご決済方法：代金引換\nメッセージ：\n\n\n************************************************\n　ご注文商品明細\n************************************************\n\n商品コード: ice-01\n商品名: アイスクリーム 抹茶 S\n単価：￥ 980\n数量：1\n\n-------------------------------------------------\n小　計 ￥ 980 (うち消費税 ￥47）\n値引き ￥ 0\n送　料 ￥ 0\n手数料 ￥ 0\n============================================\n合　計 ￥ 980\n\n************************************************\n　配送情報\n************************************************\n\n◎お届け先\n　お名前　：jennilynn jen　様\n　郵便番号：〒-\n　住所　　：\n　電話番号：--\n　FAX番号 ：\n　お届け日：指定なし\n　お届け時間：指定なし\n\n商品コード: ice-01\n商品名: アイスクリーム 抹茶 S\n単価：￥ 980\n数量：1\n\n============================================\nご使用ポイント 0 pt\n今回加算される予定のポイント 93 pt\n現在の所持ポイント 0 pt\n\n============================================\n\n\nこのメッセージはお客様へのお知らせ専用ですので、\nこのメッセージへの返信としてご質問をお送りいただいても回答できません。\nご了承ください。\n\nご質問やご不明な点がございましたら、こちらからお願いいたします。'),
+(5, 5, '2014-11-26 12:50:38', 1, 0, '【EC_project】 ご注文ありがとうございます', 'caca  様\r\n\r\nこの度はご注文いただき誠にありがとうございます。\n下記ご注文内容にお間違えがないかご確認下さい。\r\n\r\n************************************************\r\n　ご請求金額\r\n************************************************\r\n\r\nご注文番号：5\r\nお支払合計：￥ 0\r\nご決済方法：\r\nメッセージ：\r\n\r\n\r\n************************************************\r\n　ご注文商品明細\r\n************************************************\r\n\r\n商品コード: nabe-01\r\n商品名: おなべ  \r\n単価：￥ 1,733\r\n数量：1\r\n\r\n-------------------------------------------------\r\n小　計 ￥ 0 (うち消費税 ￥0）\r\n値引き ￥ 0\r\n送　料 ￥ 0\r\n手数料 ￥ 0\r\n============================================\r\n合　計 ￥ 0\r\n\r\n============================================\r\nご使用ポイント 0 pt\r\n今回加算される予定のポイント 0 pt\r\n現在の所持ポイント 0 pt\r\n\n============================================\n\n\nこのメッセージはお客様へのお知らせ専用ですので、\nこのメッセージへの返信としてご質問をお送りいただいても回答できません。\nご了承ください。\n\nご質問やご不明な点がございましたら、こちらからお願いいたします。\r');
 
 -- --------------------------------------------------------
 
@@ -1381,9 +1402,15 @@ CREATE TABLE IF NOT EXISTS `dtb_mail_history` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_mail_history_send_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+`sequence` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `dtb_mail_history_send_id_seq`
+--
+
+INSERT INTO `dtb_mail_history_send_id_seq` (`sequence`) VALUES
+(5);
 
 -- --------------------------------------------------------
 
@@ -1398,8 +1425,7 @@ CREATE TABLE IF NOT EXISTS `dtb_maker` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`maker_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1411,8 +1437,7 @@ CREATE TABLE IF NOT EXISTS `dtb_maker` (
 CREATE TABLE IF NOT EXISTS `dtb_maker_count` (
   `maker_id` int(11) NOT NULL,
   `product_count` int(11) NOT NULL,
-  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`maker_id`)
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1422,8 +1447,7 @@ CREATE TABLE IF NOT EXISTS `dtb_maker_count` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_maker_maker_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1446,8 +1470,7 @@ CREATE TABLE IF NOT EXISTS `dtb_member` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `login_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`member_id`)
+  `login_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1455,8 +1478,8 @@ CREATE TABLE IF NOT EXISTS `dtb_member` (
 --
 
 INSERT INTO `dtb_member` (`member_id`, `name`, `department`, `login_id`, `password`, `salt`, `authority`, `rank`, `work`, `del_flg`, `creator_id`, `create_date`, `update_date`, `login_date`) VALUES
-(1, 'dummy', NULL, 'dummy', 'dummy', 'dummy', 0, 0, 1, 1, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, '管理者', NULL, 'admin', '06d005e1b6823716e9e02b7bb491c785aa923650690a799b555f2f2176f1425d', 'catrastait', 0, 1, 1, 0, 0, '2014-10-02 04:47:37', '2014-10-02 04:47:37', '2014-10-09 15:26:43');
+(1, 'dummy', NULL, 'dummy', 'dummy', 'dummy', 0, 0, 1, 1, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08', NULL),
+(2, '管理者', NULL, 'admin', '2f1612c4ac5a0f2896d3780a5837547f9aaa576dd865780cb35a870abe1d3d3b', 'goukaecetr', 0, 1, 1, 0, 0, '2014-10-12 06:47:39', '2014-10-12 06:47:39', '2014-11-26 15:54:32');
 
 -- --------------------------------------------------------
 
@@ -1465,8 +1488,7 @@ INSERT INTO `dtb_member` (`member_id`, `name`, `department`, `login_id`, `passwo
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_member_member_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
@@ -1487,12 +1509,7 @@ CREATE TABLE IF NOT EXISTS `dtb_mobile_ext_session_id` (
   `param_key` text COLLATE utf8_unicode_ci,
   `param_value` text COLLATE utf8_unicode_ci,
   `url` text COLLATE utf8_unicode_ci,
-  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`session_id`(255)),
-  KEY `dtb_mobile_ext_session_id_param_key_key` (`param_key`(255)),
-  KEY `dtb_mobile_ext_session_id_param_value_key` (`param_value`(255)),
-  KEY `dtb_mobile_ext_session_id_url_key` (`url`(255)),
-  KEY `dtb_mobile_ext_session_id_create_date_key` (`create_date`)
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1509,8 +1526,7 @@ CREATE TABLE IF NOT EXISTS `dtb_module` (
   `auto_update_flg` smallint(6) NOT NULL DEFAULT '0',
   `del_flg` smallint(6) NOT NULL DEFAULT '0',
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`module_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1518,7 +1534,8 @@ CREATE TABLE IF NOT EXISTS `dtb_module` (
 --
 
 INSERT INTO `dtb_module` (`module_id`, `module_code`, `module_name`, `sub_data`, `auto_update_flg`, `del_flg`, `create_date`, `update_date`) VALUES
-(0, '0', 'patch', NULL, 0, 0, '2014-10-02 04:46:24', '2014-10-02 04:46:24');
+(0, '0', 'patch', NULL, 0, 0, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(1, 'PayPalExpressCheckout', 'PayPal Express Checkout plug-in', 'a:1:{s:15:"use_express_btn";i:1;}', 0, 0, '2014-10-24 03:04:20', '2014-10-24 03:04:20');
 
 -- --------------------------------------------------------
 
@@ -1534,8 +1551,7 @@ CREATE TABLE IF NOT EXISTS `dtb_module_update_logs` (
   `error` text COLLATE utf8_unicode_ci,
   `ok` text COLLATE utf8_unicode_ci,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`log_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1545,8 +1561,7 @@ CREATE TABLE IF NOT EXISTS `dtb_module_update_logs` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_module_update_logs_log_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1567,8 +1582,7 @@ CREATE TABLE IF NOT EXISTS `dtb_news` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`news_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1576,7 +1590,7 @@ CREATE TABLE IF NOT EXISTS `dtb_news` (
 --
 
 INSERT INTO `dtb_news` (`news_id`, `news_date`, `rank`, `news_title`, `news_comment`, `news_url`, `news_select`, `link_method`, `creator_id`, `create_date`, `update_date`, `del_flg`) VALUES
-(1, '2014-10-02 12:46:24', 1, 'サイトオープンいたしました!', '一人暮らしからオフィスなどさまざまなシーンで あなたの生活をサポートするグッズをご家庭へお届けします！一人暮らしからオフィスなどさまざまなシーンで あなたの生活をサポートするグッズをご家庭へお届けします！一人暮らしからオフィスなどさまざまなシーンで あなたの生活をサポートするグッズをご家庭へお届けします！', NULL, 0, NULL, 1, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 0);
+(1, '2014-10-12 14:47:08', 1, 'サイトオープンいたしました!', '一人暮らしからオフィスなどさまざまなシーンで あなたの生活をサポートするグッズをご家庭へお届けします！一人暮らしからオフィスなどさまざまなシーンで あなたの生活をサポートするグッズをご家庭へお届けします！一人暮らしからオフィスなどさまざまなシーンで あなたの生活をサポートするグッズをご家庭へお届けします！', NULL, 0, NULL, 1, '2014-10-12 06:47:08', '2014-10-12 06:47:08', 0);
 
 -- --------------------------------------------------------
 
@@ -1585,8 +1599,7 @@ INSERT INTO `dtb_news` (`news_id`, `news_date`, `rank`, `news_title`, `news_comm
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_news_news_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
@@ -1611,7 +1624,6 @@ CREATE TABLE IF NOT EXISTS `dtb_order` (
   `order_name02` text COLLATE utf8_unicode_ci,
   `order_kana01` text COLLATE utf8_unicode_ci,
   `order_kana02` text COLLATE utf8_unicode_ci,
-  `order_company_name` text COLLATE utf8_unicode_ci,
   `order_email` text COLLATE utf8_unicode_ci,
   `order_tel01` text COLLATE utf8_unicode_ci,
   `order_tel02` text COLLATE utf8_unicode_ci,
@@ -1621,8 +1633,6 @@ CREATE TABLE IF NOT EXISTS `dtb_order` (
   `order_fax03` text COLLATE utf8_unicode_ci,
   `order_zip01` text COLLATE utf8_unicode_ci,
   `order_zip02` text COLLATE utf8_unicode_ci,
-  `order_zipcode` text COLLATE utf8_unicode_ci,
-  `order_country_id` int(11) DEFAULT NULL,
   `order_pref` smallint(6) DEFAULT NULL,
   `order_addr01` text COLLATE utf8_unicode_ci,
   `order_addr02` text COLLATE utf8_unicode_ci,
@@ -1659,9 +1669,19 @@ CREATE TABLE IF NOT EXISTS `dtb_order` (
   `memo07` text COLLATE utf8_unicode_ci,
   `memo08` text COLLATE utf8_unicode_ci,
   `memo09` text COLLATE utf8_unicode_ci,
-  `memo10` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`order_id`)
+  `memo10` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `dtb_order`
+--
+
+INSERT INTO `dtb_order` (`order_id`, `order_temp_id`, `customer_id`, `message`, `order_name01`, `order_name02`, `order_kana01`, `order_kana02`, `order_email`, `order_tel01`, `order_tel02`, `order_tel03`, `order_fax01`, `order_fax02`, `order_fax03`, `order_zip01`, `order_zip02`, `order_pref`, `order_addr01`, `order_addr02`, `order_sex`, `order_birth`, `order_job`, `subtotal`, `discount`, `deliv_id`, `deliv_fee`, `charge`, `use_point`, `add_point`, `birth_point`, `tax`, `total`, `payment_total`, `payment_id`, `payment_method`, `note`, `status`, `create_date`, `update_date`, `commit_date`, `payment_date`, `device_type_id`, `del_flg`, `memo01`, `memo02`, `memo03`, `memo04`, `memo05`, `memo06`, `memo07`, `memo08`, `memo09`, `memo10`) VALUES
+(1, '5440c604eb869WZL35Y5T', 1, NULL, '', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4446', '0', 1, '0', '0', '0', '423', '0', '213', '4446', '4446', 3, '銀行振込', NULL, 1, '2014-10-17 07:32:55', '2014-10-17 07:32:55', NULL, NULL, 10, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, '54486e5420ac19h9Q59Tf', 28, NULL, 'jennilynn', 'jen', 'http://facebook.com', 'ccca', 'trs.chaola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '980', '0', 1, '0', '0', '0', '93', '0', '47', '980', '980', 2, '現金書留', NULL, 1, '2014-10-23 02:56:31', '2014-10-23 02:56:31', NULL, NULL, 10, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, '544885e4f2cae2AmzxBW3', 29, NULL, 'daniel', NULL, NULL, NULL, 'trd.cabaledaniel@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2713', '0', 1, '0', '0', '0', '258', '0', '130', '2713', '2713', 4, '代金引換', NULL, 1, '2014-10-23 04:37:03', '2014-10-23 04:37:03', NULL, NULL, 10, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, '54489d34cd1afKTCxCeqR', 28, NULL, 'jennilynn', 'jen', 'http://facebook.com', 'ccca', 'trs.chaola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '980', '0', 1, '0', '0', '0', '93', '0', '47', '980', '980', 4, '代金引換', NULL, 1, '2014-10-23 06:16:28', '2014-10-23 06:16:28', NULL, NULL, 10, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, '54754333983e5Mmy66KZx', 35, NULL, 'caca', NULL, NULL, NULL, 'caca@caca.caca', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test4', 'test5', NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2014-11-26 04:50:36', '2014-11-26 04:50:36', NULL, NULL, 10, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1680,12 +1700,21 @@ CREATE TABLE IF NOT EXISTS `dtb_order_detail` (
   `classcategory_name2` text COLLATE utf8_unicode_ci,
   `price` decimal(10,0) DEFAULT NULL,
   `quantity` decimal(10,0) DEFAULT NULL,
-  `point_rate` decimal(10,0) NOT NULL DEFAULT '0',
-  `tax_rate` decimal(10,0) DEFAULT NULL,
-  `tax_rule` smallint(6) DEFAULT NULL,
-  PRIMARY KEY (`order_detail_id`),
-  KEY `dtb_order_detail_product_id_key` (`product_id`)
+  `point_rate` decimal(10,0) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `dtb_order_detail`
+--
+
+INSERT INTO `dtb_order_detail` (`order_detail_id`, `order_id`, `product_id`, `product_class_id`, `product_name`, `product_code`, `classcategory_name1`, `classcategory_name2`, `price`, `quantity`, `point_rate`) VALUES
+(1, 1, 2, 10, 'おなべ', 'nabe-01', NULL, NULL, '1650', '2', '10'),
+(2, 1, 1, 2, 'アイスクリーム', 'ice-02', '抹茶', 'M', '933', '1', '10'),
+(3, 2, 1, 1, 'アイスクリーム', 'ice-01', '抹茶', 'S', '933', '1', '10'),
+(4, 3, 1, 5, 'アイスクリーム', 'ice-05', 'チョコ', 'M', '933', '1', '10'),
+(5, 3, 2, 10, 'おなべ', 'nabe-01', NULL, NULL, '1650', '1', '10'),
+(6, 4, 1, 1, 'アイスクリーム', 'ice-01', '抹茶', 'S', '933', '1', '10'),
+(7, 5, 2, 10, 'おなべ', 'nabe-01', NULL, NULL, '1650', '1', '10');
 
 -- --------------------------------------------------------
 
@@ -1694,9 +1723,15 @@ CREATE TABLE IF NOT EXISTS `dtb_order_detail` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_order_detail_order_detail_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+`sequence` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `dtb_order_detail_order_detail_id_seq`
+--
+
+INSERT INTO `dtb_order_detail_order_detail_id_seq` (`sequence`) VALUES
+(7);
 
 -- --------------------------------------------------------
 
@@ -1705,9 +1740,15 @@ CREATE TABLE IF NOT EXISTS `dtb_order_detail_order_detail_id_seq` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_order_order_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+`sequence` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `dtb_order_order_id_seq`
+--
+
+INSERT INTO `dtb_order_order_id_seq` (`sequence`) VALUES
+(5);
 
 -- --------------------------------------------------------
 
@@ -1723,7 +1764,6 @@ CREATE TABLE IF NOT EXISTS `dtb_order_temp` (
   `order_name02` text COLLATE utf8_unicode_ci,
   `order_kana01` text COLLATE utf8_unicode_ci,
   `order_kana02` text COLLATE utf8_unicode_ci,
-  `order_company_name` text COLLATE utf8_unicode_ci,
   `order_email` text COLLATE utf8_unicode_ci,
   `order_tel01` text COLLATE utf8_unicode_ci,
   `order_tel02` text COLLATE utf8_unicode_ci,
@@ -1733,8 +1773,6 @@ CREATE TABLE IF NOT EXISTS `dtb_order_temp` (
   `order_fax03` text COLLATE utf8_unicode_ci,
   `order_zip01` text COLLATE utf8_unicode_ci,
   `order_zip02` text COLLATE utf8_unicode_ci,
-  `order_zipcode` text COLLATE utf8_unicode_ci,
-  `order_country_id` int(11) DEFAULT NULL,
   `order_pref` smallint(6) DEFAULT NULL,
   `order_addr01` text COLLATE utf8_unicode_ci,
   `order_addr02` text COLLATE utf8_unicode_ci,
@@ -1774,9 +1812,20 @@ CREATE TABLE IF NOT EXISTS `dtb_order_temp` (
   `memo08` text COLLATE utf8_unicode_ci,
   `memo09` text COLLATE utf8_unicode_ci,
   `memo10` text COLLATE utf8_unicode_ci,
-  `session` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`order_temp_id`(64))
+  `session` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `dtb_order_temp`
+--
+
+INSERT INTO `dtb_order_temp` (`order_temp_id`, `customer_id`, `message`, `order_name01`, `order_name02`, `order_kana01`, `order_kana02`, `order_email`, `order_tel01`, `order_tel02`, `order_tel03`, `order_fax01`, `order_fax02`, `order_fax03`, `order_zip01`, `order_zip02`, `order_pref`, `order_addr01`, `order_addr02`, `order_sex`, `order_birth`, `order_job`, `subtotal`, `discount`, `deliv_id`, `deliv_fee`, `charge`, `use_point`, `add_point`, `birth_point`, `tax`, `total`, `payment_total`, `payment_id`, `payment_method`, `note`, `mail_flag`, `status`, `deliv_check`, `point_check`, `create_date`, `update_date`, `device_type_id`, `del_flg`, `order_id`, `memo01`, `memo02`, `memo03`, `memo04`, `memo05`, `memo06`, `memo07`, `memo08`, `memo09`, `memo10`, `session`) VALUES
+('54486e5420ac19h9Q59Tf', 28, NULL, 'jennilynn', 'jen', 'http://facebook.com', 'ccca', 'trs.chaola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '980', '0', 1, '0', '0', '0', '93', '0', '47', '980', '980', 2, '現金書留', NULL, NULL, NULL, NULL, 2, '2014-10-23 02:56:23', '2014-10-23 02:56:31', 10, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'a:17:{s:4:"cart";a:1:{i:1;a:3:{i:1;a:7:{s:2:"id";s:1:"1";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-01";s:16:"product_class_id";s:1:"1";s:19:"classcategory_name1";s:6:"抹茶";s:11:"class_name1";s:3:"味";s:19:"classcategory_name2";s:1:"S";s:11:"class_name2";s:9:"大きさ";s:4:"name";s:21:"アイスクリーム";s:15:"main_list_image";s:10:"ice130.jpg";s:10:"main_image";s:10:"ice260.jpg";}s:5:"price";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:980;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}}}s:8:"prev_url";s:53:"/resize_image.php?image=ice130.jpg&width=65&height=65";s:13:"transactionid";s:40:"feafb1378b9b579c00d0f65ad8c4fc6ec518e916";s:4:"site";a:5:{s:18:"pre_regist_success";b:0;s:14:"regist_success";b:0;s:8:"pre_page";s:21:"/shopping/confirm.php";s:8:"now_page";s:21:"/shopping/confirm.php";s:6:"uniqid";s:21:"54486e5420ac19h9Q59Tf";}s:13:"cart_prev_url";s:59:"http://nakame_ec.localhost/products/detail.php?product_id=1";s:4:"cert";s:8:"7WDhcBTF";s:9:"member_id";s:1:"2";s:8:"login_id";s:5:"admin";s:9:"authority";s:1:"0";s:10:"login_name";s:9:"管理者";s:6:"uniqid";s:21:"544862342fa7drg7b9Mvm";s:10:"last_login";s:19:"2014-10-22 19:03:53";s:8:"customer";a:38:{s:11:"customer_id";s:2:"28";s:6:"name01";s:9:"jennilynn";s:6:"name02";s:3:"jen";s:6:"kana01";s:19:"http://facebook.com";s:6:"kana02";s:4:"ccca";s:5:"zip01";N;s:5:"zip02";N;s:4:"pref";N;s:6:"addr01";N;s:6:"addr02";N;s:5:"email";s:20:"trs.chaola@gmail.com";s:12:"email_mobile";N;s:5:"tel01";N;s:5:"tel02";N;s:5:"tel03";N;s:5:"fax01";N;s:5:"fax02";N;s:5:"fax03";N;s:3:"sex";N;s:3:"job";N;s:5:"birth";N;s:8:"password";s:64:"ec4552a841510d6d13b5839ac8e187f4b7eb1e448c3b06fa68857a25e4b6ef60";s:8:"reminder";N;s:15:"reminder_answer";N;s:4:"salt";s:10:"chiatratre";s:10:"secret_key";s:22:"r543b4b1846ec0ftQXhkcv";s:14:"first_buy_date";s:19:"2014-10-17 15:32:55";s:13:"last_buy_date";s:19:"2014-10-17 15:32:55";s:9:"buy_times";s:1:"1";s:9:"buy_total";s:4:"4446";s:5:"point";s:1:"0";s:4:"note";N;s:6:"status";s:1:"2";s:11:"create_date";s:19:"2014-10-13 11:46:32";s:11:"update_date";s:19:"2014-10-13 11:46:32";s:7:"del_flg";s:1:"0";s:15:"mobile_phone_id";N;s:12:"mailmaga_flg";N;}s:7:"cartKey";s:1:"1";s:30:"savecart_54486e5420ac19h9Q59Tf";a:3:{i:1;a:7:{s:2:"id";s:1:"1";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-01";s:16:"product_class_id";s:1:"1";s:19:"classcategory_name1";s:6:"抹茶";s:11:"class_name1";s:3:"味";s:19:"classcategory_name2";s:1:"S";s:11:"class_name2";s:9:"大きさ";s:4:"name";s:21:"アイスクリーム";s:15:"main_list_image";s:10:"ice130.jpg";s:10:"main_image";s:10:"ice260.jpg";}s:5:"price";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:980;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}}s:8:"shipping";a:1:{i:0;a:27:{s:15:"shipping_name01";s:9:"jennilynn";s:15:"shipping_name02";s:3:"jen";s:15:"shipping_kana01";s:19:"http://facebook.com";s:15:"shipping_kana02";s:4:"ccca";s:12:"shipping_sex";s:0:"";s:14:"shipping_zip01";s:0:"";s:14:"shipping_zip02";s:0:"";s:13:"shipping_pref";s:0:"";s:15:"shipping_addr01";s:0:"";s:15:"shipping_addr02";s:0:"";s:14:"shipping_tel01";s:0:"";s:14:"shipping_tel02";s:0:"";s:14:"shipping_tel03";s:0:"";s:14:"shipping_fax01";s:0:"";s:14:"shipping_fax02";s:0:"";s:14:"shipping_fax03";s:0:"";s:12:"shipping_job";s:0:"";s:14:"shipping_birth";s:0:"";s:14:"shipping_email";s:20:"trs.chaola@gmail.com";s:11:"customer_id";s:2:"28";s:11:"update_date";s:17:"CURRENT_TIMESTAMP";s:11:"shipping_id";i:0;s:13:"shipment_item";a:1:{i:1;a:6:{s:11:"shipping_id";i:0;s:16:"product_class_id";s:1:"1";s:8:"quantity";s:1:"1";s:13:"productsClass";a:83:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price01";s:4:"1000";s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-01";s:16:"product_class_id";s:1:"1";s:7:"del_flg";s:1:"0";s:15:"product_type_id";s:1:"1";s:13:"down_filename";N;s:17:"down_realfilename";N;s:19:"classcategory_name1";s:6:"抹茶";s:5:"rank1";s:1:"3";s:11:"class_name1";s:3:"味";s:9:"class_id1";s:1:"1";s:17:"classcategory_id1";s:1:"3";s:17:"classcategory_id2";s:1:"6";s:19:"classcategory_name2";s:1:"S";s:5:"rank2";s:1:"3";s:11:"class_name2";s:9:"大きさ";s:9:"class_id2";s:1:"2";s:4:"name";s:21:"アイスクリーム";s:8:"maker_id";N;s:6:"status";s:1:"1";s:8:"comment1";N;s:8:"comment2";N;s:8:"comment3";s:36:"アイス,バニラ,チョコ,抹茶";s:8:"comment4";N;s:8:"comment5";N;s:8:"comment6";N;s:4:"note";N;s:17:"main_list_comment";s:24:"暑い夏にどうぞ。";s:15:"main_list_image";s:10:"ice130.jpg";s:12:"main_comment";s:37:"冷たいものはいかがですか?";s:10:"main_image";s:10:"ice260.jpg";s:16:"main_large_image";s:10:"ice500.jpg";s:10:"sub_title1";N;s:12:"sub_comment1";s:21:"<b>おいしいよ<b>";s:10:"sub_image1";N;s:16:"sub_large_image1";N;s:10:"sub_title2";N;s:12:"sub_comment2";N;s:10:"sub_image2";N;s:16:"sub_large_image2";N;s:10:"sub_title3";N;s:12:"sub_comment3";N;s:10:"sub_image3";N;s:16:"sub_large_image3";N;s:10:"sub_title4";N;s:12:"sub_comment4";N;s:10:"sub_image4";N;s:16:"sub_large_image4";N;s:10:"sub_title5";N;s:12:"sub_comment5";N;s:10:"sub_image5";N;s:16:"sub_large_image5";N;s:10:"sub_title6";N;s:12:"sub_comment6";N;s:10:"sub_image6";N;s:16:"sub_large_image6";N;s:10:"creator_id";s:1:"2";s:11:"create_date";s:19:"2014-10-12 14:47:09";s:11:"update_date";s:19:"2014-10-12 14:47:09";s:13:"deliv_date_id";s:1:"2";s:16:"product_code_min";s:6:"ice-01";s:16:"product_code_max";s:6:"ice-09";s:11:"price01_min";s:4:"1000";s:11:"price01_max";s:4:"1000";s:11:"price02_min";s:3:"933";s:11:"price02_max";s:3:"933";s:9:"stock_min";N;s:9:"stock_max";N;s:19:"stock_unlimited_min";s:1:"1";s:19:"stock_unlimited_max";s:1:"1";s:9:"deliv_fee";N;s:11:"class_count";s:1:"9";s:10:"maker_name";N;s:18:"price01_min_inctax";d:1050;s:18:"price01_max_inctax";d:1050;s:18:"price02_min_inctax";d:980;s:18:"price02_max_inctax";d:980;}s:5:"price";s:3:"933";s:12:"total_inctax";d:980;}}s:8:"deliv_id";s:1:"1";s:7:"time_id";s:0:"";s:13:"shipping_time";N;s:13:"shipping_date";s:0:"";}}s:8:"order_id";i:2;}'),
+('544885e4f2cae2AmzxBW3', 29, NULL, 'daniel', NULL, NULL, NULL, 'trd.cabaledaniel@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2713', '0', 1, '0', '0', '0', '258', '0', '130', '2713', '2713', 4, '代金引換', NULL, NULL, NULL, NULL, 2, '2014-10-23 04:36:55', '2014-10-23 04:37:03', 10, 1, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'a:17:{s:4:"cart";a:1:{i:1;a:4:{i:1;a:7:{s:2:"id";s:1:"5";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-05";s:16:"product_class_id";s:1:"5";s:19:"classcategory_name1";s:9:"チョコ";s:11:"class_name1";s:3:"味";s:19:"classcategory_name2";s:1:"M";s:11:"class_name2";s:9:"大きさ";s:4:"name";s:21:"アイスクリーム";s:15:"main_list_image";s:10:"ice130.jpg";s:10:"main_image";s:10:"ice260.jpg";}s:5:"price";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:980;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}i:2;a:7:{s:2:"id";s:2:"10";s:8:"quantity";s:1:"1";s:7:"cart_no";i:2;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"2";s:5:"stock";s:2:"98";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:19:"classcategory_name1";N;s:11:"class_name1";N;s:19:"classcategory_name2";N;s:11:"class_name2";N;s:4:"name";s:9:"おなべ";s:15:"main_list_image";s:11:"nabe130.jpg";s:10:"main_image";s:11:"nabe260.jpg";}s:5:"price";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:1733;}}}s:8:"prev_url";s:53:"/resize_image.php?image=ice130.jpg&width=65&height=65";s:4:"site";a:5:{s:18:"pre_regist_success";b:0;s:14:"regist_success";b:0;s:8:"pre_page";s:21:"/shopping/confirm.php";s:8:"now_page";s:21:"/shopping/confirm.php";s:6:"uniqid";s:21:"544885e4f2cae2AmzxBW3";}s:13:"cart_prev_url";s:59:"http://nakame_ec.localhost/products/detail.php?product_id=2";s:4:"cert";s:8:"7WDhcBTF";s:9:"member_id";s:1:"2";s:8:"login_id";s:5:"admin";s:9:"authority";s:1:"0";s:10:"login_name";s:9:"管理者";s:6:"uniqid";s:21:"544862342fa7drg7b9Mvm";s:10:"last_login";s:19:"2014-10-22 19:03:53";s:7:"cartKey";s:1:"1";s:13:"transactionid";s:40:"756c769a12fb52f555b0688b3e1363d03e11421c";s:8:"customer";a:38:{s:11:"customer_id";s:2:"29";s:6:"name01";s:6:"daniel";s:6:"name02";N;s:6:"kana01";N;s:6:"kana02";N;s:5:"zip01";N;s:5:"zip02";N;s:4:"pref";N;s:6:"addr01";N;s:6:"addr02";N;s:5:"email";s:26:"trd.cabaledaniel@gmail.com";s:12:"email_mobile";N;s:5:"tel01";N;s:5:"tel02";N;s:5:"tel03";N;s:5:"fax01";N;s:5:"fax02";N;s:5:"fax03";N;s:3:"sex";N;s:3:"job";N;s:5:"birth";N;s:8:"password";s:64:"cf86418bda678c013b93a17b3bdc66bcae6fa67f8027c69262a10cc022981f44";s:8:"reminder";N;s:15:"reminder_answer";N;s:4:"salt";s:10:"baipraipro";s:10:"secret_key";s:22:"r543b7c2a05a5bhJQXvxCq";s:14:"first_buy_date";N;s:13:"last_buy_date";N;s:9:"buy_times";s:1:"0";s:9:"buy_total";s:1:"0";s:5:"point";s:1:"0";s:4:"note";N;s:6:"status";s:1:"2";s:11:"create_date";s:19:"2014-10-13 15:15:54";s:11:"update_date";s:19:"2014-10-13 15:15:54";s:7:"del_flg";s:1:"0";s:15:"mobile_phone_id";N;s:12:"mailmaga_flg";N;}s:30:"savecart_544885e4f2cae2AmzxBW3";a:4:{i:1;a:7:{s:2:"id";s:1:"5";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-05";s:16:"product_class_id";s:1:"5";s:19:"classcategory_name1";s:9:"チョコ";s:11:"class_name1";s:3:"味";s:19:"classcategory_name2";s:1:"M";s:11:"class_name2";s:9:"大きさ";s:4:"name";s:21:"アイスクリーム";s:15:"main_list_image";s:10:"ice130.jpg";s:10:"main_image";s:10:"ice260.jpg";}s:5:"price";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:980;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}i:2;a:7:{s:2:"id";s:2:"10";s:8:"quantity";s:1:"1";s:7:"cart_no";i:2;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"2";s:5:"stock";s:2:"98";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:19:"classcategory_name1";N;s:11:"class_name1";N;s:19:"classcategory_name2";N;s:11:"class_name2";N;s:4:"name";s:9:"おなべ";s:15:"main_list_image";s:11:"nabe130.jpg";s:10:"main_image";s:11:"nabe260.jpg";}s:5:"price";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:1733;}}s:8:"shipping";a:1:{i:0;a:27:{s:15:"shipping_name01";s:6:"daniel";s:15:"shipping_name02";s:0:"";s:15:"shipping_kana01";s:0:"";s:15:"shipping_kana02";s:0:"";s:12:"shipping_sex";s:0:"";s:14:"shipping_zip01";s:0:"";s:14:"shipping_zip02";s:0:"";s:13:"shipping_pref";s:0:"";s:15:"shipping_addr01";s:0:"";s:15:"shipping_addr02";s:0:"";s:14:"shipping_tel01";s:0:"";s:14:"shipping_tel02";s:0:"";s:14:"shipping_tel03";s:0:"";s:14:"shipping_fax01";s:0:"";s:14:"shipping_fax02";s:0:"";s:14:"shipping_fax03";s:0:"";s:12:"shipping_job";s:0:"";s:14:"shipping_birth";s:0:"";s:14:"shipping_email";s:26:"trd.cabaledaniel@gmail.com";s:11:"customer_id";s:2:"29";s:11:"update_date";s:17:"CURRENT_TIMESTAMP";s:11:"shipping_id";i:0;s:13:"shipment_item";a:2:{i:5;a:6:{s:11:"shipping_id";i:0;s:16:"product_class_id";s:1:"5";s:8:"quantity";s:1:"1";s:13:"productsClass";a:83:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price01";s:4:"1000";s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-05";s:16:"product_class_id";s:1:"5";s:7:"del_flg";s:1:"0";s:15:"product_type_id";s:1:"1";s:13:"down_filename";N;s:17:"down_realfilename";N;s:19:"classcategory_name1";s:9:"チョコ";s:5:"rank1";s:1:"2";s:11:"class_name1";s:3:"味";s:9:"class_id1";s:1:"1";s:17:"classcategory_id1";s:1:"2";s:17:"classcategory_id2";s:1:"5";s:19:"classcategory_name2";s:1:"M";s:5:"rank2";s:1:"2";s:11:"class_name2";s:9:"大きさ";s:9:"class_id2";s:1:"2";s:4:"name";s:21:"アイスクリーム";s:8:"maker_id";N;s:6:"status";s:1:"1";s:8:"comment1";N;s:8:"comment2";N;s:8:"comment3";s:36:"アイス,バニラ,チョコ,抹茶";s:8:"comment4";N;s:8:"comment5";N;s:8:"comment6";N;s:4:"note";N;s:17:"main_list_comment";s:24:"暑い夏にどうぞ。";s:15:"main_list_image";s:10:"ice130.jpg";s:12:"main_comment";s:37:"冷たいものはいかがですか?";s:10:"main_image";s:10:"ice260.jpg";s:16:"main_large_image";s:10:"ice500.jpg";s:10:"sub_title1";N;s:12:"sub_comment1";s:21:"<b>おいしいよ<b>";s:10:"sub_image1";N;s:16:"sub_large_image1";N;s:10:"sub_title2";N;s:12:"sub_comment2";N;s:10:"sub_image2";N;s:16:"sub_large_image2";N;s:10:"sub_title3";N;s:12:"sub_comment3";N;s:10:"sub_image3";N;s:16:"sub_large_image3";N;s:10:"sub_title4";N;s:12:"sub_comment4";N;s:10:"sub_image4";N;s:16:"sub_large_image4";N;s:10:"sub_title5";N;s:12:"sub_comment5";N;s:10:"sub_image5";N;s:16:"sub_large_image5";N;s:10:"sub_title6";N;s:12:"sub_comment6";N;s:10:"sub_image6";N;s:16:"sub_large_image6";N;s:10:"creator_id";s:1:"2";s:11:"create_date";s:19:"2014-10-12 14:47:09";s:11:"update_date";s:19:"2014-10-12 14:47:09";s:13:"deliv_date_id";s:1:"2";s:16:"product_code_min";s:6:"ice-01";s:16:"product_code_max";s:6:"ice-09";s:11:"price01_min";s:4:"1000";s:11:"price01_max";s:4:"1000";s:11:"price02_min";s:3:"933";s:11:"price02_max";s:3:"933";s:9:"stock_min";N;s:9:"stock_max";N;s:19:"stock_unlimited_min";s:1:"1";s:19:"stock_unlimited_max";s:1:"1";s:9:"deliv_fee";N;s:11:"class_count";s:1:"9";s:10:"maker_name";N;s:18:"price01_min_inctax";d:1050;s:18:"price01_max_inctax";d:1050;s:18:"price02_min_inctax";d:980;s:18:"price02_max_inctax";d:980;}s:5:"price";s:3:"933";s:12:"total_inctax";d:980;}i:10;a:6:{s:11:"shipping_id";i:0;s:16:"product_class_id";s:2:"10";s:8:"quantity";s:1:"1";s:13:"productsClass";a:83:{s:10:"product_id";s:1:"2";s:5:"stock";s:2:"98";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price01";s:4:"1700";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:7:"del_flg";s:1:"0";s:15:"product_type_id";s:1:"1";s:13:"down_filename";N;s:17:"down_realfilename";N;s:19:"classcategory_name1";N;s:5:"rank1";s:1:"0";s:11:"class_name1";N;s:9:"class_id1";N;s:17:"classcategory_id1";s:1:"0";s:17:"classcategory_id2";s:1:"0";s:19:"classcategory_name2";N;s:5:"rank2";s:1:"0";s:11:"class_name2";N;s:9:"class_id2";N;s:4:"name";s:9:"おなべ";s:8:"maker_id";N;s:6:"status";s:1:"1";s:8:"comment1";N;s:8:"comment2";N;s:8:"comment3";s:17:"鍋,なべ,ナベ";s:8:"comment4";N;s:8:"comment5";N;s:8:"comment6";N;s:4:"note";N;s:17:"main_list_comment";s:30:"一人用からあります。";s:15:"main_list_image";s:11:"nabe130.jpg";s:12:"main_comment";s:42:"たまには鍋でもどうでしょう。";s:10:"main_image";s:11:"nabe260.jpg";s:16:"main_large_image";s:11:"nabe500.jpg";s:10:"sub_title1";N;s:12:"sub_comment1";N;s:10:"sub_image1";N;s:16:"sub_large_image1";N;s:10:"sub_title2";N;s:12:"sub_comment2";N;s:10:"sub_image2";N;s:16:"sub_large_image2";N;s:10:"sub_title3";N;s:12:"sub_comment3";N;s:10:"sub_image3";N;s:16:"sub_large_image3";N;s:10:"sub_title4";N;s:12:"sub_comment4";N;s:10:"sub_image4";N;s:16:"sub_large_image4";N;s:10:"sub_title5";N;s:12:"sub_comment5";N;s:10:"sub_image5";N;s:16:"sub_large_image5";N;s:10:"sub_title6";N;s:12:"sub_comment6";N;s:10:"sub_image6";N;s:16:"sub_large_image6";N;s:10:"creator_id";s:1:"2";s:11:"create_date";s:19:"2014-10-12 14:47:10";s:11:"update_date";s:19:"2014-10-12 14:47:10";s:13:"deliv_date_id";s:1:"3";s:16:"product_code_min";s:7:"nabe-01";s:16:"product_code_max";s:7:"nabe-01";s:11:"price01_min";s:4:"1700";s:11:"price01_max";s:4:"1700";s:11:"price02_min";s:4:"1650";s:11:"price02_max";s:4:"1650";s:9:"stock_min";s:2:"98";s:9:"stock_max";s:2:"98";s:19:"stock_unlimited_min";s:1:"0";s:19:"stock_unlimited_max";s:1:"0";s:9:"deliv_fee";N;s:11:"class_count";s:1:"1";s:10:"maker_name";N;s:18:"price01_min_inctax";d:1785;s:18:"price01_max_inctax";d:1785;s:18:"price02_min_inctax";d:1733;s:18:"price02_max_inctax";d:1733;}s:5:"price";s:4:"1650";s:12:"total_inctax";d:1733;}}s:8:"deliv_id";s:1:"1";s:7:"time_id";s:0:"";s:13:"shipping_time";N;s:13:"shipping_date";s:0:"";}}s:8:"order_id";i:3;}'),
+('54489d34cd1afKTCxCeqR', 28, NULL, 'jennilynn', 'jen', 'http://facebook.com', 'ccca', 'trs.chaola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '980', '0', 1, '0', '0', '0', '93', '0', '47', '980', '980', 4, '代金引換', NULL, NULL, NULL, NULL, 2, '2014-10-23 06:15:57', '2014-10-23 06:16:28', 10, 1, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'a:17:{s:4:"cart";a:1:{i:1;a:3:{i:1;a:7:{s:2:"id";s:1:"1";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-01";s:16:"product_class_id";s:1:"1";s:19:"classcategory_name1";s:6:"抹茶";s:11:"class_name1";s:3:"味";s:19:"classcategory_name2";s:1:"S";s:11:"class_name2";s:9:"大きさ";s:4:"name";s:21:"アイスクリーム";s:15:"main_list_image";s:10:"ice130.jpg";s:10:"main_image";s:10:"ice260.jpg";}s:5:"price";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:980;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}}}s:8:"prev_url";s:53:"/resize_image.php?image=ice130.jpg&width=65&height=65";s:4:"site";a:5:{s:18:"pre_regist_success";b:0;s:14:"regist_success";b:0;s:8:"pre_page";s:21:"/shopping/confirm.php";s:8:"now_page";s:21:"/shopping/confirm.php";s:6:"uniqid";s:21:"54489d34cd1afKTCxCeqR";}s:13:"cart_prev_url";s:102:"http://nakame_ec.localhost/shopping/confirm.php?transactionid=48c626305c87ee40c95215ae0aa8771bf59938e9";s:4:"cert";s:8:"7WDhcBTF";s:9:"member_id";s:1:"2";s:8:"login_id";s:5:"admin";s:9:"authority";s:1:"0";s:10:"login_name";s:9:"管理者";s:6:"uniqid";s:21:"544862342fa7drg7b9Mvm";s:10:"last_login";s:19:"2014-10-22 19:03:53";s:7:"cartKey";s:1:"1";s:13:"transactionid";s:40:"48c626305c87ee40c95215ae0aa8771bf59938e9";s:8:"customer";a:38:{s:11:"customer_id";s:2:"28";s:6:"name01";s:9:"jennilynn";s:6:"name02";s:3:"jen";s:6:"kana01";s:19:"http://facebook.com";s:6:"kana02";s:4:"ccca";s:5:"zip01";N;s:5:"zip02";N;s:4:"pref";N;s:6:"addr01";N;s:6:"addr02";N;s:5:"email";s:20:"trs.chaola@gmail.com";s:12:"email_mobile";N;s:5:"tel01";N;s:5:"tel02";N;s:5:"tel03";N;s:5:"fax01";N;s:5:"fax02";N;s:5:"fax03";N;s:3:"sex";N;s:3:"job";N;s:5:"birth";N;s:8:"password";s:64:"ec4552a841510d6d13b5839ac8e187f4b7eb1e448c3b06fa68857a25e4b6ef60";s:8:"reminder";N;s:15:"reminder_answer";N;s:4:"salt";s:10:"chiatratre";s:10:"secret_key";s:22:"r543b4b1846ec0ftQXhkcv";s:14:"first_buy_date";s:19:"2014-10-17 15:32:55";s:13:"last_buy_date";s:19:"2014-10-23 10:56:31";s:9:"buy_times";s:1:"2";s:9:"buy_total";s:4:"5426";s:5:"point";s:1:"0";s:4:"note";N;s:6:"status";s:1:"2";s:11:"create_date";s:19:"2014-10-13 11:46:32";s:11:"update_date";s:19:"2014-10-13 11:46:32";s:7:"del_flg";s:1:"0";s:15:"mobile_phone_id";N;s:12:"mailmaga_flg";N;}s:30:"savecart_54489d34cd1afKTCxCeqR";a:3:{i:1;a:7:{s:2:"id";s:1:"1";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-01";s:16:"product_class_id";s:1:"1";s:19:"classcategory_name1";s:6:"抹茶";s:11:"class_name1";s:3:"味";s:19:"classcategory_name2";s:1:"S";s:11:"class_name2";s:9:"大きさ";s:4:"name";s:21:"アイスクリーム";s:15:"main_list_image";s:10:"ice130.jpg";s:10:"main_image";s:10:"ice260.jpg";}s:5:"price";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:980;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}}s:8:"shipping";a:1:{i:0;a:27:{s:15:"shipping_name01";s:9:"jennilynn";s:15:"shipping_name02";s:3:"jen";s:15:"shipping_kana01";s:19:"http://facebook.com";s:15:"shipping_kana02";s:4:"ccca";s:12:"shipping_sex";s:0:"";s:14:"shipping_zip01";s:0:"";s:14:"shipping_zip02";s:0:"";s:13:"shipping_pref";s:0:"";s:15:"shipping_addr01";s:0:"";s:15:"shipping_addr02";s:0:"";s:14:"shipping_tel01";s:0:"";s:14:"shipping_tel02";s:0:"";s:14:"shipping_tel03";s:0:"";s:14:"shipping_fax01";s:0:"";s:14:"shipping_fax02";s:0:"";s:14:"shipping_fax03";s:0:"";s:12:"shipping_job";s:0:"";s:14:"shipping_birth";s:0:"";s:14:"shipping_email";s:20:"trs.chaola@gmail.com";s:11:"customer_id";s:2:"28";s:11:"update_date";s:17:"CURRENT_TIMESTAMP";s:11:"shipping_id";i:0;s:13:"shipment_item";a:1:{i:1;a:6:{s:11:"shipping_id";i:0;s:16:"product_class_id";s:1:"1";s:8:"quantity";s:1:"1";s:13:"productsClass";a:83:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price01";s:4:"1000";s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-01";s:16:"product_class_id";s:1:"1";s:7:"del_flg";s:1:"0";s:15:"product_type_id";s:1:"1";s:13:"down_filename";N;s:17:"down_realfilename";N;s:19:"classcategory_name1";s:6:"抹茶";s:5:"rank1";s:1:"3";s:11:"class_name1";s:3:"味";s:9:"class_id1";s:1:"1";s:17:"classcategory_id1";s:1:"3";s:17:"classcategory_id2";s:1:"6";s:19:"classcategory_name2";s:1:"S";s:5:"rank2";s:1:"3";s:11:"class_name2";s:9:"大きさ";s:9:"class_id2";s:1:"2";s:4:"name";s:21:"アイスクリーム";s:8:"maker_id";N;s:6:"status";s:1:"1";s:8:"comment1";N;s:8:"comment2";N;s:8:"comment3";s:36:"アイス,バニラ,チョコ,抹茶";s:8:"comment4";N;s:8:"comment5";N;s:8:"comment6";N;s:4:"note";N;s:17:"main_list_comment";s:24:"暑い夏にどうぞ。";s:15:"main_list_image";s:10:"ice130.jpg";s:12:"main_comment";s:37:"冷たいものはいかがですか?";s:10:"main_image";s:10:"ice260.jpg";s:16:"main_large_image";s:10:"ice500.jpg";s:10:"sub_title1";N;s:12:"sub_comment1";s:21:"<b>おいしいよ<b>";s:10:"sub_image1";N;s:16:"sub_large_image1";N;s:10:"sub_title2";N;s:12:"sub_comment2";N;s:10:"sub_image2";N;s:16:"sub_large_image2";N;s:10:"sub_title3";N;s:12:"sub_comment3";N;s:10:"sub_image3";N;s:16:"sub_large_image3";N;s:10:"sub_title4";N;s:12:"sub_comment4";N;s:10:"sub_image4";N;s:16:"sub_large_image4";N;s:10:"sub_title5";N;s:12:"sub_comment5";N;s:10:"sub_image5";N;s:16:"sub_large_image5";N;s:10:"sub_title6";N;s:12:"sub_comment6";N;s:10:"sub_image6";N;s:16:"sub_large_image6";N;s:10:"creator_id";s:1:"2";s:11:"create_date";s:19:"2014-10-12 14:47:09";s:11:"update_date";s:19:"2014-10-12 14:47:09";s:13:"deliv_date_id";s:1:"2";s:16:"product_code_min";s:6:"ice-01";s:16:"product_code_max";s:6:"ice-09";s:11:"price01_min";s:4:"1000";s:11:"price01_max";s:4:"1000";s:11:"price02_min";s:3:"933";s:11:"price02_max";s:3:"933";s:9:"stock_min";N;s:9:"stock_max";N;s:19:"stock_unlimited_min";s:1:"1";s:19:"stock_unlimited_max";s:1:"1";s:9:"deliv_fee";N;s:11:"class_count";s:1:"9";s:10:"maker_name";N;s:18:"price01_min_inctax";d:1050;s:18:"price01_max_inctax";d:1050;s:18:"price02_min_inctax";d:980;s:18:"price02_max_inctax";d:980;}s:5:"price";s:3:"933";s:12:"total_inctax";d:980;}}s:8:"deliv_id";s:1:"1";s:7:"time_id";s:0:"";s:13:"shipping_time";N;s:13:"shipping_date";s:0:"";}}s:8:"order_id";i:4;}'),
+('5448b665cc3b54EkcvPXk', 28, NULL, 'jennilynn', 'jen', 'http://facebook.com', 'ccca', 'trs.chaola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2014-10-23 07:44:45', '2014-10-23 07:46:26', 10, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'a:16:{s:4:"cart";a:1:{i:1;a:3:{i:1;a:7:{s:2:"id";s:2:"10";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"2";s:5:"stock";s:2:"97";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:19:"classcategory_name1";N;s:11:"class_name1";N;s:19:"classcategory_name2";N;s:11:"class_name2";N;s:4:"name";s:9:"おなべ";s:15:"main_list_image";s:11:"nabe130.jpg";s:10:"main_image";s:11:"nabe260.jpg";}s:5:"price";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:1733;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}}}s:8:"prev_url";s:7:"/cart/?";s:4:"site";a:5:{s:18:"pre_regist_success";b:0;s:14:"regist_success";b:0;s:8:"pre_page";s:19:"/shopping/deliv.php";s:8:"now_page";s:19:"/shopping/deliv.php";s:6:"uniqid";s:21:"5448b1e7691535bBAHSU5";}s:13:"cart_prev_url";s:27:"http://nakame_ec.localhost/";s:4:"cert";s:8:"7WDhcBTF";s:9:"member_id";s:1:"2";s:8:"login_id";s:5:"admin";s:9:"authority";s:1:"0";s:10:"login_name";s:9:"管理者";s:6:"uniqid";s:21:"544862342fa7drg7b9Mvm";s:10:"last_login";s:19:"2014-10-22 19:03:53";s:7:"cartKey";s:1:"1";s:13:"transactionid";s:40:"48c626305c87ee40c95215ae0aa8771bf59938e9";s:8:"customer";a:38:{s:11:"customer_id";s:2:"28";s:6:"name01";s:9:"jennilynn";s:6:"name02";s:3:"jen";s:6:"kana01";s:19:"http://facebook.com";s:6:"kana02";s:4:"ccca";s:5:"zip01";N;s:5:"zip02";N;s:4:"pref";N;s:6:"addr01";N;s:6:"addr02";N;s:5:"email";s:20:"trs.chaola@gmail.com";s:12:"email_mobile";N;s:5:"tel01";N;s:5:"tel02";N;s:5:"tel03";N;s:5:"fax01";N;s:5:"fax02";N;s:5:"fax03";N;s:3:"sex";N;s:3:"job";N;s:5:"birth";N;s:8:"password";s:64:"ec4552a841510d6d13b5839ac8e187f4b7eb1e448c3b06fa68857a25e4b6ef60";s:8:"reminder";N;s:15:"reminder_answer";N;s:4:"salt";s:10:"chiatratre";s:10:"secret_key";s:22:"r543b4b1846ec0ftQXhkcv";s:14:"first_buy_date";s:19:"2014-10-23 10:56:31";s:13:"last_buy_date";s:19:"2014-10-23 14:16:28";s:9:"buy_times";s:1:"2";s:9:"buy_total";s:4:"1960";s:5:"point";s:1:"0";s:4:"note";N;s:6:"status";s:1:"2";s:11:"create_date";s:19:"2014-10-13 11:46:32";s:11:"update_date";s:19:"2014-10-13 11:46:32";s:7:"del_flg";s:1:"0";s:15:"mobile_phone_id";N;s:12:"mailmaga_flg";N;}s:30:"savecart_5448b1e7691535bBAHSU5";a:3:{i:1;a:7:{s:2:"id";s:2:"10";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"2";s:5:"stock";s:2:"97";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:19:"classcategory_name1";N;s:11:"class_name1";N;s:19:"classcategory_name2";N;s:11:"class_name2";N;s:4:"name";s:9:"おなべ";s:15:"main_list_image";s:11:"nabe130.jpg";s:10:"main_image";s:11:"nabe260.jpg";}s:5:"price";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:1733;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}}s:8:"shipping";a:1:{i:0;a:22:{s:15:"shipping_name01";s:9:"jennilynn";s:15:"shipping_name02";s:3:"jen";s:15:"shipping_kana01";s:19:"http://facebook.com";s:15:"shipping_kana02";s:4:"ccca";s:12:"shipping_sex";s:0:"";s:14:"shipping_zip01";s:0:"";s:14:"shipping_zip02";s:0:"";s:13:"shipping_pref";s:0:"";s:15:"shipping_addr01";s:0:"";s:15:"shipping_addr02";s:0:"";s:14:"shipping_tel01";s:0:"";s:14:"shipping_tel02";s:0:"";s:14:"shipping_tel03";s:0:"";s:14:"shipping_fax01";s:0:"";s:14:"shipping_fax02";s:0:"";s:14:"shipping_fax03";s:0:"";s:12:"shipping_job";s:0:"";s:14:"shipping_birth";s:0:"";s:14:"shipping_email";s:20:"trs.chaola@gmail.com";s:11:"customer_id";s:2:"28";s:11:"update_date";s:17:"CURRENT_TIMESTAMP";s:11:"shipping_id";i:0;}}}'),
+('5452f7c9e19a2maxY2dTe', 37, NULL, 'jennilynn', NULL, NULL, NULL, 'trs.jennilynn@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2014-10-31 02:45:33', '2014-10-31 02:45:33', 10, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'a:9:{s:4:"cart";a:1:{i:1;a:4:{i:1;a:7:{s:2:"id";s:1:"1";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-01";s:16:"product_class_id";s:1:"1";s:19:"classcategory_name1";s:6:"抹茶";s:11:"class_name1";s:3:"味";s:19:"classcategory_name2";s:1:"S";s:11:"class_name2";s:9:"大きさ";s:4:"name";s:21:"アイスクリーム";s:15:"main_list_image";s:10:"ice130.jpg";s:10:"main_image";s:10:"ice260.jpg";}s:5:"price";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:980;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}i:2;a:7:{s:2:"id";s:2:"10";s:8:"quantity";s:1:"1";s:7:"cart_no";i:2;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"2";s:5:"stock";s:2:"97";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:19:"classcategory_name1";N;s:11:"class_name1";N;s:19:"classcategory_name2";N;s:11:"class_name2";N;s:4:"name";s:9:"おなべ";s:15:"main_list_image";s:11:"nabe130.jpg";s:10:"main_image";s:11:"nabe260.jpg";}s:5:"price";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:1733;}}}s:8:"prev_url";s:7:"/cart/?";s:13:"transactionid";s:40:"69adf960e8ef8ad1317b8cdb718d4e7b20edfe3c";s:4:"site";a:5:{s:18:"pre_regist_success";b:0;s:14:"regist_success";b:0;s:8:"pre_page";s:19:"/shopping/deliv.php";s:8:"now_page";s:19:"/shopping/deliv.php";s:6:"uniqid";s:21:"5452f7c9e19a2maxY2dTe";}s:8:"customer";a:38:{s:11:"customer_id";s:2:"37";s:6:"name01";s:9:"jennilynn";s:6:"name02";N;s:6:"kana01";N;s:6:"kana02";N;s:5:"zip01";N;s:5:"zip02";N;s:4:"pref";N;s:6:"addr01";N;s:6:"addr02";N;s:5:"email";s:23:"trs.jennilynn@gmail.com";s:12:"email_mobile";N;s:5:"tel01";N;s:5:"tel02";N;s:5:"tel03";N;s:5:"fax01";N;s:5:"fax02";N;s:5:"fax03";N;s:3:"sex";N;s:3:"job";N;s:5:"birth";N;s:8:"password";s:64:"ac41e9a3eccbd093784f8214fc91ee0603e95c4b6dad071d6fa7a0eb7d928bed";s:8:"reminder";N;s:15:"reminder_answer";N;s:4:"salt";s:10:"weatitiacr";s:10:"secret_key";s:22:"r5452f17aede42QUZvUg7b";s:14:"first_buy_date";N;s:13:"last_buy_date";N;s:9:"buy_times";s:1:"0";s:9:"buy_total";s:1:"0";s:5:"point";s:1:"0";s:4:"note";N;s:6:"status";s:1:"2";s:11:"create_date";s:19:"2014-10-31 10:18:35";s:11:"update_date";s:19:"2014-10-31 10:18:35";s:7:"del_flg";s:1:"0";s:15:"mobile_phone_id";N;s:12:"mailmaga_flg";N;}s:13:"cart_prev_url";s:59:"http://nakame_ec.localhost/products/detail.php?product_id=2";s:7:"cartKey";s:1:"1";s:30:"savecart_5452f7c9e19a2maxY2dTe";a:4:{i:1;a:7:{s:2:"id";s:1:"1";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"1";s:5:"stock";N;s:15:"stock_unlimited";s:1:"1";s:10:"sale_limit";N;s:7:"price02";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"product_code";s:6:"ice-01";s:16:"product_class_id";s:1:"1";s:19:"classcategory_name1";s:6:"抹茶";s:11:"class_name1";s:3:"味";s:19:"classcategory_name2";s:1:"S";s:11:"class_name2";s:9:"大きさ";s:4:"name";s:21:"アイスクリーム";s:15:"main_list_image";s:10:"ice130.jpg";s:10:"main_image";s:10:"ice260.jpg";}s:5:"price";s:3:"933";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:980;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}i:2;a:7:{s:2:"id";s:2:"10";s:8:"quantity";s:1:"1";s:7:"cart_no";i:2;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"2";s:5:"stock";s:2:"97";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:19:"classcategory_name1";N;s:11:"class_name1";N;s:19:"classcategory_name2";N;s:11:"class_name2";N;s:4:"name";s:9:"おなべ";s:15:"main_list_image";s:11:"nabe130.jpg";s:10:"main_image";s:11:"nabe260.jpg";}s:5:"price";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:1733;}}s:8:"shipping";a:1:{i:0;a:22:{s:15:"shipping_name01";s:9:"jennilynn";s:15:"shipping_name02";s:0:"";s:15:"shipping_kana01";s:0:"";s:15:"shipping_kana02";s:0:"";s:12:"shipping_sex";s:0:"";s:14:"shipping_zip01";s:0:"";s:14:"shipping_zip02";s:0:"";s:13:"shipping_pref";s:0:"";s:15:"shipping_addr01";s:0:"";s:15:"shipping_addr02";s:0:"";s:14:"shipping_tel01";s:0:"";s:14:"shipping_tel02";s:0:"";s:14:"shipping_tel03";s:0:"";s:14:"shipping_fax01";s:0:"";s:14:"shipping_fax02";s:0:"";s:14:"shipping_fax03";s:0:"";s:12:"shipping_job";s:0:"";s:14:"shipping_birth";s:0:"";s:14:"shipping_email";s:23:"trs.jennilynn@gmail.com";s:11:"customer_id";s:2:"37";s:11:"update_date";s:17:"CURRENT_TIMESTAMP";s:11:"shipping_id";i:0;}}}'),
+('54754333983e5Mmy66KZx', 35, NULL, 'caca', NULL, NULL, NULL, 'caca@caca.caca', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test4', 'test5', NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, '0', '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2014-11-26 04:50:36', '2014-11-26 04:50:36', 10, 1, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'a:9:{s:4:"cart";a:1:{i:1;a:3:{i:1;a:7:{s:2:"id";s:2:"10";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"2";s:5:"stock";s:2:"97";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:19:"classcategory_name1";N;s:11:"class_name1";N;s:19:"classcategory_name2";N;s:11:"class_name2";N;s:4:"name";s:9:"おなべ";s:15:"main_list_image";s:11:"nabe130.jpg";s:10:"main_image";s:11:"nabe260.jpg";}s:5:"price";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:1733;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}}}s:8:"prev_url";s:36:"/resize_image.php?image=nabe260.jpg&";s:13:"transactionid";s:40:"bd1e94dc6bcf98554865a84e85147935d39a9392";s:4:"site";a:5:{s:18:"pre_regist_success";b:0;s:14:"regist_success";b:0;s:8:"pre_page";s:21:"/shopping/confirm.php";s:8:"now_page";s:21:"/shopping/confirm.php";s:6:"uniqid";s:21:"54754333983e5Mmy66KZx";}s:13:"cart_prev_url";s:46:"http://nakame_ec.localhost/shopping/order.php?";s:8:"customer";a:46:{s:11:"customer_id";s:2:"35";s:6:"name01";s:4:"caca";s:6:"name02";N;s:6:"name03";s:4:"test";s:6:"name04";s:5:"test1";s:6:"kana01";N;s:6:"kana02";N;s:5:"zip01";N;s:5:"zip02";N;s:5:"zip03";s:8:"123-1231";s:4:"pref";N;s:9:"addr_code";s:2:"01";s:6:"addr01";s:5:"test4";s:6:"addr02";s:5:"test5";s:6:"addr03";s:5:"test6";s:5:"email";s:14:"caca@caca.caca";s:12:"email_mobile";s:14:"caca@caca.caca";s:11:"card_number";s:12:"111111111111";s:12:"card_expired";s:3:"exp";s:9:"card_code";s:4:"code";s:5:"tel01";N;s:5:"tel02";N;s:5:"tel03";N;s:5:"fax01";N;s:5:"fax02";N;s:5:"fax03";N;s:3:"sex";N;s:3:"job";N;s:5:"birth";N;s:8:"password";s:64:"00ab8304cc4eb0b40ee692a3dd030f7581825d49e080cfdf3174b99bd818c86f";s:8:"reminder";N;s:15:"reminder_answer";N;s:4:"salt";s:10:"wrochitoul";s:10:"secret_key";s:22:"r544f370d24754DsdqBvyR";s:14:"first_buy_date";N;s:13:"last_buy_date";N;s:9:"buy_times";s:1:"0";s:9:"buy_total";s:1:"0";s:5:"point";s:1:"0";s:4:"note";N;s:6:"status";s:1:"2";s:11:"create_date";s:19:"2014-10-28 14:26:21";s:11:"update_date";s:19:"2014-10-28 14:26:21";s:7:"del_flg";s:1:"0";s:15:"mobile_phone_id";N;s:12:"mailmaga_flg";N;}s:7:"cartKey";s:1:"1";s:30:"savecart_54754333983e5Mmy66KZx";a:3:{i:1;a:7:{s:2:"id";s:2:"10";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"2";s:5:"stock";s:2:"97";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:19:"classcategory_name1";N;s:11:"class_name1";N;s:19:"classcategory_name2";N;s:11:"class_name2";N;s:4:"name";s:9:"おなべ";s:15:"main_list_image";s:11:"nabe130.jpg";s:10:"main_image";s:11:"nabe260.jpg";}s:5:"price";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:1733;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}}s:8:"order_id";i:5;}');
 
 -- --------------------------------------------------------
 
@@ -1791,11 +1840,8 @@ CREATE TABLE IF NOT EXISTS `dtb_other_deliv` (
   `name02` text COLLATE utf8_unicode_ci,
   `kana01` text COLLATE utf8_unicode_ci,
   `kana02` text COLLATE utf8_unicode_ci,
-  `company_name` text COLLATE utf8_unicode_ci,
   `zip01` text COLLATE utf8_unicode_ci,
   `zip02` text COLLATE utf8_unicode_ci,
-  `zipcode` text COLLATE utf8_unicode_ci,
-  `country_id` int(11) DEFAULT NULL,
   `pref` smallint(6) DEFAULT NULL,
   `addr01` text COLLATE utf8_unicode_ci,
   `addr02` text COLLATE utf8_unicode_ci,
@@ -1804,8 +1850,7 @@ CREATE TABLE IF NOT EXISTS `dtb_other_deliv` (
   `tel03` text COLLATE utf8_unicode_ci,
   `fax01` text COLLATE utf8_unicode_ci,
   `fax02` text COLLATE utf8_unicode_ci,
-  `fax03` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`other_deliv_id`)
+  `fax03` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1815,8 +1860,7 @@ CREATE TABLE IF NOT EXISTS `dtb_other_deliv` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_other_deliv_other_deliv_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1826,8 +1870,7 @@ CREATE TABLE IF NOT EXISTS `dtb_other_deliv_other_deliv_id_seq` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_ownersstore_settings` (
-  `public_key` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`public_key`(64))
+  `public_key` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1850,120 +1893,119 @@ CREATE TABLE IF NOT EXISTS `dtb_pagelayout` (
   `keyword` text COLLATE utf8_unicode_ci,
   `update_url` text COLLATE utf8_unicode_ci,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `meta_robots` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`device_type_id`,`page_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `dtb_pagelayout`
 --
 
-INSERT INTO `dtb_pagelayout` (`device_type_id`, `page_id`, `page_name`, `url`, `filename`, `header_chk`, `footer_chk`, `edit_flg`, `author`, `description`, `keyword`, `update_url`, `create_date`, `update_date`, `meta_robots`) VALUES
-(1, 0, NULL, 'preview', 'preview', 1, 1, 1, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(1, 1, 'TOPページ', 'index.php', 'index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(1, 2, '商品一覧ページ', 'products/list.php', 'products/list', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(1, 3, '商品検索ページ', 'products/search.php', 'products/search', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(1, 4, '商品カテゴリページ', 'products/category_list.php', 'products/category_list', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 5, '商品詳細ページ', 'products/detail.php', 'products/detail', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 6, 'MYページ', 'mypage/index.php', 'mypage/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 7, 'MYページ/会員登録内容変更(入力ページ)', 'mypage/change.php', 'mypage/change', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 8, 'MYページ/会員登録内容変更(完了ページ)', 'mypage/change_complete.php', 'mypage/change_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 9, 'MYページ/お届け先追加･変更', 'mypage/delivery.php', 'mypage/delivery', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 10, 'MYページ/お気に入り一覧', 'mypage/favorite.php', 'mypage/favorite', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 11, 'MYページ/購入履歴詳細', 'mypage/history.php', 'mypage/history', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 12, 'MYページ/ログイン', 'mypage/login.php', 'mypage/login', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 13, 'MYページ/退会手続き(入力ページ)', 'mypage/refusal.php', 'mypage/refusal', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 14, 'MYページ/退会手続き(完了ページ)', 'mypage/refusal_complete.php', 'mypage/refusal_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 16, '現在のカゴの中', 'cart/index.php', 'cart/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 17, 'お問い合わせ(入力ページ)', 'contact/index.php', 'contact/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 18, 'お問い合わせ(完了ページ)', 'contact/complete.php', 'contact/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 19, '会員登録(入力ページ)', 'entry/index.php', 'entry/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 20, 'ご利用規約', 'entry/kiyaku.php', 'entry/kiyaku', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 21, '会員登録(完了ページ)', 'entry/complete.php', 'entry/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 22, '携帯メール登録', 'entry/email_mobile.php', 'entry/email_mobile', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 23, '特定商取引に関する法律に基づく表記', 'order/index.php', 'order/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 24, '本会員登録(完了ページ)', 'regist/complete.php', 'regist/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 25, '商品購入/ログイン', 'shopping/index.php', 'shopping/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 26, '商品購入/お届け先の指定', 'shopping/deliv.php', 'shopping/deliv', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 27, '商品購入/お届け先の複数指定', 'shopping/multiple.php', 'shopping/multiple', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 28, '商品購入/お支払方法・お届け時間等の指定', 'shopping/payment.php', 'shopping/payment', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 29, '商品購入/ご入力内容のご確認', 'shopping/confirm.php', 'shopping/confirm', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 30, '商品購入/ご注文完了', 'shopping/complete.php', 'shopping/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 31, '非対応デバイス', 'unsupported/index.php', 'unsupported/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'noindex'),
-(1, 32, 'ご利用ガイド', 'guide/index.php', 'guide/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 33, 'ご利用ガイド/ご利用方法', 'guide/usage.php', 'guide/usage', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 34, 'ご利用ガイド/プライバシーポリシー', 'guide/privacy.php', 'guide/privacy', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 35, 'ご利用ガイド/通信料について', 'guide/charge.php', 'guide/charge', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 36, 'ご利用ガイド/ご利用規約', 'guide/kiyaku.php', 'guide/kiyaku', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(1, 37, 'ご利用ガイド/運営会社紹介', 'guide/about.php', 'guide/about', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL),
-(2, 0, NULL, 'preview', 'preview', 1, 1, 1, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 1, 'TOPページ', 'index.php', 'index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 2, '商品一覧ページ', 'products/list.php', 'products/list', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 3, '商品詳細ページ', 'products/detail.php', 'products/detail', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 4, 'MYページ', 'mypage/index.php', 'mypage/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 5, 'MYページ/会員登録内容変更(入力ページ)', 'mypage/change.php', 'mypage/change', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 6, 'MYページ/会員登録内容変更(完了ページ)', 'mypage/change_complete.php', 'mypage/change_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 7, 'MYページ/お届け先追加･変更', 'mypage/delivery.php', 'mypage/delivery', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 8, 'MYページ/お気に入り一覧', 'mypage/favorite.php', 'mypage/favorite', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 9, 'MYページ/購入履歴詳細', 'mypage/history.php', 'mypage/history', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 10, 'MYページ/ログイン', 'mypage/login.php', 'mypage/login', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 11, 'MYページ/退会手続き(入力ページ)', 'mypage/refusal.php', 'mypage/refusal', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 12, 'MYページ/退会手続き(完了ページ)', 'mypage/refusal_complete.php', 'mypage/refusal_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 13, '当サイトについて', 'abouts/index.php', 'abouts/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 14, '現在のカゴの中', 'cart/index.php', 'cart/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 15, 'お問い合わせ(入力ページ)', 'contact/index.php', 'contact/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 16, 'お問い合わせ(完了ページ)', 'contact/complete.php', 'contact/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 17, '会員登録(入力ページ)', 'entry/index.php', 'entry/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 18, 'ご利用規約', 'entry/kiyaku.php', 'entry/kiyaku', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 19, '会員登録(完了ページ)', 'entry/complete.php', 'entry/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 20, '特定商取引に関する法律に基づく表記', 'order/index.php', 'order/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 21, '本会員登録(完了ページ)', 'regist/complete.php', 'regist/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 22, '商品購入/ログイン', 'shopping/index.php', 'shopping/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 23, '商品購入/お届け先の指定', 'shopping/deliv.php', 'shopping/deliv', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 24, '商品購入/お届け先の複数指定', 'shopping/multiple.php', 'shopping/multiple', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 25, '商品購入/お支払方法・お届け時間等の指定', 'shopping/payment.php', 'shopping/payment', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 26, '商品購入/ご入力内容のご確認', 'shopping/confirm.php', 'shopping/confirm', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 27, '商品購入/ご注文完了', 'shopping/complete.php', 'shopping/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(2, 28, 'プライバシーポリシー', 'guide/privacy.php', 'guide/privacy', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(2, 29, 'パスワードを忘れた方', 'forgot/index.php', 'forgot/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 0, 'プレビューデータ', 'preview', NULL, 1, 1, 1, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 1, 'TOPページ', 'index.php', 'index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 2, '商品一覧ページ', 'products/list.php', 'products/list', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 3, '商品詳細ページ', 'products/detail.php', 'products/detail', 1, 1, 2, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?page_id=3&device_type_id=10', '2014-10-02 04:46:24', '2014-10-03 07:04:54', NULL),
-(10, 4, 'MYページ', 'mypage/index.php', 'mypage/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 5, 'MYページ/会員登録内容変更(入力ページ)', 'mypage/change.php', 'mypage/change', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 6, 'MYページ/会員登録内容変更(完了ページ)', 'mypage/change_complete.php', 'mypage/change_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 7, 'MYページ/お届け先追加･変更', 'mypage/delivery.php', 'mypage/delivery', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 8, 'MYページ/お気に入り一覧', 'mypage/favorite.php', 'mypage/favorite', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 9, 'MYページ/購入履歴詳細', 'mypage/history.php', 'mypage/history', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 10, 'MYページ/ログイン', 'mypage/login.php', 'mypage/login', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 11, 'MYページ/退会手続き(入力ページ)', 'mypage/refusal.php', 'mypage/refusal', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 12, 'MYページ/退会手続き(完了ページ)', 'mypage/refusal_complete.php', 'mypage/refusal_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 13, '当サイトについて', 'abouts/index.php', 'abouts/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 14, '現在のカゴの中', 'cart/index.php', 'cart/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 15, 'お問い合わせ(入力ページ)', 'contact/index.php', 'contact/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 16, 'お問い合わせ(完了ページ)', 'contact/complete.php', 'contact/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 17, '会員登録(入力ページ)', 'entry/index.php', 'entry/index', 2, 2, 2, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?page_id=17&device_type_id=10', '2014-10-02 04:46:24', '2014-10-09 06:43:04', NULL),
-(10, 18, 'ご利用規約', 'entry/kiyaku.php', 'entry/kiyaku', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 19, '会員登録(完了ページ)', 'entry/complete.php', 'entry/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 20, '特定商取引に関する法律に基づく表記', 'order/index.php', 'order/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 21, '本会員登録(完了ページ)', 'regist/complete.php', 'regist/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 22, '商品購入/ログイン', 'shopping/index.php', 'shopping/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 23, '商品購入/お届け先の指定', 'shopping/deliv.php', 'shopping/deliv', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 24, '商品購入/お届け先の複数指定', 'shopping/multiple.php', 'shopping/multiple', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 25, '商品購入/お支払方法・お届け時間等の指定', 'shopping/payment.php', 'shopping/payment', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 26, '商品購入/ご入力内容のご確認', 'shopping/confirm.php', 'shopping/confirm', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 27, '商品購入/ご注文完了', 'shopping/complete.php', 'shopping/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', 'noindex'),
-(10, 28, 'プライバシーポリシー', 'guide/privacy.php', 'guide/privacy', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-02 04:46:24', '2014-10-02 04:46:24', NULL),
-(10, 29, 'materials_new', 'materials/new/index.php', 'materials/new/index', 1, 1, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?page_id=29&device_type_id=10', '2014-10-03 03:37:47', '2014-10-03 04:32:30', NULL),
-(10, 30, 'materials', 'materials/index.php', 'materials/index', 1, 1, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10', '2014-10-03 04:35:54', '2014-10-03 04:35:54', NULL),
-(10, 31, 'profile', 'profile/index.php', 'profile/index', 1, 1, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10&transactionid=a17e79ba3615114e06ff7aa842856ce9b6df2fcd', '2014-10-08 03:51:20', '2014-10-08 03:51:20', NULL),
-(10, 32, 'favorites', 'favorites/index.php', 'favorites/index', 1, 2, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10&page_id=32&msg=on&transactionid=a17e79ba3615114e06ff7aa842856ce9b6df2fcd', '2014-10-08 08:05:41', '2014-10-08 08:18:15', NULL),
-(10, 33, 'orders', 'orders/index.php', 'orders/index', 1, 1, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10&page_id=33&msg=on&transactionid=a17e79ba3615114e06ff7aa842856ce9b6df2fcd', '2014-10-08 08:44:45', '2014-10-08 08:47:07', NULL),
-(10, 34, 'profile settings', 'prof_set/index.php', 'prof_set/index', 1, 1, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10&page_id=34&msg=on&transactionid=a17e79ba3615114e06ff7aa842856ce9b6df2fcd', '2014-10-08 09:23:28', '2014-10-08 09:24:04', NULL),
-(10, 35, 'signup', 'signup/index.php', 'signup/index', 2, 2, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10&transactionid=5ed2797e053b9a1949a0613748c34df5a7ff2d02', '2014-10-09 10:03:46', '2014-10-09 10:03:46', NULL),
-(10, 36, 'login', 'login/index.php', 'login/index', 2, 2, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10&page_id=36&msg=on&transactionid=5ed2797e053b9a1949a0613748c34df5a7ff2d02', '2014-10-09 11:03:48', '2014-10-09 11:04:47', NULL);
+INSERT INTO `dtb_pagelayout` (`device_type_id`, `page_id`, `page_name`, `url`, `filename`, `header_chk`, `footer_chk`, `edit_flg`, `author`, `description`, `keyword`, `update_url`, `create_date`, `update_date`) VALUES
+(1, 0, NULL, 'preview', 'preview', 1, 1, 1, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 1, 'TOPページ', 'index.php', 'index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 2, '商品一覧ページ', 'products/list.php', 'products/list', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 3, '商品検索ページ', 'products/search.php', 'products/search', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 4, '商品カテゴリページ', 'products/category_list.php', 'products/category_list', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 5, '商品詳細ページ', 'products/detail.php', 'products/detail', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 6, 'MYページ', 'mypage/index.php', 'mypage/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 7, 'MYページ/会員登録内容変更(入力ページ)', 'mypage/change.php', 'mypage/change', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 8, 'MYページ/会員登録内容変更(完了ページ)', 'mypage/change_complete.php', 'mypage/change_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 9, 'MYページ/お届け先追加･変更', 'mypage/delivery.php', 'mypage/delivery', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 10, 'MYページ/お気に入り一覧', 'mypage/favorite.php', 'mypage/favorite', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 11, 'MYページ/購入履歴詳細', 'mypage/history.php', 'mypage/history', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 12, 'MYページ/ログイン', 'mypage/login.php', 'mypage/login', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 13, 'MYページ/退会手続き(入力ページ)', 'mypage/refusal.php', 'mypage/refusal', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 14, 'MYページ/退会手続き(完了ページ)', 'mypage/refusal_complete.php', 'mypage/refusal_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 15, '当サイトについて', 'abouts/index.php', 'abouts/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 16, '現在のカゴの中', 'cart/index.php', 'cart/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 17, 'お問い合わせ(入力ページ)', 'contact/index.php', 'contact/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 18, 'お問い合わせ(完了ページ)', 'contact/complete.php', 'contact/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 19, '会員登録(入力ページ)', 'entry/index.php', 'entry/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 20, 'ご利用規約', 'entry/kiyaku.php', 'entry/kiyaku', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 21, '会員登録(完了ページ)', 'entry/complete.php', 'entry/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 22, '携帯メール登録', 'entry/email_mobile.php', 'entry/email_mobile', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 23, '特定商取引に関する法律に基づく表記', 'order/index.php', 'order/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 24, '本会員登録(完了ページ)', 'regist/complete.php', 'regist/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 25, '商品購入/ログイン', 'shopping/index.php', 'shopping/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 26, '商品購入/お届け先の指定', 'shopping/deliv.php', 'shopping/deliv', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 27, '商品購入/お届け先の複数指定', 'shopping/multiple.php', 'shopping/multiple', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 28, '商品購入/お支払方法・お届け時間等の指定', 'shopping/payment.php', 'shopping/payment', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 29, '商品購入/ご入力内容のご確認', 'shopping/confirm.php', 'shopping/confirm', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 30, '商品購入/ご注文完了', 'shopping/complete.php', 'shopping/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 31, '非対応デバイス', 'unsupported/index.php', 'unsupported/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 32, 'ご利用ガイド', 'guide/index.php', 'guide/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 33, 'ご利用ガイド/ご利用方法', 'guide/usage.php', 'guide/usage', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 34, 'ご利用ガイド/プライバシーポリシー', 'guide/privacy.php', 'guide/privacy', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 35, 'ご利用ガイド/通信料について', 'guide/charge.php', 'guide/charge', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 36, 'ご利用ガイド/ご利用規約', 'guide/kiyaku.php', 'guide/kiyaku', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(1, 37, 'ご利用ガイド/運営会社紹介', 'guide/about.php', 'guide/about', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 0, NULL, 'preview', 'preview', 1, 1, 1, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 1, 'TOPページ', 'index.php', 'index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 2, '商品一覧ページ', 'products/list.php', 'products/list', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 3, '商品詳細ページ', 'products/detail.php', 'products/detail', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 4, 'MYページ', 'mypage/index.php', 'mypage/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 5, 'MYページ/会員登録内容変更(入力ページ)', 'mypage/change.php', 'mypage/change', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 6, 'MYページ/会員登録内容変更(完了ページ)', 'mypage/change_complete.php', 'mypage/change_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 7, 'MYページ/お届け先追加･変更', 'mypage/delivery.php', 'mypage/delivery', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 8, 'MYページ/お気に入り一覧', 'mypage/favorite.php', 'mypage/favorite', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 9, 'MYページ/購入履歴詳細', 'mypage/history.php', 'mypage/history', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 10, 'MYページ/ログイン', 'mypage/login.php', 'mypage/login', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 11, 'MYページ/退会手続き(入力ページ)', 'mypage/refusal.php', 'mypage/refusal', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 12, 'MYページ/退会手続き(完了ページ)', 'mypage/refusal_complete.php', 'mypage/refusal_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 13, '当サイトについて', 'abouts/index.php', 'abouts/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 14, '現在のカゴの中', 'cart/index.php', 'cart/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 15, 'お問い合わせ(入力ページ)', 'contact/index.php', 'contact/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 16, 'お問い合わせ(完了ページ)', 'contact/complete.php', 'contact/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 17, '会員登録(入力ページ)', 'entry/index.php', 'entry/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 18, 'ご利用規約', 'entry/kiyaku.php', 'entry/kiyaku', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 19, '会員登録(完了ページ)', 'entry/complete.php', 'entry/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 20, '特定商取引に関する法律に基づく表記', 'order/index.php', 'order/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 21, '本会員登録(完了ページ)', 'regist/complete.php', 'regist/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 22, '商品購入/ログイン', 'shopping/index.php', 'shopping/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 23, '商品購入/お届け先の指定', 'shopping/deliv.php', 'shopping/deliv', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 24, '商品購入/お届け先の複数指定', 'shopping/multiple.php', 'shopping/multiple', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 25, '商品購入/お支払方法・お届け時間等の指定', 'shopping/payment.php', 'shopping/payment', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 26, '商品購入/ご入力内容のご確認', 'shopping/confirm.php', 'shopping/confirm', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 27, '商品購入/ご注文完了', 'shopping/complete.php', 'shopping/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 28, 'プライバシーポリシー', 'guide/privacy.php', 'guide/privacy', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(2, 29, 'パスワードを忘れた方', 'forgot/index.php', 'forgot/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 0, 'MYページ', 'mypage/index.php', 'mypage/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 1, 'TOPページ', 'index.php', 'index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 2, '商品一覧ページ', 'products/list.php', 'products/list', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 3, '商品詳細ページ', 'products/detail.php', 'products/detail', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 4, 'MYページ', 'mypage/index.php', 'mypage/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 5, 'MYページ/会員登録内容変更(入力ページ)', 'mypage/change.php', 'mypage/change', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 6, 'MYページ/会員登録内容変更(完了ページ)', 'mypage/change_complete.php', 'mypage/change_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 7, 'MYページ/お届け先追加･変更', 'mypage/delivery.php', 'mypage/delivery', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 8, 'MYページ/お気に入り一覧', 'mypage/favorite.php', 'mypage/favorite', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 9, 'MYページ/購入履歴詳細', 'mypage/history.php', 'mypage/history', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 10, 'MYページ/ログイン', 'mypage/login.php', 'mypage/login', 2, 2, 2, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?page_id=10&device_type_id=10', '2014-10-12 06:47:08', '2014-10-16 09:43:16'),
+(10, 11, 'MYページ/退会手続き(入力ページ)', 'mypage/refusal.php', 'mypage/refusal', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 12, 'MYページ/退会手続き(完了ページ)', 'mypage/refusal_complete.php', 'mypage/refusal_complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 13, '当サイトについて', 'abouts/index.php', 'abouts/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 14, '現在のカゴの中', 'cart/index.php', 'cart/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 15, 'お問い合わせ(入力ページ)', 'contact/index.php', 'contact/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 16, 'お問い合わせ(完了ページ)', 'contact/complete.php', 'contact/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:08', '2014-10-12 06:47:08'),
+(10, 17, '会員登録(入力ページ)', 'entry/index.php', 'entry/index', 2, 2, 2, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?page_id=17&device_type_id=10', '2014-10-12 06:47:08', '2014-10-14 04:54:52'),
+(10, 18, 'ご利用規約', 'entry/kiyaku.php', 'entry/kiyaku', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 19, '会員登録(完了ページ)', 'entry/complete.php', 'entry/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 20, '特定商取引に関する法律に基づく表記', 'order/index.php', 'order/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 21, '本会員登録(完了ページ)', 'regist/complete.php', 'regist/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 22, '商品購入/ログイン', 'shopping/index.php', 'shopping/index', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 23, '商品購入/お届け先の指定', 'shopping/deliv.php', 'shopping/deliv', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 24, '商品購入/お届け先の複数指定', 'shopping/multiple.php', 'shopping/multiple', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 25, '商品購入/お支払方法・お届け時間等の指定', 'shopping/payment.php', 'shopping/payment', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 26, '商品購入/ご入力内容のご確認', 'shopping/confirm.php', 'shopping/confirm', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 27, '商品購入/ご注文完了', 'shopping/complete.php', 'shopping/complete', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 28, 'プライバシーポリシー', 'guide/privacy.php', 'guide/privacy', 1, 1, 2, NULL, NULL, NULL, NULL, '2014-10-12 06:47:09', '2014-10-12 06:47:09'),
+(10, 29, 'signup', 'signup/index.php', 'signup/index', 2, 2, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10&page_id=29&msg=on&transactionid=65357cfb7bc63a0f36d26850761c24791a2f94a2', '2014-10-13 06:43:10', '2014-10-13 06:43:18'),
+(10, 30, 'login', 'login/index.php', 'login/index', 2, 2, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?page_id=30&device_type_id=10', '2014-10-13 08:20:44', '2014-10-13 08:25:26'),
+(10, 31, 'materials', 'mypage/materials/index.php', 'mypage/materials/index', 1, 1, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10&page_id=31&msg=on&transactionid=e4db08e4a45c8c3db55490bb5fe36e388aa76cba', '2014-10-14 04:57:15', '2014-10-14 05:19:18'),
+(10, 32, 'materials_new', 'mypage/materials/new/index.php', 'mypage/materials/new/index', 1, 1, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10', '2014-10-14 06:07:12', '2014-10-14 06:07:12'),
+(10, 33, 'profile', 'mypage/profile/index.php', 'mypage/profile/index', 1, 1, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?page_id=33&device_type_id=10', '2014-10-15 10:11:23', '2014-10-20 08:57:41'),
+(10, 34, 'orders', 'mypage/orders/index.php', 'mypage/orders/index', 1, 1, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10', '2014-10-16 09:50:06', '2014-10-16 09:50:06'),
+(10, 35, 'shopping order', 'shopping/order.php', 'shopping/order', 1, 2, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10&transactionid=48c626305c87ee40c95215ae0aa8771bf59938e9', '2014-10-23 07:58:22', '2014-10-23 07:58:22'),
+(10, 36, 'password resets', 'password_resets/index.php', 'password_resets/index', 1, 1, 1, NULL, NULL, NULL, 'http://nakame_ec.localhost/admin/design/main_edit.php?device_type_id=10&page_id=36&msg=on&transactionid=a7ce2d6813d127a381bbd7611025b8680eab5add', '2014-10-28 02:47:00', '2014-10-28 04:26:29');
 
 -- --------------------------------------------------------
 
@@ -1972,8 +2014,7 @@ INSERT INTO `dtb_pagelayout` (`device_type_id`, `page_id`, `page_name`, `url`, `
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_pagelayout_page_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=38 ;
 
 --
@@ -2018,8 +2059,7 @@ CREATE TABLE IF NOT EXISTS `dtb_payment` (
   `memo07` text COLLATE utf8_unicode_ci,
   `memo08` text COLLATE utf8_unicode_ci,
   `memo09` text COLLATE utf8_unicode_ci,
-  `memo10` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`payment_id`)
+  `memo10` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2027,10 +2067,10 @@ CREATE TABLE IF NOT EXISTS `dtb_payment` (
 --
 
 INSERT INTO `dtb_payment` (`payment_id`, `payment_method`, `charge`, `rule_max`, `rank`, `note`, `fix`, `status`, `del_flg`, `creator_id`, `create_date`, `update_date`, `payment_image`, `upper_rule`, `charge_flg`, `rule_min`, `upper_rule_max`, `module_id`, `module_path`, `memo01`, `memo02`, `memo03`, `memo04`, `memo05`, `memo06`, `memo07`, `memo08`, `memo09`, `memo10`) VALUES
-(1, '郵便振替', 0, NULL, 4, NULL, 2, 1, 0, 1, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, '現金書留', 0, NULL, 3, NULL, 2, 1, 0, 1, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, '銀行振込', 0, NULL, 2, NULL, 2, 1, 0, 1, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, '代金引換', 0, NULL, 1, NULL, 2, 1, 0, 1, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, '郵便振替', '0', NULL, 4, NULL, 2, 1, 0, 1, '2014-10-12 06:47:09', '2014-10-12 06:47:09', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, '現金書留', '0', NULL, 3, NULL, 2, 1, 0, 1, '2014-10-12 06:47:09', '2014-10-12 06:47:09', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, '銀行振込', '0', NULL, 2, NULL, 2, 1, 0, 1, '2014-10-12 06:47:09', '2014-10-12 06:47:09', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, '代金引換', '0', NULL, 1, NULL, 2, 1, 0, 1, '2014-10-12 06:47:09', '2014-10-12 06:47:09', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2041,8 +2081,7 @@ INSERT INTO `dtb_payment` (`payment_id`, `payment_method`, `charge`, `rule_max`,
 CREATE TABLE IF NOT EXISTS `dtb_payment_options` (
   `deliv_id` int(11) NOT NULL,
   `payment_id` int(11) NOT NULL,
-  `rank` int(11) DEFAULT NULL,
-  PRIMARY KEY (`deliv_id`,`payment_id`)
+  `rank` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2063,8 +2102,7 @@ INSERT INTO `dtb_payment_options` (`deliv_id`, `payment_id`, `rank`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_payment_payment_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
@@ -2098,9 +2136,15 @@ CREATE TABLE IF NOT EXISTS `dtb_plugin` (
   `free_field3` text COLLATE utf8_unicode_ci,
   `free_field4` text COLLATE utf8_unicode_ci,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`plugin_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `dtb_plugin`
+--
+
+INSERT INTO `dtb_plugin` (`plugin_id`, `plugin_name`, `plugin_code`, `class_name`, `author`, `author_site_url`, `plugin_site_url`, `plugin_version`, `compliant_version`, `plugin_description`, `priority`, `enable`, `free_field1`, `free_field2`, `free_field3`, `free_field4`, `create_date`, `update_date`) VALUES
+(1, 'PayPal Express Checkout Plug-in', 'PayPalExpressCheckout', 'PayPalExpressCheckout', 'PayPal', NULL, NULL, '1.0.0', '2.12.3en-p1, 2.12.3en-p2', 'PayPal Express Checkout Plug-in', 0, 2, NULL, NULL, NULL, NULL, '2014-10-24 03:04:19', '2014-10-24 03:04:19');
 
 -- --------------------------------------------------------
 
@@ -2113,10 +2157,8 @@ CREATE TABLE IF NOT EXISTS `dtb_plugin_hookpoint` (
   `plugin_id` int(11) NOT NULL,
   `hook_point` text COLLATE utf8_unicode_ci NOT NULL,
   `callback` text COLLATE utf8_unicode_ci,
-  `use_flg` smallint(6) NOT NULL DEFAULT '1',
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`plugin_hookpoint_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2126,8 +2168,7 @@ CREATE TABLE IF NOT EXISTS `dtb_plugin_hookpoint` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_plugin_hookpoint_plugin_hookpoint_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2137,9 +2178,15 @@ CREATE TABLE IF NOT EXISTS `dtb_plugin_hookpoint_plugin_hookpoint_id_seq` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_plugin_plugin_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+`sequence` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `dtb_plugin_plugin_id_seq`
+--
+
+INSERT INTO `dtb_plugin_plugin_id_seq` (`sequence`) VALUES
+(1);
 
 -- --------------------------------------------------------
 
@@ -2149,6 +2196,7 @@ CREATE TABLE IF NOT EXISTS `dtb_plugin_plugin_id_seq` (
 
 CREATE TABLE IF NOT EXISTS `dtb_products` (
   `product_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   `name` text COLLATE utf8_unicode_ci NOT NULL,
   `maker_id` int(11) DEFAULT NULL,
   `status` smallint(6) NOT NULL DEFAULT '2',
@@ -2192,18 +2240,30 @@ CREATE TABLE IF NOT EXISTS `dtb_products` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deliv_date_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`product_id`)
+  `deliv_date_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `dtb_products`
 --
 
-INSERT INTO `dtb_products` (`product_id`, `name`, `maker_id`, `status`, `comment1`, `comment2`, `comment3`, `comment4`, `comment5`, `comment6`, `note`, `main_list_comment`, `main_list_image`, `main_comment`, `main_image`, `main_large_image`, `sub_title1`, `sub_comment1`, `sub_image1`, `sub_large_image1`, `sub_title2`, `sub_comment2`, `sub_image2`, `sub_large_image2`, `sub_title3`, `sub_comment3`, `sub_image3`, `sub_large_image3`, `sub_title4`, `sub_comment4`, `sub_image4`, `sub_large_image4`, `sub_title5`, `sub_comment5`, `sub_image5`, `sub_large_image5`, `sub_title6`, `sub_comment6`, `sub_image6`, `sub_large_image6`, `del_flg`, `creator_id`, `create_date`, `update_date`, `deliv_date_id`) VALUES
-(1, 'アイスクリーム', NULL, 1, NULL, NULL, 'アイス,バニラ,チョコ,抹茶', NULL, NULL, NULL, NULL, '暑い夏にどうぞ。', 'ice130.jpg', '冷たいものはいかがですか?', 'ice260.jpg', 'ice500.jpg', NULL, '<b>おいしいよ<b>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 2),
-(2, 'おなべ', NULL, 1, NULL, NULL, '鍋,なべ,ナベ', NULL, NULL, NULL, NULL, '一人用からあります。', 'nabe130.jpg', 'たまには鍋でもどうでしょう。', 'nabe260.jpg', 'nabe500.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 3),
-(3, 'おなべレシピ', NULL, 1, NULL, NULL, '鍋,なべ,ナベ,レシピ,作り方', NULL, NULL, NULL, NULL, 'あの、秘伝のお鍋レシピです。', 'recipe130.jpg', '<b>この商品はダウンロード商品です</b><br />自分でチャレンジしてみたい方に。', 'recipe260.jpg', 'recipe500.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 1);
+INSERT INTO `dtb_products` (`product_id`, `customer_id`, `name`, `maker_id`, `status`, `comment1`, `comment2`, `comment3`, `comment4`, `comment5`, `comment6`, `note`, `main_list_comment`, `main_list_image`, `main_comment`, `main_image`, `main_large_image`, `sub_title1`, `sub_comment1`, `sub_image1`, `sub_large_image1`, `sub_title2`, `sub_comment2`, `sub_image2`, `sub_large_image2`, `sub_title3`, `sub_comment3`, `sub_image3`, `sub_large_image3`, `sub_title4`, `sub_comment4`, `sub_image4`, `sub_large_image4`, `sub_title5`, `sub_comment5`, `sub_image5`, `sub_large_image5`, `sub_title6`, `sub_comment6`, `sub_image6`, `sub_large_image6`, `del_flg`, `creator_id`, `create_date`, `update_date`, `deliv_date_id`) VALUES
+(0, 0, '', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'recipe130.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-13 06:43:58', '0000-00-00 00:00:00', NULL),
+(1, 29, 'アイスクリーム', NULL, 1, NULL, NULL, 'アイス,バニラ,チョコ,抹茶', NULL, NULL, NULL, NULL, '暑い夏にどうぞ。', 'ice130.jpg', '冷たいものはいかがですか?', 'ice260.jpg', 'ice500.jpg', NULL, '<b>おいしいよ<b>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, '2014-10-12 06:47:09', '2014-10-12 06:47:09', 2),
+(2, 37, 'おなべ', NULL, 1, NULL, NULL, '鍋,なべ,ナベ', NULL, NULL, NULL, NULL, '一人用からあります。', 'nabe130.jpg', 'たまには鍋でもどうでしょう。', 'nabe260.jpg', 'nabe500.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', 3),
+(3, 37, 'おなべレシピ', NULL, 1, NULL, NULL, '鍋,なべ,ナベ,レシピ,作り方', NULL, NULL, NULL, NULL, 'あの、秘伝のお鍋レシピです。', 'recipe130.jpg', '<b>この商品はダウンロード商品です</b><br />自分でチャレンジしてみたい方に。', 'recipe260.jpg', 'recipe500.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', 1),
+(36, 37, '', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, '1620470_870703842940696_7551227959000370778_n.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-07 02:15:24', '0000-00-00 00:00:00', NULL),
+(45, 37, '', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, 'Geah.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-07 07:39:47', '0000-00-00 00:00:00', NULL),
+(76, 37, 'Bench', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, '1620470_870703842940696_7551227959000370778_n.jpg', 'fsfrdsfd', '11131607_546458c33900d.jpg', 'tghrtghdgdfgf', '11131607_546458cd8edae.jpg', '11131608_546458dd6a5c4.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, '2014-11-13 04:36:33', '2014-11-13 07:08:20', NULL),
+(215, 35, '', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, '1415692692-1536x2048.jpg.jpg', NULL, 'my_shirt.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-20 10:58:37', '0000-00-00 00:00:00', NULL),
+(216, 35, '', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, '1415692692-1536x2048.jpg.jpg', NULL, 'my_cup.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-20 10:58:37', '0000-00-00 00:00:00', NULL),
+(217, 35, '', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, '1415692692-1536x2048.jpg.jpg', NULL, 'my_bag.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-20 10:58:37', '0000-00-00 00:00:00', NULL),
+(218, 35, '', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, '1415692692-1536x2048.jpg.jpg', NULL, 'my_phone.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-20 10:58:37', '0000-00-00 00:00:00', NULL),
+(302, 35, '', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, 'Untitled.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-26 10:15:52', '0000-00-00 00:00:00', NULL),
+(303, 35, '', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Untitled.png', NULL, 'my_shirt.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-26 10:16:03', '0000-00-00 00:00:00', NULL),
+(304, 35, '', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Untitled.png', NULL, 'my_cup.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-26 10:16:03', '0000-00-00 00:00:00', NULL),
+(305, 35, '', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Untitled.png', NULL, 'my_bag.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-26 10:16:03', '0000-00-00 00:00:00', NULL),
+(306, 35, '', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Untitled.png', NULL, 'my_phone.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2014-11-26 10:16:03', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -2230,10 +2290,7 @@ CREATE TABLE IF NOT EXISTS `dtb_products_class` (
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `down_filename` text COLLATE utf8_unicode_ci,
   `down_realfilename` text COLLATE utf8_unicode_ci,
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`product_class_id`),
-  UNIQUE KEY `product_id` (`product_id`,`classcategory_id1`,`classcategory_id2`),
-  KEY `dtb_products_class_product_id_key` (`product_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2241,18 +2298,23 @@ CREATE TABLE IF NOT EXISTS `dtb_products_class` (
 --
 
 INSERT INTO `dtb_products_class` (`product_class_id`, `product_id`, `classcategory_id1`, `classcategory_id2`, `product_type_id`, `product_code`, `stock`, `stock_unlimited`, `sale_limit`, `price01`, `price02`, `deliv_fee`, `point_rate`, `creator_id`, `create_date`, `update_date`, `down_filename`, `down_realfilename`, `del_flg`) VALUES
-(0, 1, 0, 0, 1, 'ice-01', NULL, 1, NULL, 1000, 933, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 1),
-(1, 1, 3, 6, 1, 'ice-01', NULL, 1, NULL, 1000, 933, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 0),
-(2, 1, 3, 5, 1, 'ice-02', NULL, 1, NULL, 1000, 933, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 0),
-(3, 1, 3, 4, 1, 'ice-03', NULL, 1, NULL, 1000, 933, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 0),
-(4, 1, 2, 6, 1, 'ice-04', NULL, 1, NULL, 1000, 933, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 0),
-(5, 1, 2, 5, 1, 'ice-05', NULL, 1, NULL, 1000, 933, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 0),
-(6, 1, 2, 4, 1, 'ice-06', NULL, 1, NULL, 1000, 933, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 0),
-(7, 1, 1, 6, 1, 'ice-07', NULL, 1, NULL, 1000, 933, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 0),
-(8, 1, 1, 5, 1, 'ice-08', NULL, 1, NULL, 1000, 933, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 0),
-(9, 1, 1, 4, 1, 'ice-09', NULL, 1, NULL, 1000, 933, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 0),
-(10, 2, 0, 0, 1, 'nabe-01', 100, 0, 5, 1700, 1650, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', NULL, NULL, 0),
-(11, 3, 0, 0, 2, 'recipe-01', NULL, 1, NULL, NULL, 100, NULL, 10, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 'おなべレシピ.pdf', 'recipe_onabe.pdf', 0);
+(0, 1, 0, 0, 1, 'ice-01', NULL, 1, NULL, '1000', '933', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 1),
+(1, 1, 3, 6, 1, 'ice-01', NULL, 1, NULL, '1000', '933', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 0),
+(2, 1, 3, 5, 1, 'ice-02', NULL, 1, NULL, '1000', '933', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 0),
+(3, 1, 3, 4, 1, 'ice-03', NULL, 1, NULL, '1000', '933', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 0),
+(4, 1, 2, 6, 1, 'ice-04', NULL, 1, NULL, '1000', '933', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 0),
+(5, 1, 2, 5, 1, 'ice-05', NULL, 1, NULL, '1000', '933', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 0),
+(6, 1, 2, 4, 1, 'ice-06', NULL, 1, NULL, '1000', '933', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 0),
+(7, 1, 1, 6, 1, 'ice-07', NULL, 1, NULL, '1000', '933', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 0),
+(8, 1, 1, 5, 1, 'ice-08', NULL, 1, NULL, '1000', '933', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 0),
+(9, 1, 1, 4, 1, 'ice-09', NULL, 1, NULL, '1000', '933', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 0),
+(10, 2, 0, 0, 1, 'nabe-01', '96', 0, '5', '1700', '1650', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', NULL, NULL, 0),
+(11, 3, 0, 0, 2, 'recipe-01', NULL, 1, NULL, NULL, '100', NULL, '10', 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', 'おなべレシピ.pdf', 'recipe_onabe.pdf', 0),
+(12, 76, 0, 0, 1, 'bny1324', '100', 0, NULL, NULL, '468', NULL, '10', 2, '2014-11-13 04:36:33', '2014-11-13 07:08:20', 'bench_new', NULL, 0),
+(31, 303, 0, 0, 0, NULL, NULL, 0, NULL, NULL, '2080', NULL, '0', 0, '2014-11-26 10:16:03', '0000-00-00 00:00:00', NULL, NULL, 0),
+(32, 304, 0, 0, 0, NULL, NULL, 0, NULL, NULL, '1730', NULL, '0', 0, '2014-11-26 10:16:03', '0000-00-00 00:00:00', NULL, NULL, 0),
+(33, 305, 0, 0, 0, NULL, NULL, 0, NULL, NULL, '1390', NULL, '0', 0, '2014-11-26 10:16:03', '0000-00-00 00:00:00', NULL, NULL, 0),
+(34, 306, 0, 0, 0, NULL, NULL, 0, NULL, NULL, '2000', NULL, '0', 0, '2014-11-26 10:16:03', '0000-00-00 00:00:00', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -2261,16 +2323,15 @@ INSERT INTO `dtb_products_class` (`product_class_id`, `product_id`, `classcatego
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_products_class_product_class_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
+`sequence` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `dtb_products_class_product_class_id_seq`
 --
 
 INSERT INTO `dtb_products_class_product_class_id_seq` (`sequence`) VALUES
-(11);
+(34);
 
 -- --------------------------------------------------------
 
@@ -2279,16 +2340,15 @@ INSERT INTO `dtb_products_class_product_class_id_seq` (`sequence`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_products_product_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+`sequence` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=307 ;
 
 --
 -- Dumping data for table `dtb_products_product_id_seq`
 --
 
 INSERT INTO `dtb_products_product_id_seq` (`sequence`) VALUES
-(3);
+(306);
 
 -- --------------------------------------------------------
 
@@ -2299,8 +2359,7 @@ INSERT INTO `dtb_products_product_id_seq` (`sequence`) VALUES
 CREATE TABLE IF NOT EXISTS `dtb_product_categories` (
   `product_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
-  `rank` int(11) NOT NULL,
-  PRIMARY KEY (`product_id`,`category_id`)
+  `rank` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2311,7 +2370,12 @@ INSERT INTO `dtb_product_categories` (`product_id`, `category_id`, `rank`) VALUE
 (1, 5, 1),
 (2, 4, 2),
 (3, 4, 1),
-(3, 6, 1);
+(3, 6, 1),
+(76, 2, 1),
+(303, 1, 1),
+(304, 2, 1),
+(305, 3, 1),
+(306, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -2325,8 +2389,7 @@ CREATE TABLE IF NOT EXISTS `dtb_product_status` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`product_status_id`,`product_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2334,9 +2397,11 @@ CREATE TABLE IF NOT EXISTS `dtb_product_status` (
 --
 
 INSERT INTO `dtb_product_status` (`product_status_id`, `product_id`, `creator_id`, `create_date`, `update_date`, `del_flg`) VALUES
-(1, 1, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 0),
-(4, 3, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 0),
-(5, 3, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25', 0);
+(1, 1, 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', 0),
+(1, 76, 2, '2014-11-13 07:08:21', '2014-11-13 07:08:21', 0),
+(4, 3, 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', 0),
+(4, 76, 2, '2014-11-13 07:08:21', '2014-11-13 07:08:21', 0),
+(5, 3, 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10', 0);
 
 -- --------------------------------------------------------
 
@@ -2352,8 +2417,7 @@ CREATE TABLE IF NOT EXISTS `dtb_recommend_products` (
   `status` smallint(6) NOT NULL DEFAULT '0',
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`product_id`,`recommend_product_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2361,7 +2425,7 @@ CREATE TABLE IF NOT EXISTS `dtb_recommend_products` (
 --
 
 INSERT INTO `dtb_recommend_products` (`product_id`, `recommend_product_id`, `rank`, `comment`, `status`, `creator_id`, `create_date`, `update_date`) VALUES
-(2, 1, 4, 'お口直しに。', 0, 2, '2014-10-02 04:46:25', '2014-10-02 04:46:25');
+(2, 1, 4, 'お口直しに。', 0, 2, '2014-10-12 06:47:10', '2014-10-12 06:47:10');
 
 -- --------------------------------------------------------
 
@@ -2383,8 +2447,7 @@ CREATE TABLE IF NOT EXISTS `dtb_review` (
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`review_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2394,8 +2457,7 @@ CREATE TABLE IF NOT EXISTS `dtb_review` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_review_review_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2409,9 +2471,7 @@ CREATE TABLE IF NOT EXISTS `dtb_send_customer` (
   `send_id` int(11) NOT NULL,
   `email` text COLLATE utf8_unicode_ci,
   `name` text COLLATE utf8_unicode_ci,
-  `send_flag` smallint(6) DEFAULT NULL,
-  PRIMARY KEY (`send_id`,`customer_id`),
-  KEY `dtb_send_customer_customer_id_key` (`customer_id`)
+  `send_flag` smallint(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2433,8 +2493,7 @@ CREATE TABLE IF NOT EXISTS `dtb_send_history` (
   `del_flg` smallint(6) NOT NULL DEFAULT '0',
   `creator_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`send_id`)
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2444,8 +2503,7 @@ CREATE TABLE IF NOT EXISTS `dtb_send_history` (
 --
 
 CREATE TABLE IF NOT EXISTS `dtb_send_history_send_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
+`sequence` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2458,8 +2516,7 @@ CREATE TABLE IF NOT EXISTS `dtb_session` (
   `sess_id` text COLLATE utf8_unicode_ci NOT NULL,
   `sess_data` text COLLATE utf8_unicode_ci,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`sess_id`(255))
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2467,11 +2524,7 @@ CREATE TABLE IF NOT EXISTS `dtb_session` (
 --
 
 INSERT INTO `dtb_session` (`sess_id`, `sess_data`, `create_date`, `update_date`) VALUES
-('0duskng3295tie4k9lagpehf15', 'cart|a:0:{}prev_url|s:1:"/";transactionid|s:40:"e92095b182c97fb2d72bc48c2f40e0702d62d8ed";cert|s:8:"7WDhcBTF";member_id|s:1:"2";login_id|s:5:"admin";authority|s:1:"0";login_name|s:9:"管理者";uniqid|s:21:"543362a93ed13W6sTxXh7";last_login|s:19:"2014-10-03 11:01:38";cart_referer_url|s:59:"http://nakame_ec.localhost/products/detail.php?product_id=2";', '2014-10-07 03:48:57', '2014-10-07 11:11:33'),
-('781hbfbsqdp0b4gi1ir5564s07', 'cart|a:0:{}prev_url|s:8:"/entry/?";transactionid|s:40:"9e5399b4ba1c52a8f0f3c55958cb02b2ccec18c8";', '2014-10-10 01:54:41', '2014-10-10 02:20:32'),
-('91u9tusvq2a064r89iudg3mje6', 'cart|a:0:{}prev_url|s:118:"/admin/design/main_edit.php?device_type_id=10&page_id=36&msg=on&transactionid=5ed2797e053b9a1949a0613748c34df5a7ff2d02";transactionid|s:40:"5ed2797e053b9a1949a0613748c34df5a7ff2d02";cert|s:8:"7WDhcBTF";member_id|s:1:"2";login_id|s:5:"admin";authority|s:1:"0";login_name|s:9:"管理者";uniqid|s:21:"5435f704b7d0cMvcfb3yC";last_login|s:19:"2014-10-09 14:26:27";', '2014-10-09 06:26:43', '2014-10-09 11:04:48'),
-('dqgpmai4cod6dbiqaihshm14m0', 'cart|a:0:{}prev_url|s:56:"/admin/design/main_edit.php?page_id=32&device_type_id=10";login_name|s:9:"管理者";last_login|s:19:"2014-10-08 19:03:20";transactionid|s:40:"06091d8e3e23d0ea0cb0eaa71da1d6bff1e72bf0";cert|s:8:"7WDhcBTF";member_id|s:1:"2";login_id|s:5:"admin";authority|s:1:"0";uniqid|s:21:"543510ccca45eZwMfdJcT";', '2014-10-08 10:24:12', '2014-10-08 10:59:37'),
-('n5f58hfho4k6erjfv3h4igvhd7', 'cart|a:1:{i:1;a:3:{i:1;a:11:{s:2:"id";s:2:"10";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"2";s:5:"stock";s:3:"100";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:19:"classcategory_name1";N;s:11:"class_name1";N;s:19:"classcategory_name2";N;s:11:"class_name2";N;s:4:"name";s:9:"おなべ";s:15:"main_list_image";s:11:"nabe130.jpg";s:10:"main_image";s:11:"nabe260.jpg";}s:5:"price";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"price_inctax";d:1782;s:12:"total_inctax";d:1782;s:8:"tax_rate";s:1:"8";s:8:"tax_rule";s:1:"1";s:10:"tax_adjust";s:1:"0";}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}}}prev_url|s:18:"/products/list.php";transactionid|s:40:"7b3f84ce19d439700f94588c64a4cc6d2f697fe8";cert|s:8:"7WDhcBTF";member_id|s:1:"2";login_id|s:5:"admin";authority|s:1:"0";login_name|s:9:"管理者";uniqid|s:21:"542e03825925bfCJXWbVU";last_login|s:19:"2014-10-02 13:49:33";site|a:4:{s:18:"pre_regist_success";b:0;s:14:"regist_success";b:0;s:8:"pre_page";s:15:"/cart/index.php";s:8:"now_page";s:15:"/cart/index.php";}cart_prev_url|s:58:"http://nakame_ec.localhost/products/list.php?category_id=1";cart_referer_url|s:44:"http://nakame_ec.localhost/products/list.php";', '2014-10-03 02:01:38', '2014-10-03 10:55:09');
+('19rtrcr2j12n6qneck41rqqql7', 'cart|a:0:{}prev_url|s:9:"/mypage/?";transactionid|s:40:"bd1e94dc6bcf98554865a84e85147935d39a9392";site|a:5:{s:18:"pre_regist_success";b:0;s:14:"regist_success";b:0;s:8:"pre_page";s:10:"/index.php";s:8:"now_page";s:10:"/index.php";s:6:"uniqid";s:0:"";}cart_prev_url|s:46:"http://nakame_ec.localhost/shopping/order.php?";customer|a:46:{s:11:"customer_id";s:2:"35";s:6:"name01";s:4:"caca";s:6:"name02";N;s:6:"name03";s:4:"test";s:6:"name04";s:5:"test1";s:6:"kana01";N;s:6:"kana02";N;s:5:"zip01";s:32:"37799_1284234160635_379174_n.jpg";s:5:"zip02";s:33:"68324_1346049985992_7755515_n.jpg";s:5:"zip03";s:8:"123-1231";s:4:"pref";N;s:9:"addr_code";N;s:6:"addr01";s:5:"test4";s:6:"addr02";s:5:"test5";s:6:"addr03";s:5:"test6";s:5:"email";s:14:"caca@caca.caca";s:12:"email_mobile";s:14:"caca@caca.caca";s:11:"card_number";s:2:"11";s:12:"card_expired";s:2:"11";s:9:"card_code";s:2:"11";s:5:"tel01";s:10:"1211323442";s:5:"tel02";N;s:5:"tel03";N;s:5:"fax01";N;s:5:"fax02";N;s:5:"fax03";N;s:3:"sex";N;s:3:"job";N;s:5:"birth";N;s:8:"password";s:64:"00ab8304cc4eb0b40ee692a3dd030f7581825d49e080cfdf3174b99bd818c86f";s:8:"reminder";N;s:15:"reminder_answer";N;s:4:"salt";s:10:"wrochitoul";s:10:"secret_key";s:22:"r544f370d24754DsdqBvyR";s:14:"first_buy_date";s:19:"2014-11-26 12:50:36";s:13:"last_buy_date";s:19:"2014-11-26 12:50:36";s:9:"buy_times";s:1:"1";s:9:"buy_total";N;s:5:"point";s:1:"0";s:4:"note";s:3:"Cod";s:6:"status";s:1:"2";s:11:"create_date";s:19:"2014-10-28 14:26:21";s:11:"update_date";s:19:"2014-10-28 14:26:21";s:7:"del_flg";s:1:"0";s:15:"mobile_phone_id";N;s:12:"mailmaga_flg";N;}cartKey|s:1:"1";savecart_54754333983e5Mmy66KZx|a:3:{i:1;a:7:{s:2:"id";s:2:"10";s:8:"quantity";s:1:"1";s:7:"cart_no";i:1;s:13:"productsClass";a:15:{s:10:"product_id";s:1:"2";s:5:"stock";s:2:"97";s:15:"stock_unlimited";s:1:"0";s:10:"sale_limit";s:1:"5";s:7:"price02";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"product_code";s:7:"nabe-01";s:16:"product_class_id";s:2:"10";s:19:"classcategory_name1";N;s:11:"class_name1";N;s:19:"classcategory_name2";N;s:11:"class_name2";N;s:4:"name";s:9:"おなべ";s:15:"main_list_image";s:11:"nabe130.jpg";s:10:"main_image";s:11:"nabe260.jpg";}s:5:"price";s:4:"1650";s:10:"point_rate";s:2:"10";s:12:"total_inctax";d:1733;}s:15:"cancel_purchase";b:0;i:0;a:4:{s:5:"price";s:0:"";s:8:"quantity";s:0:"";s:10:"point_rate";s:0:"";s:2:"id";a:1:{i:0;s:0:"";}}}member_id|s:1:"2";cart_referer_url|s:58:"http://nakame_ec.localhost/products/list.php?category_id=4";cert|s:8:"7WDhcBTF";login_id|s:5:"admin";authority|s:1:"0";login_name|s:9:"管理者";uniqid|s:21:"547579288ebff2rMxPGEP";last_login|s:19:"2014-11-17 16:10:12";', '2014-11-26 03:03:45', '2014-11-26 10:52:57');
 
 -- --------------------------------------------------------
 
@@ -2488,9 +2541,20 @@ CREATE TABLE IF NOT EXISTS `dtb_shipment_item` (
   `classcategory_name1` text COLLATE utf8_unicode_ci,
   `classcategory_name2` text COLLATE utf8_unicode_ci,
   `price` decimal(10,0) DEFAULT NULL,
-  `quantity` decimal(10,0) DEFAULT NULL,
-  PRIMARY KEY (`shipping_id`,`product_class_id`,`order_id`)
+  `quantity` decimal(10,0) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `dtb_shipment_item`
+--
+
+INSERT INTO `dtb_shipment_item` (`shipping_id`, `product_class_id`, `order_id`, `product_name`, `product_code`, `classcategory_name1`, `classcategory_name2`, `price`, `quantity`) VALUES
+(0, 1, 2, 'アイスクリーム', 'ice-01', '抹茶', 'S', '933', '1'),
+(0, 1, 4, 'アイスクリーム', 'ice-01', '抹茶', 'S', '933', '1'),
+(0, 2, 1, 'アイスクリーム', 'ice-02', '抹茶', 'M', '933', '1'),
+(0, 5, 3, 'アイスクリーム', 'ice-05', 'チョコ', 'M', '933', '1'),
+(0, 10, 1, 'おなべ', 'nabe-01', NULL, NULL, '1650', '2'),
+(0, 10, 3, 'おなべ', 'nabe-01', NULL, NULL, '1650', '1');
 
 -- --------------------------------------------------------
 
@@ -2505,18 +2569,15 @@ CREATE TABLE IF NOT EXISTS `dtb_shipping` (
   `shipping_name02` text COLLATE utf8_unicode_ci,
   `shipping_kana01` text COLLATE utf8_unicode_ci,
   `shipping_kana02` text COLLATE utf8_unicode_ci,
-  `shipping_company_name` text COLLATE utf8_unicode_ci,
   `shipping_tel01` text COLLATE utf8_unicode_ci,
   `shipping_tel02` text COLLATE utf8_unicode_ci,
   `shipping_tel03` text COLLATE utf8_unicode_ci,
   `shipping_fax01` text COLLATE utf8_unicode_ci,
   `shipping_fax02` text COLLATE utf8_unicode_ci,
   `shipping_fax03` text COLLATE utf8_unicode_ci,
-  `shipping_country_id` int(11) DEFAULT NULL,
   `shipping_pref` smallint(6) DEFAULT NULL,
   `shipping_zip01` text COLLATE utf8_unicode_ci,
   `shipping_zip02` text COLLATE utf8_unicode_ci,
-  `shipping_zipcode` text COLLATE utf8_unicode_ci,
   `shipping_addr01` text COLLATE utf8_unicode_ci,
   `shipping_addr02` text COLLATE utf8_unicode_ci,
   `time_id` int(11) DEFAULT NULL,
@@ -2527,50 +2588,18 @@ CREATE TABLE IF NOT EXISTS `dtb_shipping` (
   `rank` int(11) DEFAULT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`shipping_id`,`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dtb_tax_rule`
---
-
-CREATE TABLE IF NOT EXISTS `dtb_tax_rule` (
-  `tax_rule_id` int(11) NOT NULL,
-  `country_id` int(11) NOT NULL DEFAULT '0',
-  `pref_id` int(11) NOT NULL DEFAULT '0',
-  `product_id` int(11) NOT NULL DEFAULT '0',
-  `product_class_id` int(11) NOT NULL DEFAULT '0',
-  `calc_rule` smallint(6) NOT NULL DEFAULT '1',
-  `tax_rate` decimal(10,0) NOT NULL DEFAULT '8',
-  `tax_adjust` decimal(10,0) NOT NULL DEFAULT '0',
-  `apply_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `member_id` int(11) NOT NULL,
-  `del_flg` smallint(6) NOT NULL DEFAULT '0',
-  `create_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`tax_rule_id`)
+  `del_flg` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dtb_tax_rule`
+-- Dumping data for table `dtb_shipping`
 --
 
-INSERT INTO `dtb_tax_rule` (`tax_rule_id`, `country_id`, `pref_id`, `product_id`, `product_class_id`, `calc_rule`, `tax_rate`, `tax_adjust`, `apply_date`, `member_id`, `del_flg`, `create_date`, `update_date`) VALUES
-(0, 0, 0, 0, 0, 1, 8, 0, '2014-10-02 04:46:26', 1, 0, '2014-10-02 04:46:26', '2014-10-02 04:46:26');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dtb_tax_rule_tax_rule_id_seq`
---
-
-CREATE TABLE IF NOT EXISTS `dtb_tax_rule_tax_rule_id_seq` (
-  `sequence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`sequence`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+INSERT INTO `dtb_shipping` (`shipping_id`, `order_id`, `shipping_name01`, `shipping_name02`, `shipping_kana01`, `shipping_kana02`, `shipping_tel01`, `shipping_tel02`, `shipping_tel03`, `shipping_fax01`, `shipping_fax02`, `shipping_fax03`, `shipping_pref`, `shipping_zip01`, `shipping_zip02`, `shipping_addr01`, `shipping_addr02`, `time_id`, `shipping_time`, `shipping_num`, `shipping_date`, `shipping_commit_date`, `rank`, `create_date`, `update_date`, `del_flg`) VALUES
+(0, 1, 'jennilynn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2014-10-17 07:32:56', '2014-10-17 07:32:56', 0),
+(0, 2, 'jennilynn', 'jen', 'http://facebook.com', 'ccca', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2014-10-23 02:56:31', '2014-10-23 02:56:31', 0),
+(0, 3, 'daniel', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2014-10-23 04:37:04', '2014-10-23 04:37:04', 0),
+(0, 4, 'jennilynn', 'jen', 'http://facebook.com', 'ccca', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2014-10-23 06:16:28', '2014-10-23 06:16:28', 0);
 
 -- --------------------------------------------------------
 
@@ -2583,8 +2612,7 @@ CREATE TABLE IF NOT EXISTS `dtb_templates` (
   `device_type_id` int(11) NOT NULL,
   `template_name` text COLLATE utf8_unicode_ci,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`template_code`(255))
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2592,9 +2620,9 @@ CREATE TABLE IF NOT EXISTS `dtb_templates` (
 --
 
 INSERT INTO `dtb_templates` (`template_code`, `device_type_id`, `template_name`, `create_date`, `update_date`) VALUES
-('default', 10, 'デフォルト', '2014-10-02 04:46:25', '2014-10-02 04:46:25'),
-('mobile', 1, 'モバイル', '2014-10-02 04:46:25', '2014-10-02 04:46:25'),
-('sphone', 2, 'スマートフォン', '2014-10-02 04:46:25', '2014-10-02 04:46:25');
+('default', 10, 'デフォルト', '2014-10-12 06:47:10', '2014-10-12 06:47:10'),
+('mobile', 1, 'モバイル', '2014-10-12 06:47:10', '2014-10-12 06:47:10'),
+('sphone', 2, 'スマートフォン', '2014-10-12 06:47:10', '2014-10-12 06:47:10');
 
 -- --------------------------------------------------------
 
@@ -2616,8 +2644,7 @@ CREATE TABLE IF NOT EXISTS `dtb_update` (
   `del_flg` smallint(6) NOT NULL DEFAULT '0',
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `release_date` datetime NOT NULL,
-  PRIMARY KEY (`module_id`)
+  `release_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2629,8 +2656,7 @@ CREATE TABLE IF NOT EXISTS `dtb_update` (
 CREATE TABLE IF NOT EXISTS `mtb_allowed_tag` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2667,8 +2693,7 @@ INSERT INTO `mtb_allowed_tag` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_authority` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2688,8 +2713,7 @@ INSERT INTO `mtb_authority` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_auth_excludes` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2710,8 +2734,7 @@ CREATE TABLE IF NOT EXISTS `mtb_constants` (
   `id` text COLLATE utf8_unicode_ci NOT NULL,
   `name` text COLLATE utf8_unicode_ci,
   `rank` smallint(6) NOT NULL DEFAULT '0',
-  `remarks` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`id`(255))
+  `remarks` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2733,12 +2756,11 @@ INSERT INTO `mtb_constants` (`id`, `name`, `rank`, `remarks`) VALUES
 ('ADMIN_SYSTEM_URLPATH', 'ROOT_URLPATH . ADMIN_DIR . "system/" . DIR_INDEX_PATH', 159, 'システム管理トップ'),
 ('ADMIN_TITLE', '"EC-CUBE 管理機能"', 134, '管理機能タイトル'),
 ('AMOUNT_LEN', '6', 199, '在庫数、販売制限数'),
-('API_ENABLE_FLAG', 'false', 1420, 'API機能を有効にする(true:する false:しない)'),
 ('AUTH_TYPE', '"HMAC"', 10, '認証方式'),
 ('BIRTH_MONTH_POINT', '0', 98, '誕生日月ポイント'),
 ('BIRTH_YEAR', '1901', 83, '生年月日登録開始年'),
 ('BLOC_DIR', '"frontparts/bloc/"', 311, 'ブロックファイル保存先'),
-('CART_URL', 'HTTP_URL . "cart/" . DIR_INDEX_PATH', 240, 'カートトップ'),
+('CART_URLPATH', 'ROOT_URLPATH . "cart/" . DIR_INDEX_PATH', 240, 'カートトップ'),
 ('CATEGORY_HEAD', '">"', 138, '親カテゴリ表示文字'),
 ('CATEGORY_MAX', '1000', 133, '最大カテゴリ登録数'),
 ('CERT_STRING', '"7WDhcBTF"', 80, '認証文字列'),
@@ -2758,7 +2780,6 @@ INSERT INTO `mtb_constants` (`id`, `name`, `rank`, `remarks`) VALUES
 ('DB_LOG_REALFILE', 'DATA_REALDIR . "logs/db.log"', 147, 'DBログファイル'),
 ('DEBUG_LOG_REALFILE', '""', 145, 'デバッグログファイル(未入力:標準ログファイル・管理画面ログファイル)'),
 ('DEBUG_MODE', 'false', 72, 'デバッグモード(true：sfPrintRやDBのエラーメッセージ、ログレベルがDebugのログを出力する、false：出力しない)'),
-('DEFAULT_COUNTRY_ID', '392', 1413, 'デフォルト国コード ISO_3166-1に準拠'),
 ('DEFAULT_PASSWORD', '"******"', 66, '会員登録変更(マイページ)パスワード用'),
 ('DEFAULT_PRODUCT_DISP', '2', 56, '1:公開 2:非公開'),
 ('DEFAULT_PRODUCT_DOWN', '1', 703, '1:実商品 2:ダウンロード'),
@@ -2779,7 +2800,7 @@ INSERT INTO `mtb_constants` (`id`, `name`, `rank`, `remarks`) VALUES
 ('DOWN_TEMP_REALDIR', 'DATA_REALDIR . "download/temp/"', 704, 'ダウンロードファイル一時保存'),
 ('DOWNLOAD_BLOCK', '1024', 708, 'ダウンロード販売機能 ダウンロードファイル読み込みバイト(KB)'),
 ('DOWNLOAD_DAYS_LEN', '3', 700, '日数桁数'),
-('DOWNLOAD_EXTENSION', '"zip,lzh,jpg,jpeg,gif,png,mp3,pdf,csv"', 701, 'ダウンロードファイル登録可能拡張子(カンマ区切り)'),
+('DOWNLOAD_EXTENSION', '"zip,lzh,jpg,jpeg,gif,png,mp3,pdf,csv"', 701, 'ダウンロードファイル登録可能拡張子(カンマ区切り)"'),
 ('DOWNLOADS_TEMP_PLUGIN_INSTALL_DIR', 'DATA_REALDIR . "downloads/tmp/plugin_install/"', 613, 'プラグイン一時展開用ディレクトリ（インストール用）'),
 ('DOWNLOADS_TEMP_PLUGIN_UPDATE_DIR', 'DATA_REALDIR . "downloads/tmp/plugin_update/"', 612, 'プラグイン一時展開用ディレクトリ（アップデート用）'),
 ('ECCUBE_INFO', 'true', 1218, 'EC-CUBE更新情報取得 (true:取得する false:取得しない)'),
@@ -2792,7 +2813,6 @@ INSERT INTO `mtb_constants` (`id`, `name`, `rank`, `remarks`) VALUES
 ('FILE_NAME_LEN', '10', 209, 'ファイル名表示文字数'),
 ('FILE_SIZE', '10000', 130, 'ファイル管理画面アップ制限(KB)'),
 ('FORGOT_MAIL', '0', 95, 'パスワード忘れの確認メールを送付するか否か。(0:送信しない、1:送信する)'),
-('FORM_COUNTRY_ENABLE', 'false', 1415, '各種フォームで国の指定を有効にする(true:有効 false:無効)'),
 ('GRAPH_LABEL_MAX', '40', 52, 'グラフのラベルの文字数'),
 ('GRAPH_PIE_MAX', '10', 51, '円グラフ最大表示数'),
 ('GRAPH_REALDIR', 'HTML_REALDIR . "upload/graph_image/"', 49, 'グラフ格納ディレクトリ'),
@@ -2862,7 +2882,6 @@ INSERT INTO `mtb_constants` (`id`, `name`, `rank`, `remarks`) VALUES
 ('OPTION_DELIV_FEE', '1', 60, '配送業者ごとの配送料を加算する(有効:1 無効:0)'),
 ('OPTION_FAVORITE_PRODUCT', '1', 523, 'お気に入り商品登録(有効:1 無効:0)'),
 ('OPTION_PRODUCT_DELIV_FEE', '0', 59, '商品ごとの送料設定(有効:1 無効:0)'),
-('OPTION_PRODUCT_TAX_RULE', '0', 1416, '商品ごとの税率設定(軽減税率対応 有効:1 無効:0) '),
 ('OPTION_RECOMMEND', '1', 61, 'おすすめ商品登録(有効:1 無効:0)'),
 ('ORDER_BACK_ORDER', '4', 804, '取り寄せ中'),
 ('ORDER_CANCEL', '3', 803, 'キャンセル'),
@@ -2882,15 +2901,12 @@ INSERT INTO `mtb_constants` (`id`, `name`, `rank`, `remarks`) VALUES
 ('PASSWORD_MIN_LEN', '4', 204, 'フロント画面用：パスワードの最小文字数'),
 ('PEAR_DB_DEBUG', '0', 42, 'PEAR::DBのデバッグモード'),
 ('PEAR_DB_PERSISTENT', 'false', 43, 'PEAR::DBの持続的接続オプション'),
-('PENDING_ORDER_CANCEL_FLAG', 'true', 1419, '決済処理中ステータスのロールバックをするか(true:する false:しない)'),
-('PENDING_ORDER_CANCEL_TIME', '900', 1418, '決済処理中ステータスのロールバックを行う時間の設定(秒) '),
 ('PERCENTAGE_LEN', '3', 198, '率桁数'),
 ('PLUGIN_ACTIVATE_FLAG', 'true', 1303, 'プラグインのロード可否フラグ)'),
 ('PLUGIN_DIR', '"plugins/"', 600, '(2.11用)プラグインディレクトリ(モジュールで使用)'),
 ('PLUGIN_EXTENSION', '"tar,tar.gz"', 611, 'プラグインファイル登録可能拡張子(カンマ区切り)'),
 ('PLUGIN_HTML_REALDIR', 'HTML_REALDIR . "plugin/"', 605, 'プラグイン保存先ディレクトリ(html)'),
 ('PLUGIN_HTML_URLPATH', 'ROOT_URLPATH . "plugin/"', 614, 'プラグインURL'),
-('PLUGIN_LOG_REALFILE', 'DATA_REALDIR . "logs/plugin.log"', 148, 'プラグインログファイル'),
 ('PLUGIN_REALDIR', 'USER_REALDIR . PLUGIN_DIR', 601, '(2.11用)プラグイン保存先(モジュールで使用)'),
 ('PLUGIN_TEMP_REALDIR', 'HTML_REALDIR . "upload/temp_plugin/"', 608, 'プラグインファイル一時保存先'),
 ('PLUGIN_UPLOAD_REALDIR', 'DATA_REALDIR . "downloads/plugin/"', 604, 'プラグイン保存先ディレクトリ'),
@@ -2936,7 +2952,6 @@ INSERT INTO `mtb_constants` (`id`, `name`, `rank`, `remarks`) VALUES
 ('SQL_QUERY_LOG_MODE', '1', 1000, 'DBログの記録モード (0:記録しない, 1:遅延時のみ記録する, 2:常に記録する)'),
 ('START_BIRTH_YEAR', '1970', 139, '生年月日初期選択年'),
 ('STEXT_LEN', '50', 188, '短い項目の文字数 (名前など)'),
-('TAX_RULE_PRIORITY', '"product_id,product_class_id,pref_id,country_id"', 1417, '複数箇所の税率設定時における優先度設定。カンマ区切りスペース不可で記述。後に書いてあるキーに一致するほど優先される。デフォルト：''product_id,product_class_id,pref_id,country_id''（国＞地域（県）＞規格単位＞商品単位）'),
 ('TEL_ITEM_LEN', '6', 202, '電話番号各項目制限'),
 ('TEL_LEN', '12', 203, '電話番号総数'),
 ('TEMPLATE_ADMIN_REALDIR', 'SMARTY_TEMPLATES_REALDIR . "admin/"', 308, 'SMARTYテンプレート(管理機能)'),
@@ -2944,17 +2959,16 @@ INSERT INTO `mtb_constants` (`id`, `name`, `rank`, `remarks`) VALUES
 ('TEMPLATE_REALDIR', 'SMARTY_TEMPLATES_REALDIR . TEMPLATE_NAME . "/"', 307, 'SMARTYテンプレート(PC)'),
 ('TEMPLATE_SIZE', '10000', 131, 'アップできるテンプレートファイル制限(KB)'),
 ('TEMPLATE_TEMP_REALDIR', 'HTML_REALDIR . "upload/temp_template/"', 19, 'テンプレートファイル一時保存先'),
-('TOP_URL', 'HTTP_URL . DIR_INDEX_PATH', 239, 'サイトトップ'),
+('TOP_URLPATH', 'ROOT_URLPATH . DIR_INDEX_PATH', 239, 'サイトトップ'),
 ('TRANSACTION_ID_NAME', '"transactionid"', 94, 'トランザクションID の名前'),
 ('UPDATE_HTTP', '"http://www.ec-cube.net/info/index.php"', 28, 'アップデート管理用ファイル格納場所'),
 ('UPDATE_SEND_SITE_INFO', 'false', 289, 'アップデート時にサイト情報を送出するか'),
 ('URL_LEN', '1024', 194, 'URLの文字長'),
 ('USE_MOBILE', 'true', 292, 'モバイルサイトを利用するか(true:利用する、false:利用しない) (false は一部対応) (*モジュールで使用)'),
 ('USE_MULTIPLE_SHIPPING', 'true', 293, '複数配送先指定機能を利用するか(true:利用する、false:利用しない)'),
-('USE_NORMALIZE_HOSTNAME', 'true', 1414, 'ホスト名を正規化するか (true:する false:しない)'),
 ('USE_POINT', 'true', 290, 'ポイントを利用するか(true:利用する、false:利用しない) (false は一部対応)'),
 ('USE_VERBOSE_LOG', 'DEBUG_MODE', 73, 'ログを冗長とするか(true:利用する、false:利用しない)'),
-('USER_DEF_PHP_REALFILE', 'DATA_REALDIR . "__default.php"', 20, 'ユーザー作成画面のデフォルトPHPファイル'),
+('USER_DEF_PHP_REALFILE', 'USER_REALDIR . "__default.php"', 20, 'ユーザー作成画面のデフォルトPHPファイル'),
 ('USER_DIR', '"user_data/"', 3, 'ユーザファイル保存先'),
 ('USER_PACKAGE_DIR', '"packages/"', 17, 'テンプレートファイル保存先'),
 ('USER_REALDIR', 'HTML_REALDIR . USER_DIR', 4, 'ユーザファイル保存先'),
@@ -2967,282 +2981,13 @@ INSERT INTO `mtb_constants` (`id`, `name`, `rank`, `remarks`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mtb_country`
---
-
-CREATE TABLE IF NOT EXISTS `mtb_country` (
-  `id` int(11) NOT NULL DEFAULT '0',
-  `name` text COLLATE utf8_unicode_ci,
-  `rank` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `mtb_country`
---
-
-INSERT INTO `mtb_country` (`id`, `name`, `rank`) VALUES
-(4, 'アフガニスタン', 4),
-(8, 'アルバニア', 12),
-(10, '南極', 149),
-(12, 'アルジェリア', 9),
-(16, 'アメリカ領サモア', 7),
-(20, 'アンドラ', 17),
-(24, 'アンゴラ', 15),
-(28, 'アンティグア・バーブーダ', 16),
-(31, 'アゼルバイジャン', 3),
-(32, 'アルゼンチン', 10),
-(36, 'オーストラリア', 39),
-(40, 'オーストリア', 40),
-(44, 'バハマ', 167),
-(48, 'バーレーン', 161),
-(50, 'バングラデシュ', 175),
-(51, 'アルメニア', 13),
-(52, 'バルバドス', 172),
-(56, 'ベルギー', 201),
-(60, 'バミューダ諸島|バミューダ', 169),
-(64, 'ブータン', 181),
-(68, 'ボリビア|ボリビア多民族国', 206),
-(70, 'ボスニア・ヘルツェゴビナ', 203),
-(72, 'ボツワナ', 204),
-(74, 'ブーベ島', 182),
-(76, 'ブラジル', 186),
-(84, 'ベリーズ', 199),
-(86, 'イギリス領インド洋地域', 20),
-(90, 'ソロモン諸島', 121),
-(92, 'イギリス領ヴァージン諸島', 21),
-(96, 'ブルネイ|ブルネイ・ダルサラーム', 193),
-(100, 'ブルガリア', 191),
-(104, 'ミャンマー', 224),
-(108, 'ブルンジ', 194),
-(112, 'ベラルーシ', 198),
-(116, 'カンボジア', 55),
-(120, 'カメルーン', 53),
-(124, 'カナダ', 51),
-(132, 'カーボベルデ', 45),
-(136, 'ケイマン諸島', 75),
-(140, '中央アフリカ共和国', 130),
-(144, 'スリランカ', 108),
-(148, 'チャド', 129),
-(152, 'チリ', 134),
-(156, '中華人民共和国|中国', 131),
-(158, '台湾', 125),
-(162, 'クリスマス島 (オーストラリア)|クリスマス島', 71),
-(166, 'ココス諸島|ココス（キーリング）諸島', 78),
-(170, 'コロンビア', 81),
-(174, 'コモロ', 80),
-(175, 'マヨット', 214),
-(178, 'コンゴ共和国', 82),
-(180, 'コンゴ民主共和国', 83),
-(184, 'クック諸島', 69),
-(188, 'コスタリカ', 79),
-(191, 'クロアチア', 74),
-(192, 'キューバ', 60),
-(196, 'キプロス', 59),
-(203, 'チェコ', 128),
-(204, 'ベナン', 196),
-(208, 'デンマーク', 136),
-(212, 'ドミニカ国', 141),
-(214, 'ドミニカ共和国', 140),
-(218, 'エクアドル', 33),
-(222, 'エルサルバドル', 38),
-(226, '赤道ギニア', 113),
-(231, 'エチオピア', 36),
-(232, 'エリトリア', 37),
-(233, 'エストニア', 35),
-(234, 'フェロー諸島', 184),
-(238, 'フォークランド諸島|フォークランド（マルビナス）諸島', 185),
-(239, 'サウスジョージア・サウスサンドウィッチ諸島', 85),
-(242, 'フィジー', 178),
-(246, 'フィンランド', 180),
-(248, 'オーランド諸島', 41),
-(250, 'フランス', 187),
-(254, 'フランス領ギアナ', 188),
-(258, 'フランス領ポリネシア', 189),
-(260, 'フランス領南方・南極地域', 190),
-(262, 'ジブチ', 94),
-(266, 'ガボン', 52),
-(268, 'グルジア', 72),
-(270, 'ガンビア', 54),
-(275, 'パレスチナ', 173),
-(276, 'ドイツ', 137),
-(288, 'ガーナ', 44),
-(292, 'ジブラルタル', 95),
-(296, 'キリバス', 63),
-(300, 'ギリシャ', 62),
-(304, 'グリーンランド', 70),
-(308, 'グレナダ', 73),
-(312, 'グアドループ', 66),
-(316, 'グアム', 67),
-(320, 'グアテマラ', 65),
-(324, 'ギニア', 57),
-(328, 'ガイアナ', 47),
-(332, 'ハイチ', 162),
-(334, 'ハード島とマクドナルド諸島', 160),
-(336, 'バチカン|バチカン市国', 164),
-(340, 'ホンジュラス', 209),
-(344, '香港', 208),
-(348, 'ハンガリー', 174),
-(352, 'アイスランド', 1),
-(356, 'インド', 26),
-(360, 'インドネシア', 27),
-(364, 'イラン|イラン・イスラム共和国', 25),
-(368, 'イラク', 24),
-(372, 'アイルランド', 2),
-(376, 'イスラエル', 22),
-(380, 'イタリア', 23),
-(384, 'コートジボワール', 77),
-(388, 'ジャマイカ', 97),
-(392, '日本', 153),
-(398, 'カザフスタン', 48),
-(400, 'ヨルダン', 236),
-(404, 'ケニア', 76),
-(408, '朝鮮民主主義人民共和国', 133),
-(410, '大韓民国', 124),
-(414, 'クウェート', 68),
-(417, 'キルギス', 64),
-(418, 'ラオス|ラオス人民民主共和国', 237),
-(422, 'レバノン', 247),
-(426, 'レソト', 246),
-(428, 'ラトビア', 238),
-(430, 'リベリア', 242),
-(434, 'リビア', 240),
-(438, 'リヒテンシュタイン', 241),
-(440, 'リトアニア', 239),
-(442, 'ルクセンブルク', 244),
-(446, 'マカオ', 211),
-(450, 'マダガスカル', 213),
-(454, 'マラウイ', 215),
-(458, 'マレーシア', 219),
-(462, 'モルディブ', 230),
-(466, 'マリ共和国|マリ', 216),
-(470, 'マルタ', 217),
-(474, 'マルティニーク', 218),
-(478, 'モーリタニア', 227),
-(480, 'モーリシャス', 226),
-(484, 'メキシコ', 225),
-(492, 'モナコ', 229),
-(496, 'モンゴル国|モンゴル', 233),
-(498, 'モルドバ|モルドバ共和国', 231),
-(499, 'モンテネグロ', 234),
-(500, 'モントセラト', 235),
-(504, 'モロッコ', 232),
-(508, 'モザンビーク', 228),
-(512, 'オマーン', 42),
-(516, 'ナミビア', 148),
-(520, 'ナウル', 147),
-(524, 'ネパール', 157),
-(528, 'オランダ', 43),
-(531, 'キュラソー島|キュラソー', 61),
-(533, 'アルバ', 11),
-(534, 'シント・マールテン|シント・マールテン（オランダ領）', 100),
-(535, 'BES諸島|ボネール、シント・ユースタティウスおよびサバ', 205),
-(540, 'ニューカレドニア', 155),
-(548, 'バヌアツ', 166),
-(554, 'ニュージーランド', 156),
-(558, 'ニカラグア', 151),
-(562, 'ニジェール', 152),
-(566, 'ナイジェリア', 146),
-(570, 'ニウエ', 150),
-(574, 'ノーフォーク島', 158),
-(578, 'ノルウェー', 159),
-(580, '北マリアナ諸島', 56),
-(581, '合衆国領有小離島', 50),
-(583, 'ミクロネシア連邦', 221),
-(584, 'マーシャル諸島', 210),
-(585, 'パラオ', 170),
-(586, 'パキスタン', 163),
-(591, 'パナマ', 165),
-(598, 'パプアニューギニア', 168),
-(600, 'パラグアイ', 171),
-(604, 'ペルー', 200),
-(608, 'フィリピン', 179),
-(612, 'ピトケアン諸島|ピトケアン', 177),
-(616, 'ポーランド', 202),
-(620, 'ポルトガル', 207),
-(624, 'ギニアビサウ', 58),
-(626, '東ティモール', 176),
-(630, 'プエルトリコ', 183),
-(634, 'カタール', 49),
-(638, 'レユニオン', 248),
-(642, 'ルーマニア', 243),
-(643, 'ロシア|ロシア連邦', 249),
-(646, 'ルワンダ', 245),
-(652, 'サン・バルテルミー島|サン・バルテルミー', 88),
-(654, 'セントヘレナ・アセンションおよびトリスタンダクーニャ', 118),
-(659, 'セントクリストファー・ネイビス', 116),
-(660, 'アンギラ', 14),
-(662, 'セントルシア', 119),
-(663, 'サン・マルタン (西インド諸島)|サン・マルタン（フランス領）', 92),
-(666, 'サンピエール島・ミクロン島', 90),
-(670, 'セントビンセント・グレナディーン|セントビンセントおよびグレナディーン諸島', 117),
-(674, 'サンマリノ', 91),
-(678, 'サントメ・プリンシペ', 87),
-(682, 'サウジアラビア', 84),
-(686, 'セネガル', 114),
-(688, 'セルビア', 115),
-(690, 'セーシェル', 112),
-(694, 'シエラレオネ', 93),
-(702, 'シンガポール', 99),
-(703, 'スロバキア', 109),
-(704, 'ベトナム', 195),
-(705, 'スロベニア', 110),
-(706, 'ソマリア', 120),
-(710, '南アフリカ共和国|南アフリカ', 222),
-(716, 'ジンバブエ', 101),
-(724, 'スペイン', 106),
-(728, '南スーダン', 223),
-(729, 'スーダン', 104),
-(732, '西サハラ', 154),
-(740, 'スリナム', 107),
-(744, 'スヴァールバル諸島およびヤンマイエン島', 105),
-(748, 'スワジランド', 111),
-(752, 'スウェーデン', 103),
-(756, 'スイス', 102),
-(760, 'シリア|シリア・アラブ共和国', 98),
-(762, 'タジキスタン', 126),
-(764, 'タイ王国|タイ', 123),
-(768, 'トーゴ', 138),
-(772, 'トケラウ', 139),
-(776, 'トンガ', 145),
-(780, 'トリニダード・トバゴ', 142),
-(784, 'アラブ首長国連邦', 8),
-(788, 'チュニジア', 132),
-(792, 'トルコ', 144),
-(795, 'トルクメニスタン', 143),
-(796, 'タークス・カイコス諸島', 122),
-(798, 'ツバル', 135),
-(800, 'ウガンダ', 29),
-(804, 'ウクライナ', 30),
-(807, 'マケドニア共和国|マケドニア旧ユーゴスラビア共和国', 212),
-(818, 'エジプト', 34),
-(826, 'イギリス', 19),
-(831, 'ガーンジー', 46),
-(832, 'ジャージー', 96),
-(833, 'マン島', 220),
-(834, 'タンザニア', 127),
-(840, 'アメリカ合衆国', 5),
-(850, 'アメリカ領ヴァージン諸島', 6),
-(854, 'ブルキナファソ', 192),
-(858, 'ウルグアイ', 32),
-(860, 'ウズベキスタン', 31),
-(862, 'ベネズエラ|ベネズエラ・ボリバル共和国', 197),
-(876, 'ウォリス・フツナ', 28),
-(882, 'サモア', 86),
-(887, 'イエメン', 18),
-(894, 'ザンビア', 89);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `mtb_customer_order_status`
 --
 
 CREATE TABLE IF NOT EXISTS `mtb_customer_order_status` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3267,8 +3012,7 @@ INSERT INTO `mtb_customer_order_status` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_customer_status` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3288,8 +3032,7 @@ INSERT INTO `mtb_customer_status` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_db` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3309,8 +3052,7 @@ INSERT INTO `mtb_db` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_delivery_date` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3337,8 +3079,7 @@ INSERT INTO `mtb_delivery_date` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_device_type` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL,
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3360,8 +3101,7 @@ INSERT INTO `mtb_device_type` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_disable_logout` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3384,8 +3124,7 @@ INSERT INTO `mtb_disable_logout` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_disp` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3405,8 +3144,7 @@ INSERT INTO `mtb_disp` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_job` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3442,8 +3180,7 @@ INSERT INTO `mtb_job` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_magazine_type` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3463,8 +3200,7 @@ INSERT INTO `mtb_magazine_type` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_mail_magazine_type` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3485,8 +3221,7 @@ INSERT INTO `mtb_mail_magazine_type` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_mail_template` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3509,8 +3244,7 @@ INSERT INTO `mtb_mail_template` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_mail_tpl_path` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3533,8 +3267,7 @@ INSERT INTO `mtb_mail_tpl_path` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_mail_type` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3556,8 +3289,7 @@ INSERT INTO `mtb_mail_type` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_mobile_domain` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3571,10 +3303,7 @@ INSERT INTO `mtb_mobile_domain` (`id`, `name`, `rank`) VALUES
 (4, 'vodafone.ne.jp', 3),
 (5, 'pdx.ne.jp', 4),
 (6, 'disney.ne.jp', 5),
-(7, 'willcom.com', 6),
-(8, 'emnet.ne.jp', 7),
-(9, 'i.softbank.jp', 8),
-(10, 'emobile.ne.jp', 9);
+(7, 'willcom.com', 6);
 
 -- --------------------------------------------------------
 
@@ -3585,8 +3314,7 @@ INSERT INTO `mtb_mobile_domain` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_order_status` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3611,8 +3339,7 @@ INSERT INTO `mtb_order_status` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_order_status_color` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3637,8 +3364,7 @@ INSERT INTO `mtb_order_status_color` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_ownersstore_err` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3674,8 +3400,7 @@ INSERT INTO `mtb_ownersstore_err` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_ownersstore_ips` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3694,8 +3419,7 @@ INSERT INTO `mtb_ownersstore_ips` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_page_max` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3723,8 +3447,7 @@ INSERT INTO `mtb_page_max` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_permission` (
   `id` text COLLATE utf8_unicode_ci NOT NULL,
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`(255))
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3754,8 +3477,7 @@ INSERT INTO `mtb_permission` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_pref` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3820,8 +3542,7 @@ INSERT INTO `mtb_pref` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_product_list_max` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3842,8 +3563,7 @@ INSERT INTO `mtb_product_list_max` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_product_status_color` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3864,8 +3584,7 @@ INSERT INTO `mtb_product_status_color` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_product_type` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL,
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3885,8 +3604,7 @@ INSERT INTO `mtb_product_type` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_recommend` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3909,8 +3627,7 @@ INSERT INTO `mtb_recommend` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_reminder` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3935,8 +3652,7 @@ INSERT INTO `mtb_reminder` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_review_deny_url` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3958,8 +3674,7 @@ INSERT INTO `mtb_review_deny_url` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_sex` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3979,8 +3694,7 @@ INSERT INTO `mtb_sex` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_status` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -4003,8 +3717,7 @@ INSERT INTO `mtb_status` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_status_image` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -4027,8 +3740,7 @@ INSERT INTO `mtb_status_image` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_target` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -4057,8 +3769,7 @@ INSERT INTO `mtb_target` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_taxrule` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -4079,8 +3790,7 @@ INSERT INTO `mtb_taxrule` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_wday` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -4105,8 +3815,7 @@ INSERT INTO `mtb_wday` (`id`, `name`, `rank`) VALUES
 CREATE TABLE IF NOT EXISTS `mtb_work` (
   `id` smallint(6) NOT NULL DEFAULT '0',
   `name` text COLLATE utf8_unicode_ci,
-  `rank` smallint(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `rank` smallint(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -4128,10 +3837,911 @@ CREATE TABLE IF NOT EXISTS `mtb_zip` (
   `zipcode` text COLLATE utf8_unicode_ci,
   `state` text COLLATE utf8_unicode_ci,
   `city` text COLLATE utf8_unicode_ci,
-  `town` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`zip_id`)
+  `town` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `dtb_api_account`
+--
+ALTER TABLE `dtb_api_account`
+ ADD PRIMARY KEY (`api_account_id`);
+
+--
+-- Indexes for table `dtb_api_account_api_account_id_seq`
+--
+ALTER TABLE `dtb_api_account_api_account_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_api_config`
+--
+ALTER TABLE `dtb_api_config`
+ ADD PRIMARY KEY (`api_config_id`);
+
+--
+-- Indexes for table `dtb_api_config_api_config_id_seq`
+--
+ALTER TABLE `dtb_api_config_api_config_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_baseinfo`
+--
+ALTER TABLE `dtb_baseinfo`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dtb_best_products`
+--
+ALTER TABLE `dtb_best_products`
+ ADD PRIMARY KEY (`best_id`);
+
+--
+-- Indexes for table `dtb_best_products_best_id_seq`
+--
+ALTER TABLE `dtb_best_products_best_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_bkup`
+--
+ALTER TABLE `dtb_bkup`
+ ADD PRIMARY KEY (`bkup_name`(255));
+
+--
+-- Indexes for table `dtb_bloc`
+--
+ALTER TABLE `dtb_bloc`
+ ADD PRIMARY KEY (`device_type_id`,`bloc_id`), ADD UNIQUE KEY `device_type_id` (`device_type_id`,`filename`(255));
+
+--
+-- Indexes for table `dtb_blocposition`
+--
+ALTER TABLE `dtb_blocposition`
+ ADD PRIMARY KEY (`device_type_id`,`page_id`,`target_id`,`bloc_id`);
+
+--
+-- Indexes for table `dtb_bloc_bloc_id_seq`
+--
+ALTER TABLE `dtb_bloc_bloc_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_category`
+--
+ALTER TABLE `dtb_category`
+ ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `dtb_category_category_id_seq`
+--
+ALTER TABLE `dtb_category_category_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_category_count`
+--
+ALTER TABLE `dtb_category_count`
+ ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `dtb_category_total_count`
+--
+ALTER TABLE `dtb_category_total_count`
+ ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `dtb_class`
+--
+ALTER TABLE `dtb_class`
+ ADD PRIMARY KEY (`class_id`);
+
+--
+-- Indexes for table `dtb_classcategory`
+--
+ALTER TABLE `dtb_classcategory`
+ ADD PRIMARY KEY (`classcategory_id`);
+
+--
+-- Indexes for table `dtb_classcategory_classcategory_id_seq`
+--
+ALTER TABLE `dtb_classcategory_classcategory_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_class_class_id_seq`
+--
+ALTER TABLE `dtb_class_class_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_csv`
+--
+ALTER TABLE `dtb_csv`
+ ADD PRIMARY KEY (`no`);
+
+--
+-- Indexes for table `dtb_csv_no_seq`
+--
+ALTER TABLE `dtb_csv_no_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_csv_sql`
+--
+ALTER TABLE `dtb_csv_sql`
+ ADD PRIMARY KEY (`sql_id`);
+
+--
+-- Indexes for table `dtb_csv_sql_sql_id_seq`
+--
+ALTER TABLE `dtb_csv_sql_sql_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_customer`
+--
+ALTER TABLE `dtb_customer`
+ ADD PRIMARY KEY (`customer_id`), ADD UNIQUE KEY `secret_key` (`secret_key`(255)), ADD KEY `dtb_customer_mobile_phone_id_key` (`mobile_phone_id`(255));
+
+--
+-- Indexes for table `dtb_customer_customer_id_seq`
+--
+ALTER TABLE `dtb_customer_customer_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_customer_favorite_products`
+--
+ALTER TABLE `dtb_customer_favorite_products`
+ ADD PRIMARY KEY (`customer_id`,`product_id`);
+
+--
+-- Indexes for table `dtb_deliv`
+--
+ALTER TABLE `dtb_deliv`
+ ADD PRIMARY KEY (`deliv_id`);
+
+--
+-- Indexes for table `dtb_delivfee`
+--
+ALTER TABLE `dtb_delivfee`
+ ADD PRIMARY KEY (`deliv_id`,`fee_id`);
+
+--
+-- Indexes for table `dtb_delivtime`
+--
+ALTER TABLE `dtb_delivtime`
+ ADD PRIMARY KEY (`deliv_id`,`time_id`);
+
+--
+-- Indexes for table `dtb_deliv_deliv_id_seq`
+--
+ALTER TABLE `dtb_deliv_deliv_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_holiday`
+--
+ALTER TABLE `dtb_holiday`
+ ADD PRIMARY KEY (`holiday_id`);
+
+--
+-- Indexes for table `dtb_holiday_holiday_id_seq`
+--
+ALTER TABLE `dtb_holiday_holiday_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_index_list`
+--
+ALTER TABLE `dtb_index_list`
+ ADD PRIMARY KEY (`table_name`(255),`column_name`(255));
+
+--
+-- Indexes for table `dtb_kiyaku`
+--
+ALTER TABLE `dtb_kiyaku`
+ ADD PRIMARY KEY (`kiyaku_id`);
+
+--
+-- Indexes for table `dtb_kiyaku_kiyaku_id_seq`
+--
+ALTER TABLE `dtb_kiyaku_kiyaku_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_mailmaga_template`
+--
+ALTER TABLE `dtb_mailmaga_template`
+ ADD PRIMARY KEY (`template_id`);
+
+--
+-- Indexes for table `dtb_mailmaga_template_template_id_seq`
+--
+ALTER TABLE `dtb_mailmaga_template_template_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_mailtemplate`
+--
+ALTER TABLE `dtb_mailtemplate`
+ ADD PRIMARY KEY (`template_id`);
+
+--
+-- Indexes for table `dtb_mail_history`
+--
+ALTER TABLE `dtb_mail_history`
+ ADD PRIMARY KEY (`send_id`);
+
+--
+-- Indexes for table `dtb_mail_history_send_id_seq`
+--
+ALTER TABLE `dtb_mail_history_send_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_maker`
+--
+ALTER TABLE `dtb_maker`
+ ADD PRIMARY KEY (`maker_id`);
+
+--
+-- Indexes for table `dtb_maker_count`
+--
+ALTER TABLE `dtb_maker_count`
+ ADD PRIMARY KEY (`maker_id`);
+
+--
+-- Indexes for table `dtb_maker_maker_id_seq`
+--
+ALTER TABLE `dtb_maker_maker_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_member`
+--
+ALTER TABLE `dtb_member`
+ ADD PRIMARY KEY (`member_id`);
+
+--
+-- Indexes for table `dtb_member_member_id_seq`
+--
+ALTER TABLE `dtb_member_member_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_mobile_ext_session_id`
+--
+ALTER TABLE `dtb_mobile_ext_session_id`
+ ADD PRIMARY KEY (`session_id`(255)), ADD KEY `dtb_mobile_ext_session_id_param_key_key` (`param_key`(255)), ADD KEY `dtb_mobile_ext_session_id_param_value_key` (`param_value`(255)), ADD KEY `dtb_mobile_ext_session_id_url_key` (`url`(255)), ADD KEY `dtb_mobile_ext_session_id_create_date_key` (`create_date`);
+
+--
+-- Indexes for table `dtb_module`
+--
+ALTER TABLE `dtb_module`
+ ADD PRIMARY KEY (`module_id`), ADD UNIQUE KEY `module_id` (`module_id`);
+
+--
+-- Indexes for table `dtb_module_update_logs`
+--
+ALTER TABLE `dtb_module_update_logs`
+ ADD PRIMARY KEY (`log_id`);
+
+--
+-- Indexes for table `dtb_module_update_logs_log_id_seq`
+--
+ALTER TABLE `dtb_module_update_logs_log_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_news`
+--
+ALTER TABLE `dtb_news`
+ ADD PRIMARY KEY (`news_id`);
+
+--
+-- Indexes for table `dtb_news_news_id_seq`
+--
+ALTER TABLE `dtb_news_news_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_order`
+--
+ALTER TABLE `dtb_order`
+ ADD PRIMARY KEY (`order_id`);
+
+--
+-- Indexes for table `dtb_order_detail`
+--
+ALTER TABLE `dtb_order_detail`
+ ADD PRIMARY KEY (`order_detail_id`), ADD KEY `dtb_order_detail_product_id_key` (`product_id`);
+
+--
+-- Indexes for table `dtb_order_detail_order_detail_id_seq`
+--
+ALTER TABLE `dtb_order_detail_order_detail_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_order_order_id_seq`
+--
+ALTER TABLE `dtb_order_order_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_order_temp`
+--
+ALTER TABLE `dtb_order_temp`
+ ADD PRIMARY KEY (`order_temp_id`(64));
+
+--
+-- Indexes for table `dtb_other_deliv`
+--
+ALTER TABLE `dtb_other_deliv`
+ ADD PRIMARY KEY (`other_deliv_id`);
+
+--
+-- Indexes for table `dtb_other_deliv_other_deliv_id_seq`
+--
+ALTER TABLE `dtb_other_deliv_other_deliv_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_ownersstore_settings`
+--
+ALTER TABLE `dtb_ownersstore_settings`
+ ADD PRIMARY KEY (`public_key`(64));
+
+--
+-- Indexes for table `dtb_pagelayout`
+--
+ALTER TABLE `dtb_pagelayout`
+ ADD PRIMARY KEY (`device_type_id`,`page_id`);
+
+--
+-- Indexes for table `dtb_pagelayout_page_id_seq`
+--
+ALTER TABLE `dtb_pagelayout_page_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_payment`
+--
+ALTER TABLE `dtb_payment`
+ ADD PRIMARY KEY (`payment_id`);
+
+--
+-- Indexes for table `dtb_payment_options`
+--
+ALTER TABLE `dtb_payment_options`
+ ADD PRIMARY KEY (`deliv_id`,`payment_id`);
+
+--
+-- Indexes for table `dtb_payment_payment_id_seq`
+--
+ALTER TABLE `dtb_payment_payment_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_plugin`
+--
+ALTER TABLE `dtb_plugin`
+ ADD PRIMARY KEY (`plugin_id`);
+
+--
+-- Indexes for table `dtb_plugin_hookpoint`
+--
+ALTER TABLE `dtb_plugin_hookpoint`
+ ADD PRIMARY KEY (`plugin_hookpoint_id`);
+
+--
+-- Indexes for table `dtb_plugin_hookpoint_plugin_hookpoint_id_seq`
+--
+ALTER TABLE `dtb_plugin_hookpoint_plugin_hookpoint_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_plugin_plugin_id_seq`
+--
+ALTER TABLE `dtb_plugin_plugin_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_products`
+--
+ALTER TABLE `dtb_products`
+ ADD PRIMARY KEY (`product_id`);
+
+--
+-- Indexes for table `dtb_products_class`
+--
+ALTER TABLE `dtb_products_class`
+ ADD PRIMARY KEY (`product_class_id`), ADD UNIQUE KEY `product_id` (`product_id`,`classcategory_id1`,`classcategory_id2`), ADD KEY `dtb_products_class_product_id_key` (`product_id`);
+
+--
+-- Indexes for table `dtb_products_class_product_class_id_seq`
+--
+ALTER TABLE `dtb_products_class_product_class_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_products_product_id_seq`
+--
+ALTER TABLE `dtb_products_product_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_product_categories`
+--
+ALTER TABLE `dtb_product_categories`
+ ADD PRIMARY KEY (`product_id`,`category_id`);
+
+--
+-- Indexes for table `dtb_product_status`
+--
+ALTER TABLE `dtb_product_status`
+ ADD PRIMARY KEY (`product_status_id`,`product_id`);
+
+--
+-- Indexes for table `dtb_recommend_products`
+--
+ALTER TABLE `dtb_recommend_products`
+ ADD PRIMARY KEY (`product_id`,`recommend_product_id`);
+
+--
+-- Indexes for table `dtb_review`
+--
+ALTER TABLE `dtb_review`
+ ADD PRIMARY KEY (`review_id`);
+
+--
+-- Indexes for table `dtb_review_review_id_seq`
+--
+ALTER TABLE `dtb_review_review_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_send_customer`
+--
+ALTER TABLE `dtb_send_customer`
+ ADD PRIMARY KEY (`send_id`,`customer_id`), ADD KEY `dtb_send_customer_customer_id_key` (`customer_id`);
+
+--
+-- Indexes for table `dtb_send_history`
+--
+ALTER TABLE `dtb_send_history`
+ ADD PRIMARY KEY (`send_id`);
+
+--
+-- Indexes for table `dtb_send_history_send_id_seq`
+--
+ALTER TABLE `dtb_send_history_send_id_seq`
+ ADD PRIMARY KEY (`sequence`);
+
+--
+-- Indexes for table `dtb_session`
+--
+ALTER TABLE `dtb_session`
+ ADD PRIMARY KEY (`sess_id`(255));
+
+--
+-- Indexes for table `dtb_shipment_item`
+--
+ALTER TABLE `dtb_shipment_item`
+ ADD PRIMARY KEY (`shipping_id`,`product_class_id`,`order_id`);
+
+--
+-- Indexes for table `dtb_shipping`
+--
+ALTER TABLE `dtb_shipping`
+ ADD PRIMARY KEY (`shipping_id`,`order_id`);
+
+--
+-- Indexes for table `dtb_templates`
+--
+ALTER TABLE `dtb_templates`
+ ADD PRIMARY KEY (`template_code`(255));
+
+--
+-- Indexes for table `dtb_update`
+--
+ALTER TABLE `dtb_update`
+ ADD PRIMARY KEY (`module_id`);
+
+--
+-- Indexes for table `mtb_allowed_tag`
+--
+ALTER TABLE `mtb_allowed_tag`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_authority`
+--
+ALTER TABLE `mtb_authority`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_auth_excludes`
+--
+ALTER TABLE `mtb_auth_excludes`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_constants`
+--
+ALTER TABLE `mtb_constants`
+ ADD PRIMARY KEY (`id`(255));
+
+--
+-- Indexes for table `mtb_customer_order_status`
+--
+ALTER TABLE `mtb_customer_order_status`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_customer_status`
+--
+ALTER TABLE `mtb_customer_status`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_db`
+--
+ALTER TABLE `mtb_db`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_delivery_date`
+--
+ALTER TABLE `mtb_delivery_date`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_device_type`
+--
+ALTER TABLE `mtb_device_type`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_disable_logout`
+--
+ALTER TABLE `mtb_disable_logout`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_disp`
+--
+ALTER TABLE `mtb_disp`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_job`
+--
+ALTER TABLE `mtb_job`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_magazine_type`
+--
+ALTER TABLE `mtb_magazine_type`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_mail_magazine_type`
+--
+ALTER TABLE `mtb_mail_magazine_type`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_mail_template`
+--
+ALTER TABLE `mtb_mail_template`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_mail_tpl_path`
+--
+ALTER TABLE `mtb_mail_tpl_path`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_mail_type`
+--
+ALTER TABLE `mtb_mail_type`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_mobile_domain`
+--
+ALTER TABLE `mtb_mobile_domain`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_order_status`
+--
+ALTER TABLE `mtb_order_status`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_order_status_color`
+--
+ALTER TABLE `mtb_order_status_color`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_ownersstore_err`
+--
+ALTER TABLE `mtb_ownersstore_err`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_ownersstore_ips`
+--
+ALTER TABLE `mtb_ownersstore_ips`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_page_max`
+--
+ALTER TABLE `mtb_page_max`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_permission`
+--
+ALTER TABLE `mtb_permission`
+ ADD PRIMARY KEY (`id`(255));
+
+--
+-- Indexes for table `mtb_pref`
+--
+ALTER TABLE `mtb_pref`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_product_list_max`
+--
+ALTER TABLE `mtb_product_list_max`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_product_status_color`
+--
+ALTER TABLE `mtb_product_status_color`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_product_type`
+--
+ALTER TABLE `mtb_product_type`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_recommend`
+--
+ALTER TABLE `mtb_recommend`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_reminder`
+--
+ALTER TABLE `mtb_reminder`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_review_deny_url`
+--
+ALTER TABLE `mtb_review_deny_url`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_sex`
+--
+ALTER TABLE `mtb_sex`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_status`
+--
+ALTER TABLE `mtb_status`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_status_image`
+--
+ALTER TABLE `mtb_status_image`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_target`
+--
+ALTER TABLE `mtb_target`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_taxrule`
+--
+ALTER TABLE `mtb_taxrule`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_wday`
+--
+ALTER TABLE `mtb_wday`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_work`
+--
+ALTER TABLE `mtb_work`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mtb_zip`
+--
+ALTER TABLE `mtb_zip`
+ ADD PRIMARY KEY (`zip_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `dtb_api_account_api_account_id_seq`
+--
+ALTER TABLE `dtb_api_account_api_account_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dtb_api_config_api_config_id_seq`
+--
+ALTER TABLE `dtb_api_config_api_config_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dtb_best_products_best_id_seq`
+--
+ALTER TABLE `dtb_best_products_best_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `dtb_bloc_bloc_id_seq`
+--
+ALTER TABLE `dtb_bloc_bloc_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `dtb_category_category_id_seq`
+--
+ALTER TABLE `dtb_category_category_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `dtb_classcategory_classcategory_id_seq`
+--
+ALTER TABLE `dtb_classcategory_classcategory_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `dtb_class_class_id_seq`
+--
+ALTER TABLE `dtb_class_class_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `dtb_csv_no_seq`
+--
+ALTER TABLE `dtb_csv_no_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=154;
+--
+-- AUTO_INCREMENT for table `dtb_csv_sql_sql_id_seq`
+--
+ALTER TABLE `dtb_csv_sql_sql_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dtb_customer_customer_id_seq`
+--
+ALTER TABLE `dtb_customer_customer_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+--
+-- AUTO_INCREMENT for table `dtb_deliv_deliv_id_seq`
+--
+ALTER TABLE `dtb_deliv_deliv_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `dtb_holiday_holiday_id_seq`
+--
+ALTER TABLE `dtb_holiday_holiday_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `dtb_kiyaku_kiyaku_id_seq`
+--
+ALTER TABLE `dtb_kiyaku_kiyaku_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `dtb_mailmaga_template_template_id_seq`
+--
+ALTER TABLE `dtb_mailmaga_template_template_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dtb_mail_history_send_id_seq`
+--
+ALTER TABLE `dtb_mail_history_send_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `dtb_maker_maker_id_seq`
+--
+ALTER TABLE `dtb_maker_maker_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dtb_member_member_id_seq`
+--
+ALTER TABLE `dtb_member_member_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `dtb_module_update_logs_log_id_seq`
+--
+ALTER TABLE `dtb_module_update_logs_log_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dtb_news_news_id_seq`
+--
+ALTER TABLE `dtb_news_news_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `dtb_order_detail_order_detail_id_seq`
+--
+ALTER TABLE `dtb_order_detail_order_detail_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `dtb_order_order_id_seq`
+--
+ALTER TABLE `dtb_order_order_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `dtb_other_deliv_other_deliv_id_seq`
+--
+ALTER TABLE `dtb_other_deliv_other_deliv_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dtb_pagelayout_page_id_seq`
+--
+ALTER TABLE `dtb_pagelayout_page_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+--
+-- AUTO_INCREMENT for table `dtb_payment_payment_id_seq`
+--
+ALTER TABLE `dtb_payment_payment_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `dtb_plugin_hookpoint_plugin_hookpoint_id_seq`
+--
+ALTER TABLE `dtb_plugin_hookpoint_plugin_hookpoint_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dtb_plugin_plugin_id_seq`
+--
+ALTER TABLE `dtb_plugin_plugin_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `dtb_products_class_product_class_id_seq`
+--
+ALTER TABLE `dtb_products_class_product_class_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
+--
+-- AUTO_INCREMENT for table `dtb_products_product_id_seq`
+--
+ALTER TABLE `dtb_products_product_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=307;
+--
+-- AUTO_INCREMENT for table `dtb_review_review_id_seq`
+--
+ALTER TABLE `dtb_review_review_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dtb_send_history_send_id_seq`
+--
+ALTER TABLE `dtb_send_history_send_id_seq`
+MODIFY `sequence` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

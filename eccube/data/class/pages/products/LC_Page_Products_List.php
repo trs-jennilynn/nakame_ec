@@ -96,31 +96,27 @@ class LC_Page_Products_List extends LC_Page_Ex {
     function action() {
 
         $objProduct = new SC_Product_Ex();
-        
+
         // パラメーター管理クラス
-        $this->objFormParam = new SC_FormParam_Ex();
+        $objFormParam = new SC_FormParam_Ex();        
+        
         // パラメーター情報の初期化
-        $this->arrForm = $this->lfInitParam($this->objFormParam);
-        // プロダクトIDの正当性チェック
-       // $product_id = $this->lfCheckProductId($this->objFormParam->getValue('admin'),$this->objFormParam->getValue('product_id'));
+        $this->lfInitParam($objFormParam);
         
         // 値の設定
-        $this->objFormParam->setParam($_POST);
+        $objFormParam->setParam($_REQUEST);
         
         // 入力値の変換
-        $this->objFormParam->convParam();
-      echo  $product_id = $_GET['product_id'];
-        // 値の取得
-        $this->arrForm = $this->objFormParam->getHashArray();
+        $objFormParam->convParam();
         
+        // 値の取得
+        $this->arrForm = $objFormParam->getHashArray();
         
         //modeの取得
         $this->mode = $this->getMode();
         
         $objCustomer = new SC_Customer_Ex();
-    	$customer_id = $objCustomer->getvalue('customer_id');
-    	
-        //$this->isLogin = $objCustomer->isLoginSuccess(true);
+        $this->isLogin = $objCustomer->isLoginSuccess(true);
 
         $objCartSess = new SC_CartSession_Ex();
         $this->cartItems = $objCartSess->getAllCartList();
@@ -136,14 +132,14 @@ class LC_Page_Products_List extends LC_Page_Ex {
         $this->orderby = $this->arrForm['orderby'];
 
         //ページング設定
-  		$this->tpl_pageno   = $this->arrForm['pageno'];
-   		$this->disp_number  = $this->lfGetDisplayNum($this->arrForm['disp_number']);
+        $this->tpl_pageno   = $this->arrForm['pageno'];
+        $this->disp_number  = $this->lfGetDisplayNum($this->arrForm['disp_number']);
 
         // 画面に表示するサブタイトルの設定
-     $this->tpl_subtitle = $this->lfGetPageTitle($this->mode, $this->arrSearchData['category_id']);
+        $this->tpl_subtitle = $this->lfGetPageTitle($this->mode, $this->arrSearchData['category_id']);
 
         // 画面に表示する検索条件を設定
-      $this->arrSearch    = $this->lfGetSearchConditionDisp($this->arrSearchData);
+        $this->arrSearch    = $this->lfGetSearchConditionDisp($this->arrSearchData);
 
         // 商品一覧データの取得
         $arrSearchCondition = $this->lfGetSearchCondition($this->arrSearchData);
@@ -156,58 +152,60 @@ class LC_Page_Products_List extends LC_Page_Ex {
         }
         $this->objNavi      = new SC_PageNavi_Ex($this->tpl_pageno, $this->tpl_linemax, $this->disp_number, 'fnNaviPage', NAVI_PMAX, $urlParam, SC_Display_Ex::detectDevice() !== DEVICE_TYPE_MOBILE);
         $this->arrProducts  = $this->lfGetProductsList($arrSearchCondition, $this->disp_number, $this->objNavi->start_row, $this->tpl_linemax, $objProduct);
+
+        
         
         switch ($this->getMode()) {
 
             case 'json':
                 $this->doJson($objProduct);
                 break;
-            case 'fav':
-            	echo $this->objFormParam->getValue('product_id');
-            	echo '<script>alert("aaa");</script>';
-            		//echo 'asasasa';
-            		/* $objQuery =& SC_Query_Ex::getSingletonInstance();
-            		$exists = $objQuery->exists('dtb_customer_favorite_products', 'customer_id = ? AND product_id = ?', array($customer_id, $favorite_product_id));
-            		
-            		if (!$exists){
-            			 
-            			$sqlval['customer_id'] = $customer_id;
-            			$sqlval['product_id'] = $favorite_product_id;
-            			$sqlval['update_date'] = 'CURRENT_TIMESTAMP';
-            			$sqlval['create_date'] = 'CURRENT_TIMESTAMP';
-            			$sqlval['num_of_likes'] = 1;
-            		
-            			$objQuery->begin();
-            			$objQuery->insert('dtb_customer_favorite_products', $sqlval);
-            			$objQuery->commit();
-            			 
-            			header("Location: ".$_SERVER['PHP_SELF']);
-            		}else{
-            			$objQuery =& SC_Query_Ex::getSingletonInstance();
-            			$col = 'num_of_likes';
-            			$from = 'dtb_customer_favorite_products';
-            			$where = 'customer_id='.$customer_id . " and ". 'product_id='.$favorite_product_id;
-            			$numoflike = $objQuery->select($col, $from, $where,'','');
-            			 
-            			$likes = $numoflike[0]['num_of_likes'];
-            			 
-            			 
-            			$likenum = $likes +1;
-            			$date = 'CURRENT_TIMESTAMP';
-            			$result = $objQuery->update('dtb_customer_favorite_products',
-            					array('num_of_likes' => $likenum, 'update_date' => $date),
-            					'customer_id = ? AND product_id = ?', array($customer_id, $favorite_product_id));
-            			header("Location: ".$_SERVER['PHP_SELF']);
-            		} */
-            	break;
+            case 'add_favorite':
+                	$favorite_product_id = $_POST['product_id'];
+                	 
+                	$objCustomer = new SC_Customer_Ex();
+                	$customer_id = $objCustomer->getvalue('customer_id');
+                	$objQuery =& SC_Query_Ex::getSingletonInstance();
+                	$exists = $objQuery->exists('dtb_customer_favorite_products', 'customer_id = ? AND product_id = ?', array($customer_id, $favorite_product_id));
+                
+                	if (!$exists){
+                
+                	$sqlval['customer_id'] = $customer_id;
+                	$sqlval['product_id'] = $favorite_product_id;
+                	$sqlval['update_date'] = 'CURRENT_TIMESTAMP';
+                	$sqlval['create_date'] = 'CURRENT_TIMESTAMP';
+                	$sqlval['num_of_likes'] = 1;
+                
+                	$objQuery->begin();
+                	$objQuery->insert('dtb_customer_favorite_products', $sqlval);
+                	$objQuery->commit();
+                
+                	header("Location: ".$_SERVER['PHP_SELF']);
+                	}else{
+                	$objQuery =& SC_Query_Ex::getSingletonInstance();
+                	$col = 'num_of_likes';
+                	$from = 'dtb_customer_favorite_products';
+                	$where = 'customer_id='.$customer_id . " and ". 'product_id='.$favorite_product_id;
+                	$numoflike = $objQuery->select($col, $from, $where,'','');
+                
+                	$likes = $numoflike[0]['num_of_likes'];
+                
+                
+                	$likenum = $likes +1;
+                	$date = 'CURRENT_TIMESTAMP';
+                	$result = $objQuery->update('dtb_customer_favorite_products',
+                	array('num_of_likes' => $likenum, 'update_date' => $date),
+                	'customer_id = ? AND product_id = ?', array($customer_id, $favorite_product_id));
+                	header("Location: ".$_SERVER['PHP_SELF']);
+                	}
+                	break;
             default:
                 $this->doDefault($objProduct);
                 break;
         }
 
         $this->tpl_rnd          = SC_Utils_Ex::sfGetRandomString(3);
-
-
+      //  $this->favlist = $this->getfavlist();
     }
 
     /**
@@ -307,6 +305,8 @@ class LC_Page_Products_List extends LC_Page_Ex {
                     ,product_id DESC
 __EOS__;
                     $objQuery->setOrder($order);
+                
+                //print_r($order);
                 break;
         }
         // 取得範囲の指定(開始行番号、行数のセット)
@@ -318,13 +318,10 @@ __EOS__;
 
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $arrProducts = $objProduct->getListByProductIds($objQuery, $arrProductId);
-
-        // 規格を設定
-        $objProduct->setProductsClassByProductIds($arrProductId);
-        $arrProducts['productStatus'] = $objProduct->getProductStatus($arrProductId);
+		
         return $arrProducts;
     }
-
+    
     /* 入力内容のチェック */
     function lfCheckError($product_id, &$arrForm, $tpl_classcat_find1, $tpl_classcat_find2) {
 

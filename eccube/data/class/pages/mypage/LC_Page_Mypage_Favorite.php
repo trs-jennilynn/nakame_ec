@@ -97,7 +97,8 @@ class LC_Page_MyPage_Favorite extends LC_Page_AbstractMypage_Ex {
                 echo SC_Utils_Ex::jsonEncode($this->arrFavorite);
                 SC_Response_Ex::actionExit();
                 break;
-                
+            case 'fav_like':
+                break;
                 echo $_POST['product_id'];
         }
 
